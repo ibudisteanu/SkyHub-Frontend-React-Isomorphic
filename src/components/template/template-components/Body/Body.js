@@ -17,8 +17,12 @@ import logoUrl2x from './logo-small@2x.png';
 
 import Header from '../Header/Header';
 import LeftSidebar from './Left-sidebar/LeftSidebar';
+import RightSidebar from './Right-sidebar/RightSidebar';
 import Content from './Content/Content';
 import Footer from '../Footer/Footer';
+
+import Chat from './Chat/Chat';
+import ChatButton from './Chat/ChatButton';
 
 class Body extends React.Component {
   render() {
@@ -34,9 +38,12 @@ class Body extends React.Component {
           <Content />
 
 
-
         </div>
         <Footer />
+
+        <Chat />
+        <ChatButton />
+        <RightSidebar />
 
       </div>
     );

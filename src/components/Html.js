@@ -53,9 +53,7 @@ class Html extends React.Component {
           <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
 
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
-          <script src="/res/template/js/inspinia.js" />
-          <script src="/res/template/js/plugins/pace/pace.min.js" />
+
 
           {styles.map(style => (
             <style
@@ -81,6 +79,11 @@ class Html extends React.Component {
             <script src="https://www.google-analytics.com/analytics.js" async defer />
           }
         </body>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+        <script src="/res/template/js/inspinia.js" />
+        <script src="/res/template/js/plugins/pace/pace.min.js" />
+
       </html>
     );
   }
