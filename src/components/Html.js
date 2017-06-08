@@ -44,6 +44,14 @@ class Html extends React.Component {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+          <link rel="stylesheet" href="/res/template/css/animate.css" />
+          <link rel="stylesheet" href="/res/template/css/style.css" />
+
+          <script src="/res/template/js/inspinia.js" />
+          <script src="/res/template/js/plugins/pace/pace.min.js" />
+
           {styles.map(style => (
             <style
               key={style.id}
@@ -51,6 +59,7 @@ class Html extends React.Component {
               dangerouslySetInnerHTML={{ __html: style.cssText }}
             />
           ))}
+
         </head>
         <body>
           <div id="app" dangerouslySetInnerHTML={{ __html: children }} />
