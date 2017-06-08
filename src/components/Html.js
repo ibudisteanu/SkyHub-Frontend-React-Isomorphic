@@ -44,11 +44,16 @@ class Html extends React.Component {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-          <link rel="stylesheet" href="/res/template/css/animate.css" />
-          <link rel="stylesheet" href="/res/template/css/style.css" />
+          <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+          <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+          <link rel="stylesheet" type="text/css" href="/res/template/css/animate.css" />
+          <link rel="stylesheet" type="text/css" href="/res/template/css/style.css" />
 
+          <script src="https://code.jquery.com/jquery-3.2.1.min.js" />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
+
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" />
           <script src="/res/template/js/inspinia.js" />
           <script src="/res/template/js/plugins/pace/pace.min.js" />
 
@@ -61,7 +66,7 @@ class Html extends React.Component {
           ))}
 
         </head>
-        <body>
+        <body style={{margin:0}}>
           <div id="app" dangerouslySetInnerHTML={{ __html: children }} />
           <script dangerouslySetInnerHTML={{ __html: `window.App=${serialize(app)}` }} />
           {scripts.map(script => <script key={script} src={script} />)}
