@@ -14,7 +14,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 // external-global styles must be imported in your JS.
 import normalizeCss from 'normalize.css';
 import localCSS from './Layout.css';
-import Header from '../template-components/Header';
+import Body from '../template-components/Body/Body';
 import Feedback from '../../Feedback/Feedback';
 import Footer from '../template-components/Footer/Footer';
 
@@ -27,7 +27,7 @@ class Layout extends React.Component {
     return (
       <div id="wrapper">
 
-        <Header />
+        <Body />
 
         {this.props.children}
 
