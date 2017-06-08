@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import Layout from '../../components/template/Layout';
+import Layout from '../../components/Template/Layout';
 import Page from '../../components/Page';
 
 export default {

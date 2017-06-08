@@ -10,10 +10,10 @@
 import React from 'react';
 import cx from 'classnames';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import baseStyle from './Navigation.css';
+import baseStyle from './NavigationMenu.css';
 import Link from '../../../../../Link/Link';
 
-class Navigation extends React.Component {
+class NavigationMenu extends React.Component {
   render() {
     return (
       <div className={baseStyle.root} role="navigation">
@@ -28,4 +28,4 @@ class Navigation extends React.Component {
   }
 }
 
-export default withStyles(baseStyle)(Navigation);
+export default withStyles(baseStyle)(NavigationMenu);

@@ -9,7 +9,7 @@ import Link from '../../../../Link/Link';
 
 class TopNavbar extends React.Component {
   static propTypes = {
-    children: PropTypes.node.isRequired,
+
   };
 
   render() {

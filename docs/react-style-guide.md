@@ -21,12 +21,12 @@
 * Add `package.json` file into each component's folder.<br>
   This will allow to easily reference such components from other places in
   your code.<br>
-  Use `import Nav from '../Navigation'` instead of `import Nav from '../Navigation/Navigation.js'`
+  Use `import Nav from '../Navigation'` instead of `import Nav from '../Navigation/NavigationMenu.js'`
 
 ```
 /components/Navigation/icon.svg
 /components/Navigation/Navigation.css
-/components/Navigation/Navigation.js
+/components/Navigation/NavigationMenu.js
 /components/Navigation/Navigation.test.js
 /components/Navigation/Navigation.ru-RU.css
 /components/Navigation/package.json
@@ -36,7 +36,7 @@
 // components/Navigation/package.json
 {
   "name:": "Navigation",
-  "main": "./Navigation.js"
+  "main": "./NavigationMenu.js"
 }
 ```
 
@@ -118,7 +118,7 @@ Navigation.propTypes = { items: PropTypes.array.isRequired };
 ```
 
 ```jsx
-// Navigation.js
+// NavigationMenu.js
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';

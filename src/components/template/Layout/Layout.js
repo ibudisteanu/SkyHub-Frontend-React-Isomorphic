@@ -14,9 +14,8 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 // external-global styles must be imported in your JS.
 import normalizeCss from 'normalize.css';
 import localCSS from './Layout.css';
-import Body from '../template-components/Body/Body';
+import Body from '../Template-components/Body';
 import Feedback from '../../Feedback/Feedback';
-import Footer from '../template-components/Footer/Footer';
 
 class Layout extends React.Component {
   static propTypes = {
@@ -33,7 +32,6 @@ class Layout extends React.Component {
 
         <Feedback />
 
-        <Footer />
       </div>
     );
   }

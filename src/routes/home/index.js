@@ -9,7 +9,7 @@
 
 import React from 'react';
 import Home from './Home';
-import Layout from '../../components/template/Layout';
+import Layout from '../../components/Template/Layout';
 
 export default {
 

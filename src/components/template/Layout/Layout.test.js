@@ -16,7 +16,7 @@ import { render } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import App from '../../App';
-import Layout from './Layout';
+import Layout from './';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

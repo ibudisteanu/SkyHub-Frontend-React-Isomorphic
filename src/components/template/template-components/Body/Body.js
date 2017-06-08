@@ -11,12 +11,14 @@ import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import baseStyle from './Body.css';
 import Link from '../../../Link/Link';
-import Navigation from '../Header/top-navbar/Navigation/Navigation';
+
 import logoUrl from './logo-small.png';
 import logoUrl2x from './logo-small@2x.png';
 
 import Header from '../Header/Header';
-import LeftSidebar from './left-sidebar/LeftSidebar';
+import LeftSidebar from './Left-sidebar/LeftSidebar';
+import Content from './Content/Content';
+import Footer from '../Footer/Footer';
 
 class Body extends React.Component {
   render() {
@@ -25,8 +27,16 @@ class Body extends React.Component {
 
         <LeftSidebar />
 
-        <Header />
+        <div id="page-wrapper" className="gray-bg" style={{minHeight: 785}}>
 
+          <Header />
+
+          <Content />
+
+
+
+        </div>
+        <Footer />
 
       </div>
     );

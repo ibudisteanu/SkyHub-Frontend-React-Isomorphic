@@ -3,17 +3,12 @@
  * (C) BIT TECHNOLOGIES
  */
 
-/**
- * Created by Alexandru Ionut Budisteanu - SkyHub on 6/8/2017.
- * (C) BIT TECHNOLOGIES
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
 class LeftSidebar extends React.Component {
   static propTypes = {
-    children: PropTypes.node.isRequired,
+
   };
 
   render() {
