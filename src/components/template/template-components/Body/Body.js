@@ -24,6 +24,8 @@ import Footer from '../Footer/Footer';
 import Chat from './Chat/Chat';
 import ChatButton from './Chat/ChatButton';
 
+import TestRedux from '../../../../my-redux/test-redux/TestRedux.component';
+
 class Body extends React.Component {
   render() {
     return (
@@ -34,6 +36,8 @@ class Body extends React.Component {
         <div id="page-wrapper" className="gray-bg" style={{minHeight: 785}}>
 
           <Header />
+
+          <TestRedux />
 
           <Content />
 

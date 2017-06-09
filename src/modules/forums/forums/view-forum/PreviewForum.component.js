@@ -6,7 +6,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import { Link, withRouter } from 'react-router';
 
-import {newRouterForumArgumentAction} from '../../../../../../SkyHub-Frontend-React-Isomorphic/src/redux/actions/RouterState.actions';
+import {newRouterForumArgumentAction} from '../../../../my-redux/actions/RouterState.actions';
 import {getPath} from 'common/common-functions';
 
 import { AuthService } from 'modules/services/REST/authentication/auth.service.js';

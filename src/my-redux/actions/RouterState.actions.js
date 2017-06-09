@@ -17,7 +17,7 @@ export function newRouterObjectArgumentAction(newRouterObject, objectNotFound ) 
             object : {
                 type: ContentObjectService.extractObjectTypeFromId(newRouterObject),
                 object: ContentObjectService.createObject(newRouterObject),
-                notFound : objectNotFound || (newRouterObject === null)
+                notFound : objectNotFound || (newRouterObject === null),
 
             },
 

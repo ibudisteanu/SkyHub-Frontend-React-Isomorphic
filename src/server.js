@@ -27,8 +27,8 @@ import router from './router';
 import models from './data/models';
 import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
-import configureStore from './redux/store/configureStore';
-import { setRuntimeVariable } from './redux/actions/runtime.actions';
+import configureStore from './my-redux/store/configureStore';
+import { setRuntimeVariable } from './my-redux/actions/runtime.actions';
 import config from './config';
 
 var app = express();

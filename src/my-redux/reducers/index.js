@@ -8,6 +8,9 @@ import RouterStateReducer  from './RouterState.reducer';
 import SocketStatusReducer from './SocketStatus.reducer';
 import UserAuthenticatedReducer from './UserAuthenticated.reducer';
 
+//including TEST-REDUX
+import TestReduxReducer from '../test-redux/reducers/TestRedux.reducer';
+
 export default combineReducers({
   user,
   runtime,
@@ -17,5 +20,8 @@ export default combineReducers({
   localization : LocalizationReducer,
 
   routerState : RouterStateReducer,
+
+  //including TEST-REDUX
+  testReduxState : TestReduxReducer,
 
 });

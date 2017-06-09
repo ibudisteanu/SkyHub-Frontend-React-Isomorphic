@@ -4,6 +4,12 @@ import rootReducer from '../reducers/index';
 import createHelpers from './createHelpers';
 import createLogger from './logger/logger.server';
 
+import {defaultUserState} from "../reducers/UserAuthenticated.reducer";
+import {defaultSocketStatus} from "../reducers/SocketStatus.reducer";
+import {defaultLocalization} from "../reducers/Localization.reducer";
+import {defaultRouterState} from "../reducers/RouterState.reducer";
+import {defaultTestReduxState} from "../test-redux/reducers/TestRedux.reducer";
+
 export default function configureStore(initialState, helpersConfig) {
   const helpers = createHelpers(helpersConfig);
   const middleware = [thunk.withExtraArgument(helpers)];
@@ -26,6 +32,14 @@ export default function configureStore(initialState, helpersConfig) {
   } else {
     enhancer = applyMiddleware(...middleware);
   }
+
+  //Initial Redux Store State
+  initialState.userAuthenticated = defaultUserState; //Current User Authenticated
+  initialState.socketStatus = defaultSocketStatus; //Socket Status
+  initialState.localization =  defaultLocalization; //Location
+  initialState.routerState = defaultRouterState; //Router Arguments
+
+  initialState.testReduxState = defaultTestReduxState;
 
   // See https://github.com/rackt/redux/releases/tag/v3.1.0
   const store = createStore(rootReducer, initialState, enhancer);

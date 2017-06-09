@@ -16,7 +16,7 @@ import queryString from 'query-string';
 import { createPath } from 'history/PathUtils';
 import App from './components/App';
 import createFetch from './createFetch';
-import configureStore from './redux/store/configureStore';
+import configureStore from './my-redux/store/configureStore';
 import history from './history';
 import { updateMeta } from './DOMUtils';
 

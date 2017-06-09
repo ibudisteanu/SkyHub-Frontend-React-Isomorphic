@@ -4,7 +4,7 @@
  */
 
 import {SocketService} from 'modules/services/REST/socket/socket.service';
-import * as UserAuthenticatedActions from '../../../../redux/actions/UserAuthenticated.actions.js';
+import * as UserAuthenticatedActions from '../../../../my-redux/actions/UserAuthenticated.actions.js';
 
 let forumServiceInstance = null;
 
