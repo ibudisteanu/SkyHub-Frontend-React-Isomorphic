@@ -8,6 +8,8 @@
 
 export function newTestReduxValue1(iNewValue ) {
 
+  console.log("ACTION 1 FIRED",iNewValue);
+
   return {
     type: "NEW_TEST_REDUX_VALUE_1",
     status: {
@@ -20,6 +22,8 @@ export function newTestReduxValue1(iNewValue ) {
 }
 
 export function newTestReduxValue2(iNewValue ) {
+
+  console.log("ACTION 2 FIRED",iNewValue);
 
   return {
     type: "NEW_TEST_REDUX_VALUE_2",

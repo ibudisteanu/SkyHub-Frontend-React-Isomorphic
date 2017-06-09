@@ -286,8 +286,8 @@ class RightSidebar extends React.Component {
                     </span>
                   <div className="switch">
                     <div className="onoffswitch">
-                      <input type="checkbox" name="collapsemenu" className="onoffswitch-checkbox" id="example"/>
-                      <label className="onoffswitch-label" for="example">
+                      <input type="checkbox" name="collapsemenu" className="onoffswitch-checkbox" id="example" />
+                      <label className="onoffswitch-label" >
                         <span className="onoffswitch-inner"></span>
                         <span className="onoffswitch-switch"></span>
                       </label>
@@ -302,7 +302,7 @@ class RightSidebar extends React.Component {
                     <div className="onoffswitch">
                       <input type="checkbox" name="collapsemenu" checked="" className="onoffswitch-checkbox"
                              id="example2"/>
-                      <label className="onoffswitch-label" for="example2">
+                      <label className="onoffswitch-label" >
                         <span className="onoffswitch-inner"></span>
                         <span className="onoffswitch-switch"></span>
                       </label>
@@ -316,7 +316,7 @@ class RightSidebar extends React.Component {
                   <div className="switch">
                     <div className="onoffswitch">
                       <input type="checkbox" name="collapsemenu" className="onoffswitch-checkbox" id="example3"/>
-                      <label className="onoffswitch-label" for="example3">
+                      <label className="onoffswitch-label" >
                         <span className="onoffswitch-inner"></span>
                         <span className="onoffswitch-switch"></span>
                       </label>
@@ -330,7 +330,7 @@ class RightSidebar extends React.Component {
                   <div className="switch">
                     <div className="onoffswitch">
                       <input type="checkbox" name="collapsemenu" className="onoffswitch-checkbox" id="example4"/>
-                      <label className="onoffswitch-label" for="example4">
+                      <label className="onoffswitch-label" >
                         <span className="onoffswitch-inner"></span>
                         <span className="onoffswitch-switch"></span>
                       </label>
@@ -345,7 +345,7 @@ class RightSidebar extends React.Component {
                     <div className="onoffswitch">
                       <input type="checkbox" checked="" name="collapsemenu" className="onoffswitch-checkbox"
                              id="example5"/>
-                      <label className="onoffswitch-label" for="example5">
+                      <label className="onoffswitch-label" >
                         <span className="onoffswitch-inner"></span>
                         <span className="onoffswitch-switch"></span>
                       </label>
@@ -360,7 +360,7 @@ class RightSidebar extends React.Component {
                     <div className="onoffswitch">
                       <input type="checkbox" checked="" name="collapsemenu" className="onoffswitch-checkbox"
                              id="example6"/>
-                      <label className="onoffswitch-label" for="example6">
+                      <label className="onoffswitch-label" >
                         <span className="onoffswitch-inner"></span>
                         <span className="onoffswitch-switch"></span>
                       </label>
@@ -374,7 +374,7 @@ class RightSidebar extends React.Component {
                   <div className="switch">
                     <div className="onoffswitch">
                       <input type="checkbox" name="collapsemenu" className="onoffswitch-checkbox" id="example7"/>
-                      <label className="onoffswitch-label" for="example7">
+                      <label className="onoffswitch-label" >
                         <span className="onoffswitch-inner"></span>
                         <span className="onoffswitch-switch"></span>
                       </label>

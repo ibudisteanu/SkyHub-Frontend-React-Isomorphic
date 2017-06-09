@@ -12,27 +12,46 @@ import PropTypes from 'prop-types';
 
 import { newTestReduxValue1, newTestReduxValue2 } from './actions/TestRedux.actions';
 
-/*@connect(state => ({
-  userAuthenticated : state.userAuthenticated,
-}))*/
-
+@connect(
+  state => (console.log('STATE @connect',state),{
+    testReduxState: state.testReduxState.value1,
+    runtime: state.testReduxState.runtime,
+  },
+  dispatch => ({dispatch})
+))
 class TestRedux extends React.Component {
+
+  constructor (props){
+    super(props);
+  }
 
 
   button1Click(e){
 
-    this.props.newTestReduxValue1(this.props.testReduxValue1State+1);
+    //this.newTestReduxValue1(this.props.testReduxState.value1+1);
+    this.props.dispatch(newTestReduxValue1(this.props.testReduxState.value1+1));
 
   }
 
   button2Click(e){
 
-    this.props.newTestReduxValue1(this.props.testReduxValue2State+5);
+    //this.props.newTestReduxValue2(this.props.testReduxState.value2+5);
+    this.props.dispatch(newTestReduxValue2(this.props.testReduxState.value2+5));
 
+  }
+
+  renderStatus () {
+    return (
+      <div>
+        NASOL
+
+      </div>
+    );
   }
 
   render() {
 
+    console.log('---');console.log('---');console.log('---');console.log('---');
     console.log(this);
 
     return (
@@ -41,7 +60,10 @@ class TestRedux extends React.Component {
         <button key="buttonRedux1" onClick={this.button1Click.bind(this)} > INC Val1 by 1</button>
         <button key="buttonRedux2" onClick={this.button2Click.bind(this)} > INC Val2 by 5</button> <br />
 
-        Val 1 ====<b>{this.props.testReduxValue1State}</b> <br/> Val 2 ====<b>{this.props.testReduxValue1State}</b> <br />
+
+        {this.props.testReduxState !== null ? (this.renderStatus.bind(this)) : 'KKKT'}
+
+        Val 1 ====<b>{this.props.testReduxState.value1}</b> <br/> Val 2 ====<b>{this.props.testReduxState.value2}</b> <br />
 
 
       </div>
@@ -53,19 +75,17 @@ class TestRedux extends React.Component {
 function mapState (state){
 
   return {
-    testReduxValue1State: state.testReduxState.value1,
-    testReduxValue2State: state.testReduxState.value2,
-
     testReduxState: state.testReduxState,
   }
+
 };
 
 function mapDispatch (dispatch) {
   return {
-    newTestReduxValue1: bindActionCreators(newTestReduxValue1, dispatch),
-    newTestReduxValue2: bindActionCreators(newTestReduxValue2, dispatch),
+
+    dispatch : dispatch,
   }
 };
 
 
-export default connect(mapState , mapDispatch)(TestRedux);
+export default /*connect(mapState, mapDispatch)*/(TestRedux);

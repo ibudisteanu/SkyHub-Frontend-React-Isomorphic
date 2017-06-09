@@ -14,6 +14,8 @@ export default function testReduxReducer(state = {}, action) {
 
   let newState = state;
 
+
+
   switch (action.type) {
 
     case 'NEW_TEST_REDUX_VALUE_1':
@@ -26,6 +28,7 @@ export default function testReduxReducer(state = {}, action) {
       newState.value2 = action.status.value;
       break;
   }
+
 
   return newState;
 }

@@ -36,7 +36,7 @@ export default function configureStore(initialState, helpersConfig) {
   //Initial Redux Store State
   initialState.userAuthenticated = defaultUserState; //Current User Authenticated
   initialState.socketStatus = defaultSocketStatus; //Socket Status
-  initialState.localization =  defaultLocalization; //Location
+  initialState.localization = defaultLocalization; //Location
   initialState.routerState = defaultRouterState; //Router Arguments
 
   initialState.testReduxState = defaultTestReduxState;

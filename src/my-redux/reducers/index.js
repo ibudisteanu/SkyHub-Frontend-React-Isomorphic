@@ -12,8 +12,8 @@ import UserAuthenticatedReducer from './UserAuthenticated.reducer';
 import TestReduxReducer from '../test-redux/reducers/TestRedux.reducer';
 
 export default combineReducers({
-  user,
-  runtime,
+  user: user,
+  runtime: runtime,
 
   userAuthenticated : UserAuthenticatedReducer,
   socketStatus : SocketStatusReducer,
