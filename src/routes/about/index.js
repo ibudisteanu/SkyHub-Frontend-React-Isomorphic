@@ -10,6 +10,7 @@
 import React from 'react';
 import Layout from '../../components/Template/Layout';
 import Page from '../../components/Page';
+import TestRedux from '../../my-redux/test-redux/TestRedux.component';
 
 export default {
 
@@ -24,7 +25,14 @@ export default {
       chunk: 'about',
       component:
         <Layout>
-          <Page {...data} />
+          <Page {...data} >
+
+            <TestRedux />
+
+          </Page>
+
+
+
         </Layout>,
     };
   },

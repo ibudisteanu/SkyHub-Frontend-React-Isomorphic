@@ -12,7 +12,7 @@ export function newTestReduxValue1(iNewValue ) {
 
   return {
     type: "NEW_TEST_REDUX_VALUE_1",
-    status: {
+    payload: {
 
       value : iNewValue,
 
@@ -27,7 +27,7 @@ export function newTestReduxValue2(iNewValue ) {
 
   return {
     type: "NEW_TEST_REDUX_VALUE_2",
-    status: {
+    payload: {
 
       value : iNewValue,
 

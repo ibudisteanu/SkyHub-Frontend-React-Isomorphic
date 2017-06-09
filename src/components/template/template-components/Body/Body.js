@@ -37,8 +37,6 @@ class Body extends React.Component {
 
           <Header />
 
-          <TestRedux />
-
           <Content />
 
 

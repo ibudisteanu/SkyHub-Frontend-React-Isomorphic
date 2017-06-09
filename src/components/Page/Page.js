@@ -27,7 +27,13 @@ class Page extends React.Component {
           <div
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: html }}
+
           />
+
+          <div>
+            {this.props.children||null}
+          </div>
+
         </div>
       </div>
     );

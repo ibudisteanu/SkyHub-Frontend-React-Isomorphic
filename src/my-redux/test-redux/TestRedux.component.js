@@ -12,13 +12,13 @@ import PropTypes from 'prop-types';
 
 import { newTestReduxValue1, newTestReduxValue2 } from './actions/TestRedux.actions';
 
-@connect(
+/*@connect(
   state => (console.log('STATE @connect',state),{
     testReduxState: state.testReduxState.value1,
     runtime: state.testReduxState.runtime,
   },
   dispatch => ({dispatch})
-))
+))*/
 class TestRedux extends React.Component {
 
   constructor (props){
@@ -29,6 +29,7 @@ class TestRedux extends React.Component {
   button1Click(e){
 
     //this.newTestReduxValue1(this.props.testReduxState.value1+1);
+    console.log("button1 clicked");
     this.props.dispatch(newTestReduxValue1(this.props.testReduxState.value1+1));
 
   }
@@ -36,6 +37,7 @@ class TestRedux extends React.Component {
   button2Click(e){
 
     //this.props.newTestReduxValue2(this.props.testReduxState.value2+5);
+    console.log("button2 clicked");
     this.props.dispatch(newTestReduxValue2(this.props.testReduxState.value2+5));
 
   }
@@ -60,11 +62,9 @@ class TestRedux extends React.Component {
         <button key="buttonRedux1" onClick={this.button1Click.bind(this)} > INC Val1 by 1</button>
         <button key="buttonRedux2" onClick={this.button2Click.bind(this)} > INC Val2 by 5</button> <br />
 
-
         {this.props.testReduxState !== null ? (this.renderStatus.bind(this)) : 'KKKT'}
 
         Val 1 ====<b>{this.props.testReduxState.value1}</b> <br/> Val 2 ====<b>{this.props.testReduxState.value2}</b> <br />
-
 
       </div>
     );
@@ -88,4 +88,4 @@ function mapDispatch (dispatch) {
 };
 
 
-export default /*connect(mapState, mapDispatch)*/(TestRedux);
+export default connect(mapState, mapDispatch)(TestRedux);
