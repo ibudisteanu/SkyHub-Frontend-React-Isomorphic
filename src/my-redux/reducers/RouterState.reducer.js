@@ -20,22 +20,17 @@ export const defaultRouterState = {
 
 export default function RouterStatusReducer  ( state = defaultRouterState, action)  {
 
-    let newState = state;
+  switch (action.type) {
 
-    switch (action.type) {
+    case 'NEW_ROUTER_OBJECT_ARGUMENT':
+      return {
+        ...state,
+        ['currentRouterObject']: action.payload.object,
+      };
+    default:
+      return state;
 
-        case 'NEW_ROUTER_OBJECT_ARGUMENT':
+  }
 
-            console.log("ROUTER ACTION ",action.status);
-            newState.currentRouterObject = action.status.object;
-            break;
-
-        case 'NEW_ROUTER_TOPIC_ARGUMENT':
-
-            newState.topic = action.status.topic;
-            break;
-    }
-
-    return newState;
 };
 

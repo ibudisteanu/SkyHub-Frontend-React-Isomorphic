@@ -15,7 +15,7 @@ export function getDefaultLocalization() {
 
       res = res.data;
 
-      var status = {
+      var payload = {
         country: res.country_name||'',
         countryCode : res.country_code||'',
         city : res.city||'',
@@ -29,10 +29,11 @@ export function getDefaultLocalization() {
 
       dispatch({
         type: "NEW_LOCALIZATION",
-        status: status,
+        payload: payload,
       });
+
     });
 
-  });
+  };
 
 }

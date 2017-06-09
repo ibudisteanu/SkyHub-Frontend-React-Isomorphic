@@ -12,7 +12,7 @@ export function newRouterObjectArgumentAction(newRouterObject, objectNotFound ) 
 
     return {
         type: "NEW_ROUTER_OBJECT_ARGUMENT",
-        status: {
+        payload: {
 
             object : {
                 type: ContentObjectService.extractObjectTypeFromId(newRouterObject),

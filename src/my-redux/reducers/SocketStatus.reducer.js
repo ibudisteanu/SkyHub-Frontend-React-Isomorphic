@@ -11,16 +11,20 @@ export const defaultSocketStatus = {
 
 export default function SocketStatusReducer  ( state = defaultSocketStatus, action)  {
 
-    let newState = state;
 
-    switch (action.type) {
+  switch (action.type) {
+    case 'NEW_SOCKET_STATUS':
+      return {
+        ...state,
+        ['connectionOffline']: action.payload.connectionOffline,
+        ['message']: action.payload.message,
+        ['icon']: action.payload.icon,
+        ['showOnlineStatus']: action.payload.showOnlineStatus,
+      };
 
-        case 'NEW_SOCKET_STATUS':
+    default:
+      return state;
+  }
 
-            newState = action.status;
-            break;
-    }
-
-    return newState;
 };
 

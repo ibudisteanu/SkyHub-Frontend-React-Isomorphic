@@ -3,13 +3,16 @@
 export function newUserAuthenticated(user) {
     return {
         type: "NEW_USER_AUTHENTICATED",
-        user: user,
+        payload:{
+          user: user,
+          error: '',
+        },
     }
 }
 
 export function logoutUserAuthenticated() {
     return {
-        type: "LOGOUT_USER"
+        type: "LOGOUT_USER",
     }
 }
 

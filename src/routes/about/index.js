@@ -31,8 +31,6 @@ export default {
 
           </Page>
 
-
-
         </Layout>,
     };
   },

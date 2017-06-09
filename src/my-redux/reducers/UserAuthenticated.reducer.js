@@ -9,27 +9,22 @@ export const defaultUserState = {
 
 export default function UserReducer  ( state = defaultUserState, action)  {
 
-    let newState = state;
+  switch (action.type) {
+    case 'NEW_USER_AUTHENTICATED':
+      return {
+        ...state,
+        ['user']: action.payload.user,
+        ['error']: action.payload.error,
+      };
+    case 'LOGOUT_USER':
+      return {
+        ...state,
+        ['user']: defaultUserState.user,
+        ['error']: defaultUserState.error,
+      };
+    default:
+      return state;
+  }
 
-    switch (action.type) {
-
-        case 'NEW_USER_AUTHENTICATED':
-
-            action.user.loggedIn = true;
-            newState = {
-                user: action.user,
-                error: '',
-            };
-
-            break;
-
-        case 'LOGOUT_USER':
-
-            newState = defaultUserState;
-
-            break;
-    }
-
-    return newState;
 };
 

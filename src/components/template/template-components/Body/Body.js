@@ -37,7 +37,9 @@ class Body extends React.Component {
 
           <Header />
 
-          <Content />
+          <Content>
+            {this.props.children}
+          </Content>
 
 
         </div>

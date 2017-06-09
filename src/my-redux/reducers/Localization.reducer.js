@@ -19,15 +19,24 @@ export const defaultLocalization = {
 
 export default function LocalizationReducer  ( state = defaultLocalization, action)  {
 
-    let newState = state;
 
-    switch (action.type) {
+  switch (action.type) {
 
-        case 'NEW_LOCALIZATION':
+    case 'NEW_LOCALIZATION':
+      return {
+        ...state,
+        ['country']: action.payload.country,
+        ['countryCode']: action.payload.countryCode,
+        ['city']: action.payload.city,
+        ['latitude']: action.payload.latitude,
+        ['longtitude']: action.payload.longitude,
+        ['ip']: action.payload.ip,
+        ['timeZone']: action.payload.timeZone,
+      };
 
-            newState = action.status;
-            break;
-    }
+    default:
+      return state;
 
-    return newState;
+  }
+
 }

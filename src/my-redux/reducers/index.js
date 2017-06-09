@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 import user from './user.reducer';
-import runtime from './runtime.reducer';
+import runtime from './Runtime.reducer';
 
 import LocalizationReducer from './Localization.reducer';
 import RouterStateReducer  from './RouterState.reducer';

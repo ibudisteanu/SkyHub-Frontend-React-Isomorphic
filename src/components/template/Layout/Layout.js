@@ -26,9 +26,11 @@ class Layout extends React.Component {
     return (
       <div id="wrapper">
 
-        <Body />
+        <Body>
+          {this.props.children}
+        </Body>
 
-        {this.props.children}
+
 
         <Feedback />
 
