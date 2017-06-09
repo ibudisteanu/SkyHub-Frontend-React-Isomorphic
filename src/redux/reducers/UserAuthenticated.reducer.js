@@ -1,11 +1,13 @@
-import {User} from 'modules/users/models/User.model';
+/* eslint-disable import/prefer-default-export */
+
+import {User} from '../../modules/users/models/User.model';
 
 export const defaultUserState = {
     user: new User(),
     error : '',
 };
 
-export function UserReducer  ( state = defaultUserState, action)  {
+export default function UserReducer  ( state = defaultUserState, action)  {
 
     let newState = state;
 

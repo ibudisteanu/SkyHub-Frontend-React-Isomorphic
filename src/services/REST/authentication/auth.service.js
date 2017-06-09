@@ -6,7 +6,7 @@
 import {CookiesService} from 'modules/services/cookies/cookies.service';
 import {SocketService} from 'modules/services/REST/socket/socket.service';
 
-import {User} from 'modules/users/models/User.model';
+import {User} from 'User.js';
 
 
 import * as UserAuthenticatedActions from '../../../redux/actions/UserAuthenticated.actions.js';

@@ -9,7 +9,7 @@ export const defaultSocketStatus = {
     showOnlineStatus : false,
 };
 
-export function SocketStatusReducer  ( state = defaultSocketStatus, action)  {
+export default function SocketStatusReducer  ( state = defaultSocketStatus, action)  {
 
     let newState = state;
 

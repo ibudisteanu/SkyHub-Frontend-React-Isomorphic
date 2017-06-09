@@ -6,7 +6,7 @@
 /* eslint-disable import/prefer-default-export */
 
 
-import {Forum} from 'modules/forums/forums/models/Forum.model';
+import {Forum} from '../../modules/forums/forums/models/Forum.model';
 
 export const defaultRouterState = {
 
@@ -18,7 +18,7 @@ export const defaultRouterState = {
 
 };
 
-export function RouterStatusReducer  ( state = defaultRouterState, action)  {
+export default function RouterStatusReducer  ( state = defaultRouterState, action)  {
 
     let newState = state;
 
