@@ -31,7 +31,7 @@ import configureStore from './redux/store/configureStore';
 import { setRuntimeVariable } from './redux/actions/runtime.actions';
 import config from './config';
 
-const app = express();
+var app = express();
 
 //
 // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the
@@ -48,25 +48,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//
-// Authentication
-// -----------------------------------------------------------------------------
-app.use(expressJwt({
-  secret: config.auth.jwt.secret,
-  credentialsRequired: false,
-  getToken: req => req.cookies.id_token,
-}));
-// Error handler for express-jwt
-app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
-  if (err instanceof Jwt401Error) {
-    console.error('[express-jwt-error]', req.cookies.id_token);
-    // `clearCookie`, otherwise user can't use web-app until cookie expires
-    res.clearCookie('id_token');
-  }
-  next(err);
-});
-
-app.use(passport.initialize());
+require('utils/passport/PassportDefined');
 
 if (__DEV__) {
   app.enable('trust proxy');
