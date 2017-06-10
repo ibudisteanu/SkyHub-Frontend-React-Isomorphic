@@ -11,16 +11,22 @@ import React from 'react';
 import Home from './Home';
 import Layout from '../../components/Template/Layout';
 
+import {startLocalizationFetchingAsync} from './../../my-redux/actions/Localization.actions';
+
 export default {
 
   path: '/',
 
-  async action({ fetch }) {
+  async action({ fetch, store }) {
     const resp = await fetch('/graphql', {
       body: JSON.stringify({
         query: '{news{title,link,content}}',
       }),
     });
+
+    console.log("Index.js");
+    await store.dispatch(startLocalizationFetchingAsync());
+
     const { data } = await resp.json();
     if (!data || !data.news) throw new Error('Failed to load the news feed.');
     return {

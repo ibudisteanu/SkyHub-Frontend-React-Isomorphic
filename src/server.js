@@ -28,8 +28,10 @@ import models from './data/models';
 import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import configureStore from './my-redux/store/configureStore';
-import { setRuntimeVariable } from './my-redux/actions/Runtime.actions';
 import config from './config';
+
+import { setRuntimeVariable } from './my-redux/actions/Runtime.actions';
+import {extractIP} from './my-redux/actions/Localization.actions';
 
 var app = express();
 
@@ -110,10 +112,21 @@ app.get('*', async (req, res, next) => {
       query: req.query,
     });
 
+    if (route.status === 404){
+
+      let Error404 = require('./components/Template/404/404.js');
+      Error404.show404(app, req.path, res);
+
+      return;
+    }
+    console.log("route::   ",req.path);
+
     if (route.redirect) {
       res.redirect(route.status || 302, route.redirect);
       return;
     }
+
+    store.dispatch(extractIP(req));
 
     const data = { ...route };
     data.children = ReactDOM.renderToString(

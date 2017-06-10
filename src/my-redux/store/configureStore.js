@@ -4,6 +4,8 @@ import rootReducer from '../reducers/index';
 import createHelpers from './createHelpers';
 import createLogger from './logger/logger.server';
 
+import AsyncMiddleware from './async-middleware/AsyncMiddleware';
+
 import {defaultUserState} from "../reducers/UserAuthenticated.reducer";
 import {defaultSocketStatus} from "../reducers/SocketStatus.reducer";
 import {defaultLocalization} from "../reducers/Localization.reducer";
@@ -18,6 +20,7 @@ export default function configureStore(initialState, helpersConfig) {
 
   if (__DEV__) {
     middleware.push(createLogger());
+    //middleware.push(AsyncMiddleware());
 
     // https://github.com/zalmoxisus/redux-devtools-extension#redux-devtools-extension
     let devToolsExtension = f => f;

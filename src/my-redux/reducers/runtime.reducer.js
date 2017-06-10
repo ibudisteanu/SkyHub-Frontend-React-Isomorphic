@@ -1,6 +1,7 @@
 import { SET_RUNTIME_VARIABLE } from '../../constants/index';
 
 export default function runtime(state = {}, action) {
+
   switch (action.type) {
     case SET_RUNTIME_VARIABLE:
       return {
@@ -10,4 +11,5 @@ export default function runtime(state = {}, action) {
     default:
       return state;
   }
+
 }

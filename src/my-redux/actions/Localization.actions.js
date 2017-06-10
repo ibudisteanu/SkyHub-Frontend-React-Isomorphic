@@ -6,34 +6,83 @@
 /* eslint-disable import/prefer-default-export */
 
 import axios from 'axios';
+const requestIp = require('request-ip');
 
-export function getDefaultLocalization() {
+export function extractIP(req){
 
-  return async (dispatch, getState, { client, history }) => {
+  //var ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
+  const ip = requestIp.getClientIp(req);
 
-    axios.get("http://freegeoip.net/json/") .then(res => {
+  console.log('IP::'); console.log(ip);
 
-      res = res.data;
-
-      var payload = {
-        country: res.country_name||'',
-        countryCode : res.country_code||'',
-        city : res.city||'',
-        latitude : res.latitude||'',
-        longitude : res.longitude||'',
-        ip : res.ip||'',
-        timeZone: res.time_zone||'',
-      };
-
-      console.log(status);
-
-      dispatch({
-        type: "NEW_LOCALIZATION",
-        payload: payload,
-      });
-
-    });
-
+  return {
+    type: 'NEW_LOCALIZATION_IP',
+    payload: {
+      clientIP: ip,
+    },
   };
 
 }
+
+export function startLocalizationFetchingAsync() {
+  return async (dispatch, getState) => {
+
+    if (getState().localization.request.sent ){
+      dispatch({
+        type: "LOCALIZATION_SKIPPED",
+        payload: {
+
+        },
+      });
+    }
+
+    let payload = {
+      request: {
+        sent:true,
+      }
+    };
+
+    dispatch({
+      type: "NEW_LOCALIZATION_REQUEST_SENT2",
+      payload: payload,
+    });
+
+    return axios.get("http://freegeoip.net/json/"+getState().localization.IP)
+
+      .then(res => {
+
+        res = res.data;
+
+        var payload = {
+          country: res.country_name||'',
+          countryCode : res.country_code||'',
+          city : res.city||'',
+          latitude : res.latitude||'',
+          longitude : res.longitude||'',
+          ip : res.ip||'',
+          timeZone: res.time_zone||'',
+          localizationDone: true,
+        };
+
+        //console.log("IP STATUS",payload);
+
+        dispatch({
+          type: "NEW_LOCALIZATION",
+          payload: payload,
+        });
+
+
+      })
+      .catch(function (error) {
+        console.log("Promise Rejected",error);
+
+        dispatch({
+          type: "NEW_LOCALIZATION_REQUEST_ERROR",
+          payload: null,
+        });
+
+      });
+
+  };
+}
+

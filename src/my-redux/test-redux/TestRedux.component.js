@@ -7,7 +7,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
+
 import PropTypes from 'prop-types';
 
 import { newTestReduxValue1, newTestReduxValue2 } from './actions/TestRedux.actions';
@@ -73,16 +73,13 @@ class TestRedux extends React.Component {
 
 
 function mapState (state){
-
   return {
     testReduxState: state.testReduxState,
   }
-
 };
 
 function mapDispatch (dispatch) {
   return {
-
     dispatch : dispatch,
   }
 };

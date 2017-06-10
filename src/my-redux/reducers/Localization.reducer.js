@@ -12,8 +12,16 @@ export const defaultLocalization = {
     city : '',
     latitude : '',
     longitude : '',
-    ip : '',
+    IP : '',
     timeZone: '',
+
+    clientIP: '',
+
+    request: {
+      sent:false,
+      done:false,
+      error:false,
+    }
 };
 
 
@@ -21,6 +29,25 @@ export default function LocalizationReducer  ( state = defaultLocalization, acti
 
 
   switch (action.type) {
+
+    case 'NEW_LOCALIZATION_IP':
+      return {
+        ...state,
+        ['clientIP']: action.payload.clientIP,
+      };
+
+    case 'NEW_LOCALIZATION_REQUEST_SENT':
+      return {
+        ...state,
+        ['request.sent']: action.payload.request.sent,
+        ['request.requestPromise']: action.payload.request.requestPromise,
+      }
+
+    case 'NEW_LOCALIZATION_REQUEST_SENT2':
+      return {
+        ...state,
+        ['request.sent']: action.payload.request.sent,
+      }
 
     case 'NEW_LOCALIZATION':
       return {
@@ -32,6 +59,13 @@ export default function LocalizationReducer  ( state = defaultLocalization, acti
         ['longtitude']: action.payload.longitude,
         ['ip']: action.payload.ip,
         ['timeZone']: action.payload.timeZone,
+        ['request'] : action.payload.request,
+      };
+
+    case 'NEW_LOCALIZATION_REQUEST_ERROR':
+      return {
+        ...state,
+        ['request.error']: true,
       };
 
     default:
@@ -40,3 +74,5 @@ export default function LocalizationReducer  ( state = defaultLocalization, acti
   }
 
 }
+
+

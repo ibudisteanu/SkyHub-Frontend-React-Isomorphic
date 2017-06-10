@@ -9,6 +9,8 @@
 
 /* eslint-disable global-require */
 
+import {startLocalizationFetchingAsync} from './../my-redux/actions/Localization.actions';
+
 // The top-level (parent) route
 export default {
 
@@ -30,7 +32,7 @@ export default {
     require('./notFound').default,
   ],
 
-  async action({ next }) {
+  async action({ next, store }) {
     // Execute each child route until one of them return the result
     const route = await next();
 
