@@ -49,6 +49,13 @@ class Html extends React.Component {
           <link rel="stylesheet" type="text/css" href="/res/template/css/animate.css" />
           <link rel="stylesheet" type="text/css" href="/res/template/css/style.css" />
 
+          <link rel="stylesheet" type="text/css" href="http://jedwatson.github.io/react-select/example.css" />
+
+          <link rel="stylesheet" type="text/css" href="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/css/msdropdown/dd.css" />
+          <script src="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/js/msdropdown/jquery.dd.min.js"></script>
+          <link rel="stylesheet" type="text/css" href="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/css/msdropdown/flags.css" />
+
+
           <script src="https://code.jquery.com/jquery-3.2.1.min.js" />
           <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>

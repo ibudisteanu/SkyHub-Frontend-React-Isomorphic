@@ -30,7 +30,7 @@ class NotAuthenticatedHeaderNavigationMenu extends React.Component {
         </li>
 
         <li>
-          <Link to="/login">
+          <Link to="/register">
             <i className="fa fa-user-plus"></i>
             <span className="m-r-sm text-muted welcome-message">Register</span>
           </Link>

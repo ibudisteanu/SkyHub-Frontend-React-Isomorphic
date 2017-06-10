@@ -12,6 +12,8 @@ import Select from 'react-select';
 
 //import CountrySelect from "react-country-select";
 
+import MyCountrySelect from './../../../../components/util-components/select/MyCountrySelect';
+
 //import {OauthSocialNetworkComponent} from '../oauth-social-networks-form/oauth.social.networks.component';
 
 export default class RegistrationForm extends React.Component {
@@ -118,22 +120,10 @@ export default class RegistrationForm extends React.Component {
 
     componentDidMount() {
 
- /*       axios.get("http://freegeoip.net/json/") .then(res => {
+      requestAnimationFrame(() => { //Make sure it is on client only
 
-                res = res.data;
+      });
 
-                this.setState({
-                    country: res.country_name||'',
-                    countryCode : res.country_code||'',
-                    city : res.city||'',
-                    latitude : res.latitude||'',
-                    longitude : res.longitude||'',
-                    ip : res.ip||'',
-                    timeZone: res.time_zone||'',
-                });
-
-                console.log(res);
-            });*/
     }
 
     handleUserNameChange(e){
@@ -330,6 +320,7 @@ export default class RegistrationForm extends React.Component {
 
                                     <span className="input-group-addon"><i className="fa fa-flag"></i></span>
 
+                                    <MyCountrySelect initialCountry="bg" onSelect={::this.handleCountrySelect}/>
 
                                     <span className={::this.showInputFeedback(this.state.countryValidationStatus)}></span>
                                   </div>
