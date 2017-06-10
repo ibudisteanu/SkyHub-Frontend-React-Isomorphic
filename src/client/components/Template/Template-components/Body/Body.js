@@ -28,6 +28,8 @@ import ChatButton from './Chat/ChatButton';
 
 import TestRedux from '../../../../../my-redux/test-redux/TestRedux.component';
 
+
+
 class Body extends React.Component {
 
   static propTypes = {
@@ -36,17 +38,19 @@ class Body extends React.Component {
 
 
   componentDidMount() {
+    requestAnimationFrame(() => { //Make sure it is on client only
 
+      var SocketService = require('./../../../../services/Communication/socket/socket.service').default.SocketServicet;
+      this.SocketService = SocketService;
+      console.log("~~~~~~~~~BODY->SOCKETSERVICE",this);
+
+    });
   }
 
 
   componentDidMountClient(){
 
-    requestAnimationFrame(() => { //Make sure it is on client only
 
-      console.log("~~~~~~~~~BODY->SOCKETSERVICE",this);
-
-    });
 
   }
 

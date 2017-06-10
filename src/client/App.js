@@ -51,6 +51,8 @@ class App extends React.PureComponent {
   static propTypes = {
     context: PropTypes.shape(ContextType).isRequired,
     children: PropTypes.element.isRequired,
+
+    SocketService: PropTypes.object,
   };
 
   static childContextTypes = ContextType;
@@ -65,33 +67,61 @@ class App extends React.PureComponent {
     return this.props.context;
   }
 
+  bInitialized = false;
+
+  initializeClientApp(){
+
+    if (this.bInitialized) return;
+    this.bInitialized = true;
+
+    console.log("APP",this.props);
+
+    var SocketServiceFile = require('./services/Communication/socket/socket.service').default;
+
+    //SocketServiceFile.createNewInstance();
+    var SocketService = SocketServiceFile.SocketService;
+    SocketService.setDispatch(this.props.context.store.dispatch);
+    SocketService.startService();
+
+    //this.props.context.SocketService = SocketService;
+
+/*    React.Children.map(this.props.children, (child, i) => {
+      // Ignore the first child
+
+      child.context.SocketService = SocketService;
+
+      if (i < 1) return
+      return child
+    });*/
+
+    // React.Children.forEach(this.props.children, function(thisArg){
+    //
+    //   //console.log(thisArg);
+    //   thisArg.props.SocketService = '555';
+    //
+    // });
+
+    // this.props.children.forEach( function(child){
+    //
+    //   child.componentDidMountClient();
+    //
+    // });
+  }
+
   componentDidMount(){
 
     requestAnimationFrame(() => { //Make sure it is on client only
 
-      console.log("APP",this.props);
-
       this.setState({appIsMounted: true});
-
-      var SocketServiceFile = require('./services/Communication/socket/socket.service').default;
-
-      //SocketServiceFile.createNewInstance();
-      var SocketService = SocketServiceFile.SocketService;
-      SocketService.setDispatch(this.props.context.store.dispatch);
-      SocketService.startService();
-
-      this.props.context.SocketService = SocketService;
-
-      // this.props.children.forEach( function(child){
-      //
-      //   child.componentDidMountClient();
-      //
-      // });
 
     });
   }
 
   render() {
+    if (process.env.BROWSER) {
+      console.log("APP RENDERED FIRST");
+      this.initializeClientApp();
+    }
     // NOTE: If you need to add or modify header, footer etc. of the app,
     // please do that inside the Layout component.
     return React.Children.only(this.props.children);
