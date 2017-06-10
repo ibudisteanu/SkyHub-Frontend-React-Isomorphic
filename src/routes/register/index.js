@@ -9,7 +9,9 @@
 
 import React from 'react';
 import Layout from '../../client/components/Template/Layout';
-import Register from './Register';
+
+//import Register from './Register';
+import Register from './../../client/modules/users/authentication/registration/registration.form';
 
 const title = 'New User Registration';
 
@@ -20,7 +22,10 @@ export default {
   action() {
     return {
       title,
-      component: <Layout><Register title={title} /></Layout>,
+      component:
+        <Layout>
+          <Register title={title} />
+        </Layout>,
     };
   },
 

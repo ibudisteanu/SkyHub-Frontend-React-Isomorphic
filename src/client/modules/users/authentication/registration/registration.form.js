@@ -5,49 +5,19 @@
 
 import React from 'react';
 import {connect} from "react-redux";
-import classNames from 'classnames';
-import { Link, withRouter } from 'react-router';
 
-import axios from 'axios';
-
-import {getPath} from 'common/common-functions';
-import { AuthService } from 'modules/services/REST/authentication/auth.service';
+import Link from '../../../../components/Link/Link';
 
 import Select from 'react-select';
 
-import CountrySelect from "react-country-select";
+//import CountrySelect from "react-country-select";
 
-import {OauthSocialNetworkComponent} from '../oauth-social-networks-form/oauth.social.networks.component';
+//import {OauthSocialNetworkComponent} from '../oauth-social-networks-form/oauth.social.networks.component';
 
-import {
-    Row,
-    Col,
-    Icon,
-    Grid,
-    Form,
-    Panel,
-    Button,
-    PanelBody,
-    FormGroup,
-    InputGroup,
-    HelpBlock,
-    FormControl,
-    PanelContainer,
-} from '@sketchpixy/rubix';
-
-@withRouter
-@connect(
-    state => ({
-        userAuthenticated : state.userAuthenticated,
-    }),
-    dispatch => ({dispatch}),
-)
-export class RegistrationForm extends React.Component {
+export default class RegistrationForm extends React.Component {
 
     constructor(props){
         super(props);
-
-        this.AuthService = new AuthService(props.dispatch);
 
         this.state = {
 
@@ -75,18 +45,19 @@ export class RegistrationForm extends React.Component {
 
     }
 
+  componentDidMount() {
+    requestAnimationFrame(() => { //Make sure it is on client only
+
+      this.SocketService = require('./../../../../services/Communication/socket/socket.service').default.SocketService;
+      this.AuthService = require('./../../../../services/REST/authentication/auth.service').default.AuthService;
+
+    });
+  }
+
     back(e) {
         e.preventDefault();
         e.stopPropagation();
         this.props.router.goBack();
-    }
-
-    convertValidationErrorToString(error) {
-        if (error === "notUnique") return "Already exists in the Database"; else
-        if (error === "notEmpty") return "It's empty"; else
-        if (error === "validateUsername") return " Invalid username";
-
-        return error;
     }
 
     handleCheckRegister(e){
@@ -147,7 +118,7 @@ export class RegistrationForm extends React.Component {
 
     componentDidMount() {
 
-        axios.get("http://freegeoip.net/json/") .then(res => {
+ /*       axios.get("http://freegeoip.net/json/") .then(res => {
 
                 res = res.data;
 
@@ -162,7 +133,7 @@ export class RegistrationForm extends React.Component {
                 });
 
                 console.log(res);
-            });
+            });*/
     }
 
     handleUserNameChange(e){
@@ -238,161 +209,168 @@ export class RegistrationForm extends React.Component {
         onError(res);
     }
 
+    convertValidationErrorToString(error) {
+      if (error === "notUnique") return "Already exists in the Database"; else
+      if (error === "notEmpty") return "It's empty"; else
+      if (error === "validateUsername") return " Invalid username";
+
+      return error;
+    }
+    //https://www.w3schools.com/bootstrap/bootstrap_forms_inputs2.asp DOC
+    showInputStatus(status){
+      return status[0] === 'error' ? "has-error has-feedback" : (status[0] === 'success' ? "has-success has-feedback" : '');
+    }
+    showInputFeedback(status){
+      return status[0] === 'error' ? "fa fa-remove form-control-feedback" : (status[0] === 'success' ?  "fa fa-check form-control-feedback" : '');
+    }
+
     render() {
 
         var onSuccess = this.props.onSuccess || function (){};
         var onSwitch = this.props.onSwitch || function (){};
 
         return (
-            <PanelContainer controls={false} style={{marginBottom:0}}>
+            <div className="panel panel-warning">
 
-                <Panel>
-                    <PanelBody style={{padding: 0}}>
-                        <div className='text-center bg-darkblue fg-white'>
-                            <h3 style={{margin: 0, padding: 20}}> <strong>Sign up</strong> to SkyHub </h3>
-                        </div>
-                        <div>
-                            <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 25}}>
+                  <div className="panel-heading">
+
+                    <h2><strong>Register </strong>SkyHub</h2>
+
+                  </div>
 
 
-                                <Form onSubmit={::this.handleCheckRegister}>
+                  <div className="panel-body">
 
-                                    <Row>
+                      <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 25}}>
 
-                                        <Col xs={6} collapseLeft collapseRight >
-                                            <FormGroup controlId='userNameInput' validationState={this.state.userNameValidationStatus[0]}>
-                                                <InputGroup style={{marginRight: 10}}>
-                                                    <InputGroup.Addon>
-                                                        <Icon glyph='icon-fontello-user' />
-                                                    </InputGroup.Addon>
-                                                    <FormControl autoFocus type='text' className='border-focus-blue' placeholder='username' value={this.state.userName} onChange={::this.handleUserNameChange} />
-                                                    <FormControl.Feedback />
-                                                </InputGroup>
-                                                <HelpBlock>{this.state.userNameValidationStatus[1]}</HelpBlock>
-                                            </FormGroup>
-                                        </Col>
+                          <form onSubmit={::this.handleCheckRegister}>
 
-                                        <Col xs={6} collapseLeft collapseRight >
-                                            <FormGroup controlId='emailAddressInput' validationState={this.state.emailAddressValidationStatus[0]}>
-                                                <InputGroup >
-                                                    <InputGroup.Addon>
-                                                        <Icon glyph='icon-fontello-mail' />
-                                                    </InputGroup.Addon>
-                                                    <FormControl type='email' className='border-focus-blue' placeholder='John@gmail.com' value={this.state.emailAddress} onChange={::this.handleEmailAddressChange} />
-                                                    <FormControl.Feedback />
-                                                </InputGroup>
-                                                <HelpBlock>{this.state.emailAddressValidationStatus[1]}</HelpBlock>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
+                              <div className="row" style={{paddingBottom: 20}}>
 
-                                    <Row>
-                                        <Col xs={6} collapseLeft collapseRight >
-                                            <FormGroup controlId='firstName' validationState={this.state.firstNameValidationStatus[0]}>
-                                                <InputGroup  style={{marginRight: 10}}>
-                                                    <InputGroup.Addon>
-                                                        <Icon glyph='icon-fontello-font' />
-                                                    </InputGroup.Addon>
-                                                    <FormControl type='text' className='border-focus-blue' placeholder='First Name'  value={this.state.firstName} onChange={::this.handleFirstNameChange} />
-                                                    <FormControl.Feedback />
-                                                </InputGroup>
-                                                <HelpBlock>{this.state.firstNameValidationStatus[1]}</HelpBlock>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col xs={6} collapseLeft collapseRight >
-                                            <FormGroup controlId='lastName' validationState={this.state.lastNameValidationStatus[0]}>
-                                                <InputGroup >
-                                                    <InputGroup.Addon>
-                                                        <Icon glyph='icon-fontello-bold' />
-                                                    </InputGroup.Addon>
-                                                    <FormControl type='text' className='border-focus-blue' placeholder='Last Name'  value={this.state.lastName} onChange={::this.handleLastNameChange} />
-                                                    <FormControl.Feedback />
-                                                </InputGroup>
-                                                <HelpBlock>{this.state.lastNameValidationStatus[1]}</HelpBlock>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
+                                <div className="col-xs-6">
+                                  <div className={"input-group " + this.showInputStatus(this.state.userNameValidationStatus)}  >
 
-                                    <Row>
-                                        <Col xs={6} collapseLeft collapseRight >
-                                            <FormGroup controlId='password' validationState={this.state.passwordValidationStatus[0]}>
-                                                <InputGroup  style={{marginRight: 10}}>
-                                                    <InputGroup.Addon>
-                                                        <Icon glyph='icon-fontello-key' />
-                                                    </InputGroup.Addon>
-                                                    <FormControl type='password' className='border-focus-blue' placeholder='password'  value={this.state.password} onChange={::this.handlePasswordChange} />
-                                                    <FormControl.Feedback />
-                                                </InputGroup>
-                                                <HelpBlock>{this.state.passwordValidationStatus[1]}</HelpBlock>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col xs={6} collapseLeft collapseRight >
-                                            <FormGroup controlId='retypepassword' validationState={this.state.retypePasswordValidationStatus[0]}>
-                                                <InputGroup >
-                                                    <InputGroup.Addon>
-                                                        <Icon glyph='icon-fontello-key' />
-                                                    </InputGroup.Addon>
-                                                    <FormControl type='password' className='border-focus-blue' placeholder='password'  value={this.state.retypePassword} onChange={::this.handleRetypePasswordChange} />
-                                                    <FormControl.Feedback />
-                                                </InputGroup>
-                                                <HelpBlock>{this.state.retypePasswordValidationStatus[1]}</HelpBlock>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
+                                    <span className="input-group-addon"><i className="fa fa-user"></i></span>
 
-                                    <Row>
-                                        <Col xs={6} collapseLeft collapseRight >
-                                            <FormGroup controlId='country' validationState={this.state.countryValidationStatus[0]}>
-                                                <InputGroup style={{marginRight: 10}}>
-                                                    <InputGroup.Addon>
-                                                        <Icon glyph='icon-fontello-flag-1' />
-                                                    </InputGroup.Addon>
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='username'  value={this.state.userName} onChange={::this.handleUserNameChange} />
 
-                                                    <CountrySelect controlId="countrySelect" multi={false} flagImagePath="/../../imgs/app/flags/flags/flat/flagicons/"  ref={(input) => this.countryInput = input}  value={this.state.countryCode}  onSelect={this.handleCountrySelect} />
-                                                    <FormControl.Feedback />
-                                                </InputGroup>
-                                                <HelpBlock>{this.state.countryValidationStatus[1]}</HelpBlock>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col xs={6} collapseLeft collapseRight >
-                                            <FormGroup controlId='city' validationState={this.state.cityValidationStatus[0]}>
-                                                <InputGroup >
-                                                    <InputGroup.Addon>
-                                                        <Icon glyph='icon-fontello-home-1' />
-                                                    </InputGroup.Addon>
-                                                    <FormControl type='city' className='border-focus-blue' placeholder='city'  value={this.state.city} onChange={::this.handleCityChange} />
-                                                    <FormControl.Feedback />
-                                                </InputGroup>
-                                                <HelpBlock>{this.state.cityValidationStatus[1]}</HelpBlock>
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
+                                    <span className={::this.showInputFeedback(this.state.userNameValidationStatus)}></span>
+                                  </div>
+                                </div>
 
-                                    <FormGroup>
-                                        <Grid>
-                                            <Row>
-                                                <Col xs={6} collapseLeft collapseRight style={{paddingTop: 10}}>
+                                <div className="col-xs-6">
+                                  <div className={"input-group " + this.showInputStatus(this.state.emailAddressValidationStatus)}  >
 
-                                                    <div>
-                                                        <Link to={getPath(this,'login')} onClick = {onSwitch.bind(this)}> <strong> Login </strong></Link>to SkyHub
-                                                    </div>
+                                    <span className="input-group-addon"><i className="fa fa-envelope"></i></span>
 
-                                                </Col>
-                                                <Col xs={6} collapseLeft collapseRight className='text-right'>
-                                                    <Button lg type='submit' bsStyle='primary' onClick={::this.handleCheckRegister}>Register</Button>
-                                                </Col>
-                                            </Row>
-                                        </Grid>
-                                    </FormGroup>
-                                </Form>
-                            </div>
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='E-mail'  value={this.state.emailAddress} onChange={::this.handleEmailAddressChange} />
 
-                            <OauthSocialNetworkComponent onSuccess={::this.registrationSuccessfully} onError={::this.registrationFailure} />
+                                    <span className={::this.showInputFeedback(this.state.emailAddressValidationStatus)}></span>
+                                  </div>
+                                </div>
 
-                        </div>
-                    </PanelBody>
-                </Panel>
-            </PanelContainer>
+                              </div>
+
+                              <div className="row" style={{paddingBottom: 20}}>
+
+                                <div className="col-xs-6">
+                                  <div className={"input-group " + this.showInputStatus(this.state.firstNameValidationStatus)}  >
+
+                                    <span className="input-group-addon"><i className="fa fa-font"></i></span>
+
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='First Name'  value={this.state.firstName} onChange={::this.handleFirstNameChange} />
+
+                                    <span className={::this.showInputFeedback(this.state.firstNameValidationStatus)}></span>
+                                  </div>
+                                </div>
+
+                                <div className="col-xs-6">
+                                  <div className={"input-group " + this.showInputStatus(this.state.lastNameValidationStatus)}  >
+
+                                    <span className="input-group-addon"><i className="fa fa-bold"></i></span>
+
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='Last Name'  value={this.state.lastName} onChange={::this.handleLastNameChange} />
+
+                                    <span className={::this.showInputFeedback(this.state.lastNameValidationStatus)}></span>
+                                  </div>
+                                </div>
+
+                              </div>
+
+                              <div className="row" style={{paddingBottom: 20}}>
+
+                                <div className="col-xs-6">
+                                  <div className={"input-group " + this.showInputStatus(this.state.passwordValidationStatus)}  >
+
+                                    <span className="input-group-addon"><i className="fa fa-key"></i></span>
+
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='password'  value={this.state.password} onChange={::this.handlePasswordChange} />
+
+                                    <span className={::this.showInputFeedback(this.state.passwordValidationStatus)}></span>
+                                  </div>
+                                </div>
+
+                                <div className="col-xs-6">
+                                  <div className={"input-group " + this.showInputStatus(this.state.retypePasswordValidationStatus)}  >
+
+                                    <span className="input-group-addon"><i className="fa fa-key"></i></span>
+
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='password'  value={this.state.retypePassword} onChange={::this.handleRetypePasswordChange} />
+
+                                    <span className={::this.showInputFeedback(this.state.retypePasswordValidationStatus)}></span>
+                                  </div>
+                                </div>
+
+                              </div>
+
+                              <div className="row" style={{paddingBottom: 20}}>
+
+                                <div className="col-xs-6">
+                                  <div className={"input-group " + this.showInputStatus(this.state.countryValidationStatus)}  >
+
+                                    <span className="input-group-addon"><i className="fa fa-flag"></i></span>
+
+
+                                    <span className={::this.showInputFeedback(this.state.countryValidationStatus)}></span>
+                                  </div>
+                                </div>
+
+                                <div className="col-xs-6" style={{paddingBottom: 20}}>
+                                  <div className={"input-group " + this.showInputStatus(this.state.cityValidationStatus)}  >
+
+                                    <span className="input-group-addon"><i className="fa fa-institution"></i></span>
+
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='city'  value={this.state.retypePassword} onChange={::this.handleCityChange} />
+
+                                    <span className={::this.showInputFeedback(this.state.cityValidationStatus)}></span>
+                                  </div>
+                                </div>
+
+                              </div>
+
+
+                              <div className="form-group" >
+                                <div className="row">
+                                  <div className="col-xs-6" style={{paddingTop: 10}}>
+
+                                    <div >
+                                      <Link to={'login'} onClick = {onSwitch.bind(this)}> <strong> Login </strong></Link>to SkyHub
+                                    </div>
+
+                                  </div>
+                                  <div className="col-xs-6 text-right" >
+                                    <button  type='button' className='btn btn-info' onClick={::this.handleCheckRegister}><i className="fa fa-sign-up"></i> Register</button>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                          </form>
+                      </div>
+
+                  </div>
+
+            </div>
         );
     }
 }

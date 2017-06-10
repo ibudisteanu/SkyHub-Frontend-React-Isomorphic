@@ -75,6 +75,7 @@ export default class LoginForm extends React.Component {
     }
 
     handleUserEmailChange(e){
+
         this.setState({
             userEmail : e.target.value,
             userEmailValidationStatus  : [null, ''],
@@ -82,6 +83,7 @@ export default class LoginForm extends React.Component {
     }
 
     handlePasswordChange(e){
+
         this.setState({
             password : e.target.value,
             passwordValidationStatus  : [null, '']
@@ -102,10 +104,10 @@ export default class LoginForm extends React.Component {
 
     //https://www.w3schools.com/bootstrap/bootstrap_forms_inputs2.asp DOC
     showInputStatus(status){
-      return status[0] === 'error' ? "has-error has-feedback" : "has-success has-feedback"
+      return status[0] === 'error' ? "has-error has-feedback" : (status[0] === 'success' ? "has-success has-feedback" : '');
     }
     showInputFeedback(status){
-      return status[1] === 'error' ? "fa fa-remove form-control-feedback" : "fa fa-check form-control-feedback"
+      return status[0] === 'error' ? "fa fa-remove form-control-feedback" : (status[0] === 'success' ?  "fa fa-check form-control-feedback" : '');
     }
 
     render() {
@@ -117,7 +119,7 @@ export default class LoginForm extends React.Component {
 
                   <div className="panel-heading">
 
-                    <h3><strong>Login to </strong>SkyHub</h3>
+                    <h2><strong>Login to </strong>SkyHub</h2>
 
                   </div>
 
@@ -127,6 +129,7 @@ export default class LoginForm extends React.Component {
 
                       <form onSubmit={::this.handleCheckLogin}>
 
+                        <label for="inputEmail">Username or Email</label>
                         <div className={"input-group " + this.showInputStatus(this.state.userEmailValidationStatus)}  >
 
                           <span className="input-group-addon"><i className="fa fa-user"></i></span>
@@ -134,10 +137,13 @@ export default class LoginForm extends React.Component {
                           <input autoFocus type='text' className='form-control input-lg' placeholder='username   or    email'  value={this.state.userEmail} onChange={::this.handleUserEmailChange} />
 
                           <span className={::this.showInputFeedback(this.state.userEmailValidationStatus)}></span>
-
                         </div>
-                        <label className="error" for="">{this.state.userEmailValidationStatus[1]}</label>
 
+
+
+                        <label className="error" for="">{this.state.userEmailValidationStatus[1]}</label> <br />
+
+                        <label for="inputEmail">Password</label>
                         <div className={"input-group " + this.showInputStatus(this.state.passwordValidationStatus)}  >
 
                           <span className="input-group-addon"><i className="fa fa-key"></i></span>
@@ -145,9 +151,10 @@ export default class LoginForm extends React.Component {
                           <input autoFocus type='password' className='form-control input-lg' placeholder='password'  value={this.state.password} onChange={::this.handlePasswordChange} />
 
                           <span className={::this.showInputFeedback(this.state.passwordValidationStatus)}></span>
-
                         </div>
                         <label className="error" for="">{this.state.passwordValidationStatus[1]}</label>
+
+
 
                         <div className="form-group" >
                             <div className="row">

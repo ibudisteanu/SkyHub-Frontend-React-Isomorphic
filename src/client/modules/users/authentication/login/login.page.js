@@ -1,18 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Link, withRouter } from 'react-router';
 
-import {getPath} from 'common/common-functions';
+import LoginForm from "./login.form";
 
-import {LoginForm} from "./login.form";
 
-import {
-    Row,
-    Col,
-    Grid,
-} from '@sketchpixy/rubix';
-
-@withRouter
 export default class LoginPage extends React.Component {
 
     back(e) {
@@ -28,20 +19,16 @@ export default class LoginPage extends React.Component {
         $('html').removeClass('authentication');
     }
 
+    loginForm = null;
+
     render() {
         return (
             <div id='auth-container' className='login' style={{marginTop: 75}}>
-                <div id='auth-row'>
-                    <div id='auth-cell'>
-                        <Grid>
-                            <Row>
-                                <Col sm={4} smOffset={4} xs={10} xsOffset={1} collapseLeft collapseRight>
-                                    <LoginForm ref={(c) => this.loginForm = c} onSuccess = {::this.back}  />
-                                </Col>
-                            </Row>
-                        </Grid>
-                    </div>
-                </div>
+
+                  <div className="col-sm-7 col-sm-offset-3 col-xs-10 col-xs-offset-1" >
+                      <LoginForm ref={(c) => this.loginForm = c} onSuccess = {::this.back}  />
+                  </div>
+
             </div>
         );
     }
