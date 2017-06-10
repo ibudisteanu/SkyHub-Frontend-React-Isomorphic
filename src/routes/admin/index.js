@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import Layout from '../../components/Template/Layout';
+import Layout from '../../client/components/Template/Layout';
 
 const title = 'Admin Page';
 const isAdmin = false;

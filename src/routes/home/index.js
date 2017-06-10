@@ -9,7 +9,7 @@
 
 import React from 'react';
 import Home from './Home';
-import Layout from '../../components/Template/Layout';
+import Layout from '../../client/components/Template/Layout';
 
 import {startLocalizationFetchingAsync} from './../../my-redux/actions/Localization.actions';
 

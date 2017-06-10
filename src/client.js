@@ -14,7 +14,7 @@ import deepForceUpdate from 'react-deep-force-update';
 import FastClick from 'fastclick';
 import queryString from 'query-string';
 import { createPath } from 'history/PathUtils';
-import App from './components/App';
+import App from './client/App';
 import createFetch from './createFetch';
 import configureStore from './my-redux/store/configureStore';
 import history from './history';

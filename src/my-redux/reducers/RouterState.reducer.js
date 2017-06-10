@@ -6,7 +6,7 @@
 /* eslint-disable import/prefer-default-export */
 
 
-import {Forum} from '../../modules/forums/forums/models/Forum.model';
+import {Forum} from '../../client/modules/forums/forums/models/Forum.model';
 
 export const defaultRouterState = {
 

@@ -5,8 +5,8 @@
 
 
 import React from 'react';
-import Layout from '../../../components/Template/Layout';
-import Page from '../../../components/Page';
+import Layout from '../../../client/components/Template/Layout';
+import Page from '../../../client/components/Page';
 
 import TestRedux from '../../../my-redux/test-redux/TestRedux.component';
 

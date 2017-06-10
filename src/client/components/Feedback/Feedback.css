@@ -7,43 +7,34 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-@import '../../client/variables.css';
+@import '../../variables.css';
 
 .root {
-  padding-left: 20px;
-  padding-right: 20px;
+  background: #f5f5f5;
+  color: #333;
 }
 
 .container {
   margin: 0 auto;
-  padding: 0 0 40px;
+  padding: 20px 8px;
   max-width: var(--max-content-width);
+  text-align: center;
+  font-size: 1.5em; /* ~24px */
 }
 
-.newsItem {
-  margin: 0 0 2rem;
+.link,
+.link:active,
+.link:hover,
+.link:visited {
+  color: #333;
+  text-decoration: none;
 }
 
-.newsTitle {
-  font-size: 1.5rem;
+.link:hover {
+  text-decoration: underline;
 }
 
-.newsDesc {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 1.125rem;
-  }
-
-  pre {
-    white-space: pre-wrap;
-    font-size: 0.875rem;
-  }
-
-  img {
-    max-width: 100%;
-  }
+.spacer {
+  padding-right: 15px;
+  padding-left: 15px;
 }

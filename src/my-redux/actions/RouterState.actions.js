@@ -6,7 +6,7 @@
 /* eslint-disable import/prefer-default-export */
 
 
-import { ContentObjectService } from 'services/REST/forums/content/ContentObject.service';
+import { ContentObjectService } from 'src/client/services/REST/forums/content/ContentObject.service';
 
 export function newRouterObjectArgumentAction(newRouterObject, objectNotFound ) {
 

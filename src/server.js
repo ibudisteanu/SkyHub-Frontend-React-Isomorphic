@@ -17,8 +17,8 @@ import expressGraphQL from 'express-graphql';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
-import App from './components/App';
-import Html from './components/Html';
+import App from './client/App';
+import Html from './client/Html';
 import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
 import createFetch from './createFetch';
@@ -114,7 +114,7 @@ app.get('*', async (req, res, next) => {
 
     if (route.status === 404){
 
-      let Error404 = require('./components/Template/404/404.js');
+      let Error404 = require('./client/components/Template/404/404.js');
       Error404.show404(app, req.path, res);
 
       return;
@@ -127,6 +127,11 @@ app.get('*', async (req, res, next) => {
     }
 
     store.dispatch(extractIP(req));
+
+    // var sleep = require('sleep'); sleep.sleep(5); // sleep for ten seconds
+
+
+
 
     const data = { ...route };
     data.children = ReactDOM.renderToString(
