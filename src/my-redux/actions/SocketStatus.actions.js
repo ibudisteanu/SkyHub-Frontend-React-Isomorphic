@@ -7,7 +7,7 @@ export function socketConnectingError() {
             connectionOffline: true,
             showOnlineStatus: false,
             message: 'Error Connecting to the SkyHub Server. Check your internet connection or contact us at contact@skyhub.me',
-            icon: 'warning',
+            icon: 'fa fa-warning',
         }
     }
 }
@@ -19,7 +19,7 @@ export function socketDisconnected() {
             connectionOffline: true,
             showOnlineStatus: false,
             message: 'Connection Problem',
-            icon: 'warning',
+            icon: 'fa fa-warning',
         }
     }
 }
@@ -31,7 +31,7 @@ export function socketConnectionSuccessfully() {
             connectionOffline: false,
             showOnlineStatus: true,
             message: 'Connection established to SkyHub',
-            icon: 'check-1',
+            icon: 'fa fa-check',
         }
     }
 }

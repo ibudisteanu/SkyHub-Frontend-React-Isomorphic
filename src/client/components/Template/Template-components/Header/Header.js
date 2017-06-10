@@ -9,6 +9,8 @@
 
 import React from 'react';
 
+import SocketStatusBar from './Socket-status-bar/HeaderBarSocketStatus.component';
+
 import Link from '../../../Link/Link';
 
 import logoUrl from './logo-small.png';
@@ -22,6 +24,8 @@ class Header extends React.Component {
 
         <div className="row border-bottom">
           <TopNavbar />
+
+          <SocketStatusBar />
         </div>
 
     );

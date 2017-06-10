@@ -69,7 +69,7 @@ class App extends React.PureComponent {
 
     requestAnimationFrame(() => { //Make sure it is on client only
 
-      console.log(this.props);
+      console.log("APP",this.props);
 
       this.setState({appIsMounted: true});
 
@@ -79,6 +79,14 @@ class App extends React.PureComponent {
       var SocketService = SocketServiceFile.SocketService;
       SocketService.setDispatch(this.props.context.store.dispatch);
       SocketService.startService();
+
+      this.props.context.SocketService = SocketService;
+
+      // this.props.children.forEach( function(child){
+      //
+      //   child.componentDidMountClient();
+      //
+      // });
 
     });
   }

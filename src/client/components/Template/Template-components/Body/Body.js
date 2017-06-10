@@ -15,6 +15,8 @@ import Link from '../../../Link/Link';
 import logoUrl from './logo-small.png';
 import logoUrl2x from './logo-small@2x.png';
 
+import PropTypes from 'prop-types';
+
 import Header from '../Header/Header';
 import LeftSidebar from './Left-sidebar/LeftSidebar';
 import RightSidebar from './Right-sidebar/RightSidebar';
@@ -27,6 +29,27 @@ import ChatButton from './Chat/ChatButton';
 import TestRedux from '../../../../../my-redux/test-redux/TestRedux.component';
 
 class Body extends React.Component {
+
+  static propTypes = {
+
+  };
+
+
+  componentDidMount() {
+
+  }
+
+
+  componentDidMountClient(){
+
+    requestAnimationFrame(() => { //Make sure it is on client only
+
+      console.log("~~~~~~~~~BODY->SOCKETSERVICE",this);
+
+    });
+
+  }
+
   render() {
     return (
       <div className={baseStyle.root}>

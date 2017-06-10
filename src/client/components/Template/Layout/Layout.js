@@ -25,6 +25,7 @@ class Layout extends React.Component {
 
   static propTypes = {
     children: PropTypes.node.isRequired,
+    SocketService: PropTypes.object,
   };
 
   constructor(props){
@@ -34,6 +35,16 @@ class Layout extends React.Component {
 
   async componentDidMount() {
    // this.props.dispatch(startLocalizationFetchingAsync());
+  }
+
+  componentDidMountClient(){
+
+    requestAnimationFrame(() => { //Make sure it is on client only
+
+      console.log("~~~~~~~~~LAYOUT->SOCKETSERVICE",this);
+
+    });
+
   }
 
   render() {
