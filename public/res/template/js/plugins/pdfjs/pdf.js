@@ -8636,7 +8636,7 @@ var fakeWorkerFilesLoader = useRequireEnsure ? (function (callback) {
  *   use atob() to convert it to a binary string first.
  * @property {Object}     httpHeaders - Basic authentication headers.
  * @property {boolean}    withCredentials - Indicates whether or not cross-site
- *   Access-Control requests should be made using credentials such as cookies
+ *   Access-Control requests should be made using credentials such as Cookies
  *   or authorization headers. The default is false.
  * @property {string}     password - For decrypting password-protected PDFs.
  * @property {TypedArray} initialData - A typed array with the first portion or

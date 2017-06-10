@@ -9,7 +9,9 @@
 
 import React from 'react';
 import Layout from '../../client/components/Template/Layout';
-import Login from './Login';
+
+//import Login from './Login';
+import Login from './../../client/modules/users/authentication/login/login.form';
 
 const title = 'Log In';
 
@@ -20,7 +22,10 @@ export default {
   action() {
     return {
       title,
-      component: <Layout><Login title={title} /></Layout>,
+      component:
+        <Layout>
+          <Login title={title} />
+        </Layout>,
     };
   },
 

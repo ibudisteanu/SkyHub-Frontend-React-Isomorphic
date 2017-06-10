@@ -1,43 +1,16 @@
 import React from 'react';
 import {connect} from "react-redux";
 import classNames from 'classnames';
-import { Link, withRouter } from 'react-router';
 
-import {getPath} from 'common/common-functions';
-import { AuthService } from 'modules/services/REST/authentication/auth.service';
+import Link from '../../../../components/Link/Link';
 
-import {OauthSocialNetworkComponent} from '../oauth-social-networks-form/oauth.social.networks.component';
+//import {OauthSocialNetworkComponent} from '../oauth-social-networks-form/oauth.social.networks.component';
 
-import {
-    Row,
-    Col,
-    Icon,
-    Grid,
-    Form,
-    Panel,
-    Button,
-    PanelBody,
-    FormGroup,
-    InputGroup,
-    HelpBlock,
-    FormControl,
-    PanelContainer,
-} from '@sketchpixy/rubix';
-
-@withRouter
-@connect(
-    state => ({
-        userAuthenticated : state.userAuthenticated,
-    }),
-    dispatch => ({dispatch}),
-)
-export class LoginForm extends React.Component {
+export default class LoginForm extends React.Component {
 
 
     constructor(props) {
         super(props);
-
-        this.AuthService = new AuthService(props.dispatch);
 
          this.state = {
 
@@ -49,10 +22,20 @@ export class LoginForm extends React.Component {
          }
     }
 
-    back(e) {
-        e.preventDefault(); e.stopPropagation();
+    componentDidMount() {
+      requestAnimationFrame(() => { //Make sure it is on client only
 
-        this.props.router.goBack();
+        this.SocketService = require('./../../../../services/Communication/socket/socket.service').default.SocketService;
+        this.AuthService = require('./../../../../services/REST/authentication/auth.service').default.AuthService;
+
+      });
+    }
+
+
+    back(e) {
+          e.preventDefault(); e.stopPropagation();
+
+          this.props.router.goBack();
     }
 
 
@@ -117,68 +100,80 @@ export class LoginForm extends React.Component {
         onError(res);
     }
 
+    //https://www.w3schools.com/bootstrap/bootstrap_forms_inputs2.asp DOC
+    showInputStatus(status){
+      return status[0] === 'error' ? "has-error has-feedback" : "has-success has-feedback"
+    }
+    showInputFeedback(status){
+      return status[1] === 'error' ? "fa fa-remove form-control-feedback" : "fa fa-check form-control-feedback"
+    }
 
     render() {
 
         var onSwitch = this.props.onSwitch || function (){};
 
         return (
-            <PanelContainer controls={false} style={{marginBottom:0}}>
+            <div className="panel panel-success">
 
-                <Panel>
-                    <PanelBody style={{padding: 0}}>
-                        <div className='text-center bg-darkblue fg-white'>
-                            <h3 style={{margin: 0, padding: 20}}> <strong>Login </strong>to SkyHub</h3>
+                  <div className="panel-heading">
+
+                    <h3><strong>Login to </strong>SkyHub</h3>
+
+                  </div>
+
+                  <div className="panel-body">
+
+                    <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 25}}>
+
+                      <form onSubmit={::this.handleCheckLogin}>
+
+                        <div className={"input-group " + this.showInputStatus(this.state.userEmailValidationStatus)}  >
+
+                          <span className="input-group-addon"><i className="fa fa-user"></i></span>
+
+                          <input autoFocus type='text' className='form-control input-lg' placeholder='username   or    email'  value={this.state.userEmail} onChange={::this.handleUserEmailChange} />
+
+                          <span className={::this.showInputFeedback(this.state.userEmailValidationStatus)}></span>
+
                         </div>
+                        <label className="error" for="">{this.state.userEmailValidationStatus[1]}</label>
 
-                        <div>
-                            <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 25}}>
-                                <Form onSubmit={::this.handleCheckLogin}>
-                                    <FormGroup controlId='emailaddress' validationState={this.state.userEmailValidationStatus[0]} >
-                                        <InputGroup bsSize='large'>
-                                            <InputGroup.Addon>
-                                                <Icon glyph='icon-fontello-mail' />
-                                            </InputGroup.Addon>
-                                            <FormControl autoFocus type='text' className='border-focus-blue' placeholder='username   or    email'  value={this.state.userEmail} onChange={::this.handleUserEmailChange} />
-                                            <FormControl.Feedback />
-                                        </InputGroup>
-                                        <HelpBlock>{this.state.userEmailValidationStatus[1]}</HelpBlock>
-                                    </FormGroup>
-                                    <FormGroup controlId='password' validationState={this.state.passwordValidationStatus[0]}>
-                                        <InputGroup bsSize='large'>
-                                            <InputGroup.Addon>
-                                                <Icon glyph='icon-fontello-key' />
-                                            </InputGroup.Addon>
-                                            <FormControl type='password' className='border-focus-blue' placeholder='password' value={this.state.password} onChange={::this.handlePasswordChange}/>
-                                            <FormControl.Feedback />
-                                        </InputGroup>
-                                        <HelpBlock>{this.state.userEmailValidationStatus[1]}</HelpBlock>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Grid>
-                                            <Row>
-                                                <Col xs={6} collapseLeft collapseRight style={{paddingTop: 10}}>
+                        <div className={"input-group " + this.showInputStatus(this.state.passwordValidationStatus)}  >
 
-                                                    <div >
-                                                        <Link to={getPath(this,'register')} onClick = {onSwitch.bind(this)}> <strong> Register </strong></Link>to SkyHub
-                                                    </div>
+                          <span className="input-group-addon"><i className="fa fa-key"></i></span>
 
-                                                </Col>
-                                                <Col xs={6} collapseLeft collapseRight className='text-right'>
-                                                    <Button lg type='submit' bsStyle='primary' onClick={::this.handleCheckLogin}>Login</Button>
-                                                </Col>
-                                            </Row>
-                                        </Grid>
-                                    </FormGroup>
-                                </Form>
+                          <input autoFocus type='password' className='form-control input-lg' placeholder='password'  value={this.state.password} onChange={::this.handlePasswordChange} />
+
+                          <span className={::this.showInputFeedback(this.state.passwordValidationStatus)}></span>
+
+                        </div>
+                        <label className="error" for="">{this.state.passwordValidationStatus[1]}</label>
+
+                        <div className="form-group" >
+                            <div className="row">
+                              <div className="col-xs-6" style={{paddingTop: 10}}>
+
+                                <div >
+                                  <Link to={'register'} onClick = {onSwitch.bind(this)}> <strong> Register </strong></Link>to SkyHub
+                                </div>
+
+                              </div>
+                              <div className="col-xs-6 text-right" >
+                                <button  type='button' className='btn btn-info' onClick={::this.handleCheckLogin}><i className="fa fa-sign-in"></i> Login</button>
+                              </div>
                             </div>
-
-                            <OauthSocialNetworkComponent onSuccess={::this.loginSuccessfully} onError={::this.loginFailure} />
-
                         </div>
-                    </PanelBody>
-                </Panel>
-            </PanelContainer>
+
+                      </form>
+
+                    </div>
+
+
+
+                  </div>
+
+            </div>
+
         );
     }
 }

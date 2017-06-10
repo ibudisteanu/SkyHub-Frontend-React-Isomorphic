@@ -8,7 +8,7 @@ import * as io from 'socket.io-client';
 
 import { Observable, Subscribable } from 'rxjs/Observable';
 
-import {CookiesService} from '../../cookies/cookies.service';
+import {CookiesService} from '../../Cookies/cookies.service';
 import * as SocketStatusActions from '../../../../my-redux/actions/SocketStatus.actions';
 
 class SocketServiceClass {
@@ -27,11 +27,8 @@ class SocketServiceClass {
 
     }
 
-    setDispatch(dispatch){
+    startService(dispatch){
       this.dispatch = dispatch;
-    }
-
-    startService(){
       this.createClientSocketDocumentReady();
     }
 

@@ -3,33 +3,29 @@
  * (C) BIT TECHNOLOGIES
  */
 
-import {CookiesService} from 'modules/services/cookies/cookies.service';
-import {SocketService} from 'modules/services/REST/socket/socket.service';
-
-import {User} from 'User.js';
+import {CookiesService} from './../../Cookies/cookies.service';
+import {User} from './../../../modules/users/models/User.model';
 
 
-import * as UserAuthenticatedActions from '../../../../my-redux/actions/UserAuthenticated.actions.js';
+import * as UserAuthenticatedActions from '../../../../my-redux/actions/UserAuthenticated.actions';
 
-let authServiceInstance = null;
-
-export class AuthService {
+export class AuthServiceClass {
 
     dispatch = null;
     SocketService = null;
 
-    constructor(dispatch) {
+    constructor() {
 
-        if (authServiceInstance === null){
+        console.log("      @@@ AUTH SERVICE CLASS");
 
-            this.SocketService = new SocketService(dispatch);
-            this.dispatch = dispatch;
-            this.loadCookieUserDocumentReady();
+    }
 
-            authServiceInstance = this;
-        }
+    startService(dispatch, SocketService){
 
-        return authServiceInstance;
+      this.dispatch = dispatch;
+      this.SocketService = SocketService;
+
+      this.loadCookieUserDocumentReady();
     }
 
     loadCookieUserDocumentReady (){
@@ -163,5 +159,17 @@ export class AuthService {
         CookiesService.deleteCookie("token");
         this.dispatch(UserAuthenticatedActions.logoutUserAuthenticated());
     }
+
+}
+
+
+var AuthService = new AuthServiceClass();
+
+export default {
+  AuthService: AuthService,
+
+  createNewInstance: function () {
+    AuthService = new AuthServiceClass();
+  }
 
 }

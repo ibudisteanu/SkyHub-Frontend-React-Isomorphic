@@ -5,7 +5,7 @@
 
 
 import { Observable, Subscribable } from 'rxjs/Observable';
-import {CookiesService} from 'modules/services/cookies/cookies.service';
+import {CookiesService} from 'modules/services/Cookies/Cookies.service';
 
 import axios from 'axios';
 
