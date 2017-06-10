@@ -36,17 +36,17 @@ module.exports = {
 
   // Authentication
   auth: {
-    jwt: { secret: process.env.JWT_SECRET || 'React Starter Kit' },
+    jwt: { secret: process.env.JWT_SECRET || 'SKYHUB_SECRET_44442222' },
 
     // https://developers.facebook.com/
     facebook: {
-      id: process.env.FACEBOOK_APP_ID || '186244551745631',
-      secret: process.env.FACEBOOK_APP_SECRET || 'a970ae3240ab4b9b8aae0f9f0661c6fc',
+      id: process.env.FACEBOOK_APP_ID || '622709767918813',
+      secret: process.env.FACEBOOK_APP_SECRET || 'f4fb647d60c8569d4048d0a1a3a50e89',
     },
 
     // https://cloud.google.com/console/project
     google: {
-      id: process.env.GOOGLE_CLIENT_ID || '251410730550-ahcg0ou5mgfhl8hlui1urru7jn5s12km.apps.googleusercontent.com',
+      id: process.env.GOOGLE_CLIENT_ID || '658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com',
       secret: process.env.GOOGLE_CLIENT_SECRET || 'Y8yR9yZAhm9jQ8FKAL8QIEcd',
     },
 

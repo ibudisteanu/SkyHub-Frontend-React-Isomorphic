@@ -27,7 +27,7 @@ export function extractIP(req){
 export function startLocalizationFetchingAsync() {
   return async (dispatch, getState) => {
 
-    console.log("startLocalizationFetchingAsync ",getState());
+    //console.log("startLocalizationFetchingAsync ",getState());
 
     if (getState().localization.request.sent ){
       dispatch({

@@ -5,67 +5,37 @@
 
 import React from 'react';
 import {connect} from "react-redux";
-import { Link, withRouter } from 'react-router';
-
-import axios from 'axios';
-
-import {getPath} from 'common/common-functions';
-import { AuthService } from 'modules/services/REST/authentication/auth.service';
 
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 
-import {
-    Icon,
-    Grid,
-    Button,
-    Modal,
-} from '@sketchpixy/rubix';
+import ModalComponent from '../../../../../client/components/util-components/modals/Modal.component';
 
-
-@connect(
-    state => ({
-        userAuthenticated : state.userAuthenticated,
-    }),
-    dispatch => ({dispatch}),
-)
 export class OauthSocialNetworkComponent extends React.Component {
 
     constructor(props){
         super(props);
 
-        this.AuthService = new AuthService(props.dispatch);
-
-        this.state = {
-
-            city : '',
-            country : '',
-            countryCode : '',
-            ip: '',
-
-            latitude : 0, longitude : 0,
-        }
-
     }
+
+    SocketService = null;
+    AuthService = null;
+
+    modalRef = null;
 
     componentDidMount() {
 
-        axios.get("http://freegeoip.net/json/") .then(res => {
+        requestAnimationFrame(() => { //Make sure it is on client only
 
-            res = res.data;
+          this.SocketService = require('./../../../../services/Communication/socket/socket.service').default.SocketService;
+          this.AuthService = require('./../../../../services/REST/authentication/auth.service').default.AuthService;
 
-            this.setState({
-                country: res.country_name,
-                countryCode : res.country_code,
-                city : res.city,
-                latitude : res.latitude,
-                longitude : res.longitude,
-                ip : res.ip,
-            });
+          //console.log("#################### REGISTER ",this.AuthService);
 
-            console.log(res);
         });
+
     }
+
 
     responseFacebook(response) {
 
@@ -118,7 +88,7 @@ export class OauthSocialNetworkComponent extends React.Component {
 
 
             this.AuthService.registerOAuthAsync('facebook',sFacebookId,  sAccessToken, sEmail, sFirstName, sLastName, sProfilePic, sCoverImage,
-                    this.state.countryCode, sLanguage, this.state.city, this.state.latitude, this.state.longitude, sShortBio, iAge, sGender, iTimeZone, bVerified)
+                    this.props.localization.countryCode, sLanguage, this.props.localization.city, this.state.latitude, this.state.longitude, sShortBio, iAge, sGender, iTimeZone, bVerified)
 
                 .then( (res) => {
 
@@ -142,7 +112,8 @@ export class OauthSocialNetworkComponent extends React.Component {
     }
 
     errorRegisteringFacebook (response){
-        vex.dialog.alert('Error registering with Facebook');
+        //vex.dialog.alert('Error registering with Facebook');
+        this.modalRef.showModal();
         this.registrationFailure(response);
     }
 
@@ -151,7 +122,7 @@ export class OauthSocialNetworkComponent extends React.Component {
     }
 
     responseFailureGoogle (response){
-        vex.dialog.alert('Error registering with Google');
+        //vex.dialog.alert('Error registering with Google');
     }
 
     registrationSuccessfully(response){
@@ -169,47 +140,74 @@ export class OauthSocialNetworkComponent extends React.Component {
     render() {
 
         return (
-                <div className='bg-hoverblue fg-black50 text-center' style={{padding: 10}}>
+                <div className='text-center' style={{padding: 10}}>
+
+                    <ModalComponent ref={(c) => this.modalRef = c} />
+
+
                     <strong>SIGN UP with</strong>
-                    <Grid>
-                        <div style={{marginTop: 12.5, marginBottom: 12.5}}>
+                    <div>
+                        <div style={{marginTop: 12.5, marginBottom: 12.5, display: "inline-flex"}}>
 
-                            <Grid>
+                            <div style={{marginRight:20}}>
+
+                              <FacebookLogin
+                                appId="622709767918813"
+                                autoLoad={false}
+                                fields="id,name,email,picture,cover,first_name,last_name,age_range,link,gender,locale,timezone,updated_time,verified"
+                                scope="public_profile,user_friends,user_about_me"
+                                icon="fa fa-facebook"
+                                textButton=""
+                                callback={::this.responseFacebook}
+                                cssClass="btn btn-social-icon btn-facebook btn-lg"
+                              />
+
+                            </div>
+
+                            <div style={{marginRight:20}}>
+
+                              <GoogleLogin
+                                clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                                buttonText=""
+                                autoLoad={false}
+                                className="btn btn-social-icon btn-google btn-lg"
+                                onSuccess={::this.responseSuccessGoogle}
+                                //onFailure={::this.responseFailureGoogle }
+                                fetchBasicProfile
+                              >
+                                <i className="fa fa-google-plus" />
+                              </GoogleLogin>
+
+                            </div>
 
 
-                                <FacebookLogin
-                                    appId="622709767918813"
-                                    autoLoad={false}
-                                    fields="id,name,email,picture,cover,first_name,last_name,age_range,link,gender,locale,timezone,updated_time,verified"
-                                    scope="public_profile,user_friends,user_about_me"
-                                    icon="icon-fontello-facebook"
-                                    textButton=""
-                                    callback={::this.responseFacebook}
-                                    cssClass="btn-darkblue btn-lg btn-default btn-social-network"
-                                />
+                            <a className="btn btn-social-icon btn-twitter " style={{"marginRight":20}}>
+                              <span className="fa fa-twitter"></span>
+                            </a>
 
-                                <GoogleLogin
-                                    clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-                                    buttonText=""
-                                    autoLoad={false}
-                                    className="btn-danger btn-lg btn-default btn-social-network"
-                                    onSuccess={::this.responseSuccessGoogle}
-                                    //onFailure={::this.responseFailureGoogle }
-                                    fetchBasicProfile
-                                >
-                                    <Icon glyph='icon-fontello-google' />
-                                </GoogleLogin>
 
-                                <Button id='twitter-btn' bsStyle='blue' type='submit'>
-                                    <Icon glyph='icon-fontello-twitter' />
-                                </Button>
-
-                            </Grid>
 
                         </div>
-                    </Grid>
+                    </div>
 
                 </div>
         );
     }
 }
+
+
+function mapState (state){
+  return {
+    authenticate: state.authenticate,
+    localization: state.localization,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+
+export default connect(mapState, mapDispatch)(OauthSocialNetworkComponent);

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import Link from '../../../../components/Link/Link';
 
-//import {OauthSocialNetworkComponent} from '../oauth-social-networks-form/oauth.social.networks.component';
+import {OauthSocialNetworkComponent} from '../oauth-social-networks-form/oauth.social.networks.component';
 
 export default class LoginForm extends React.Component {
 
@@ -28,6 +28,8 @@ export default class LoginForm extends React.Component {
         this.SocketService = require('./../../../../services/Communication/socket/socket.service').default.SocketService;
         this.AuthService = require('./../../../../services/REST/authentication/auth.service').default.AuthService;
 
+        //console.log("#################### LOGIN ",this.AuthService);
+
       });
     }
 
@@ -48,7 +50,7 @@ export default class LoginForm extends React.Component {
 
         this.AuthService.loginAsync(this.state.userEmail, this.state.password).then( (res) =>{
 
-            var userEmailValidationStatus = [null, ''], passwordValidationStatus = [null,''];
+            let userEmailValidationStatus = [null, ''], passwordValidationStatus = [null,''];
 
             if (res.result === "true") {
                 this.loginSuccessfully(res);
@@ -129,7 +131,7 @@ export default class LoginForm extends React.Component {
 
                       <form onSubmit={::this.handleCheckLogin}>
 
-                        <label for="inputEmail">Username or Email</label>
+                        <label >Username or Email</label>
                         <div className={"input-group " + this.showInputStatus(this.state.userEmailValidationStatus)}  >
 
                           <span className="input-group-addon"><i className="fa fa-user"></i></span>
@@ -138,12 +140,10 @@ export default class LoginForm extends React.Component {
 
                           <span className={::this.showInputFeedback(this.state.userEmailValidationStatus)}></span>
                         </div>
+                        <label className="error" >{this.state.userEmailValidationStatus[1]}</label> <br />
 
 
-
-                        <label className="error" for="">{this.state.userEmailValidationStatus[1]}</label> <br />
-
-                        <label for="inputEmail">Password</label>
+                        <label >Password</label>
                         <div className={"input-group " + this.showInputStatus(this.state.passwordValidationStatus)}  >
 
                           <span className="input-group-addon"><i className="fa fa-key"></i></span>
@@ -152,7 +152,7 @@ export default class LoginForm extends React.Component {
 
                           <span className={::this.showInputFeedback(this.state.passwordValidationStatus)}></span>
                         </div>
-                        <label className="error" for="">{this.state.passwordValidationStatus[1]}</label>
+                        <label className="error" >{this.state.passwordValidationStatus[1]}</label>
 
 
 
@@ -175,7 +175,7 @@ export default class LoginForm extends React.Component {
 
                     </div>
 
-
+                    <OauthSocialNetworkComponent onSuccess={::this.loginSuccessfully} onError={::this.loginFailure} />
 
                   </div>
 

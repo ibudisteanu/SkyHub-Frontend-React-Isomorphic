@@ -11,6 +11,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider as ReduxProvider } from 'react-redux';
 
+import {startLocalizationFetchingAsync} from './../my-redux/actions/Localization.actions';
+
 import {connect} from 'react-redux';
 
 const ContextType = {
@@ -76,11 +78,15 @@ class App extends React.PureComponent {
 
     console.log("APP",this.props);
 
-    var SocketServiceFile = require('./services/Communication/socket/socket.service').default;
+    //Async Localization in case I don't have anything there
+    this.props.context.store.dispatch(startLocalizationFetchingAsync());
 
+    //Creating the Socket Service
+    var SocketServiceFile = require('./services/Communication/socket/socket.service').default;
     var SocketService = SocketServiceFile.SocketService;
     SocketService.startService(this.props.context.store.dispatch);
 
+    //Creating the Socket Service
     var AuthServiceFile = require ('./services/REST/authentication/auth.service').default;
     var AuthService = AuthServiceFile.AuthService;
     AuthService.startService(this.props.context.store.dispatch, SocketService);

@@ -14,9 +14,9 @@ import Select from 'react-select';
 
 import MyCountrySelect from './../../../../components/util-components/select/MyCountrySelect';
 
-//import {OauthSocialNetworkComponent} from '../oauth-social-networks-form/oauth.social.networks.component';
+import {OauthSocialNetworkComponent} from '../oauth-social-networks-form/oauth.social.networks.component';
 
-export default class RegistrationForm extends React.Component {
+export class RegistrationForm extends React.Component {
 
     constructor(props){
         super(props);
@@ -53,6 +53,8 @@ export default class RegistrationForm extends React.Component {
       this.SocketService = require('./../../../../services/Communication/socket/socket.service').default.SocketService;
       this.AuthService = require('./../../../../services/REST/authentication/auth.service').default.AuthService;
 
+      //console.log("#################### REGISTER ",this.AuthService);
+
     });
   }
 
@@ -68,10 +70,10 @@ export default class RegistrationForm extends React.Component {
 
         console.log(this.state.userName, this.state.emailAddress, this.state.firstName, this.state.lastName, this.state.password, this.state.retypePassword, this.state.latitude, this.state.longitude, this.state.city, this.state.country, this.state.ip);
 
-        var userNameValidationStatus = [null, ''],  emailAddressValidationStatus = [null, ''],  firstNameValidationStatus = [null, ''], lastNameValidationStatus = [null, ''], passwordValidationStatus = [null,  ''],
+        let userNameValidationStatus = [null, ''],  emailAddressValidationStatus = [null, ''],  firstNameValidationStatus = [null, ''], lastNameValidationStatus = [null, ''], passwordValidationStatus = [null,  ''],
             retypePasswordValidationStatus = [null,  ''], countryValidationStatus = [null,  ''],  cityValidationStatus = [null,  ''];
 
-        var bValidationError = false;
+        let bValidationError = false;
 
         if (this.state.password.length < 4){
             passwordValidationStatus = ["error","To weak. At least 4 characters"];
@@ -90,9 +92,16 @@ export default class RegistrationForm extends React.Component {
             countryValidationStatus : countryValidationStatus, cityValidationStatus : cityValidationStatus,
         });
 
+        console.log(bValidationError);
+
+        let sCountryCode = this.state.countryCode;
+        if (sCountryCode === '') sCountryCode = this.props.localization.countryCode;
+
+        let sCity = this.state.city
+        if (sCity === '') sCity = this.props.localization.city;
 
         if (!bValidationError)
-        this.AuthService.registerAsync(this.state.userName, this.state.emailAddress, this.state.password, this.state.firstName, this.state.lastName, this.state.countryCode, '', this.state.city, this.state.latitude, this.state.longitude, this.state.timeZone)
+        this.AuthService.registerAsync(this.state.userName, this.state.emailAddress, this.state.password, this.state.firstName, this.state.lastName, sCountryCode, '', sCity, this.state.latitude, this.state.longitude, this.state.timeZone)
 
             .then( (res) =>{
 
@@ -115,14 +124,6 @@ export default class RegistrationForm extends React.Component {
             }
 
         });
-
-    }
-
-    componentDidMount() {
-
-      requestAnimationFrame(() => { //Make sure it is on client only
-
-      });
 
     }
 
@@ -246,6 +247,7 @@ export default class RegistrationForm extends React.Component {
 
                                     <span className={::this.showInputFeedback(this.state.userNameValidationStatus)}></span>
                                   </div>
+                                  <label className="error" >{this.state.userNameValidationStatus[1]}</label> <br />
                                 </div>
 
                                 <div className="col-xs-6">
@@ -257,6 +259,7 @@ export default class RegistrationForm extends React.Component {
 
                                     <span className={::this.showInputFeedback(this.state.emailAddressValidationStatus)}></span>
                                   </div>
+                                  <label className="error" >{this.state.emailAddressValidationStatus[1]}</label> <br />
                                 </div>
 
                               </div>
@@ -272,6 +275,7 @@ export default class RegistrationForm extends React.Component {
 
                                     <span className={::this.showInputFeedback(this.state.firstNameValidationStatus)}></span>
                                   </div>
+                                  <label className="error" >{this.state.firstNameValidationStatus[1]}</label> <br />
                                 </div>
 
                                 <div className="col-xs-6">
@@ -283,6 +287,7 @@ export default class RegistrationForm extends React.Component {
 
                                     <span className={::this.showInputFeedback(this.state.lastNameValidationStatus)}></span>
                                   </div>
+                                  <label className="error" >{this.state.lastNameValidationStatus[1]}</label> <br />
                                 </div>
 
                               </div>
@@ -294,10 +299,11 @@ export default class RegistrationForm extends React.Component {
 
                                     <span className="input-group-addon"><i className="fa fa-key"></i></span>
 
-                                    <input autoFocus type='text' className='form-control input-lg' placeholder='password'  value={this.state.password} onChange={::this.handlePasswordChange} />
+                                    <input autoFocus type='password' className='form-control input-lg' placeholder='password'  value={this.state.password} onChange={::this.handlePasswordChange} />
 
                                     <span className={::this.showInputFeedback(this.state.passwordValidationStatus)}></span>
                                   </div>
+                                  <label className="error" >{this.state.passwordValidationStatus[1]}</label> <br />
                                 </div>
 
                                 <div className="col-xs-6">
@@ -305,39 +311,42 @@ export default class RegistrationForm extends React.Component {
 
                                     <span className="input-group-addon"><i className="fa fa-key"></i></span>
 
-                                    <input autoFocus type='text' className='form-control input-lg' placeholder='password'  value={this.state.retypePassword} onChange={::this.handleRetypePasswordChange} />
+                                    <input autoFocus type='password' className='form-control input-lg' placeholder='password'  value={this.state.retypePassword} onChange={::this.handleRetypePasswordChange} />
 
                                     <span className={::this.showInputFeedback(this.state.retypePasswordValidationStatus)}></span>
                                   </div>
+                                  <label className="error" >{this.state.retypePasswordValidationStatus[1]}</label> <br />
                                 </div>
 
                               </div>
 
-                              <div className="row" style={{paddingBottom: 20}}>
+                            <div className="row" style={{paddingBottom: 20}}>
 
-                                <div className="col-xs-6">
-                                  <div className={"input-group " + this.showInputStatus(this.state.countryValidationStatus)}  >
+                              <div className="col-xs-6">
+                                <div className={"input-group " + this.showInputStatus(this.state.countryValidationStatus)}  >
 
-                                    <span className="input-group-addon"><i className="fa fa-flag"></i></span>
+                                  <span className="input-group-addon"><i className="fa fa-flag"></i></span>
 
-                                    <MyCountrySelect initialCountry="bg" onSelect={::this.handleCountrySelect}/>
+                                  <MyCountrySelect initialCountry={this.props.localization.countryCode||''} onSelect={::this.handleCountrySelect}/>
 
-                                    <span className={::this.showInputFeedback(this.state.countryValidationStatus)}></span>
-                                  </div>
+                                  <span className={::this.showInputFeedback(this.state.countryValidationStatus)}></span>
                                 </div>
-
-                                <div className="col-xs-6" style={{paddingBottom: 20}}>
-                                  <div className={"input-group " + this.showInputStatus(this.state.cityValidationStatus)}  >
-
-                                    <span className="input-group-addon"><i className="fa fa-institution"></i></span>
-
-                                    <input autoFocus type='text' className='form-control input-lg' placeholder='city'  value={this.state.retypePassword} onChange={::this.handleCityChange} />
-
-                                    <span className={::this.showInputFeedback(this.state.cityValidationStatus)}></span>
-                                  </div>
-                                </div>
-
+                                <label className="error" >{this.state.countryValidationStatus[1]}</label> <br />
                               </div>
+
+                              <div className="col-xs-6" style={{paddingBottom: 20}}>
+                                <div className={"input-group " + this.showInputStatus(this.state.cityValidationStatus)}  >
+
+                                  <span className="input-group-addon"><i className="fa fa-institution"></i></span>
+
+                                  <input autoFocus type='text' className='form-control input-lg' placeholder='city'  value={this.props.localization.city||this.state.city} onChange={::this.handleCityChange} />
+
+                                  <span className={::this.showInputFeedback(this.state.cityValidationStatus)}></span>
+                                </div>
+                                <label className="error" >{this.state.cityValidationStatus[1]}</label> <br />
+                              </div>
+
+                            </div>
 
 
                               <div className="form-group" >
@@ -359,9 +368,26 @@ export default class RegistrationForm extends React.Component {
                           </form>
                       </div>
 
+                      <OauthSocialNetworkComponent onSuccess={::this.registrationSuccessfully} onError={::this.registrationFailure} />
+
                   </div>
 
             </div>
         );
     }
 }
+
+function mapState (state){
+  return {
+    localization: state.localization,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+
+export default connect(mapState, mapDispatch)(RegistrationForm);

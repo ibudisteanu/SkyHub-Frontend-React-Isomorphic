@@ -11,7 +11,7 @@ import React from 'react';
 import Layout from '../../client/components/Template/Layout';
 
 //import Register from './Register';
-import Register from './../../client/modules/users/authentication/registration/registration.form';
+import RegistrationPage from './../../client/modules/users/authentication/registration/registration.page';
 
 const title = 'New User Registration';
 
@@ -24,9 +24,11 @@ export default {
       title,
       component:
         <Layout>
-          <Register title={title} />
+          <RegistrationPage title={title} />
         </Layout>,
     };
   },
+
+
 
 };

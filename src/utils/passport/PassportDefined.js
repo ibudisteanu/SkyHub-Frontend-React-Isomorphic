@@ -18,7 +18,8 @@ export function initializePassport(app){
     credentialsRequired: false,
     getToken: req => req.cookies.id_token,
   }));
-// Error handler for express-jwt
+
+  // Error handler for express-jwt
   app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     if (err instanceof Jwt401Error) {
       console.error('[express-jwt-error]', req.cookies.id_token);
@@ -33,9 +34,11 @@ export function initializePassport(app){
   if (__DEV__) {
     app.enable('trust proxy');
   }
+
   app.get('/login/facebook',
     passport.authenticate('facebook', { scope: ['email', 'user_location'], session: false }),
   );
+
   app.get('/login/facebook/return',
     passport.authenticate('facebook', { failureRedirect: '/login', session: false }),
     (req, res) => {

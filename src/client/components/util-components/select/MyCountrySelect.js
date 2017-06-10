@@ -96,9 +96,9 @@ const MyCountrySelect = createClass({
     initialCountry: PropTypes.string,
     onSelect: PropTypes.func,
   },
-  getInitialState () {
 
-    return {value: this.props.initialCountry||"ro"};
+  getInitialState () {
+    return {value: ""};
   },
   setValue (value) {
     this.setState({ value });
@@ -107,7 +107,7 @@ const MyCountrySelect = createClass({
       this.props.onSelect(value);
   },
   render () {
-    var placeholder = <span>&#9786; Select User</span>;
+    var placeholder = <span>Select Country</span>;
 
     return (
       <Select
@@ -117,7 +117,7 @@ const MyCountrySelect = createClass({
         options={FLAGS}
         clearable ={false}
         placeholder={placeholder}
-        value={this.state.value}
+        value={(this.state.value==='' ? this.props.initialCountry.toLowerCase() : this.state.value)}
         valueComponent={FlagValue}
       />
     );

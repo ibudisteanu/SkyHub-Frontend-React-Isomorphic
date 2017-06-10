@@ -4,21 +4,10 @@
  */
 
 import React from 'react';
-import classNames from 'classnames';
-import { Link, withRouter } from 'react-router';
 
-import {getPath} from 'common/common-functions';
+import RegistrationForm from "./registration.form";
 
-import {RegistrationForm} from "./registration.form";
-
-import {
-    Row,
-    Col,
-    Grid,
-} from '@sketchpixy/rubix';
-
-@withRouter
-export default class Signup extends React.Component {
+export default class RegistrationPage extends React.Component {
 
     back(e) {
         e.preventDefault(); e.stopPropagation();
@@ -35,19 +24,13 @@ export default class Signup extends React.Component {
 
     render() {
         return (
-            <div id='auth-container' className='login'  style={{marginTop: 75}}>
-                <div id='auth-row'>
-                    <div id='auth-cell'>
-                        <Grid>
-                            <Row>
-                                <Col sm={4} smOffset={4} xs={10} xsOffset={1} collapseLeft collapseRight>
-                                    <RegistrationForm ref={(c) => this.registrationForm = c}  onSuccess = {::this.back} />
-                                </Col>
-                            </Row>
-                        </Grid>
-                    </div>
-                </div>
-            </div>
+          <div id='auth-container' className='login' style={{marginTop: 75}}>
+
+              <div className="col-sm-7 col-sm-offset-3 col-xs-10 col-xs-offset-1" >
+                <RegistrationForm ref={(c) => this.loginForm = c} onSuccess = {::this.back}  />
+              </div>
+
+          </div>
         );
     }
 }

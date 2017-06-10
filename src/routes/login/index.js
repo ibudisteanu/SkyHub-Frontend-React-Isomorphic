@@ -11,7 +11,7 @@ import React from 'react';
 import Layout from '../../client/components/Template/Layout';
 
 //import Login from './Login';
-import Login from './../../client/modules/users/authentication/login/login.page';
+import LoginPage from './../../client/modules/users/authentication/login/login.page';
 
 const title = 'Log In';
 
@@ -24,7 +24,7 @@ export default {
       title,
       component:
         <Layout>
-          <Login title={title} />
+          <LoginPage title={title} />
         </Layout>,
     };
   },
