@@ -40,19 +40,12 @@ class Body extends React.Component {
   componentDidMount() {
     requestAnimationFrame(() => { //Make sure it is on client only
 
-      var SocketService = require('./../../../../services/Communication/socket/socket.service').default.SocketServicet;
-      this.SocketService = SocketService;
-      console.log("~~~~~~~~~BODY->SOCKETSERVICE",this);
+      this.SocketService = require('./../../../../services/Communication/socket/socket.service').default.SocketService;
+      console.log("~~~~~~~~~BODY->SOCKETSERVICE",this.SocketService,this);
 
     });
   }
 
-
-  componentDidMountClient(){
-
-
-
-  }
 
   render() {
     return (

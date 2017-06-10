@@ -37,17 +37,13 @@ class Layout extends React.Component {
 
     requestAnimationFrame(() => { //Make sure it is on client only
 
-      console.log("~~~~~~~~~LAYOUT->SOCKETSERVICE",this);
+      this.SocketService = require('./../../../services/Communication/socket/socket.service').default.SocketService;
+      console.log("~~~~~~~~~LAYOUT->SOCKETSERVICE",this.SocketService,this);
 
     });
 
   }
 
-  componentDidMountClient(){
-
-
-
-  }
 
   render() {
 
