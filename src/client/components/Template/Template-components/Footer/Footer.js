@@ -28,8 +28,12 @@ class Footer extends React.Component {
           <Link style={{marginLeft: 10}} to="/privacy">Privacy</Link>
 
           <Link style={{marginLeft: 10}} to="/not-found">Not Found</Link>
-        </div>
 
+          <Link style={{marginLeft: 10}} to="/about">About</Link>
+
+          <Link style={{marginLeft: 10}} to="/contact">Contact</Link>
+
+        </div>
 
         <div style={{textAlign:"center"}}>
           <strong>Copyright</strong> SkyHub 2016-2017 by <a href="http://bit-technologies.net/"> BIT TECHNOLOGIES </a>

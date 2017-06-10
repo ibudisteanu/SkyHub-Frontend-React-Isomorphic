@@ -40,13 +40,6 @@ export default function LocalizationReducer  ( state = defaultLocalization, acti
       return {
         ...state,
         ['request.sent']: action.payload.request.sent,
-        ['request.requestPromise']: action.payload.request.requestPromise,
-      }
-
-    case 'NEW_LOCALIZATION_REQUEST_SENT2':
-      return {
-        ...state,
-        ['request.sent']: action.payload.request.sent,
       }
 
     case 'NEW_LOCALIZATION':

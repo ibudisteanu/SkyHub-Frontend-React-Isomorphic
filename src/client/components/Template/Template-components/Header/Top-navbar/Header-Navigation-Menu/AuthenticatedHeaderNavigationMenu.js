@@ -15,19 +15,21 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
 
       <ul className="nav navbar-top-links navbar-right">
 
-        <li>
-          <span className="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
-        </li>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <span > | </span>
-        <Link to="/login">Log in</Link>
-        <span >or</span>
-        <Link  to="/register">Sign up</Link>
 
         <li>
-          <span className="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+          <Link to="/">
+            <i className="fa fa-home"></i>
+            <span className="m-r-sm text-muted welcome-message">Home</span>
+          </Link>
         </li>
+
+        <li>
+          <Link to="/">
+            <i className="fa fa-home"></i>
+            <span className="m-r-sm text-muted welcome-message">Profile</span>
+          </Link>
+        </li>
+
         <li className="dropdown">
           <a className="dropdown-toggle count-info" data-toggle="dropdown" href="#">
             <i className="fa fa-envelope"></i>  <span className="label label-warning">16</span>
@@ -130,6 +132,7 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
             <i className="fa fa-sign-out"></i> Log out
           </a>
         </li>
+        
         <li>
           <a className="right-sidebar-toggle">
             <i className="fa fa-tasks"></i>

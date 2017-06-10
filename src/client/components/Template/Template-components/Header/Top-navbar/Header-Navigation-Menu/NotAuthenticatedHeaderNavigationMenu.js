@@ -16,7 +16,7 @@ class NotAuthenticatedHeaderNavigationMenu extends React.Component {
       <ul className="nav navbar-top-links navbar-right">
 
         <li>
-          <Link to="/login">
+          <Link to="/">
             <i className="fa fa-home"></i>
             <span className="m-r-sm text-muted welcome-message">Home</span>
           </Link>
@@ -33,18 +33,6 @@ class NotAuthenticatedHeaderNavigationMenu extends React.Component {
           <Link to="/login">
             <i className="fa fa-user-plus"></i>
             <span className="m-r-sm text-muted welcome-message">Register</span>
-          </Link>
-        </li>
-
-        <li>
-          <Link to="/about">
-            <span className="m-r-sm text-muted welcome-message">About</span>
-          </Link>
-        </li>
-
-        <li>
-          <Link to="/contact">
-            <span className="m-r-sm text-muted welcome-message">Contact</span>
           </Link>
         </li>
 

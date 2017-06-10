@@ -27,6 +27,8 @@ export function extractIP(req){
 export function startLocalizationFetchingAsync() {
   return async (dispatch, getState) => {
 
+    console.log("startLocalizationFetchingAsync ",getState());
+
     if (getState().localization.request.sent ){
       dispatch({
         type: "LOCALIZATION_SKIPPED",
@@ -43,7 +45,7 @@ export function startLocalizationFetchingAsync() {
     };
 
     dispatch({
-      type: "NEW_LOCALIZATION_REQUEST_SENT2",
+      type: "NEW_LOCALIZATION_REQUEST_SENT",
       payload: payload,
     });
 
@@ -61,7 +63,11 @@ export function startLocalizationFetchingAsync() {
           longitude : res.longitude||'',
           ip : res.ip||'',
           timeZone: res.time_zone||'',
-          localizationDone: true,
+          request: {
+            sent:true,
+            done:true,
+            error:false,
+          },
         };
 
         //console.log("IP STATUS",payload);
