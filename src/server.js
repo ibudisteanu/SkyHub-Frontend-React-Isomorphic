@@ -40,6 +40,9 @@ var app = express();
 let HTTPServiceFile = require('./client/services/Communication/http/http.service');
 let HTTPService = HTTPServiceFile.default.HTTPService;
 
+let SocketWorkerFile = require('./utils/socket-worker/SocketWorker');
+let SocketWorker = SocketWorkerFile.default.SocketWorker;
+
 // let SocketClientFile = require('./client/services/Communication/socket/socket.service');
 // let SocketClient = SocketClientFile.default.SocketService;
 // SocketClient.startService(null);
@@ -119,7 +122,7 @@ app.get('*', async (req, res, next) => {
     //checking the cookie user
     if (req.headers.cookie){
       let cookieAnswer = await HTTPService.checkAuthCookie(req.headers.cookie);
-      cookieAnswer = cookieAnswer.data;
+      cookieAnswer = cookieAnswer.res.data;
 
       console.log("COOOKIE ANSWER", cookieAnswer);
 
