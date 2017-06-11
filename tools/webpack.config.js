@@ -17,6 +17,7 @@ const isDebug = !process.argv.includes('--release');
 const isVerbose = process.argv.includes('--verbose');
 const isAnalyze = process.argv.includes('--analyze') || process.argv.includes('--analyse');
 
+var path = require ('path');
 //
 // Common configuration chunk to be used for both
 // client-side (client.js) and server-side (server.js) bundles
@@ -24,6 +25,12 @@ const isAnalyze = process.argv.includes('--analyze') || process.argv.includes('-
 
 const config = {
   context: path.resolve(__dirname, '..'),
+
+  // resolve:{
+  //   alias:{
+  //     skyhub: path.resolve( __dirname, 'path', 'to', 'src' )
+  //   },
+  // },
 
   output: {
     path: path.resolve(__dirname, '../build/public/assets'),

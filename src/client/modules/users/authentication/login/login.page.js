@@ -26,7 +26,24 @@ export default class LoginPage extends React.Component {
             <div id='auth-container' className='login' style={{marginTop: 75}}>
 
                 <div className="col-sm-7 col-sm-offset-3 col-xs-10 col-xs-offset-1" >
-                    <LoginForm ref={(c) => this.loginForm = c} onSuccess = {::this.back}  />
+
+                  <div className="panel panel-success">
+
+                    <div className="panel-heading">
+
+                      <h2><strong>Login to </strong>SkyHub</h2>
+
+                    </div>
+
+                    <div className="panel-body">
+
+                      <LoginForm ref={(c) => this.loginForm = c} onSuccess = {::this.back}  />
+
+                    </div>
+
+                  </div>
+
+
                 </div>
 
             </div>

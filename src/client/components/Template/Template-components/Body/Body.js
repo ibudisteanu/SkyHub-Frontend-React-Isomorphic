@@ -27,24 +27,38 @@ import Chat from './Chat/Chat';
 import ChatButton from './Chat/ChatButton';
 
 
+import AuthenticationModal from '../../../../modules/users/authentication/modals/Authentication.modal';
+
 class Body extends React.Component {
 
   static propTypes = {
+    children: PropTypes.node.isRequired,
 
+    SocketService: PropTypes.object,
   };
 
+  static childContextTypes = {
+    refAuthenticationModal: PropTypes.any,
+  };
+
+  getChildContext() {
+    return {
+      refAuthenticationModal: this.refAuthenticationModal,
+    }
+  };
 
   componentDidMount() {
     requestAnimationFrame(() => { //Make sure it is on client only
 
-      this.SocketService = require('./../../../../services/Communication/socket/socket.service').default.SocketService;
-      console.log("~~~~~~~~~BODY->SOCKETSERVICE",this.SocketService,this);
+
 
     });
   }
 
+  refAuthenticationModal = null;
 
   render() {
+    //console.log("XXXXXXXXXXXXXXXXXXXXXXXXXX BODYY", this);
     return (
       <div className={baseStyle.root}>
 
@@ -56,6 +70,9 @@ class Body extends React.Component {
 
           <Content>
             {this.props.children}
+
+            <AuthenticationModal ref={(c) => this.refAuthenticationModal = c}  />
+
           </Content>
 
 

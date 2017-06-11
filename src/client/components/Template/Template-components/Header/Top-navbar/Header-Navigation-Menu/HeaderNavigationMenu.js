@@ -1,13 +1,22 @@
 
 
 import React from 'react';
-import Link from '../../../../../Link/Link';
-import {connect} from 'react-redux';
+
+import PropTypes from 'prop-types';
 
 import AuthenticatedHeaderNavigationMenu from './AuthenticatedHeaderNavigationMenu';
 import NotAuthenticatedHeaderNavigationMenu from './NotAuthenticatedHeaderNavigationMenu';
 
-class NavigationMenu extends React.Component {
+class HeaderNavigationMenu extends React.Component {
+
+  constructor(props){
+    super(props);
+  }
+
+  static contextTypes = {
+    refAuthenticationModal: PropTypes.any,
+    userAuthenticated: PropTypes.object,
+  };
 
   renderNavigationAuthenticated(){
 
@@ -27,16 +36,17 @@ class NavigationMenu extends React.Component {
 
   render() {
 
-    return (
+    console.log("###### HEADER NAVIGATION",this);
 
-      <div>
+    if ((typeof this.context.userAuthenticated !== "undefined")&&(this.context.userAuthenticated.user !== null)) {
 
-        { this.props.userAuthenticated.user.isLoggedIn() ? ::this.renderNavigationAuthenticated() : ::this.renderNavigationNotAuthenticated() }
+      if (this.context.userAuthenticated.user.isLoggedIn()) return ::this.renderNavigationAuthenticated();
 
-      </div>
+    }
+
+    return ::this.renderNavigationNotAuthenticated();
 
 
-    );
   }
 }
 
@@ -53,4 +63,5 @@ function mapDispatch (dispatch) {
 };
 
 
-export default connect(mapState, mapDispatch)(NavigationMenu);
+export default (HeaderNavigationMenu);
+

@@ -221,16 +221,7 @@ export class RegistrationForm extends React.Component {
         var onSwitch = this.props.onSwitch || function (){};
 
         return (
-            <div className="panel panel-warning">
-
-                  <div className="panel-heading">
-
-                    <h2><strong>Register </strong>SkyHub</h2>
-
-                  </div>
-
-
-                  <div className="panel-body">
+              <div>
 
                       <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 25}}>
 
@@ -370,9 +361,8 @@ export class RegistrationForm extends React.Component {
 
                       <OauthSocialNetworkComponent onSuccess={::this.registrationSuccessfully} onError={::this.registrationFailure} />
 
-                  </div>
+              </div>
 
-            </div>
         );
     }
 }

@@ -7,11 +7,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class LeftSidebar extends React.Component {
-  static propTypes = {
 
+  static contextTypes = {
+    refAuthenticationModal: PropTypes.any,
   };
 
   render() {
+
+    console.log("#################### LEFT SIDEBAR ",this);
+
     return (
       <nav className="navbar-default navbar-static-side" role="navigation">
         <div className="sidebar-collapse">

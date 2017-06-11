@@ -13,15 +13,18 @@
  * https://github.com/membership/membership.db/tree/master/postgres
  */
 
-import passport from 'src/utils/passport/passport';
-import { Strategy as FacebookStrategy } from 'passport-facebook';
+import passport from 'src/utils/passport/Passport';
 import { User, UserLogin, UserClaim, UserProfile } from '../../data/models/index';
 import config from '../../config';
+
+import { Strategy as FacebookStrategy } from 'passport-facebook';
+import { Strategy as LocalStrategy } from 'passport-local';
 
 /**
  * Sign in with Facebook.
  */
-passport.use(new FacebookStrategy({
+passport.use(
+  new FacebookStrategy({
   clientID: config.auth.facebook.id,
   clientSecret: config.auth.facebook.secret,
   callbackURL: '/login/facebook/return',
@@ -123,5 +126,16 @@ passport.use(new FacebookStrategy({
 
   fooBar().catch(done);
 }));
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (!user.verifyPassword(password)) { return done(null, false); }
+      return done(null, user);
+    });
+  }
+));
 
 export default passport;

@@ -7,9 +7,36 @@
 
 import React from 'react';
 import Link from '../../../../../Link/Link';
+import ReactDOM from 'react-dom';
+
+import PropTypes from 'prop-types';
 
 class NotAuthenticatedHeaderNavigationMenu extends React.Component {
+
+  static contextTypes = {
+    refAuthenticationModal: PropTypes.any,
+  };
+
+  handleSignIn(e){
+    e.preventDefault(); e.stopPropagation();
+    console.log("SIGN IN");
+
+
+    this.context.refAuthenticationModal.openLogin();
+  }
+
+  handleRegister(e){
+    e.preventDefault(); e.stopPropagation();
+
+    console.log("REGISTER");
+    this.context.refAuthenticationModal.openRegistration();
+  }
+
+
   render() {
+
+    console.log("######## NOT AUTHENTICATED HEADER", this);
+
     return (
 
 
@@ -22,15 +49,17 @@ class NotAuthenticatedHeaderNavigationMenu extends React.Component {
           </Link>
         </li>
 
+
+
         <li>
-          <Link to="/login">
+          <Link to="/login" onClick={::this.handleSignIn}>
             <i className="fa fa-sign-in"></i>
             <span className="m-r-sm text-muted welcome-message">Log in</span>
           </Link>
         </li>
 
         <li>
-          <Link to="/register">
+          <Link to="/register" onClick={::this.handleRegister}>
             <i className="fa fa-user-plus"></i>
             <span className="m-r-sm text-muted welcome-message">Register</span>
           </Link>

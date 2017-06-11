@@ -9,11 +9,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 // external-global styles must be imported in your JS.
-import normalizeCss from 'normalize.css';
-import localCSS from './Layout.css';
+
 import Body from '../Template-components/Body';
 import Feedback from '../../Feedback/Feedback';
 
@@ -27,6 +25,22 @@ class Layout extends React.Component {
     children: PropTypes.node.isRequired,
   };
 
+  static contextTypes = {
+    SocketService : PropTypes.object,
+    AuthService : PropTypes.object,
+  };
+
+  static childContextTypes = {
+    userAuthenticated: PropTypes.any,
+  };
+
+
+  getChildContext() {
+    return {
+      userAuthenticated: this.props.userAuthenticated,
+    }
+  };
+
   constructor(props){
 
     super(props);
@@ -37,8 +51,7 @@ class Layout extends React.Component {
 
     requestAnimationFrame(() => { //Make sure it is on client only
 
-      this.SocketService = require('./../../../services/Communication/socket/socket.service').default.SocketService;
-      console.log("~~~~~~~~~LAYOUT->SOCKETSERVICE",this.SocketService,this);
+
 
     });
 
@@ -46,6 +59,8 @@ class Layout extends React.Component {
 
 
   render() {
+
+    console.log("################### Layout",this);
 
 
     return (
@@ -74,6 +89,7 @@ class Layout extends React.Component {
 function mapState (state){
   return {
     localization: state.localization,
+    userAuthenticated: state.userAuthenticated,
   }
 };
 

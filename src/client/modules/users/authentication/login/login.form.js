@@ -117,15 +117,8 @@ export default class LoginForm extends React.Component {
         var onSwitch = this.props.onSwitch || function (){};
 
         return (
-            <div className="panel panel-success">
 
-                  <div className="panel-heading">
-
-                    <h2><strong>Login to </strong>SkyHub</h2>
-
-                  </div>
-
-                  <div className="panel-body">
+              <div>
 
                     <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 25}}>
 
@@ -177,9 +170,7 @@ export default class LoginForm extends React.Component {
 
                     <OauthSocialNetworkComponent onSuccess={::this.loginSuccessfully} onError={::this.loginFailure} />
 
-                  </div>
-
-            </div>
+              </div>
 
         );
     }

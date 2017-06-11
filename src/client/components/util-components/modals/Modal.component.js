@@ -7,7 +7,6 @@ import React from 'react';
 
 export default class ModalComponent extends React.Component {
 
-  modalId = 0;
   modalRef = null;
 
   constructor(props){
@@ -17,8 +16,27 @@ export default class ModalComponent extends React.Component {
 
     this.state=({
       isModalOpen: props.showModal||true,
+
+      title: 'TITLE',
+      subTitle: 'SUB TITLE',
+      body: 'BODY',
+      closable: true,
+      buttons: [ {className:'btn-white', closable: true, text: 'Close'}, {className: 'btn-primary', closable:false, text:'Save'}],
+      animation: "animated flipInY",
     })
 
+  }
+
+  showAlert(title, subTitle, body, buttons){
+    this.setState({
+      title: title,
+      subTitle: subTitle,
+      body: body,
+      closable: true,
+      buttons: buttons,
+      animation: "animated flipInY",
+    });
+    this.showModal();
   }
 
   showModal(){
@@ -31,38 +49,87 @@ export default class ModalComponent extends React.Component {
 
   hideModal(){
     $(this.modalRef).modal("hide");
+
     this.setState({
       isModalOpen: false,
     });
   }
 
   handleToggle(){
-    this.setState({
-      isModalOpen: !this.state.isModalOpen
-    });
+    if (this.state.isModalOpen === true) this.hideModal();
+    else  this.showModal();
+  }
+
+  renderButtons(buttons){
+    let output = [];
+
+    if (typeof buttons === "undefined" ) return '';
+
+    for (let i=0; i<buttons.length; i++) {
+      let button = buttons[i];
+      output.push(<button type="button" key={"modalButton"+i} className={"btn "+buttons[i].className||''} onClick={button.onClick||function(){}} data-dismiss={ (button.closable||false) === true ? "modal" : ''}> {button.text||''} </button>)
+    }
+
+    return (
+      <div className="modal-footer">
+        {output}
+      </div>
+    )
   }
 
   render(){
 
+    let body = this.props.body||this.state.body;
+    let children = this.props.children||null;
+
+    let title = this.props.title||this.state.title;
+    let subTitle = this.props.subTitle||this.state.subTitle;
+
+    let closable = this.props.closable || this.state.subTitle;
+
+    let buttons = this.props.buttons || this.state.buttons;
+
+    let animation = this.props.animation || this.state.animation;
 
     return (
-      <div className="modal inmodal in" id={"modal"+this.modalId} ref={(c) => this.modalRef = c}  role="dialog" aria-hidden="true"   >
+      <div className="modal inmodal in"  ref={(c) => this.modalRef = c}  role="dialog" aria-hidden="true"   >
         <div className="modal-dialog">
-          <div className="modal-content animated flipInY">
+          <div className={"modal-content " + (animation !== '' ? animation : '')}>
             <div className="modal-header">
-              <button type="button" className="close" data-dismiss="modal"><span aria-hidden="true">×</span><span className="sr-only">Close</span></button>
-              <h4 className="modal-title">Modal title</h4>
-              <small className="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+
+              { ( closable === true) ? (<button type="button" className="close" data-dismiss="modal"><span aria-hidden="true">×</span><span className="sr-only">Close</span></button>) : ''}
+
+              { (title !== '') ? (<h4 className="modal-title">{title}</h4>) : ''}
+
+              { (subTitle !== '') ? (<small className="font-bold">{subTitle}</small>) : ''}
+
             </div>
-            <div className="modal-body">
-              <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged.</p>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-white" data-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
-            </div>
+
+
+            {
+              (((body !== '') && (typeof body !== "undefined"))||(children !== null))
+              ?
+              (
+                <div className="modal-body">
+
+                  <p>{body}</p>
+
+                  {children}
+
+                </div>
+              )
+              :
+              ''
+            }
+
+            {
+              (buttons !== []) &&(buttons !== null) && (typeof buttons !== "undefined")
+              ?
+                ::this.renderButtons(buttons)
+              :
+              ''
+            }
+
           </div>
         </div>
       </div>

@@ -23,6 +23,9 @@ const ContextType = {
   fetch: PropTypes.func.isRequired,
   // Integrate Redux
   // http://redux.js.org/docs/basics/UsageWithReact.html
+  SocketService : PropTypes.object,
+  AuthService : PropTypes.object,
+
   ...ReduxProvider.childContextTypes,
 };
 
@@ -59,17 +62,25 @@ class App extends React.PureComponent {
 
   static childContextTypes = ContextType;
 
+  getChildContext() {
+    return {
+      ...this.props.context,
+      SocketService : this.SocketService,
+      AuthService : this.AuthService,
+    };
+  }
+
   constructor(props){
 
     super(props);
 
   }
 
-  getChildContext() {
-    return this.props.context;
-  }
+
 
   bInitialized = false;
+  AuthService = null;
+  SocketService = null;
 
   initializeClientApp(){
 
@@ -83,37 +94,14 @@ class App extends React.PureComponent {
 
     //Creating the Socket Service
     var SocketServiceFile = require('./services/Communication/socket/socket.service').default;
-    var SocketService = SocketServiceFile.SocketService;
-    SocketService.startService(this.props.context.store.dispatch);
+    this.SocketService = SocketServiceFile.SocketService;
+    this.SocketService .startService(this.props.context.store.dispatch);
 
     //Creating the Socket Service
     var AuthServiceFile = require ('./services/REST/authentication/auth.service').default;
-    var AuthService = AuthServiceFile.AuthService;
-    AuthService.startService(this.props.context.store.dispatch, SocketService);
+    this.AuthService = AuthServiceFile.AuthService;
+    this.AuthService.startService(this.props.context.store.dispatch, this.SocketService);
 
-    //this.props.context.SocketService = SocketService;
-
-/*    React.Children.map(this.props.children, (child, i) => {
-      // Ignore the first child
-
-      child.context.SocketService = SocketService;
-
-      if (i < 1) return
-      return child
-    });*/
-
-    // React.Children.forEach(this.props.children, function(thisArg){
-    //
-    //   //console.log(thisArg);
-    //   thisArg.props.SocketService = '555';
-    //
-    // });
-
-    // this.props.children.forEach( function(child){
-    //
-    //   child.componentDidMountClient();
-    //
-    // });
   }
 
   componentDidMount(){

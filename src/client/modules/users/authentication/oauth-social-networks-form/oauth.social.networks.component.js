@@ -9,6 +9,8 @@ import {connect} from "react-redux";
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 
+
+//import ModalComponent from 'skyhub/client/components/util-components/modals/Modal.component';
 import ModalComponent from '../../../../../client/components/util-components/modals/Modal.component';
 
 export class OauthSocialNetworkComponent extends React.Component {
@@ -112,8 +114,8 @@ export class OauthSocialNetworkComponent extends React.Component {
     }
 
     errorRegisteringFacebook (response){
-        //vex.dialog.alert('Error registering with Facebook');
-        this.modalRef.showModal();
+        this.modalRef.showAlert('Error registering with Facebook','',"Ops! It didn't work");
+
         this.registrationFailure(response);
     }
 
@@ -122,7 +124,7 @@ export class OauthSocialNetworkComponent extends React.Component {
     }
 
     responseFailureGoogle (response){
-        //vex.dialog.alert('Error registering with Google');
+      this.modalRef.showAlert('Error registering with Google','',"Ops! It didn't work");
     }
 
     registrationSuccessfully(response){
@@ -143,7 +145,6 @@ export class OauthSocialNetworkComponent extends React.Component {
                 <div className='text-center' style={{padding: 10}}>
 
                     <ModalComponent ref={(c) => this.modalRef = c} />
-
 
                     <strong>SIGN UP with</strong>
                     <div>

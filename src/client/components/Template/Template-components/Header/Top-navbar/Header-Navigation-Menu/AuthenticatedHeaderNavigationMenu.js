@@ -9,7 +9,11 @@ import React from 'react';
 import Link from '../../../../../Link/Link';
 
 class AuthenticatedHeaderNavigationMenu extends React.Component {
+
   render() {
+
+    console.log("######## AUTHENTICATED HEADER", this);
+
     return (
 
 

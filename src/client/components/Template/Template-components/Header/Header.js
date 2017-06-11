@@ -13,19 +13,30 @@ import SocketStatusBar from './Socket-status-bar/HeaderBarSocketStatus.component
 
 import Link from '../../../Link/Link';
 
-import logoUrl from './logo-small.png';
-import logoUrl2x from './logo-small@2x.png';
+import PropTypes from 'prop-types';
 
 import TopNavbar from './Top-navbar/TopNavbar';
 
 class Header extends React.Component {
+
+  static contextTypes = {
+    refAuthenticationModal: PropTypes.any,
+  };
+
+
   render() {
+
+    console.log("###### HEADER",this);
+
     return (
 
         <div className="row border-bottom">
+
           <TopNavbar />
 
+
           <SocketStatusBar />
+
         </div>
 
     );

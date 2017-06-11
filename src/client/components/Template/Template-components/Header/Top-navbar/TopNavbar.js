@@ -10,11 +10,15 @@ import Link from '../../../../Link/Link';
 import HeaderNavigationMenu from './Header-Navigation-Menu/HeaderNavigationMenu';
 
 class TopNavbar extends React.Component {
-  static propTypes = {
 
+  static contextTypes = {
+    refAuthenticationModal: PropTypes.any,
   };
 
   render() {
+
+    console.log("###### TOP NAVBAR",this);
+
     return (
       <div className="row border-bottom">
         <nav className="navbar navbar-static-top white-bg" role="navigation" style={{marginBottom: 0}}>
