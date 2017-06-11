@@ -92,6 +92,7 @@ class App extends React.PureComponent {
     //Async Localization in case I don't have anything there
     this.props.context.store.dispatch(startLocalizationFetchingAsync());
 
+
     //Creating the Socket Service
     var SocketServiceFile = require('./services/Communication/socket/socket.service').default;
     this.SocketService = SocketServiceFile.SocketService;

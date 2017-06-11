@@ -34,7 +34,7 @@ It will start on port 8080, and you can access the frontend server by http://127
 #### Online Versions:
 
 1. myskyhub.ddns.net:8080 for React Frontend
-2. myskyhub.ddns.net:3000 for Express Backend with Redis Database
+2. myskyhub.ddns.net:4000 for Express Backend with Redis Database
 
 
 ##### intellij WebStorm

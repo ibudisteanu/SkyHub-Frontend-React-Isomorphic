@@ -31,9 +31,18 @@ import configureStore from './my-redux/store/configureStore';
 import config from './config';
 
 import { setRuntimeVariable } from './my-redux/actions/Runtime.actions';
+import { newUserAuthenticated } from './my-redux/actions/UserAuthenticated.actions';
+
 import {extractIP} from './my-redux/actions/Localization.actions';
 
 var app = express();
+
+let HTTPServiceFile = require('./client/services/Communication/http/http.service');
+let HTTPService = HTTPServiceFile.default.HTTPService;
+
+// let SocketClientFile = require('./client/services/Communication/socket/socket.service');
+// let SocketClient = SocketClientFile.default.SocketService;
+// SocketClient.startService(null);
 
 //
 // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the
@@ -53,6 +62,7 @@ app.use(bodyParser.json());
 import {initializePassport} from './utils/passport/PassportDefined.js';
 
 initializePassport(app);
+
 
 
 //
@@ -105,6 +115,21 @@ app.get('*', async (req, res, next) => {
       store,
       storeSubscription: null,
     };
+
+    //checking the cookie user
+    if (req.headers.cookie){
+      let cookieAnswer = await HTTPService.checkAuthCookie(req.headers.cookie);
+      cookieAnswer = cookieAnswer.data;
+
+      console.log("COOOKIE ANSWER", cookieAnswer);
+
+      //we have a registered user already in the cookie
+      if ( (cookieAnswer.result||'false') === "true"){
+        store.dispatch(newUserAuthenticated(cookieAnswer.user));
+      }
+    }
+
+
 
     const route = await router.resolve({
       ...context,

@@ -64,6 +64,7 @@ async function start() {
     });
     const hotMiddleware = webpackHotMiddleware(bundler.compilers[0]);
 
+
     let handleBundleComplete = async () => {
       handleBundleComplete = stats => !stats.stats[1].compilation.errors.length && runServer();
 

@@ -17,7 +17,6 @@ const isDebug = !process.argv.includes('--release');
 const isVerbose = process.argv.includes('--verbose');
 const isAnalyze = process.argv.includes('--analyze') || process.argv.includes('--analyse');
 
-var path = require ('path');
 //
 // Common configuration chunk to be used for both
 // client-side (client.js) and server-side (server.js) bundles

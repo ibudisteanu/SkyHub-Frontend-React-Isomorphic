@@ -16,7 +16,7 @@ class SocketServiceClass {
     socket = null;
     dispatch = null;
 
-    sServerSocketAddress = "myskyhub.ddns.net:3000";
+    sServerSocketAddress = "myskyhub.ddns.net:4000";
     sServerSocketApi = "api/";
 
     sServerSocketVersion = "";
@@ -34,20 +34,21 @@ class SocketServiceClass {
 
 
     createClientSocketDocumentReady (){
-        this.createClientSocketInterval = setInterval(::this.createClientSocket,500);
+        //this.createClientSocketInterval = setInterval(::this.createClientSocket,500);
         this.createClientSocket();
     }
 
     createClientSocket() {
 
-      console.log("Trying to create Client...");
-
-        if ((typeof window === "undefined") || (typeof window.document === "undefined")) return; //in case it is not executed on the Client Browser
-
-        console.log('createClientSocket ');
-        clearInterval(this.createClientSocketInterval);
+      // console.log("Trying to create Client...");
+      //
+      //   if ((typeof window === "undefined") || (typeof window.document === "undefined")) return; //in case it is not executed on the Client Browser
+      //
+      //   console.log('createClientSocket ');
+      //   clearInterval(this.createClientSocketInterval);
 
         this.socket = io.connect(this.sServerSocketAddress, {
+            //query: "token=aaa" //JWT Token
             query: "token=" + CookiesService.getTokenCookie() //JWT Token
         });
 
@@ -62,7 +63,7 @@ class SocketServiceClass {
         });
 
         this.setSocketReadObservable("connect_error").subscribe(response => {
-            console.log('Connecting Error');
+            console.log('Connecting Error', response);
             this.dispatch(SocketStatusActions.socketConnectingError());
         });
 
