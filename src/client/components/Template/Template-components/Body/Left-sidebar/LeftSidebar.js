@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 class LeftSidebar extends React.Component {
 
@@ -266,5 +266,18 @@ class LeftSidebar extends React.Component {
   }
 };
 
+function mapState (state){
+  return {
+    userAuthenticated : state.userAuthenticated,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
 export default LeftSidebar;
+
 

@@ -1,26 +1,24 @@
 import React from 'react';
 
-import {
-    Modal,
-    Button,
-} from '@sketchpixy/rubix';
+import LoginForm from './../login/login.form';
+import RegistrationForm from './../registration/registration.form';
 
-import {LoginForm} from './../login/login.form';
-import {RegistrationForm} from './../registration/registration.form';
+import ModalComponent from '../../../../../client/components/util-components/modals/Modal.component';
 
 export class AuthenticationModal extends React.Component {
+
     constructor(props) {
         super(props);
 
-        this.state = { showModal: false, modalType : 'login', modalTitle : 'Login' };
+        this.state = {  modalType : 'login', modalTitle : 'Login' };
     }
 
     close() {
-        this.setState({ showModal: false});
+      this.modalRef.closeModal();
     }
 
     open() {
-        this.setState({ showModal: true });
+      this.modalRef.showAlert();
     }
 
     setLogin(){
@@ -44,48 +42,54 @@ export class AuthenticationModal extends React.Component {
     }
 
     openRegistration(){
-
         this.setRegistration();
         this.open("registration");
     }
 
+    modalRef = null;
+
+    loginRef = null;
+    registrationRef = null;
+
     renderLogin(){
         return (
-            <LoginForm ref={(c) => this.loginForm = c} onSuccess={::this.loginSuccess} onSwitch={::this.switchLoginToRegistration}/>
+            <LoginForm ref={(c) => this.loginRef = c} onSuccess={::this.loginSuccess} onSwitch={::this.switchLoginToRegistration} />
         )
     }
 
     renderRegistration(){
         return (
-            <RegistrationForm ref={(c) => this.registrationForm = c} onSuccess={::this.registrationSuccess} onSwitch={::this.switchRegistrationToLogin}/>
+            <RegistrationForm ref={(c) => this.registrationRef = c} onSuccess={::this.registrationSuccess} onSwitch={::this.switchRegistrationToLogin} />
         )
     }
 
-    //bsSize="basic"
     render() {
+
         return (
-            <Modal show={this.state.showModal} onHide={::this.close} >
 
-                <Modal.Body>
+            <ModalComponent ref={(c) => this.modalRef = c} title={this.state.modalTitle} subTitle="" buttons={[]} >
 
-                    {this.state.modalType == "login" ? ::this.renderLogin() : ::this.renderRegistration()}
+              {this.state.modalType === "login" ? ::this.renderLogin() : ::this.renderRegistration()}
 
-                </Modal.Body>
+            </ModalComponent>
 
-            </Modal>
         );
     }
 
 
     loginSuccess(resource){
-        var onSuccess = this.props.onSuccess||function(){};
+        let onSuccess = this.props.onSuccess||function(){};
         onSuccess(resource);
+
+        close();
     }
 
 
     registrationSuccess(resource){
-        var onSuccess = this.props.onSuccess||function(){};
+        let onSuccess = this.props.onSuccess||function(){};
         onSuccess(resource);
+
+        close();
     }
 
     switchLoginToRegistration(e){
@@ -99,3 +103,5 @@ export class AuthenticationModal extends React.Component {
     }
 
 }
+
+export default AuthenticationModal;

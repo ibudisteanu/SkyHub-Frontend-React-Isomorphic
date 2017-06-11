@@ -13,7 +13,7 @@ import GoogleLogin from 'react-google-login';
 //import ModalComponent from 'skyhub/client/components/util-components/modals/Modal.component';
 import ModalComponent from '../../../../../client/components/util-components/modals/Modal.component';
 
-export class OauthSocialNetworkComponent extends React.Component {
+class OauthSocialNetworkComponent extends React.Component {
 
     constructor(props){
         super(props);
@@ -22,8 +22,6 @@ export class OauthSocialNetworkComponent extends React.Component {
 
     SocketService = null;
     AuthService = null;
-
-    modalRef = null;
 
     componentDidMount() {
 
@@ -88,9 +86,10 @@ export class OauthSocialNetworkComponent extends React.Component {
             var sShortBio = response.user_about_me || '';
             var bVerified = response.verified;
 
+            console.log("OAUTH Instance", this);
 
             this.AuthService.registerOAuthAsync('facebook',sFacebookId,  sAccessToken, sEmail, sFirstName, sLastName, sProfilePic, sCoverImage,
-                    this.props.localization.countryCode, sLanguage, this.props.localization.city, this.state.latitude, this.state.longitude, sShortBio, iAge, sGender, iTimeZone, bVerified)
+                    this.props.localization.countryCode, sLanguage, this.props.localization.city, this.props.localization.latitude, this.props.localization.longitude, sShortBio, iAge, sGender, iTimeZone, bVerified)
 
                 .then( (res) => {
 
@@ -105,7 +104,7 @@ export class OauthSocialNetworkComponent extends React.Component {
 
         } catch (Exception)
         {
-            console.log('error facebook registering');
+            console.log('error facebook registering', Exception);
             this.errorRegisteringFacebook (response);
         }
 

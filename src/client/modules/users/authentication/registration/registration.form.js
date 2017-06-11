@@ -14,7 +14,7 @@ import Select from 'react-select';
 
 import MyCountrySelect from './../../../../components/util-components/select/MyCountrySelect';
 
-import {OauthSocialNetworkComponent} from '../oauth-social-networks-form/oauth.social.networks.component';
+import OauthSocialNetworkComponent from '../oauth-social-networks-form/oauth.social.networks.component';
 
 export class RegistrationForm extends React.Component {
 

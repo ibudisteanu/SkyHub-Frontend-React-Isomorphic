@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import AuthenticatedHeaderNavigationMenu from './AuthenticatedHeaderNavigationMenu';
 import NotAuthenticatedHeaderNavigationMenu from './NotAuthenticatedHeaderNavigationMenu';
 
+import {connect} from 'react-redux';
+
 class HeaderNavigationMenu extends React.Component {
 
   constructor(props){
@@ -63,5 +65,5 @@ function mapDispatch (dispatch) {
 };
 
 
-export default (HeaderNavigationMenu);
+export default connect(mapState, mapDispatch)(HeaderNavigationMenu);
 

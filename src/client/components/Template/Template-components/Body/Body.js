@@ -33,8 +33,6 @@ class Body extends React.Component {
 
   static propTypes = {
     children: PropTypes.node.isRequired,
-
-    SocketService: PropTypes.object,
   };
 
   static childContextTypes = {
