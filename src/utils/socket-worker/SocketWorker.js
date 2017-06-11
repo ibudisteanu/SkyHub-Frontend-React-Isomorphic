@@ -88,7 +88,7 @@ class SocketWorkerClass {
 
   async checkAuthCookie(cookie){
 
-    let authCookie = '';
+    let sessionId = '';
 
     //based on this https://stackoverflow.com/questions/3393854/get-and-set-a-single-cookie-with-node-js-http-server
     cookie && cookie.split(';').forEach( function( cookie ) {
@@ -96,14 +96,14 @@ class SocketWorkerClass {
 
       let cookieName = parts.shift().trim();
 
-      if (cookieName === 'token')
-        authCookie = decodeURI(parts.join('='));
+      if (cookieName === 'sessionId')
+        sessionId = decodeURI(parts.join('='));
 
     });
 
-    if ((authCookie !== '')&&(authCookie.length > 5)){
+    if ((sessionId  !== '')&&(sessionId.length > 5)){
 
-      return this.sendRequestGetDataPromise("auth/login-token", authCookie);
+      return this.sendRequestGetDataPromise("auth/login-session", sessionId);
 
     } else {
       return {

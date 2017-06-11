@@ -2,9 +2,11 @@
 
 import {User} from '../../client/modules/users/models/User.model';
 
-export const defaultUserState = {
-    user: new User(),
-    error : '',
+export function defaultUserState(initial)  {
+  return {
+    user: new User(initial.user||{}),
+    error: initial.error||'',
+  }
 };
 
 export default function UserReducer  ( state = defaultUserState, action)  {
@@ -13,7 +15,7 @@ export default function UserReducer  ( state = defaultUserState, action)  {
     case 'NEW_USER_AUTHENTICATED':
       return {
         ...state,
-        ['user']: action.payload.user,
+        ['user']: new User(action.payload.user),
         ['error']: action.payload.error,
       };
     case 'LOGOUT_USER':

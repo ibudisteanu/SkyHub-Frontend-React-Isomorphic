@@ -6,22 +6,24 @@
 /* eslint-disable import/prefer-default-export */
 
 
-export const defaultLocalization = {
-    country: '',
-    countryCode : '',
-    city : '',
-    latitude : '',
-    longitude : '',
-    IP : '',
-    timeZone: '',
+export function defaultLocalization (initial) {
+  return {
+    country: initial.country || '',
+    countryCode: initial.countryCode||'',
+    city: initial.city||'',
+    latitude: initial.latitude||'',
+    longitude: initial.longtitude||'',
+    IP: initial.IP||'',
+    timeZone: initial.timeZone||'',
 
-    clientIP: '',
+    clientIP: initial.clientIP||'',
 
-    request: {
-      sent:false,
-      done:false,
-      error:false,
+    request: initial.request|| {
+      sent: false,
+      done: false,
+      error: false,
     }
+  }
 };
 
 

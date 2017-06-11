@@ -37,11 +37,11 @@ import {extractIP} from './my-redux/actions/Localization.actions';
 
 var app = express();
 
-let HTTPServiceFile = require('./client/services/Communication/http/http.service');
+let HTTPServiceFile = require('./client/services/Communication/http/Http.service');
 let HTTPService = HTTPServiceFile.default.HTTPService;
 
-let SocketWorkerFile = require('./utils/socket-worker/SocketWorker');
-let SocketWorker = SocketWorkerFile.default.SocketWorker;
+// let SocketWorkerFile = require('./utils/socket-worker/SocketWorker');
+// let SocketWorker = SocketWorkerFile.default.SocketWorker;
 
 // let SocketClientFile = require('./client/services/Communication/socket/socket.service');
 // let SocketClient = SocketClientFile.default.SocketService;
@@ -92,7 +92,13 @@ app.get('*', async (req, res, next) => {
 
     const initialState = {
       user: req.user || null,
+      // userAuthenticated : defaultUserState, //Current User Authenticated
+      // socketStatus : defaultSocketStatus, //Socket Status
+      // localization : defaultLocalization, //Location
+      // routerState : defaultRouterState, //Router Arguments
+      // testReduxState : defaultTestReduxState,
     };
+
 
     const store = configureStore(initialState, {
       fetch,
@@ -121,10 +127,12 @@ app.get('*', async (req, res, next) => {
 
     //checking the cookie user
     if (req.headers.cookie){
-      let cookieAnswer = await HTTPService.checkAuthCookie(req.headers.cookie);
-      cookieAnswer = cookieAnswer.res.data;
 
-      console.log("COOOKIE ANSWER", cookieAnswer);
+      let cookieAnswer = await HTTPService.checkAuthCookie(req.headers.cookie);
+
+      cookieAnswer = cookieAnswer.data;
+
+      //console.log("COOOKIE ANSWER", cookieAnswer);
 
       //we have a registered user already in the cookie
       if ( (cookieAnswer.result||'false') === "true"){

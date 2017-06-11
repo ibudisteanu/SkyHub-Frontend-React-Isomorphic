@@ -4,8 +4,8 @@
 
 export class CookiesService {
 
-    static getTokenCookie(){
-        return this.readCookie2('token');
+    static getSessionCookie(){
+        return this.readCookie2('sessionId');
     }
 
     static readCookie(cookieName) {

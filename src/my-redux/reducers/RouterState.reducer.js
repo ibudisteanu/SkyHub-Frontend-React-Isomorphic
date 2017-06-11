@@ -8,13 +8,15 @@
 
 import {Forum} from '../../client/modules/forums/forums/models/Forum.model';
 
-export const defaultRouterState = {
+export function defaultRouterState  (initial) {
 
-    currentRouterObject : {
-        type : 'none',//'none','forum','topic','user',
-        object: null,
-        notFound : false,
+  return{
+    currentRouterObject: initial.currentRouterObject || {
+      type: 'none',//'none','forum','topic','user',
+      object: null,
+      notFound: false,
     },
+  }
 
 };
 

@@ -50,7 +50,7 @@ export class RegistrationForm extends React.Component {
   componentDidMount() {
     requestAnimationFrame(() => { //Make sure it is on client only
 
-      this.SocketService = require('./../../../../services/Communication/socket/socket.service').default.SocketService;
+      this.SocketService = require('../../../../services/Communication/socket/Socket.service').default.SocketService;
       this.AuthService = require('./../../../../services/REST/authentication/auth.service').default.AuthService;
 
       //console.log("#################### REGISTER ",this.AuthService);

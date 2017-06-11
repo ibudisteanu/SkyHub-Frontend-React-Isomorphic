@@ -94,14 +94,14 @@ class App extends React.PureComponent {
 
 
     //Creating the Socket Service
-    var SocketServiceFile = require('./services/Communication/socket/socket.service').default;
+    var SocketServiceFile = require('./services/Communication/socket/Socket.service').default;
     this.SocketService = SocketServiceFile.SocketService;
     this.SocketService .startService(this.props.context.store.dispatch);
 
     //Creating the Socket Service
     var AuthServiceFile = require ('./services/REST/authentication/auth.service').default;
     this.AuthService = AuthServiceFile.AuthService;
-    this.AuthService.startService(this.props.context.store.dispatch, this.SocketService);
+    this.AuthService.startService(this.props.context.store.dispatch, this.props.context.store.getState().userAuthenticated, this.SocketService);
 
   }
 
