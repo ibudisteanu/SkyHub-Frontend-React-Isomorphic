@@ -9,11 +9,8 @@
 
 import React from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import baseStyle from './Body.css';
-import Link from '../../../Link/Link';
 
-import logoUrl from './logo-small.png';
-import logoUrl2x from './logo-small@2x.png';
+import Link from '../../../Link/Link';
 
 import PropTypes from 'prop-types';
 
@@ -26,8 +23,9 @@ import Footer from '../Footer/Footer';
 import Chat from './Chat/Chat';
 import ChatButton from './Chat/ChatButton';
 
-
 import AuthenticationModal from '../../../../modules/users/authentication/modals/Authentication.modal';
+
+import {connect} from 'react-redux';
 
 class Body extends React.Component {
 
@@ -56,9 +54,11 @@ class Body extends React.Component {
   refAuthenticationModal = null;
 
   render() {
+
     //console.log("XXXXXXXXXXXXXXXXXXXXXXXXXX BODYY", this);
+
     return (
-      <div className={baseStyle.root}>
+      <div >
 
         <LeftSidebar />
 
@@ -86,4 +86,19 @@ class Body extends React.Component {
   }
 }
 
-export default withStyles(baseStyle)(Body);
+
+function mapState (state){
+  return {
+    authenticate: state.authenticate,
+    localization: state.localization,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+
+export default connect(mapState, mapDispatch)(Body);

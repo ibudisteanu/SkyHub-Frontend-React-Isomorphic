@@ -65,5 +65,5 @@ function mapDispatch (dispatch) {
 };
 
 
-export default connect(mapState, mapDispatch)(HeaderNavigationMenu);
+export default HeaderNavigationMenu;
 

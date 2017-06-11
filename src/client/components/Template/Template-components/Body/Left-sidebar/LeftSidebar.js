@@ -6,44 +6,41 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-class LeftSidebar extends React.Component {
+import {connect} from 'react-redux';
 
-  static contextTypes = {
-    refAuthenticationModal: PropTypes.any,
-  };
+class LeftSidebar extends React.Component {
 
   render() {
 
-    console.log("#################### LEFT SIDEBAR ",this);
+    //console.log("#################### LEFT SIDEBAR ",this);
 
     return (
       <nav className="navbar-default navbar-static-side" role="navigation">
         <div className="sidebar-collapse">
           <ul className="nav metismenu" id="side-menu">
-            <li className="nav-header">
+            <li className="nav-header" style={{paddingTop: 15}}>
               <div className="dropdown profile-element">
-                  <span>
-                      <img alt="image" className="img-circle" src="img/profile_small.jpg" />
+
+                  <span >
+                      <img alt="image" className="img-circle" src={this.props.userAuthenticated.user.getProfilePic()} style={{maxWidth:145, maxHeight: 145, paddingBottom: 15, marginLeft: "auto", marginRight: "auto", display: "block"}} />
                   </span>
+
                 <a data-toggle="dropdown" className="dropdown-toggle" href="#">
-                  <span className="clear">
+
+                  <span className="clear" style={{textAlign: "center"}}>
+
                     <span className="block m-t-xs">
-                      <strong className="font-bold">David Williams</strong>
+                      <strong className="font-bold">{this.props.userAuthenticated.user.getName()}</strong>
                     </span>
 
-                    <span className="text-muted text-xs block">Art Director <b className="caret"></b>
+                    <span className="text-muted text-xs block" style={{align:"center"}}>
+                      {this.props.userAuthenticated.user.shortBio}
                     </span>
 
                   </span>
                 </a>
 
-                <ul className="dropdown-menu animated fadeInRight m-t-xs">
-                  <li><a href="profile.html">Profile</a></li>
-                  <li><a href="contacts.html">Contacts</a></li>
-                  <li><a href="mailbox.html">Mailbox</a></li>
-                  <li className="divider"></li>
-                  <li><a href="login.html">Logout</a></li>
-                </ul>
+
               </div>
               <div className="logo-element">
                 IN+
@@ -278,6 +275,6 @@ function mapDispatch (dispatch) {
   }
 };
 
-export default LeftSidebar;
+export default connect(mapState, mapDispatch)(LeftSidebar);
 
 

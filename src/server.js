@@ -120,6 +120,7 @@ app.get('*', async (req, res, next) => {
       return;
     }
     console.log("route::   ",req.path);
+    console.log("cookie::   ", req.headers.cookie);
 
     if (route.redirect) {
       res.redirect(route.status || 302, route.redirect);

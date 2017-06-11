@@ -60,7 +60,7 @@ class Layout extends React.Component {
 
   render() {
 
-    console.log("################### Layout",this);
+    //console.log("################### Layout",this);
 
 
     return (

@@ -61,7 +61,7 @@ export class RegistrationForm extends React.Component {
     back(e) {
         e.preventDefault();
         e.stopPropagation();
-        this.props.router.goBack();
+        //this.props.router.goBack();
     }
 
     handleCheckRegister(e){
@@ -325,7 +325,7 @@ export class RegistrationForm extends React.Component {
                                 <label className="error" >{this.state.countryValidationStatus[1]}</label> <br />
                               </div>
 
-                              <div className="col-xs-6" style={{paddingBottom: 20}}>
+                              <div className="col-xs-6" style={{paddingBottom: 5}}>
                                 <div className={"input-group " + this.showInputStatus(this.state.cityValidationStatus)}  >
 
                                   <span className="input-group-addon"><i className="fa fa-institution"></i></span>
@@ -342,7 +342,7 @@ export class RegistrationForm extends React.Component {
 
                               <div className="form-group" >
                                 <div className="row">
-                                  <div className="col-xs-6" style={{paddingTop: 10}}>
+                                  <div className="col-xs-6" style={{paddingTop: 5}}>
 
                                     <div >
                                       <Link to={'login'} onClick = {onSwitch.bind(this)}> <strong> Login </strong></Link>to SkyHub

@@ -80,7 +80,7 @@ export class AuthServiceClass {
         this.dispatch(UserAuthenticatedActions.newUserAuthenticated(userLogged));
 
         CookiesService.setCookie('token', sToken, 365*5, '/');
-        console.log('setting cookie'+sToken);
+        console.log('setting cookie   '+sToken);
     }
 
     loginTokenAsync(token){

@@ -17,7 +17,7 @@ class TopNavbar extends React.Component {
 
   render() {
 
-    console.log("###### TOP NAVBAR",this);
+    //console.log("###### TOP NAVBAR",this);
 
     return (
       <div className="row border-bottom">

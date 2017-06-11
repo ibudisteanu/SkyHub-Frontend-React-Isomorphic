@@ -12,7 +12,7 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
 
   render() {
 
-    console.log("######## AUTHENTICATED HEADER", this);
+    //console.log("######## AUTHENTICATED HEADER", this);
 
     return (
 

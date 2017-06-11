@@ -18,6 +18,11 @@ class OauthSocialNetworkComponent extends React.Component {
     constructor(props){
         super(props);
 
+        this.state = ({
+            error : '',
+          }
+        )
+
     }
 
     SocketService = null;
@@ -38,6 +43,11 @@ class OauthSocialNetworkComponent extends React.Component {
 
 
     responseFacebook(response) {
+
+        this.setState({
+          error: ''
+          }
+        );
 
         // accessToken:"EAAI2WeqD1N0BAH11ZBrtE66a2ZAF1BMoVPNBf9WVS6thiRjLqsWloXNswva5uZAp48iFmNARJFYkd6y4OzqhyU36vyjhp5idDjSfGoEoC6TfaK7VZCE63u34WFwoeaqPLQBmzVJWAWxdqVkJUVBZBW2JZAZB72IrhRw7jSvTJ86mBK1GeJstFR1lSXZBgqZCSAqQZD"
         // age_range: {min: 21}
@@ -113,7 +123,12 @@ class OauthSocialNetworkComponent extends React.Component {
     }
 
     errorRegisteringFacebook (response){
-        this.modalRef.showAlert('Error registering with Facebook','',"Ops! It didn't work");
+
+        this.setState({
+          error: "Error registering with Facebook"
+        });
+
+        //this.modalRef.showAlert('Error registering with Facebook','',"Ops! It didn't work");
 
         this.registrationFailure(response);
     }
@@ -123,6 +138,10 @@ class OauthSocialNetworkComponent extends React.Component {
     }
 
     responseFailureGoogle (response){
+      this.setState({
+        error: "Error registering with Google"
+      });
+
       this.modalRef.showAlert('Error registering with Google','',"Ops! It didn't work");
     }
 
@@ -142,8 +161,6 @@ class OauthSocialNetworkComponent extends React.Component {
 
         return (
                 <div className='text-center' style={{padding: 10}}>
-
-                    <ModalComponent ref={(c) => this.modalRef = c} />
 
                     <strong>SIGN UP with</strong>
                     <div>
@@ -188,6 +205,22 @@ class OauthSocialNetworkComponent extends React.Component {
 
 
                         </div>
+
+                      {this.state.error !== ''
+                        ?
+                        (
+                          <div>
+                            <div className="alert alert-danger alert-dismissable">
+                              <button aria-hidden="true" data-dismiss="alert" className="close" type="button">×</button>
+                              {this.state.error}
+                            </div>
+                          </div>
+                        )
+                        :
+                        ''
+                      }
+
+
                     </div>
 
                 </div>

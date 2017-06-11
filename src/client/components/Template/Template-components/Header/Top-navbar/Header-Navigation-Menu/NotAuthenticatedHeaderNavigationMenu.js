@@ -22,20 +22,22 @@ class NotAuthenticatedHeaderNavigationMenu extends React.Component {
     console.log("SIGN IN");
 
 
-    this.context.refAuthenticationModal.openLogin();
+    if ((this.context.refAuthenticationModal !== null)&&(typeof this.context.refAuthenticationModal !== "undefined"))
+      this.context.refAuthenticationModal.openLogin();
   }
 
   handleRegister(e){
     e.preventDefault(); e.stopPropagation();
 
-    console.log("REGISTER");
-    this.context.refAuthenticationModal.openRegistration();
+
+    if ((this.context.refAuthenticationModal !== null)&&(typeof this.context.refAuthenticationModal !== "undefined"))
+      this.context.refAuthenticationModal.openRegistration();
   }
 
 
   render() {
 
-    console.log("######## NOT AUTHENTICATED HEADER", this);
+    //console.log("######## NOT AUTHENTICATED HEADER", this);
 
     return (
 

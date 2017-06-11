@@ -26,7 +26,7 @@ class Header extends React.Component {
 
   render() {
 
-    console.log("###### HEADER",this);
+    //console.log("###### HEADER",this);
 
     return (
 

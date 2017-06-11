@@ -18,13 +18,14 @@ export default {
   path: '/',
 
   async action({ fetch, store }) {
+
     const resp = await fetch('/graphql', {
       body: JSON.stringify({
         query: '{news{title,link,content}}',
       }),
     });
 
-    console.log("Index.js");
+    console.log("Index.js", resp);
     await store.dispatch(startLocalizationFetchingAsync());
 
     const { data } = await resp.json();

@@ -37,7 +37,7 @@ export default class LoginForm extends React.Component {
     back(e) {
           e.preventDefault(); e.stopPropagation();
 
-          this.props.router.goBack();
+          //this.props.router.goBack();
     }
 
 

@@ -5,7 +5,7 @@ import RegistrationForm from './../registration/registration.form';
 
 import ModalComponent from '../../../../../client/components/util-components/modals/Modal.component';
 
-export class AuthenticationModal extends React.Component {
+class AuthenticationModal extends React.Component {
 
     constructor(props) {
         super(props);
@@ -67,7 +67,7 @@ export class AuthenticationModal extends React.Component {
 
         return (
 
-            <ModalComponent ref={(c) => this.modalRef = c} title={this.state.modalTitle} subTitle="" buttons={[]} >
+            <ModalComponent modalId="AuthenticationModal"  ref={(c) => this.modalRef = c} title={this.state.modalTitle} subTitle="" buttons={[]} >
 
               {this.state.modalType === "login" ? ::this.renderLogin() : ::this.renderRegistration()}
 

@@ -12,8 +12,6 @@ export default class ModalComponent extends React.Component {
   constructor(props){
     super(props);
 
-    this.modalId = Math.floor((Math.random() * 100000) + 1);
-
     this.state=({
       isModalOpen: props.showModal||true,
 
@@ -67,8 +65,10 @@ export default class ModalComponent extends React.Component {
 
     for (let i=0; i<buttons.length; i++) {
       let button = buttons[i];
-      output.push(<button type="button" key={"modalButton"+i} className={"btn "+buttons[i].className||''} onClick={button.onClick||function(){}} data-dismiss={ (button.closable||false) === true ? "modal" : ''}> {button.text||''} </button>)
+      output.push(<button type="button" key={"modal"+this.props.modalId+"_Button"+i} className={"btn "+buttons[i].className||''} onClick={button.onClick||function(){}} data-dismiss={ (button.closable||false) === true ? "modal" : ''}> {button.text||''} </button>)
     }
+
+    if (output === []) return '';
 
     return (
       <div className="modal-footer">
@@ -92,7 +92,7 @@ export default class ModalComponent extends React.Component {
     let animation = this.props.animation || this.state.animation;
 
     return (
-      <div className="modal inmodal in"  ref={(c) => this.modalRef = c}  role="dialog" aria-hidden="true"   >
+      <div className="modal inmodal in" key={"modal"+this.props.modalId}  ref={(c) => this.modalRef = c}  role="dialog" aria-hidden="true"   >
         <div className="modal-dialog">
           <div className={"modal-content " + (animation !== '' ? animation : '')}>
             <div className="modal-header">
@@ -123,7 +123,7 @@ export default class ModalComponent extends React.Component {
             }
 
             {
-              (buttons !== []) &&(buttons !== null) && (typeof buttons !== "undefined")
+              (buttons !== []) && (buttons !== null) && (typeof buttons !== "undefined")
               ?
                 ::this.renderButtons(buttons)
               :

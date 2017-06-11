@@ -72,4 +72,9 @@ export class User {
     isLoggedIn(){
         return this.loggedIn || false;
     }
+
+    getProfilePic(){
+      return this.profilePic;
+    }
+
 }
