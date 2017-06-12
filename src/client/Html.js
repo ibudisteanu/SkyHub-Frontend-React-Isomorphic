@@ -52,7 +52,7 @@ class Html extends React.Component {
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
 
           <link rel="stylesheet" type="text/css" href="/res/template/css/style.css" />
-          <link rel="stylesheet" type="text/css" href="/res/react-select/components/react-select.css" />
+          <link rel="stylesheet" type="text/css" href="/res/components/react-select.css" />
 
 
           <link rel="stylesheet" type="text/css" href="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/css/msdropdown/flags.css" />
