@@ -3,36 +3,26 @@
  * (C) BIT TECHNOLOGIES
  */
 
-import {SocketService} from 'modules/services/REST/socket/socket.service';
-import * as UserAuthenticatedActions from '../../../../../my-redux/actions/UserAuthenticated.actions.js';
+import SocketService from '../../../../services/Communication/socket/Socket.service';
+import * as UserAuthenticatedActions from '../../../../../my-redux/actions/UserAuthenticated.actions';
 
-let forumServiceInstance = null;
-
-export class ForumsService {
+class ForumsServiceClass {
 
     dispatch = null;
-    SocketService = null;
 
-    constructor(dispatch) {
-
-        if (forumServiceInstance === null){
-
-            this.SocketService = new SocketService(dispatch);
-            this.dispatch = dispatch;
-
-            forumServiceInstance = this;
-        }
-
-        return forumServiceInstance;
+    constructor() {
     }
 
-    forumAddAsync(sParentId, sTitle, sDescription,  arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude, iTimeZone)
-    {
+    startService(dispatch){
+      this.dispatch = dispatch;
+    }
+
+    forumAddAsync(sParentId, sTitle, sDescription,  arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude, iTimeZone) {
 
         return new Promise( (resolve)=> {
 
             //Using Promise
-            this.SocketService.sendRequestGetDataPromise("forums/add-forum",{parent : sParentId, title: sTitle, description: sDescription, keywords : arrKeywords,
+            SocketService.sendRequestGetDataPromise("forums/add-forum",{parent : sParentId, title: sTitle, description: sDescription, keywords : arrKeywords,
                 country: sCountryCode, language:sLanguage, city : sCity, latitude: latitude, longitude : longitude,  timeZone: iTimeZone})
 
                 .then( (resData ) => {
@@ -53,10 +43,11 @@ export class ForumsService {
     getForumAsync(sId){
 
             //Using Promise
-        return this.SocketService.sendRequestGetDataPromise("forums/get-forum",{id: sId});
+        return SocketService.sendRequestGetDataPromise("forums/get-forum",{id: sId});
 
     }
 
-
-
 }
+
+var ForumsService = new ForumsServiceClass();
+export default ForumsService;

@@ -24,7 +24,7 @@ class ContentServiceClass {
       this.dispatch = dispatch;
       this.routerState = routerState;
 
-      console.log("@@@@ ContentService - STARTING Service", dispatch, routerState);
+      //console.log("@@@@ ContentService - STARTING Service", dispatch, routerState);
     }
 
     async getTopContent(parent, pageIndex, pageCount){
@@ -122,6 +122,8 @@ class ContentServiceClass {
 
       if (protocol === "http") answer = await this.getRouterObjectContentHTTP(sContentToSearchId);
       else answer = await this.getRouterObjectContent(sContentToSearchId);
+
+      console.log("ANSWER",answer.data);
 
       if (answer.result === true){
 
