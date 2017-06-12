@@ -5,53 +5,18 @@
 
 import React from 'react';
 import {connect} from "react-redux";
-import classNames from 'classnames';
-import { Link, withRouter } from 'react-router';
 
-import axios from 'axios';
 
-import {getPath} from 'common/common-functions';
-import { ForumsService } from 'modules/services/REST/forums/forums/forums.service';
-import {AutocompleteSelect} from 'modules/components/Autocomplete.select.component';
-import {AuthenticationModal} from "modules/users/authentication/modals/authentication.modal";
+import ForumsService from './../../../../services/REST/forums/forums/Forums.service';
+import AutocompleteSelect from './../../../../../client/components/util-components/select/Autocomplete.select.component';
+import MyCountrySelect from './../../../../../client/components/util-components/select/MyCountry.select.component';
 
 import Select from 'react-select';
 
-import CountrySelect from "react-country-select";
-
-import {
-    Row,
-    Col,
-    Icon,
-    Grid,
-    Form,
-    Panel,
-    Button,
-    PanelBody,
-    PanelHeader,
-    PanelFooter,
-    FormGroup,
-    InputGroup,
-    HelpBlock,
-    FormControl,
-    PanelContainer,
-    ControlLabel,
-} from '@sketchpixy/rubix';
-
-@withRouter
-@connect(
-    state => ({
-        userAuthenticated : state.userAuthenticated,
-        localization :  state.localization,
-    }),
-    dispatch => ({dispatch}),
-)
-export class AddForumForm extends React.Component {
+class AddForumForm extends React.Component {
 
     constructor(props){
         super(props);
-
-        this.ForumsService = new ForumsService(props.dispatch);
 
         this.state = {
 
@@ -108,7 +73,7 @@ export class AddForumForm extends React.Component {
 
 
         if (!bValidationError)
-            this.ForumsService.forumAddAsync(this.state.parentId, this.state.title, this.state.description, this.state.keywords, this.state.countryCode, '', this.state.city, this.state.latitude, this.state.longitude, this.state.timeZone)
+            ForumsService.forumAddAsync(this.state.parentId, this.state.title, this.state.description, this.state.keywords, this.state.countryCode, '', this.state.city, this.state.latitude, this.state.longitude, this.state.timeZone)
 
                 .then((res) => {
 
@@ -147,35 +112,10 @@ export class AddForumForm extends React.Component {
 
     componentDidMount() {
 
-        axios.get("http://freegeoip.net/json/") .then(res => {
-
-            res = res.data;
-
-            this.setState({
-                country: res.country_name||'',
-                countryCode : res.country_code||'',
-                city : res.city||'',
-                latitude : res.latitude||'',
-                longitude : res.longitude||'',
-                ip : res.ip||'',
-                timeZone: res.time_zone||'',
-            });
-
-            console.log(res);
-        });
     }
 
     componentWillMount(){
-        // if ((this.state.country === '')&&(this.props.localization.country||'' !== ''))
-        //     this.setState({
-        //         country: this.props.localization.country||'',
-        //         countryCode : this.props.localization.countryCode||'',
-        //         city : this.props.localization.city||'',
-        //         latitude : this.props.localization.latitude||'',
-        //         longitude : this.props.localization.longitude||'',
-        //         ip : this.props.localization.ip||'',
-        //         timeZone: this.props.localization.timeZone||'',
-        //     });
+
     }
 
     handleTitleChangeSelect(value){
@@ -225,8 +165,8 @@ export class AddForumForm extends React.Component {
 
     openLogin(){
 
-        if (typeof this.authenticationModal !== "undefined")
-            this.authenticationModal.openLogin();
+        if (typeof this.props.routerState.refAuthenticationModal !== "undefined")
+            this.props.routerState.refAuthenticationModal.openLogin();
     }
 
     authenticationSuccessfully(resource){
@@ -237,8 +177,6 @@ export class AddForumForm extends React.Component {
 
         return (
             <PanelContainer controls={false} style={{marginBottom:20, marginTop:20}}>
-
-                { !this.props.userAuthenticated.user.isLoggedIn() ? (<AuthenticationModal ref={(c) => this.authenticationModal = c} onSuccess={::this.authenticationSuccessfully} />) : '' }
 
 
                 <Panel style={{backgroundColor:"#f9f8f8"}}>
@@ -360,3 +298,19 @@ export class AddForumForm extends React.Component {
         );
     }
 }
+
+
+function mapState (state){
+  return {
+    userAuthenticated: state.userAuthenticated,
+    routerState: state.routerState,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+export default connect(mapState, mapDispatch)(AddForumForm);

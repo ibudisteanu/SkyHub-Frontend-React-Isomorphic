@@ -30,7 +30,7 @@ export function startLocalizationFetchingAsync() {
     //console.log("startLocalizationFetchingAsync ",getState());
 
     if (getState().localization.request.sent ){
-      dispatch({
+      return dispatch({
         type: "LOCALIZATION_SKIPPED",
         payload: {
 

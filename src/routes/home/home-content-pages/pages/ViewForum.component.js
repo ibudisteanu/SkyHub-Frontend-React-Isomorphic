@@ -5,45 +5,19 @@
 
 import React from 'react';
 import {connect} from "react-redux";
-import { Link, withRouter } from 'react-router';
 
-import {getPath} from 'common/common-functions';
-import {AuthService}  from 'modules/services/REST/authentication/auth.service';
-import {ForumsService} from 'modules/services/REST/forums/forums/forums.service';
+import AuthService from './../../../../client/services/REST/authentication/Auth.service';
+import ForumsService from './../../../../client/services/REST/forums/forums/Forums.service';
 
-import {Hero, HeroHeader, HeroHeader2 } from 'modules/website/template/components/hero.component';
-import {HeaderCover} from 'modules/website/template/layout/header/components/cover/HeaderCover.component';
-import {WebsiteHeaderCover} from 'modules/website/template/layout/header/components/cover/WebsiteHeaderCover.component';
+import HeaderCover from './../../../../client/components/Template/Template-components/Header/Cover/HeaderCover.component';
+import WebsiteHeaderCover from './../../../../client/components/Template/Template-components/Header/Cover/WebsiteHeaderCover.component';
 
-import {DisplayContent} from 'modules/forums/content/DisplayContent.component';
+import DisplayContent from './../../../../client/modules/forums/content/DisplayContent.component';
 
-
-import {
-    PanelContainer,
-    Panel,
-    PanelHeader,
-    Grid,
-    Row,
-    Col,
-    Alert,
-} from '@sketchpixy/rubix';
-
-@withRouter
-@connect(
-    state => ({
-        userAuthenticated : state.userAuthenticated,
-        routerState : state.routerState,
-    }),
-    dispatch => ({dispatch}),
-)
 export class ViewForum extends React.Component {
 
     constructor(props){
         super(props);
-
-        this.AuthService = new AuthService(props.dispatch);
-        this.ForumsService = new ForumsService(props.dispatch);
-
     }
 
 
@@ -103,3 +77,17 @@ export class ViewForum extends React.Component {
     }
 }
 
+function mapState (state){
+  return {
+    userAuthenticated: state.userAuthenticated,
+    routerState: state.routerState,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+export default connect(mapState, mapDispatch)(ViewForum);

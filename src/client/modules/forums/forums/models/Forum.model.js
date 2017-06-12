@@ -4,7 +4,7 @@
 
 /* eslint-disable import/prefer-default-export */
 
-export class Forum {
+export default class Forum {
 
     title;
     URL;

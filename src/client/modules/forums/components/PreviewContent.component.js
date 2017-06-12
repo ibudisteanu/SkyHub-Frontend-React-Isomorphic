@@ -5,23 +5,14 @@
 
 import React from 'react';
 import {connect} from "react-redux";
-import { Link, withRouter } from 'react-router';
 
-import {getPath} from 'common/common-functions';
-import { AuthService } from 'modules/services/REST/authentication/auth.service';
-import { ContentObjectService } from 'modules/services/REST/forums/content/ContentObject.service';
+import  AuthService  from './../../../services/REST/authentication/Auth.service';
+import  ContentObjectService  from '../../../services/REST/forums/content/ContentObject.service';
 
-import {Forum} from '../forums/models/Forum.model.js';
-import {PreviewForum} from '../forums/view-forum/PreviewForum.component';
+import Forum from '../forums/models/Forum.model';
+import PreviewForum from '../forums/view-forum/PreviewForum.component';
 
-@withRouter
-@connect(
-    state => ({
-        userAuthenticated : state.userAuthenticated,
-    }),
-    dispatch => ({dispatch}),
-)
-export class PreviewContent extends React.Component {
+class PreviewContent extends React.Component {
 
     constructor(props){
         super(props);
@@ -37,7 +28,7 @@ export class PreviewContent extends React.Component {
     }
 
     render() {
-        
+
         let extractedIdData = ContentObjectService.extractDataFromIds(this.props.object.id);
         let objectType = extractedIdData.objectType || '';
 
@@ -52,3 +43,17 @@ export class PreviewContent extends React.Component {
 
     }
 }
+
+function mapState (state){
+  return {
+    userAuthenticated: state.userAuthenticated,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+export default connect(mapState, mapDispatch)(PreviewContent);

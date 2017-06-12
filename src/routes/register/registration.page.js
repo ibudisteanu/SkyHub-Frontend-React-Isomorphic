@@ -5,7 +5,7 @@
 
 import React from 'react';
 
-import RegistrationForm from "./registration.form";
+import RegistrationForm from "../../client/modules/users/authentication/registration/registration.form";
 
 export default class RegistrationPage extends React.Component {
 

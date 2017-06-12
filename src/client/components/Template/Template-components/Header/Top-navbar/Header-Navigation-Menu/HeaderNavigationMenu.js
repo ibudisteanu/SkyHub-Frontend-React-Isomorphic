@@ -38,7 +38,7 @@ class HeaderNavigationMenu extends React.Component {
 
   render() {
 
-    console.log("###### HEADER NAVIGATION",this);
+    //console.log("###### HEADER NAVIGATION",this);
 
     if ((typeof this.context.userAuthenticated !== "undefined")&&(this.context.userAuthenticated.user !== null)) {
 

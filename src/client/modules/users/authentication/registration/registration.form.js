@@ -12,9 +12,12 @@ import Select from 'react-select';
 
 //import CountrySelect from "react-country-select";
 
-import MyCountrySelect from './../../../../components/util-components/select/MyCountrySelect';
+import MyCountrySelect from './../../../../components/util-components/select/MyCountry.select.component';
 
 import OauthSocialNetworkComponent from '../oauth-social-networks-form/oauth.social.networks.component';
+
+import SocketService from '../../../../services/Communication/socket/Socket.service';
+import AuthService from './../../../../services/REST/authentication/Auth.service';
 
 export class RegistrationForm extends React.Component {
 
@@ -50,10 +53,7 @@ export class RegistrationForm extends React.Component {
   componentDidMount() {
     requestAnimationFrame(() => { //Make sure it is on client only
 
-      this.SocketService = require('../../../../services/Communication/socket/Socket.service').default.SocketService;
-      this.AuthService = require('./../../../../services/REST/authentication/auth.service').default.AuthService;
-
-      //console.log("#################### REGISTER ",this.AuthService);
+      //console.log("#################### REGISTER ",AuthService);
 
     });
   }
@@ -101,7 +101,7 @@ export class RegistrationForm extends React.Component {
         if (sCity === '') sCity = this.props.localization.city;
 
         if (!bValidationError)
-        this.AuthService.registerAsync(this.state.userName, this.state.emailAddress, this.state.password, this.state.firstName, this.state.lastName, sCountryCode, '', sCity, this.state.latitude, this.state.longitude, this.state.timeZone)
+        AuthService.registerAsync(this.state.userName, this.state.emailAddress, this.state.password, this.state.firstName, this.state.lastName, sCountryCode, '', sCity, this.state.latitude, this.state.longitude, this.state.timeZone)
 
             .then( (res) =>{
 
@@ -225,7 +225,7 @@ export class RegistrationForm extends React.Component {
 
                       <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 5}}>
 
-                          <form onSubmit={::this.handleCheckRegister} autocomplete="on">
+                          <form onSubmit={::this.handleCheckRegister} autoComplete="on">
 
                               <div className="row" >
 

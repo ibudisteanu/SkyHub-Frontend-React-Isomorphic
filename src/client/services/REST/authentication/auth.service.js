@@ -3,16 +3,14 @@
  * (C) BIT TECHNOLOGIES
  */
 
-import {CookiesService} from './../../Cookies/cookies.service';
-import {User} from './../../../modules/users/models/User.model';
-
+import CookiesService from './../../Cookies/cookies.service';
+import User from './../../../modules/users/models/User.model';
 
 import * as UserAuthenticatedActions from '../../../../my-redux/actions/UserAuthenticated.actions';
 
 export class AuthServiceClass {
 
     dispatch = null;
-    SocketService = null;
     userAuthenticated = null;//from redux
 
     constructor() {
@@ -24,7 +22,6 @@ export class AuthServiceClass {
     startService(dispatch, userAuthenticated, SocketService){
 
       this.dispatch = dispatch;
-      this.SocketService = SocketService;
       this.userAuthenticated = userAuthenticated;
 
       this.loadCookieUserDocumentReady();
@@ -45,7 +42,7 @@ export class AuthServiceClass {
           if (sessionId !== "")
               this.loginSessionAsync(sessionId);
 
-          this.SocketService.setSocketReadObservable("connect").subscribe(response => {
+          SocketService.setSocketReadObservable("connect").subscribe(response => {
               var sessionId = CookiesService.getSessionCookie();
               if (sessionId !== "")
                   this.loginSessionAsync(sessionId);
@@ -64,7 +61,7 @@ export class AuthServiceClass {
             if (this.userAuthenticated.user.isLoggedIn() === true) { console.log("user already logged in"); resolve(true); return ;}; //already logged in
 
             //Using Promise
-            this.SocketService.sendRequestGetDataPromise("auth/login",{emailUsername:sEmailUserName, password:sPassword}).then( (resData) => {
+            SocketService.sendRequestGetDataPromise("auth/login",{emailUsername:sEmailUserName, password:sPassword}).then( (resData) => {
 
                 console.log('Answer from Server Auth Login');
                 console.log(resData);
@@ -95,8 +92,8 @@ export class AuthServiceClass {
 
             if (this.userAuthenticated.user.isLoggedIn() === true) { resolve(true); return ;}; //already logged in
 
-            //this.SocketService.createClientSocket();
-            this.SocketService.sendRequestGetDataPromise("auth/login-session",{sessionId: sessionId}).then( (resData ) => {
+            //SocketService.createClientSocket();
+            SocketService.sendRequestGetDataPromise("auth/login-session",{sessionId: sessionId}).then( (resData ) => {
 
                 console.log('Answer from Login sessionId Async');
                 console.log(resData);
@@ -118,7 +115,7 @@ export class AuthServiceClass {
         return new Promise( (resolve)=> {
 
             //Using Promise
-            this.SocketService.sendRequestGetDataPromise("auth/register",{email:sEmailAddress, username: sUsername, password: sPassword,
+            SocketService.sendRequestGetDataPromise("auth/register",{email:sEmailAddress, username: sUsername, password: sPassword,
                 firstName: sFirstName, lastName: sLastName, country: sCountry, language : sLanguage, city : sCity, latitude: sLatitude, longitude : sLongitude, timeZone : iTimeZone })
 
                 .then( (resData ) => {
@@ -142,7 +139,7 @@ export class AuthServiceClass {
         return new Promise( (resolve)=> {
 
             //Using Promise
-            this.SocketService.sendRequestGetDataPromise("auth/register-oauth",{socialNetwork: sSocialNetworkName, socialNetworkId: sSocialNetworkId, accessToken : sAccessToken,
+            SocketService.sendRequestGetDataPromise("auth/register-oauth",{socialNetwork: sSocialNetworkName, socialNetworkId: sSocialNetworkId, accessToken : sAccessToken,
                 email:sEmail, firstName: sFirstName, lastName: sLastName, profilePic : sProfilePic, coverPic : sCoverImage, country: sCountryCode, language:sLanguage, city : sCity,
                 latitude: latitude, longitude : longitude,  shortBio: sShortBio, age : iAge, gender : sGender,   timeZone: iTimeZone, verified: bVerified,})
 
@@ -164,7 +161,7 @@ export class AuthServiceClass {
 
         console.log("LOGOUT");
 
-        this.SocketService.sendRequest("auth/logout",{});
+        SocketService.sendRequest("auth/logout",{});
 
         CookiesService.deleteCookie("sessionId");
         this.dispatch(UserAuthenticatedActions.logoutUserAuthenticated());
@@ -174,12 +171,13 @@ export class AuthServiceClass {
 
 
 var AuthService = new AuthServiceClass();
+export default AuthService;
 
-export default {
-  AuthService: AuthService,
-
-  createNewInstance: function () {
-    AuthService = new AuthServiceClass();
-  }
-
-}
+// export default {
+//   AuthService: AuthService,
+//
+//   createNewInstance: function () {
+//     AuthService = new AuthServiceClass();
+//   }
+//
+// }

@@ -10,8 +10,7 @@ import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 
 
-//import ModalComponent from 'skyhub/client/components/util-components/modals/Modal.component';
-import ModalComponent from '../../../../../client/components/util-components/modals/Modal.component';
+import AuthService from './../../../../services/REST/authentication/Auth.service';
 
 class OauthSocialNetworkComponent extends React.Component {
 
@@ -25,17 +24,11 @@ class OauthSocialNetworkComponent extends React.Component {
 
     }
 
-    SocketService = null;
-    AuthService = null;
-
     componentDidMount() {
 
         requestAnimationFrame(() => { //Make sure it is on client only
 
-          this.SocketService = require('../../../../services/Communication/socket/Socket.service').default.SocketService;
-          this.AuthService = require('./../../../../services/REST/authentication/auth.service').default.AuthService;
-
-          //console.log("#################### REGISTER ",this.AuthService);
+          //console.log("#################### REGISTER ",AuthService);
 
         });
 
@@ -98,7 +91,7 @@ class OauthSocialNetworkComponent extends React.Component {
 
             console.log("OAUTH Instance", this);
 
-            this.AuthService.registerOAuthAsync('facebook',sFacebookId,  sAccessToken, sEmail, sFirstName, sLastName, sProfilePic, sCoverImage,
+            AuthService.registerOAuthAsync('facebook',sFacebookId,  sAccessToken, sEmail, sFirstName, sLastName, sProfilePic, sCoverImage,
                     this.props.localization.countryCode, sLanguage, this.props.localization.city, this.props.localization.latitude, this.props.localization.longitude, sShortBio, iAge, sGender, iTimeZone, bVerified)
 
                 .then( (res) => {

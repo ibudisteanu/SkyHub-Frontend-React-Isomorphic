@@ -3,7 +3,7 @@
  * (C) BIT TECHNOLOGIES
  */
 
-//import {CookiesService} from 'modules/services/Cookies/Cookies.service';
+//import CookiesService from 'modules/services/Cookies/Cookies.service';
 
 import axios from 'axios';
 
@@ -28,6 +28,13 @@ class HTTPServiceClass {
 
         return axios.get(this.addTrailingSlash(this.serverHTTPApi)+sRequest, req);
     }
+
+    async getRequestURL(sRequest, req){
+      req = {data: req};
+
+      return axios.get(sRequest, req);
+    }
+
 
     async postRequest(sRequest, post){
 
@@ -74,14 +81,9 @@ class HTTPServiceClass {
 
 }
 
-var HTTPService = new HTTPServiceClass();
+var HTTPServiceInstance = new HTTPServiceClass();
 
-export default {
-  HTTPService: HTTPService,
-  createNewInstance: function (){
-    HTTPService = new HTTPServiceClass();
-  }
-};
+export default HTTPServiceInstance;
 
 // module.exports = {
 //     HTTPService : new HTTPServiceClass(),

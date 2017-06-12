@@ -3,18 +3,14 @@
  * (C) BIT TECHNOLOGIES
  */
 
-
 import * as io from 'socket.io-client';
 
 import { Observable, Subscribable } from 'rxjs/Observable';
 
-import {CookiesService} from '../../Cookies/cookies.service';
+import CookiesService from '../../Cookies/cookies.service';
 import * as SocketStatusActions from '../../../../my-redux/actions/SocketStatus.actions';
 
 class SocketServiceClass {
-
-    socket = null;
-    dispatch = null;
 
     sServerSocketAddress = "myskyhub.ddns.net:4000";
     sServerSocketApi = "api/";
@@ -176,9 +172,13 @@ class SocketServiceClass {
 
 var SocketService = new SocketServiceClass();
 
-export default {
-  SocketService: SocketService,
-  createNewInstance: function (){
-    SocketService = new SocketServiceClass();
-  }
-};
+export default SocketService;
+
+// var SocketService = new SocketServiceClass();
+//
+// export default {
+//   SocketService: SocketService,
+//   createNewInstance: function (){
+//     SocketService = new SocketServiceClass();
+//   }
+// };

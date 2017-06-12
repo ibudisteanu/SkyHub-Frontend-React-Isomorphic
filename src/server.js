@@ -37,8 +37,7 @@ import {extractIP} from './my-redux/actions/Localization.actions';
 
 var app = express();
 
-let HTTPServiceFile = require('./client/services/Communication/http/Http.service');
-let HTTPService = HTTPServiceFile.default.HTTPService;
+import HTTPService from './client/services/Communication/http/Http.service';
 
 // let SocketWorkerFile = require('./utils/socket-worker/SocketWorker');
 // let SocketWorker = SocketWorkerFile.default.SocketWorker;

@@ -6,6 +6,8 @@ import Link from '../../../../components/Link/Link';
 
 import OauthSocialNetworkComponent from '../oauth-social-networks-form/oauth.social.networks.component';
 
+import AuthService from './../../../../services/REST/authentication/Auth.service';
+
 export default class LoginForm extends React.Component {
 
 
@@ -25,10 +27,7 @@ export default class LoginForm extends React.Component {
     componentDidMount() {
       requestAnimationFrame(() => { //Make sure it is on client only
 
-        this.SocketService = require('../../../../services/Communication/socket/Socket.service').default.SocketService;
-        this.AuthService = require('./../../../../services/REST/authentication/auth.service').default.AuthService;
-
-        //console.log("#################### LOGIN ",this.AuthService);
+        //console.log("#################### LOGIN ",AuthService);
 
       });
     }
@@ -48,7 +47,7 @@ export default class LoginForm extends React.Component {
 
         console.log(this.state.userEmail, this.state.password);
 
-        this.AuthService.loginAsync(this.state.userEmail, this.state.password).then( (res) =>{
+        AuthService.loginAsync(this.state.userEmail, this.state.password).then( (res) =>{
 
             let userEmailValidationStatus = [null, ''], passwordValidationStatus = [null,''];
 
@@ -125,7 +124,7 @@ export default class LoginForm extends React.Component {
 
                     <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 5}}>
 
-                      <form onSubmit={::this.handleCheckLogin} autocomplete="on">
+                      <form onSubmit={::this.handleCheckLogin} autoComplete="on">
 
                         <label >Username or Email</label>
                         <div className={"input-group " + this.showInputStatus(this.state.userEmailValidationStatus)}  >

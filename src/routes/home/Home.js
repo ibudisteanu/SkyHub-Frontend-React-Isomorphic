@@ -9,37 +9,91 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Home.css';
+
+import DisplayContent from "../../client/modules/forums/content/DisplayContent.component";
+import HomeContentPage from "./home-content-pages/HomeContentPage";
+
+import {connect} from 'react-redux';
 
 class Home extends React.Component {
+
   static propTypes = {
-    news: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      link: PropTypes.string.isRequired,
-      content: PropTypes.string,
-    })).isRequired,
+      URL: PropTypes.string,
   };
+
+  renderError(){
+    return (
+      <div className="row">
+
+        <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <div className="alert danger">
+            <h4>NOT Found</h4>
+            <strong>{this.props.URL||""}</strong> was not found. Probably what you've been looking for doesn't exists or has been deleted in the mean while.
+          </div>
+        </div>
+
+      </div>
+    )
+  }
+
+  renderSimpleWebsite(){
+
+    return (
+
+      <div>
+        {
+          this.props.userAuthenticated.user.isLoggedIn()
+            ?
+              <AuthenticatedHomeComponent/>
+
+            :
+
+            <HomeComponent/>
+        }
+
+        <DisplayContent/>
+
+      </div>
+
+    )
+  }
+
+  renderHomepageComponent(){
+
+    return (
+      <HomeContentPage  />
+    )
+
+  }
 
   render() {
     return (
-      <div className={s.root}>
-        <div className={s.container}>
-          <h1>React.js News</h1>
-          {this.props.news.map(item => (
-            <article key={item.link} className={s.newsItem}>
-              <h1 className={s.newsTitle}><a href={item.link}>{item.title}</a></h1>
-              <div
-                className={s.newsDesc}
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: item.content }}
-              />
-            </article>
-          ))}
-        </div>
+      <div>
+
+        {this.props.routerState.currentRouterObject === null ? ::this.renderSimpleWebsite() : ::this.renderHomepageComponent()}
+
+        {this.props.routerState.currentRouterObject.notFound ? ::this.renderError() : this.props.routerState.currentRouterObject.notFound+' KAKAT'}
+
+
+        <DisplayContent />
+
       </div>
     );
   }
 }
 
-export default withStyles(s)(Home);
+
+function mapState (state){
+  return {
+    userAuthenticated: state.userAuthenticated,
+    routerState: state.routerState,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+export default connect(mapState, mapDispatch)(Home);

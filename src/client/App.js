@@ -13,6 +13,13 @@ import { Provider as ReduxProvider } from 'react-redux';
 
 import {startLocalizationFetchingAsync} from './../my-redux/actions/Localization.actions';
 
+//Creating the Socket Service
+import SocketService from './services/Communication/socket/Socket.service';
+import AuthService from './services/REST/authentication/Auth.service';
+import ForumsService from './services/REST/forums/forums/Forums.service';
+import ContentService from './services/REST/forums/content/Content.service';
+
+
 import {connect} from 'react-redux';
 
 const ContextType = {
@@ -65,8 +72,8 @@ class App extends React.PureComponent {
   getChildContext() {
     return {
       ...this.props.context,
-      SocketService : this.SocketService,
-      AuthService : this.AuthService,
+      SocketService : SocketService,
+      AuthService : AuthService,
     };
   }
 
@@ -80,7 +87,6 @@ class App extends React.PureComponent {
 
   bInitialized = false;
   AuthService = null;
-  SocketService = null;
 
   initializeClientApp(){
 
@@ -94,14 +100,13 @@ class App extends React.PureComponent {
 
 
     //Creating the Socket Service
-    var SocketServiceFile = require('./services/Communication/socket/Socket.service').default;
-    this.SocketService = SocketServiceFile.SocketService;
-    this.SocketService .startService(this.props.context.store.dispatch);
+    SocketService .startService(this.props.context.store.dispatch);
 
-    //Creating the Socket Service
-    var AuthServiceFile = require ('./services/REST/authentication/auth.service').default;
-    this.AuthService = AuthServiceFile.AuthService;
-    this.AuthService.startService(this.props.context.store.dispatch, this.props.context.store.getState().userAuthenticated, this.SocketService);
+    AuthService.startService(this.props.context.store.dispatch, this.props.context.store.getState().userAuthenticated);
+
+    ForumsService.startService(this.props.context.store.dispatch);
+
+    ContentService.startService(this.props.context.store.dispatch, this.props.context.store.getState().routerState);
 
   }
 

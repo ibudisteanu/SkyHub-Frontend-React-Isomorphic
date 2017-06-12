@@ -3,7 +3,7 @@
 import * as UserProperties from './User.properties.js';
 //var UserProperties = require ('./User.properties.ts');
 
-export class User {
+export default class User {
 
     loggedIn;
 

@@ -3,7 +3,7 @@
  * (C) BIT TECHNOLOGIES
  */
 
-import {Forum} from './../../../../modules/forums/forums/models/Forum.model';
+import Forum from './../../../../modules/forums/forums/models/Forum.model';
 
 class ContentObjectServiceClass {
 
@@ -15,7 +15,7 @@ class ContentObjectServiceClass {
 
     extractDataFromIds(objectId) {
 
-        if (typeof objectId === "object") objectId = objectId.id;
+        if ((typeof objectId === "object")&&(objectId !== null)) objectId = objectId.id;
         if (typeof objectId !== "string") return null;
 
         //console.log("extract data from Ids",objectId);
@@ -69,9 +69,11 @@ class ContentObjectServiceClass {
 }
 
 
-var ContentObjectServiceInstance = new ContentObjectServiceClass()
+var ContentObjectService = new ContentObjectServiceClass();
 
-export function ContentObjectService(){
-    return ContentObjectServiceInstance;
-};
+export default ContentObjectService;
+
+// export function ContentObjectService(){
+//     return ContentObjectServiceInstance;
+// };
 

@@ -8,6 +8,8 @@
 import React from 'react';
 import Link from '../../../../../Link/Link';
 
+import AuthService from './../../../../../../services/REST/authentication/Auth.service';
+
 class AuthenticatedHeaderNavigationMenu extends React.Component {
 
   AuthService = null;
@@ -15,8 +17,6 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
   componentDidMount() {
     requestAnimationFrame(() => { //Make sure it is on client only
 
-      var AuthServiceFile = require ('./../../../../../../services/REST/authentication/auth.service').default;
-      this.AuthService = AuthServiceFile.AuthService;
 
     });
   }
@@ -24,7 +24,7 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
   handleLogout(e){
     e.preventDefault(); e.stopPropagation();
 
-    this.AuthService.logout();
+    AuthService.logout();
   }
 
   render() {

@@ -11,7 +11,7 @@ import React from 'react';
 import Layout from '../../client/components/Template/Layout';
 
 //import Register from './Register';
-import RegistrationPage from './../../client/modules/users/authentication/registration/registration.page';
+import RegistrationPage from './registration.page';
 
 const title = 'New User Registration';
 

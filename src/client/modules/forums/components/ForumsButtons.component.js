@@ -5,28 +5,12 @@
 
 import React from 'react';
 import {connect} from "react-redux";
-import { Link, withRouter } from 'react-router';
 
-import {getPath} from 'common/common-functions';
-import { AuthService } from 'modules/services/REST/authentication/auth.service';
-import {Hero,HeroHeader, HeroHeader2 } from 'modules/website/template/components/hero.component';
+import AuthService  from './../../../services/REST/authentication/Auth.service';
 
-import {AddForumForm} from 'modules/forums/forums/components/AddForum.form.component'
+import AddForumForm from './../forums/components/AddForum.form.component'
 
-import {
-    ButtonToolbar,
-    Button,
-    Icon
-} from '@sketchpixy/rubix';
-
-@withRouter
-@connect(
-    state => ({
-        userAuthenticated : state.userAuthenticated,
-    }),
-    dispatch => ({dispatch}),
-)
-export class ForumsButtons extends React.Component {
+export default class ForumsButtons extends React.Component {
 
     constructor(props){
         super(props);
@@ -42,7 +26,6 @@ export class ForumsButtons extends React.Component {
             btnAddReply : props.btnAddReply||true,
         };
 
-        this.AuthService = new AuthService(props.dispatch);
     }
 
     handleAddForum(e){

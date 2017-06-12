@@ -11,7 +11,7 @@ import React from 'react';
 import Layout from '../../client/components/Template/Layout';
 
 //import Login from './Login';
-import LoginPage from './../../client/modules/users/authentication/login/login.page';
+import LoginPage from './login.page';
 
 const title = 'Log In';
 

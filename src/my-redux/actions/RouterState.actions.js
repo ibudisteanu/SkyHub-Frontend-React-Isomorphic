@@ -6,24 +6,31 @@
 /* eslint-disable import/prefer-default-export */
 
 
-import { ContentObjectService } from './../../client/services/REST/forums/content/ContentObject.service';
+import ContentObjectService  from './../../client/services/REST/forums/content/ContentObject.service';
 
-export function newRouterObjectArgumentAction(newRouterObject, objectNotFound ) {
+export function newRouterObjectArgumentAction(newRouterObject, objectNotFound, pageIndex, pageCount, pageNext, contentObjects ) {
 
     return {
         type: "NEW_ROUTER_OBJECT_ARGUMENT",
         payload: {
 
-            object : {
-                type: ContentObjectService.extractObjectTypeFromId(newRouterObject),
-                object: ContentObjectService.createObject(newRouterObject),
-                notFound : objectNotFound || (newRouterObject === null),
-
-            },
-
+              type: ContentObjectService.extractObjectTypeFromId(newRouterObject),
+              object: ContentObjectService.createObject(newRouterObject),
+              notFound : objectNotFound || (newRouterObject === null),
+              pageIndex: pageIndex||0,
+              pageCount: pageCount || 8,
+              pageNext: pageNext || true,
+              contentObjects: contentObjects||[],
 
         }
     }
+}
+
+export function newRouterObjectArgument_ContentArrayAction(contentObjects){
+  return {
+    type: "NEW_ROUTER_OBJECT_ARGUMENT",
+    payload: contentObjects,
+  }
 }
 
 export function setAuthenticationModalElement(refAuthenticationModal){

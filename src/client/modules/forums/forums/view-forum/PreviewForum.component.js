@@ -4,41 +4,18 @@
 
 import React from 'react';
 import {connect} from "react-redux";
-import { Link, withRouter } from 'react-router';
 
-import {newRouterForumArgumentAction} from '../../../../my-redux/actions/RouterState.actions';
-import {getPath} from 'common/common-functions';
+import {newRouterObjectArgumentAction} from '../../../../../my-redux/actions/RouterState.actions';
 
-import { AuthService } from 'modules/services/REST/authentication/auth.service.js';
-import {ForumsService} from 'modules/services/REST/forums/forums/forums.service';
+import AuthService from '../../../../services/REST/authentication/Auth.service.js';
+import ForumsService from '../../../../services/REST/forums/forums/Forums.service';
 
-import {Forum} from '../models/Forum.model.js';
+import Forum from '../models/Forum.model';
 
-import {
-    PanelContainer,
-    Panel,
-    PanelHeader,
-    PanelBody,
-    Alert,
-    Grid,
-    Row,
-    Col,
-} from '@sketchpixy/rubix';
-
-@withRouter
-@connect(
-    state => ({
-        userAuthenticated : state.userAuthenticated,
-    }),
-    dispatch => ({dispatch}),
-)
-export class PreviewForum extends React.Component {
+ class PreviewForum extends React.Component {
 
     constructor(props){
         super(props);
-
-        this.AuthService = new AuthService(props.dispatch);
-        this.ForumsService = new ForumsService(props.dispatch);
 
         this.state = {
             forum: new Forum({title:"TEST FORUM",description:"DESCRIPTION"}),
@@ -59,7 +36,7 @@ export class PreviewForum extends React.Component {
         if (typeof this.props.id !== "undefined"){
             let forumId = this.props.id || '';
 
-            this.ForumsService.getForumAsync(forumId).then ( (forumAnswer) => {
+            ForumsService.getForumAsync(forumId).then ( (forumAnswer) => {
 
                 this.setState({
                     forum: forumAnswer,
@@ -81,7 +58,7 @@ export class PreviewForum extends React.Component {
     }
 
     setForumArgument(){
-        this.props.dispatch(newRouterForumArgumentAction(this.state.forum));
+        this.props.dispatch(newRouterObjectArgumentAction(this.state.forum));
     }
 
     render() {
@@ -131,3 +108,17 @@ export class PreviewForum extends React.Component {
         );
     }
 }
+
+function mapState (state){
+  return {
+    userAuthenticated: state.userAuthenticated,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+export default connect(mapState, mapDispatch)(PreviewForum);

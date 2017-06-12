@@ -13,26 +13,30 @@ import Layout from '../../client/components/Template/Layout';
 
 import {startLocalizationFetchingAsync} from './../../my-redux/actions/Localization.actions';
 
+import ContentService from './../../client/services/REST/forums/content/Content.service';
+
 export default {
 
-  path: '/',
+  path: '/:url*',
+  //path: '/:filter(active|completed|)',
 
-  async action({ fetch, store }) {
+  async action({ params, fetch, store }) {
 
-    const resp = await fetch('/graphql', {
-      body: JSON.stringify({
-        query: '{news{title,link,content}}',
-      }),
-    });
-
-    console.log("Index.js", resp);
     await store.dispatch(startLocalizationFetchingAsync());
 
-    const { data } = await resp.json();
-    if (!data || !data.news) throw new Error('Failed to load the news feed.');
+    ContentService.startService(store.dispatch, store.getState().routerState);
+    var contentData =  await ContentService.fetchRouterObjectAndContent(params.url||'','http');
+
+    //if (!data || !data.news) throw new Error('Failed to load the news feed.');
+    console.log("DATA " ,contentData);
+
+
     return {
       title: 'React Starter Kit',
-      component: <Layout><Home news={data.news} /></Layout>,
+      component:
+        <Layout>
+          <Home URL={params.url} />
+        </Layout>,
     };
   },
 

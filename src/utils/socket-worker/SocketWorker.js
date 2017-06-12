@@ -171,11 +171,12 @@ class SocketWorkerClass {
 }
 
 var SocketWorker = new SocketWorkerClass();
-SocketWorker.startService();
 
-export default {
-  SocketWorker: SocketWorker,
-  createNewInstance: function (){
-    SocketWorker = new SocketWorkerClass();
-  }
-};
+export default SocketWorker;
+
+// export default {
+//   SocketWorker: SocketWorker,
+//   createNewInstance: function (){
+//     SocketWorker = new SocketWorkerClass();
+//   }
+// };

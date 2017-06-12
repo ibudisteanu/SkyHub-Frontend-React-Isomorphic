@@ -2,7 +2,7 @@
  TUTORIAL BASED on http://stackoverflow.com/questions/34298133/angular-2-cookies
  */
 
-export class CookiesService {
+export default class CookiesService {
 
     static getSessionCookie(){
         return this.readCookie2('sessionId');
