@@ -223,30 +223,30 @@ export class RegistrationForm extends React.Component {
         return (
               <div>
 
-                      <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 25}}>
+                      <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 5}}>
 
-                          <form onSubmit={::this.handleCheckRegister}>
+                          <form onSubmit={::this.handleCheckRegister} autocomplete="on">
 
                               <div className="row" >
 
-                                <div className="col-md-6">
+                                <div className="col-sm-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.userNameValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-user"></i></span>
 
-                                    <input autoFocus type='text' className='form-control input-lg' placeholder='username'  value={this.state.userName} onChange={::this.handleUserNameChange} />
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='username'  name="username" value={this.state.userName} onChange={::this.handleUserNameChange} />
 
                                     <span className={::this.showInputFeedback(this.state.userNameValidationStatus)}></span>
                                   </div>
                                   <label className="error" >{this.state.userNameValidationStatus[1]}</label> <br />
                                 </div>
 
-                                <div className="col-md-6">
+                                <div className="col-sm-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.emailAddressValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-envelope"></i></span>
 
-                                    <input autoFocus type='text' className='form-control input-lg' placeholder='E-mail'  value={this.state.emailAddress} onChange={::this.handleEmailAddressChange} />
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='E-mail'  name="email" value={this.state.emailAddress} onChange={::this.handleEmailAddressChange} />
 
                                     <span className={::this.showInputFeedback(this.state.emailAddressValidationStatus)}></span>
                                   </div>
@@ -257,24 +257,24 @@ export class RegistrationForm extends React.Component {
 
                               <div className="row" >
 
-                                <div className="col-md-6">
+                                <div className="col-sm-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.firstNameValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-font"></i></span>
 
-                                    <input autoFocus type='text' className='form-control input-lg' placeholder='First Name'  value={this.state.firstName} onChange={::this.handleFirstNameChange} />
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='First Name' name="firstname" value={this.state.firstName} onChange={::this.handleFirstNameChange} />
 
                                     <span className={::this.showInputFeedback(this.state.firstNameValidationStatus)}></span>
                                   </div>
                                   <label className="error" >{this.state.firstNameValidationStatus[1]}</label> <br />
                                 </div>
 
-                                <div className="col-md-6">
+                                <div className="col-sm-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.lastNameValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-bold"></i></span>
 
-                                    <input autoFocus type='text' className='form-control input-lg' placeholder='Last Name'  value={this.state.lastName} onChange={::this.handleLastNameChange} />
+                                    <input autoFocus type='text' className='form-control input-lg' placeholder='Last Name' name="lastname" value={this.state.lastName} onChange={::this.handleLastNameChange} />
 
                                     <span className={::this.showInputFeedback(this.state.lastNameValidationStatus)}></span>
                                   </div>
@@ -285,19 +285,19 @@ export class RegistrationForm extends React.Component {
 
                               <div className="row" >
 
-                                <div className="col-md-6">
+                                <div className="col-sm-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.passwordValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-key"></i></span>
 
-                                    <input autoFocus type='password' className='form-control input-lg' placeholder='password'  value={this.state.password} onChange={::this.handlePasswordChange} />
+                                    <input autoFocus type='password' className='form-control input-lg' placeholder='password' name="password" value={this.state.password} onChange={::this.handlePasswordChange} />
 
                                     <span className={::this.showInputFeedback(this.state.passwordValidationStatus)}></span>
                                   </div>
                                   <label className="error" >{this.state.passwordValidationStatus[1]}</label> <br />
                                 </div>
 
-                                <div className="col-md-6">
+                                <div className="col-sm-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.retypePasswordValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-key"></i></span>
@@ -313,7 +313,7 @@ export class RegistrationForm extends React.Component {
 
                             <div className="row" >
 
-                              <div className="col-md-6">
+                              <div className="col-sm-6">
                                 <div className={"input-group " + this.showInputStatus(this.state.countryValidationStatus)}  >
 
                                   <span className="input-group-addon"><i className="fa fa-flag"></i></span>
@@ -325,7 +325,7 @@ export class RegistrationForm extends React.Component {
                                 <label className="error" >{this.state.countryValidationStatus[1]}</label> <br />
                               </div>
 
-                              <div className="col-md-6" style={{paddingBottom: 5}}>
+                              <div className="col-sm-6" style={{paddingBottom: 5}}>
                                 <div className={"input-group " + this.showInputStatus(this.state.cityValidationStatus)}  >
 
                                   <span className="input-group-addon"><i className="fa fa-institution"></i></span>

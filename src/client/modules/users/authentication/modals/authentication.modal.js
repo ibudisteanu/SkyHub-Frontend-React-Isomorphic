@@ -7,6 +7,11 @@ import ModalComponent from '../../../../../client/components/util-components/mod
 
 class AuthenticationModal extends React.Component {
 
+    refModal = null;
+
+    loginRef = null;
+    registrationRef = null;
+
     constructor(props) {
         super(props);
 
@@ -14,11 +19,11 @@ class AuthenticationModal extends React.Component {
     }
 
     close() {
-      this.modalRef.closeModal();
+      this.refModal.closeModal();
     }
 
     open() {
-      this.modalRef.showAlert();
+      this.refModal.showAlert();
     }
 
     setLogin(){
@@ -46,11 +51,6 @@ class AuthenticationModal extends React.Component {
         this.open("registration");
     }
 
-    modalRef = null;
-
-    loginRef = null;
-    registrationRef = null;
-
     renderLogin(){
         return (
             <LoginForm ref={(c) => this.loginRef = c} onSuccess={::this.loginSuccess} onSwitch={::this.switchLoginToRegistration} />
@@ -67,7 +67,7 @@ class AuthenticationModal extends React.Component {
 
         return (
 
-            <ModalComponent modalId="AuthenticationModal"  ref={(c) => this.modalRef = c} title={this.state.modalTitle} subTitle="" buttons={[]} >
+            <ModalComponent modalId="AuthenticationModal"  ref={(c) => this.refModal = c} title={this.state.modalTitle} subTitle="" buttons={[]} >
 
               {this.state.modalType === "login" ? ::this.renderLogin() : ::this.renderRegistration()}
 
@@ -81,7 +81,8 @@ class AuthenticationModal extends React.Component {
         let onSuccess = this.props.onSuccess||function(){};
         onSuccess(resource);
 
-        close();
+
+        this.close();
     }
 
 
@@ -89,7 +90,7 @@ class AuthenticationModal extends React.Component {
         let onSuccess = this.props.onSuccess||function(){};
         onSuccess(resource);
 
-        close();
+        this.close();
     }
 
     switchLoginToRegistration(e){

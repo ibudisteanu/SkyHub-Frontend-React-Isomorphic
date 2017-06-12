@@ -91,7 +91,7 @@ class Body extends React.Component {
 
 function mapState (state){
   return {
-    authenticate: state.authenticate,
+    userAuthenticated : state.userAuthenticated,
     localization: state.localization,
   }
 };

@@ -123,16 +123,16 @@ export default class LoginForm extends React.Component {
 
               <div>
 
-                    <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 25}}>
+                    <div style={{padding: 25, paddingTop: 0, paddingBottom: 0, margin: 'auto', marginBottom: 25, marginTop: 5}}>
 
-                      <form onSubmit={::this.handleCheckLogin}>
+                      <form onSubmit={::this.handleCheckLogin} autocomplete="on">
 
                         <label >Username or Email</label>
                         <div className={"input-group " + this.showInputStatus(this.state.userEmailValidationStatus)}  >
 
                           <span className="input-group-addon"><i className="fa fa-user"></i></span>
 
-                          <input autoFocus type='text' className='form-control input-lg' placeholder='username   or    email'  value={this.state.userEmail} onChange={::this.handleUserEmailChange} />
+                          <input autoFocus type='text' className='form-control input-lg' placeholder='username   or    email'  name="username" value={this.state.userEmail} onChange={::this.handleUserEmailChange} />
 
                           <span className={::this.showInputFeedback(this.state.userEmailValidationStatus)}></span>
                         </div>
@@ -144,7 +144,7 @@ export default class LoginForm extends React.Component {
 
                           <span className="input-group-addon"><i className="fa fa-key"></i></span>
 
-                          <input autoFocus type='password' className='form-control input-lg' placeholder='password'  value={this.state.password} onChange={::this.handlePasswordChange} />
+                          <input autoFocus type='password' className='form-control input-lg' placeholder='password'  name="password" value={this.state.password} onChange={::this.handlePasswordChange} />
 
                           <span className={::this.showInputFeedback(this.state.passwordValidationStatus)}></span>
                         </div>

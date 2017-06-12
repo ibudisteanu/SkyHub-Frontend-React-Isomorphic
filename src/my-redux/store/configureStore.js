@@ -45,6 +45,9 @@ export default function configureStore(initialState, helpersConfig) {
 
   initialState.testReduxState = defaultTestReduxState;
 
+  if ((typeof document !== "undefined")&&(initialState.userAuthenticated.user.isLoggedIn()))
+    document.body.classList.remove("top-navigation");
+
   // See https://github.com/rackt/redux/releases/tag/v3.1.0
   const store = createStore(rootReducer, initialState, enhancer);
 

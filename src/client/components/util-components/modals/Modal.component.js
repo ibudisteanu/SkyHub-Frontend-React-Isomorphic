@@ -53,6 +53,10 @@ export default class ModalComponent extends React.Component {
     });
   }
 
+  closeModal(){
+    this.hideModal();
+  }
+
   handleToggle(){
     if (this.state.isModalOpen === true) this.hideModal();
     else  this.showModal();
@@ -112,7 +116,7 @@ export default class ModalComponent extends React.Component {
               (
                 <div className="modal-body">
 
-                  <p>{body}</p>
+                  {body !== '' ? (<p>{body}</p>) : ''}
 
                   {children}
 
