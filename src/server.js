@@ -83,6 +83,9 @@ app.use('/graphql', expressGraphQL(req => ({
 // -----------------------------------------------------------------------------
 app.get('*', async (req, res, next) => {
   try {
+
+    console.log("HELLO WORLD");
+
     const css = new Set();
 
     const fetch = createFetch({

@@ -12,14 +12,9 @@
     
 5. npm install
 
-6. Install the missing modules with `npm install missing-node-module-name --save`
+6. Install the missing modules with (optional only in case there are missing modules) you need to install each of them using `npm install missing-node-module-name --save`
 
-## 2 Installing the react-country-select module to be compatible 
-
-1. Open react-country-select\index.js and remove or comment the import of **require('react-select/dist/react-select.css');**
-2. Open react-country-select\Package.json and add  "style": "dist/react-select.min.css",
-
-## 3 Upgrading node.js from 6.x to 8.x 
+## 3 Upgrading node.js from 6.x to 8.x (OPTIONAL) 
 
 1. install missing modules with `npm install missing-node-module-name --save`
     1. In case it is required to install react-country-select module, follow step No 2.
@@ -27,9 +22,9 @@
 
 ## Running SkyHub Frontend
 
-1. npm run dev -s
+1. npm start
 
-It will start on port 8080, and you can access the frontend server by http://127.0.0.1:8080/ 
+It will start on port 8080, and you can access the frontend server by http://127.0.0.1:3000/ 
 
 #### Online Versions:
 

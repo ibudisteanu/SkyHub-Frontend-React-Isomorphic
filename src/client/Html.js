@@ -12,6 +12,8 @@ import PropTypes from 'prop-types';
 import serialize from 'serialize-javascript';
 import config from '../config';
 
+import {connect} from 'react-redux';
+
 /* eslint-disable react/no-danger */
 
 class Html extends React.Component {
@@ -34,6 +36,7 @@ class Html extends React.Component {
 
   render() {
     const { title, description, styles, scripts, app, children } = this.props;
+
     return (
       <html className="no-js" lang="en">
         <head>
@@ -55,7 +58,6 @@ class Html extends React.Component {
           <link rel="stylesheet" type="text/css" href="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/css/msdropdown/flags.css" />
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" />
 
-
           <script src="https://code.jquery.com/jquery-3.2.1.min.js" />
           <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
@@ -71,7 +73,8 @@ class Html extends React.Component {
           ))}
 
         </head>
-        <body style={{margin:0}}>
+
+        <body style={{margin:0}} className={ ((typeof this.props.app !== "undefined") &&(typeof this.props.app.state.userAuthenticated !== null) && (this.props.app.state.userAuthenticated.user.isLoggedIn() !== true)) ? 'top-navigation' : ''} >
           <div id="app" dangerouslySetInnerHTML={{ __html: children }} />
           <script dangerouslySetInnerHTML={{ __html: `window.App=${serialize(app)}` }} />
           {scripts.map(script => <script key={script} src={script} />)}
