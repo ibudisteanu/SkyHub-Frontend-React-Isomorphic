@@ -11,11 +11,15 @@ import {Forum} from '../../client/modules/forums/forums/models/Forum.model';
 export function defaultRouterState  (initial) {
 
   return{
+
+    refAuthenticationModal : null,
+
     currentRouterObject: initial.currentRouterObject || {
       type: 'none',//'none','forum','topic','user',
       object: null,
       notFound: false,
     },
+
   }
 
 };
@@ -28,6 +32,11 @@ export default function RouterStatusReducer  ( state = defaultRouterState, actio
       return {
         ...state,
         ['currentRouterObject']: action.payload.object,
+      };
+    case 'SET_AUTHENTICATION_MODAL_ELEMENT':
+      return {
+        ...state,
+        ['refAuthenticationModal'] : action.payload.refAuthenticationModal,
       };
     default:
       return state;

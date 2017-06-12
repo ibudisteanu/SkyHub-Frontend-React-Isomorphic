@@ -61,7 +61,7 @@ export class AuthServiceClass {
 
         return new Promise( (resolve)=> {
 
-            if (this.userAuthenticated.user.isLoggedIn() === true) { resolve(true); return ;}; //already logged in
+            if (this.userAuthenticated.user.isLoggedIn() === true) { console.log("user already logged in"); resolve(true); return ;}; //already logged in
 
             //Using Promise
             this.SocketService.sendRequestGetDataPromise("auth/login",{emailUsername:sEmailUserName, password:sPassword}).then( (resData) => {

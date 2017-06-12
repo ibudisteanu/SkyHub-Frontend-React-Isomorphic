@@ -6,7 +6,7 @@
 /* eslint-disable import/prefer-default-export */
 
 
-import { ContentObjectService } from 'src/client/services/REST/forums/content/ContentObject.service';
+import { ContentObjectService } from './../../client/services/REST/forums/content/ContentObject.service';
 
 export function newRouterObjectArgumentAction(newRouterObject, objectNotFound ) {
 
@@ -24,4 +24,15 @@ export function newRouterObjectArgumentAction(newRouterObject, objectNotFound ) 
 
         }
     }
+}
+
+export function setAuthenticationModalElement(refAuthenticationModal){
+
+  return {
+    type: 'SET_AUTHENTICATION_MODAL_ELEMENT',
+    payload: {
+      refAuthenticationModal: refAuthenticationModal,
+    },
+  };
+
 }

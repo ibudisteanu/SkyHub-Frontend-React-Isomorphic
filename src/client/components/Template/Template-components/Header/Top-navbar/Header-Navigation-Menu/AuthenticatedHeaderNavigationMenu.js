@@ -10,6 +10,23 @@ import Link from '../../../../../Link/Link';
 
 class AuthenticatedHeaderNavigationMenu extends React.Component {
 
+  AuthService = null;
+
+  componentDidMount() {
+    requestAnimationFrame(() => { //Make sure it is on client only
+
+      var AuthServiceFile = require ('./../../../../../../services/REST/authentication/auth.service').default;
+      this.AuthService = AuthServiceFile.AuthService;
+
+    });
+  }
+
+  handleLogout(e){
+    e.preventDefault(); e.stopPropagation();
+
+    this.AuthService.logout();
+  }
+
   render() {
 
     //console.log("######## AUTHENTICATED HEADER", this);
@@ -132,9 +149,9 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
 
 
         <li>
-          <a href="login.html">
+          <Link to="/logout" onClick={::this.handleLogout}>
             <i className="fa fa-sign-out"></i> Log out
-          </a>
+          </Link>
         </li>
 
         <li>

@@ -8,7 +8,6 @@
  */
 
 import React from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import Link from '../../../Link/Link';
 
@@ -24,6 +23,7 @@ import Chat from './Chat/Chat';
 import ChatButton from './Chat/ChatButton';
 
 import AuthenticationModal from '../../../../modules/users/authentication/modals/Authentication.modal';
+import {setAuthenticationModalElement} from './../../../../../my-redux/actions/RouterState.actions.js';
 
 import {connect} from 'react-redux';
 
@@ -46,7 +46,7 @@ class Body extends React.Component {
   componentDidMount() {
     requestAnimationFrame(() => { //Make sure it is on client only
 
-
+      this.props.dispatch(setAuthenticationModalElement(this.refAuthenticationModal));
 
     });
   }

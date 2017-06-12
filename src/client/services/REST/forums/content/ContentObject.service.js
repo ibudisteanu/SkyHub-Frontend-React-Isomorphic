@@ -3,7 +3,7 @@
  * (C) BIT TECHNOLOGIES
  */
 
-import {Forum} from 'modules/forums/forums/models/Forum.model';
+import {Forum} from './../../../../modules/forums/forums/models/Forum.model';
 
 class ContentObjectServiceClass {
 
@@ -69,6 +69,9 @@ class ContentObjectServiceClass {
 }
 
 
-module.exports = {
-    ContentObjectService : new ContentObjectServiceClass(),
+var ContentObjectServiceInstance = new ContentObjectServiceClass()
+
+export function ContentObjectService(){
+    return ContentObjectServiceInstance;
 };
+

@@ -227,9 +227,9 @@ export class RegistrationForm extends React.Component {
 
                           <form onSubmit={::this.handleCheckRegister}>
 
-                              <div className="row" style={{paddingBottom: 20}}>
+                              <div className="row" >
 
-                                <div className="col-xs-6">
+                                <div className="col-md-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.userNameValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-user"></i></span>
@@ -241,7 +241,7 @@ export class RegistrationForm extends React.Component {
                                   <label className="error" >{this.state.userNameValidationStatus[1]}</label> <br />
                                 </div>
 
-                                <div className="col-xs-6">
+                                <div className="col-md-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.emailAddressValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-envelope"></i></span>
@@ -255,9 +255,9 @@ export class RegistrationForm extends React.Component {
 
                               </div>
 
-                              <div className="row" style={{paddingBottom: 20}}>
+                              <div className="row" >
 
-                                <div className="col-xs-6">
+                                <div className="col-md-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.firstNameValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-font"></i></span>
@@ -269,7 +269,7 @@ export class RegistrationForm extends React.Component {
                                   <label className="error" >{this.state.firstNameValidationStatus[1]}</label> <br />
                                 </div>
 
-                                <div className="col-xs-6">
+                                <div className="col-md-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.lastNameValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-bold"></i></span>
@@ -283,9 +283,9 @@ export class RegistrationForm extends React.Component {
 
                               </div>
 
-                              <div className="row" style={{paddingBottom: 20}}>
+                              <div className="row" >
 
-                                <div className="col-xs-6">
+                                <div className="col-md-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.passwordValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-key"></i></span>
@@ -297,7 +297,7 @@ export class RegistrationForm extends React.Component {
                                   <label className="error" >{this.state.passwordValidationStatus[1]}</label> <br />
                                 </div>
 
-                                <div className="col-xs-6">
+                                <div className="col-md-6">
                                   <div className={"input-group " + this.showInputStatus(this.state.retypePasswordValidationStatus)}  >
 
                                     <span className="input-group-addon"><i className="fa fa-key"></i></span>
@@ -311,9 +311,9 @@ export class RegistrationForm extends React.Component {
 
                               </div>
 
-                            <div className="row" style={{paddingBottom: 20}}>
+                            <div className="row" >
 
-                              <div className="col-xs-6">
+                              <div className="col-md-6">
                                 <div className={"input-group " + this.showInputStatus(this.state.countryValidationStatus)}  >
 
                                   <span className="input-group-addon"><i className="fa fa-flag"></i></span>
@@ -325,7 +325,7 @@ export class RegistrationForm extends React.Component {
                                 <label className="error" >{this.state.countryValidationStatus[1]}</label> <br />
                               </div>
 
-                              <div className="col-xs-6" style={{paddingBottom: 5}}>
+                              <div className="col-md-6" style={{paddingBottom: 5}}>
                                 <div className={"input-group " + this.showInputStatus(this.state.cityValidationStatus)}  >
 
                                   <span className="input-group-addon"><i className="fa fa-institution"></i></span>

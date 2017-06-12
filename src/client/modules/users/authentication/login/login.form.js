@@ -52,11 +52,14 @@ export default class LoginForm extends React.Component {
 
             let userEmailValidationStatus = [null, ''], passwordValidationStatus = [null,''];
 
+            console.log("LOGIN ANSWER",res);
+
             if (res.result === "true") {
                 this.loginSuccessfully(res);
             }
             else
             if (res.result === "false"){
+
                 if (res.message === "No User Found") {
                     userEmailValidationStatus = ["error","No User Found"];
                 }
@@ -163,6 +166,7 @@ export default class LoginForm extends React.Component {
                               </div>
                             </div>
                         </div>
+
 
                       </form>
 

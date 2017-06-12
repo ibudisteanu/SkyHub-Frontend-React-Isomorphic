@@ -10,28 +10,35 @@ import Link from '../../../../../Link/Link';
 import ReactDOM from 'react-dom';
 
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 class NotAuthenticatedHeaderNavigationMenu extends React.Component {
 
-  static contextTypes = {
-    refAuthenticationModal: PropTypes.any,
-  };
+  // static contextTypes = {
+  //   refAuthenticationModal: PropTypes.any,
+  // };
 
   handleSignIn(e){
     e.preventDefault(); e.stopPropagation();
     console.log("SIGN IN");
 
 
-    if ((this.context.refAuthenticationModal !== null)&&(typeof this.context.refAuthenticationModal !== "undefined"))
-      this.context.refAuthenticationModal.openLogin();
+    if ((this.props.routerState !== null)&&(this.props.routerState.refAuthenticationModal !== null))
+      this.props.routerState.refAuthenticationModal.openLogin();
+
+    //using props & context
+    // if ((this.context.refAuthenticationModal !== null)&&(typeof this.context.refAuthenticationModal !== "undefined"))
+    //   this.context.refAuthenticationModal.openLogin();
   }
 
   handleRegister(e){
     e.preventDefault(); e.stopPropagation();
 
+    if ((this.props.routerState !== null)&&(this.props.routerState.refAuthenticationModal !== null))
+      this.props.routerState.refAuthenticationModal.openRegistration();
 
-    if ((this.context.refAuthenticationModal !== null)&&(typeof this.context.refAuthenticationModal !== "undefined"))
-      this.context.refAuthenticationModal.openRegistration();
+    // if ((this.context.refAuthenticationModal !== null)&&(typeof this.context.refAuthenticationModal !== "undefined"))
+    //   this.context.refAuthenticationModal.openRegistration();
   }
 
 
@@ -75,4 +82,17 @@ class NotAuthenticatedHeaderNavigationMenu extends React.Component {
   }
 }
 
-export default NotAuthenticatedHeaderNavigationMenu;
+
+function mapState (state){
+  return {
+    routerState: state.routerState,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+export default connect(mapState, mapDispatch)(NotAuthenticatedHeaderNavigationMenu);
