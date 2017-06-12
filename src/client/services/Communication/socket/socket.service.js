@@ -49,7 +49,7 @@ class SocketServiceClass {
 
         this.socket = io.connect(this.sServerSocketAddress, {
             //query: "token=aaa" //JWT Token
-            query: "token=" + CookiesService.getTokenCookie() //JWT Token
+            query: "token=" + CookiesService.getSessionCookie() //JWT Token
         });
 
         this.setSocketReadObservable("connect").subscribe(response => {
@@ -113,7 +113,7 @@ class SocketServiceClass {
 
         //console.log('sending'+sRequestName); console.log(sRequestData);
 
-        var token = CookiesService.getTokenCookie();
+        var token = CookiesService.getSessionCookie();
         if ((token !== "")&&(!requestData.hasOwnProperty('token'))&&(typeof requestData !== "string")) {
             requestData.token = token;
         }

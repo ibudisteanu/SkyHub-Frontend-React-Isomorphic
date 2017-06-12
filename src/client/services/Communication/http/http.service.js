@@ -20,10 +20,13 @@ class HTTPServiceClass {
 
     }
 
-    async getRequest(sRequest, post){
+    async getRequest(sRequest, req){
 
-        console.log(""); console.log(""); console.log(""); console.log(this.addTrailingSlash(this.serverHTTPApi)+sRequest);  console.log(post);
-        return axios.get(this.addTrailingSlash(this.serverHTTPApi)+sRequest, post);
+        //console.log(""); console.log(""); console.log(""); console.log(this.addTrailingSlash(this.serverHTTPApi)+sRequest);  console.log(req);
+
+        req = {data: req};
+
+        return axios.get(this.addTrailingSlash(this.serverHTTPApi)+sRequest, req);
     }
 
     async postRequest(sRequest, post){
@@ -33,7 +36,7 @@ class HTTPServiceClass {
 
   async checkAuthCookie(cookie){
 
-    let authCookie = '';
+    let sessionId = '';
 
     //based on this https://stackoverflow.com/questions/3393854/get-and-set-a-single-cookie-with-node-js-http-server
     cookie && cookie.split(';').forEach( function( cookie ) {
@@ -41,19 +44,21 @@ class HTTPServiceClass {
 
       let cookieName = parts.shift().trim();
 
-      if (cookieName === 'token')
-        authCookie = decodeURI(parts.join('='));
+      if (cookieName === 'sessionId')
+        sessionId = decodeURI(parts.join('='));
 
     });
 
-    if ((authCookie !== '')&&(authCookie.length > 5)){
+    if ((sessionId !== '')&&(sessionId.length > 5)){
 
-      return await this.getRequest("auth/login-token", authCookie);
+      return await this.getRequest("auth/login-session", {sessionId: sessionId});
 
     } else {
       return {
-        result: "false",
-        message: "cookie invalid",
+        data: {
+          result: "false",
+          message: "cookie invalid",
+        }
       }
     }
 

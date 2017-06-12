@@ -14,6 +14,9 @@ class LeftSidebar extends React.Component {
 
     //console.log("#################### LEFT SIDEBAR ",this);
 
+    if (this.props.userAuthenticated.user.isLoggedIn() === false)
+      return null;
+
     return (
       <nav className="navbar-default navbar-static-side" role="navigation">
         <div className="sidebar-collapse">

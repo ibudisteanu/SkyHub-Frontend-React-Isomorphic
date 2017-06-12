@@ -35,7 +35,7 @@ class SocketWorkerClass {
         //transports: ['xhr-multipart'],
         //transports: ['polling'],
         //transports: ['websocket'],
-        transports: ['websocket', 'polling'],
+        //transports: ['websocket', 'polling'],
         port:4000,
         query: "token=" + "xxxx" //JWT Token
       } );

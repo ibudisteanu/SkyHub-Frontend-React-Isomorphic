@@ -5,7 +5,7 @@ import * as UserProperties from './User.properties.js';
 
 export class User {
 
-    loggedIn = false;
+    loggedIn;
 
     firstName;
     lastName;
@@ -17,7 +17,7 @@ export class User {
     coverPic;
 
     preferredLang;
-    connected = false;
+    connected ;
     timeZone;
     shortBio;
 
@@ -41,6 +41,8 @@ export class User {
 
         this.email = data.email || '';
         this.username = data.username || '';
+
+        this.loggedIn = data.loggedIn || false;
 
         this.preferredLang = data.preferredLang || data.language || null;
         this.connected = data.connected || false;

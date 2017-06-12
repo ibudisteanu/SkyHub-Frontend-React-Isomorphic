@@ -66,12 +66,14 @@ class Body extends React.Component {
 
           <Header />
 
-          <Content>
-            {this.props.children}
+          <div className="container">
+            <Content>
+              {this.props.children}
 
-            <AuthenticationModal ref={(c) => this.refAuthenticationModal = c}  />
+              <AuthenticationModal ref={(c) => this.refAuthenticationModal = c}  />
 
-          </Content>
+            </Content>
+          </div>
 
 
         </div>

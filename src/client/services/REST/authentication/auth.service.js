@@ -13,6 +13,7 @@ export class AuthServiceClass {
 
     dispatch = null;
     SocketService = null;
+    userAuthenticated = null;//from redux
 
     constructor() {
 
@@ -20,41 +21,47 @@ export class AuthServiceClass {
 
     }
 
-    startService(dispatch, SocketService){
+    startService(dispatch, userAuthenticated, SocketService){
 
       this.dispatch = dispatch;
       this.SocketService = SocketService;
+      this.userAuthenticated = userAuthenticated;
 
       this.loadCookieUserDocumentReady();
     }
 
     loadCookieUserDocumentReady (){
-        this.loadCookieInterval = setInterval(::this.loadCookieUser,500);
-        this.loadCookieUser();
+        // this.loadCookieInterval = setInterval(::this.loadCookieUser,500);
+        // this.loadCookieUser();
     }
 
     loadCookieUser ( ){
 
-        if ((typeof window !== "undefined")&& (typeof window.document !== "undefined")){
-            var token = CookiesService.getTokenCookie();
-            if (token !== "")
-                this.loginTokenAsync(token);
+      if (this.userAuthenticated.user.isLoggedIn() === true) return; //already logged in
 
-            this.SocketService.setSocketReadObservable("connect").subscribe(response => {
-                var token = CookiesService.getTokenCookie();
-                if (token !== "")
-                    this.loginTokenAsync(token);
-            });
+      if ((typeof window !== "undefined")&& (typeof window.document !== "undefined")){
 
-            clearInterval(this.loadCookieInterval);
-        }
+          var sessionId = CookiesService.getSessionCookie();
+          if (sessionId !== "")
+              this.loginSessionAsync(sessionId);
+
+          this.SocketService.setSocketReadObservable("connect").subscribe(response => {
+              var sessionId = CookiesService.getSessionCookie();
+              if (sessionId !== "")
+                  this.loginSessionAsync(sessionId);
+          });
+
+          clearInterval(this.loadCookieInterval);
+      }
     }
 
-    loginAsync(sEmailUserName, sPassword)
-    {
+    loginAsync(sEmailUserName, sPassword) {
+
         this.logout();
 
         return new Promise( (resolve)=> {
+
+            if (this.userAuthenticated.user.isLoggedIn() === true) { resolve(true); return ;}; //already logged in
 
             //Using Promise
             this.SocketService.sendRequestGetDataPromise("auth/login",{emailUsername:sEmailUserName, password:sPassword}).then( (resData) => {
@@ -62,10 +69,8 @@ export class AuthServiceClass {
                 console.log('Answer from Server Auth Login');
                 console.log(resData);
 
-                if(resData.result == "true") {
-
-                    this.loginProvidingUser(resData.user, resData.token);
-                }
+                if(resData.result === "true")
+                    this.loginProvidingUser(resData.user, resData.sessionId);
 
                 resolve(resData);
 
@@ -75,22 +80,25 @@ export class AuthServiceClass {
 
     }
 
-    loginProvidingUser(userJSON, sToken){
+    loginProvidingUser(userJSON, sessionId){
         let userLogged = new User( userJSON);
         this.dispatch(UserAuthenticatedActions.newUserAuthenticated(userLogged));
 
-        CookiesService.setCookie('token', sToken, 365*5, '/');
-        console.log('setting cookie   '+sToken);
+        CookiesService.setCookie('sessionId', sessionId, 365*5, '/');
+        console.log('setting cookie   '+sessionId);
     }
 
-    loginTokenAsync(token){
+    loginSessionAsync(sessionId){
+
         return new Promise( (resolve)=> {
             //Using Promise
 
-            //this.SocketService.createClientSocket();
-            this.SocketService.sendRequestGetDataPromise("auth/login-token",{token: token}).then( (resData ) => {
+            if (this.userAuthenticated.user.isLoggedIn() === true) { resolve(true); return ;}; //already logged in
 
-                console.log('Answer from Login Token Async');
+            //this.SocketService.createClientSocket();
+            this.SocketService.sendRequestGetDataPromise("auth/login-session",{sessionId: sessionId}).then( (resData ) => {
+
+                console.log('Answer from Login sessionId Async');
                 console.log(resData);
 
                 if(resData.result == "true") {
@@ -143,7 +151,7 @@ export class AuthServiceClass {
                     console.log('Answer from Oauth', resData);
 
                     if(resData.result === "true") {
-                        this.loginProvidingUser(resData.user, resData.token);
+                        this.loginProvidingUser(resData.user, resData.sessionId);
                     }
 
                     resolve(resData);
@@ -154,9 +162,11 @@ export class AuthServiceClass {
 
     logout(){
 
+        console.log("LOGOUT");
+
         this.SocketService.sendRequest("auth/logout",{});
 
-        CookiesService.deleteCookie("token");
+        CookiesService.deleteCookie("sessionId");
         this.dispatch(UserAuthenticatedActions.logoutUserAuthenticated());
     }
 

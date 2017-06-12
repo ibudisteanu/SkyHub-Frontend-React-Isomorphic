@@ -47,9 +47,9 @@ class Html extends React.Component {
           <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
           <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
-          <link rel="stylesheet" type="text/css" href="/res/template/css/style.css" />
 
-          <link rel="stylesheet" type="text/css" href="http://jedwatson.github.io/react-select/example.css" />
+          <link rel="stylesheet" type="text/css" href="/res/template/css/style.css" />
+          <link rel="stylesheet" type="text/css" href="/res/react-select/components/react-select.css" />
 
 
           <link rel="stylesheet" type="text/css" href="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/css/msdropdown/flags.css" />
