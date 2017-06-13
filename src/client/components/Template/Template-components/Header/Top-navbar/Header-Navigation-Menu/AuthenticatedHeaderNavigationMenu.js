@@ -59,7 +59,7 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
             <li>
               <div className="dropdown-messages-box">
                 <a href="profile.html" className="pull-left">
-                  <img alt="image" className="img-circle" src="img/a7.jpg" />
+                  <img alt="image" className="img-circle" src="/res/logo/SkyHub-logo.png" />
                 </a>
                 <div>
                   <small className="pull-right">46h ago</small>
@@ -72,7 +72,7 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
             <li>
               <div className="dropdown-messages-box">
                 <a href="profile.html" className="pull-left">
-                  <img alt="image" className="img-circle" src="img/a4.jpg" />
+                  <img alt="image" className="img-circle" src="/res/logo/SkyHub-logo.png" />
                 </a>
                 <div>
                   <small className="pull-right text-navy">5h ago</small>
@@ -85,7 +85,7 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
             <li>
               <div className="dropdown-messages-box">
                 <a href="profile.html" className="pull-left">
-                  <img alt="image" className="img-circle" src="img/profile.jpg" />
+                  <img alt="image" className="img-circle" src="/res/logo/SkyHub-logo.png" />
                 </a>
                 <div>
                   <small className="pull-right">23h ago</small>

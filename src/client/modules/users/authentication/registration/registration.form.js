@@ -107,11 +107,11 @@ export class RegistrationForm extends React.Component {
 
             console.log(res);
 
-            if (res.result === "true") {
+            if (res.result === true) {
                 this.registrationSuccessfully(res);
             }
             else
-            if (res.result === "false"){
+            if (res.result === false){
 
                 if ((typeof res.errors.username !=="undefined")&&(Object.keys(res.errors.username).length !== 0 )) this.setState({userNameValidationStatus : ["error", this.convertValidationErrorToString(res.errors.username[0])]});
                 if ((typeof res.errors.email !=="undefined")&&(Object.keys(res.errors.email).length !== 0)) this.setState({emailAddressValidationStatus : ["error", this.convertValidationErrorToString(res.errors.email[0])]});

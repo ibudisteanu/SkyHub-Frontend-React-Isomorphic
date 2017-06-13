@@ -38,6 +38,9 @@ import {extractIP} from './my-redux/actions/Localization.actions';
 var app = express();
 
 import HTTPService from './client/services/Communication/http/Http.service';
+import SocketWorker from './utils/socket-worker/SocketWorker';
+
+//SocketWorker.startService();
 
 // let SocketWorkerFile = require('./utils/socket-worker/SocketWorker');
 // let SocketWorker = SocketWorkerFile.default.SocketWorker;
@@ -127,22 +130,21 @@ app.get('*', async (req, res, next) => {
       storeSubscription: null,
     };
 
+    if (req.path.indexOf("res/") === 1)
+      return show404(app,req.path,res);
+
     //checking the cookie user
     if (req.headers.cookie){
 
       let cookieAnswer = await HTTPService.checkAuthCookie(req.headers.cookie);
 
-      cookieAnswer = cookieAnswer.data;
-
       //console.log("COOOKIE ANSWER", cookieAnswer);
 
       //we have a registered user already in the cookie
-      if ( (cookieAnswer.result||'false') === "true"){
+      if ( (cookieAnswer.result||false) === true){
         store.dispatch(newUserAuthenticated(cookieAnswer.user));
       }
     }
-
-
 
     const route = await router.resolve({
       ...context,
@@ -150,13 +152,9 @@ app.get('*', async (req, res, next) => {
       query: req.query,
     });
 
-    if (route.status === 404){
+    if (route.status === 404)
+      return show404(app,req.path,res);
 
-      let Error404 = require('./client/components/Template/404/404.js');
-      Error404.show404(app, req.path, res);
-
-      return;
-    }
     console.log("route::   ",req.path);
     console.log("cookie::   ", req.headers.cookie);
 
@@ -231,3 +229,9 @@ models.sync().catch(err => console.error(err.stack)).then(() => {
     console.info(`The server is running at http://localhost:${config.port}/`);
   });
 });
+
+
+function show404(app, path, res){
+  let Error404 = require('./client/components/Template/404/404.js');
+  Error404.show404(app, path, res);
+}

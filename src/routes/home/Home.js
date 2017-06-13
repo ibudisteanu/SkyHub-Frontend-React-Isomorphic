@@ -26,9 +26,9 @@ class Home extends React.Component {
       <div className="row">
 
         <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-          <div className="alert danger">
-            <h4>NOT Found</h4>
-            <strong>{this.props.URL||""}</strong> was not found. Probably what you've been looking for doesn't exists or has been deleted in the mean while.
+          <div className="alert alert-danger ">
+            <h4 style={{textAlign: "center"}}>NOT Found</h4>
+            <strong>{this.props.URL||"/"}</strong> was not found. Probably what you've been looking for doesn't exists or has been deleted in the mean while.
           </div>
         </div>
 
@@ -72,7 +72,7 @@ class Home extends React.Component {
 
         {this.props.routerState.currentRouterObject === null ? ::this.renderSimpleWebsite() : ::this.renderHomepageComponent()}
 
-        {this.props.routerState.currentRouterObject.notFound ? ::this.renderError() : this.props.routerState.currentRouterObject.notFound+' KAKAT'}
+        {this.props.routerState.currentRouterObject.notFound ? ::this.renderError() : ' A FOST GASIT'}
 
 
         <DisplayContent />

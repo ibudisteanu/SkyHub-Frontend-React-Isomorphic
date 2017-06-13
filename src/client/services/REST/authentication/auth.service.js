@@ -66,7 +66,7 @@ export class AuthServiceClass {
                 console.log('Answer from Server Auth Login');
                 console.log(resData);
 
-                if(resData.result === "true")
+                if(resData.result === true)
                     this.loginProvidingUser(resData.user, resData.sessionId);
 
                 resolve(resData);
@@ -98,7 +98,7 @@ export class AuthServiceClass {
                 console.log('Answer from Login sessionId Async');
                 console.log(resData);
 
-                if(resData.result == "true") {
+                if(resData.result == true) {
 
                     let userLogged = new User( resData.user);
                     this.dispatch(UserAuthenticatedActions.newUserAuthenticated(userLogged));
@@ -122,7 +122,7 @@ export class AuthServiceClass {
 
                 console.log('Answer from Server Auth Register', resData);
 
-                if(resData.result === "true") {
+                if(resData.result === true) {
                     this.loginAsync(sEmailAddress, sPassword);
                 }
 
@@ -147,7 +147,7 @@ export class AuthServiceClass {
 
                     console.log('Answer from Oauth', resData);
 
-                    if(resData.result === "true") {
+                    if(resData.result === true) {
                         this.loginProvidingUser(resData.user, resData.sessionId);
                     }
 

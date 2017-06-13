@@ -8,7 +8,7 @@
 
 import ContentObjectService  from './../../client/services/REST/forums/content/ContentObject.service';
 
-export function newRouterObjectArgumentAction(newRouterObject, objectNotFound, pageIndex, pageCount, pageNext, contentObjects ) {
+export function newRouterObjectArgumentAction(newRouterObject, objectNotFound, pageURL, pageIndex, pageCount, pageNext, contentObjects ) {
 
     return {
         type: "NEW_ROUTER_OBJECT_ARGUMENT",
@@ -16,10 +16,11 @@ export function newRouterObjectArgumentAction(newRouterObject, objectNotFound, p
 
               type: ContentObjectService.extractObjectTypeFromId(newRouterObject),
               object: ContentObjectService.createObject(newRouterObject),
-              notFound : objectNotFound || (newRouterObject === null),
+              notFound : (objectNotFound !== null ? objectNotFound : true),
+              pageURL: pageURL||'',
               pageIndex: pageIndex||0,
               pageCount: pageCount || 8,
-              pageNext: pageNext || true,
+              pageNext: (pageNext !== null ? pageNext : true),
               contentObjects: contentObjects||[],
 
         }
@@ -28,8 +29,15 @@ export function newRouterObjectArgumentAction(newRouterObject, objectNotFound, p
 
 export function newRouterObjectArgument_ContentArrayAction(contentObjects){
   return {
-    type: "NEW_ROUTER_OBJECT_ARGUMENT",
+    type: "NEW_ROUTER_OBJECT_ARGUMENT_CONTENT_ARRAY",
     payload: contentObjects,
+  }
+}
+
+export function newRouterObjectArgument_AddContentArrayAction(toBeAdded){
+  return {
+    type: "NEW_ROUTER_OBJECT_ARGUMENT_ADD_TO_CONTENT_ARRAY",
+    payload: toBeAdded,
   }
 }
 

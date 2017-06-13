@@ -98,8 +98,8 @@ class OauthSocialNetworkComponent extends React.Component {
 
                 console.log("Auth Service answer ",res);
 
-                if (res.result === "true") this.registrationSuccessfully(res);
-                else if (res.result === "false") {
+                if (res.result === true) this.registrationSuccessfully(res);
+                else if (res.result === false) {
                     this.errorRegisteringFacebook(response);
                 }
 

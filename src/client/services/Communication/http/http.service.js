@@ -26,19 +26,22 @@ class HTTPServiceClass {
 
         req = {data: req};
 
-        return axios.get(this.addTrailingSlash(this.serverHTTPApi)+sRequest, req);
+        let answer = await axios.get(this.addTrailingSlash(this.serverHTTPApi)+sRequest, req);
+        return answer.data;
     }
 
     async getRequestURL(sRequest, req){
       req = {data: req};
 
-      return axios.get(sRequest, req);
+
+      let answer = await axios.get(sRequest, req);
+      return answer.data;
     }
 
 
     async postRequest(sRequest, post){
-
-        return axios.post(this.addTrailingSlash(this.serverHTTPApi)+sRequest, post);
+        let answer = await axios.post(this.addTrailingSlash(this.serverHTTPApi)+sRequest, post);
+        return answer.data;
     }
 
   async checkAuthCookie(cookie){
@@ -63,7 +66,7 @@ class HTTPServiceClass {
     } else {
       return {
         data: {
-          result: "false",
+          result: false,
           message: "cookie invalid",
         }
       }

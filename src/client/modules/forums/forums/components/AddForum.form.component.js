@@ -79,10 +79,10 @@ class AddForumForm extends React.Component {
 
                     console.log("ANSWER FROM adding forum",res);
 
-                    if (res.result === "true") {
+                    if (res.result === true) {
                         onSuccess(res);
                     }
-                    else if (res.result === "false") {
+                    else if (res.result === false) {
 
                         if ((typeof res.errors.title !== "undefined") && (Object.keys(res.errors.title).length !== 0 )) titleValidationStatus = ["error", this.convertValidationErrorToString(res.errors.title[0])];
                         if ((typeof res.errors.description !== "undefined") && (Object.keys(res.errors.description).length !== 0)) descriptionValidationStatus = ["error", this.convertValidationErrorToString(res.errors.description[0])];

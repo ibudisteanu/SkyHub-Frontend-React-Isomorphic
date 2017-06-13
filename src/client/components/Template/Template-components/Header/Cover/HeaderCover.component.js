@@ -53,7 +53,7 @@ export default class HeaderCover extends React.Component {
                 <div className="col-xs-12 col-sm-8" >
                     <div className={'header-cover-description'} >
                         <div>
-                            <image src={this.props.icon||'http://skyhub.me/theme/images/SkyHub-logo.png'} />
+                            <image src={this.props.icon||'/res/logo/SkyHub-logo.png'} />
 
                             <div className="row">
                                 <h1 className='fg-white'>{this.props.title}</h1>

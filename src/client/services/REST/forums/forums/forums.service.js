@@ -29,7 +29,7 @@ class ForumsServiceClass {
 
                     console.log('Answer from FORUM ', resData);
 
-                    // if(resData.result === "true") {
+                    // if(resData.result === true) {
                     //     this.loginProvidingUser(resData.user, resData.token);
                     // }
 

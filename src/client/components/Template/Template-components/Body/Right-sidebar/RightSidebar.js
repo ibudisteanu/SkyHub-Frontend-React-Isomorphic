@@ -48,7 +48,7 @@ class RightSidebar extends React.Component {
                   <div className="sidebar-message">
                     <a href="#">
                       <div className="pull-left text-center">
-                        <img alt="image" className="img-circle message-avatar" src="img/a1.jpg"/>
+                        <img alt="image" className="img-circle message-avatar" src="/res/logo/SkyHub-logo.png"/>
 
                         <div className="m-t-xs">
                           <i className="fa fa-star text-warning"></i>
@@ -66,7 +66,7 @@ class RightSidebar extends React.Component {
                   <div className="sidebar-message">
                     <a href="#">
                       <div className="pull-left text-center">
-                        <img alt="image" className="img-circle message-avatar" src="img/a2.jpg"/>
+                        <img alt="image" className="img-circle message-avatar" src="/res/logo/SkyHub-logo.png"/>
                       </div>
                       <div className="media-body">
                         The point of using Lorem Ipsum is that it has a more-or-less normal.
@@ -78,7 +78,7 @@ class RightSidebar extends React.Component {
                   <div className="sidebar-message">
                     <a href="#">
                       <div className="pull-left text-center">
-                        <img alt="image" className="img-circle message-avatar" src="img/a3.jpg"/>
+                        <img alt="image" className="img-circle message-avatar" src="/res/logo/SkyHub-logo.png"/>
 
                         <div className="m-t-xs">
                           <i className="fa fa-star text-warning"></i>
@@ -97,7 +97,7 @@ class RightSidebar extends React.Component {
                   <div className="sidebar-message">
                     <a href="#">
                       <div className="pull-left text-center">
-                        <img alt="image" className="img-circle message-avatar" src="img/a4.jpg"/>
+                        <img alt="image" className="img-circle message-avatar" src="/res/logo/SkyHub-logo.png"/>
                       </div>
 
                       <div className="media-body">
@@ -110,7 +110,7 @@ class RightSidebar extends React.Component {
                   <div className="sidebar-message">
                     <a href="#">
                       <div className="pull-left text-center">
-                        <img alt="image" className="img-circle message-avatar" src="img/a8.jpg"/>
+                        <img alt="image" className="img-circle message-avatar" src="/res/logo/SkyHub-logo.png"/>
                       </div>
                       <div className="media-body">
 
@@ -123,7 +123,7 @@ class RightSidebar extends React.Component {
                   <div className="sidebar-message">
                     <a href="#">
                       <div className="pull-left text-center">
-                        <img alt="image" className="img-circle message-avatar" src="img/a7.jpg"/>
+                        <img alt="image" className="img-circle message-avatar" src="/res/logo/SkyHub-logo.png"/>
                       </div>
                       <div className="media-body">
                         Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
@@ -136,7 +136,7 @@ class RightSidebar extends React.Component {
                   <div className="sidebar-message">
                     <a href="#">
                       <div className="pull-left text-center">
-                        <img alt="image" className="img-circle message-avatar" src="img/a3.jpg"/>
+                        <img alt="image" className="img-circle message-avatar" src="/res/logo/SkyHub-logo.png"/>
 
                         <div className="m-t-xs">
                           <i className="fa fa-star text-warning"></i>
@@ -154,7 +154,7 @@ class RightSidebar extends React.Component {
                   <div className="sidebar-message">
                     <a href="#">
                       <div className="pull-left text-center">
-                        <img alt="image" className="img-circle message-avatar" src="img/a4.jpg"/>
+                        <img alt="image" className="img-circle message-avatar" src="/res/logo/SkyHub-logo.png"/>
                       </div>
                       <div className="media-body">
                         Uncover many web sites still in their infancy. Various versions have.

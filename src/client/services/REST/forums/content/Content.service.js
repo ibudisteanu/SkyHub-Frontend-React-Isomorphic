@@ -2,7 +2,7 @@
  * Created by ERAZER-ALEX on 6/4/2017.
  */
 
-import {newRouterObjectArgumentAction, newRouterObjectArgument_ContentArrayAction} from '../../../../../my-redux/actions/RouterState.actions';
+import {newRouterObjectArgumentAction, newRouterObjectArgument_AddContentArrayAction} from '../../../../../my-redux/actions/RouterState.actions';
 
 import Forum from './../../../../modules/forums/forums/models/Forum.model';
 
@@ -35,57 +35,52 @@ class ContentServiceClass {
       return HTTPService.getRequest("content/get-top-content",{parent: parent, pageIndex:pageIndex, pageCount: pageCount});
     }
 
-    async fetchTopContent(parent, pageIndex, pageCount, protocol, dispatch){
-
-      if (typeof dispatch === "undefined") dispatch = true;
+    async fetchTopContent(parent, pageIndex, pageCount, protocol){
 
       let answer = {result : false};
 
-      if (protocol === 'http') answer = this.getTopContentHTTP(parent, pageIndex, pageCount);
-      else answer = this.getTopContent(parent, pageIndex, pageCount);
+      if (protocol === 'http') answer = await this.getTopContentHTTP(parent, pageIndex, pageCount);
+      else answer = await this.getTopContent(parent, pageIndex, pageCount);
+
+      console.log("ANSWER TOP CONTENT",answer);
 
       if (answer.result === true){
-        let newStateArray = this.processNewContent(answer.content);
 
-        if ((newStateArray !== [])&&(dispatch  === true))
-          this.dispatch(newRouterObjectArgument_ContentArrayAction(newStateArray ));
+        let toBeAdded = this.processNewContent(answer.content);
+
+        if (toBeAdded !== [])
+          await this.dispatch(newRouterObjectArgument_AddContentArrayAction(toBeAdded ));
+
+        return toBeAdded;
       }
     }
 
 
-    async processNewContent(newContentObjects){
+    processNewContent(newContentObjects){
 
       if (newContentObjects.constructor !== Array) newContentObjects = [newContentObjects];
 
-      let newStateArray = [];
-      let bChanges=false;
-
-      //coyping the data... mutable from redux
-      if ((this.routerState.currentRouterObject !== null) && (this.routerState.currentRouterObject.contentObjects !== null))
-        for (let i =0; i < this.routerState.currentRouterObject.contentObjects.length; i++)
-          newStateArray.push(this.routerState.currentRouterObject.contentObjects[i]);
-
+      let toBeAdded = [];
 
       for (let i=0; i<newContentObjects.length; i++ ){
 
         let newObject = newContentObjects[i].object;
 
         let bFound=false;
-        for (let j=0; j<newStateArray; j++)
-          if (newStateArray[j].id === newObject.id) {
+
+        if ((this.routerState.currentRouterObject !== null) && (this.routerState.currentRouterObject.contentObjects !== null))
+        for (let obj in this.routerState.currentRouterObject.contentObjects)
+          if (newObject.id === obj.id){
             bFound=true;
             break;
           }
 
         if ((!bFound)&&(newObject!==null)&&(newObject.id !== null)) {
-          newStateArray.push(newObject);
-          bChanges=true;
+          toBeAdded.push(newObject);
         }
       }
 
-      if (!bChanges) return [];//no change
-      else return newStateArray;
-
+      return toBeAdded;
     }
 
 
@@ -106,8 +101,9 @@ class ContentServiceClass {
 
     async getRouterObjectContentHTTP(sContentToSearchId){
 
-      if (sContentToSearchId !== '')
+      if (sContentToSearchId !== '') {
         return HTTPService.getRequest('content/get-content', {id: sContentToSearchId});
+      }
       else
         return {result: true, data: {content: null}};
     }
@@ -123,17 +119,22 @@ class ContentServiceClass {
       if (protocol === "http") answer = await this.getRouterObjectContentHTTP(sContentToSearchId);
       else answer = await this.getRouterObjectContent(sContentToSearchId);
 
-      console.log("ANSWER",answer.data);
+      console.log("ANSWER FOR ", sContentToSearchId, answer);
 
       if (answer.result === true){
 
-        let contentObjects = await this.fetchTopContent(sContentToSearchId, 1,8, protocol, false);
+        await this.dispatch(newRouterObjectArgumentAction( answer.data.content, false, sContentToSearchId,  1, 8, true, [] ));
 
-        this.dispatch(newRouterObjectArgumentAction( answer.data.content, false, 1, 8, true, contentObjects ));
+        await this.fetchTopContent(sContentToSearchId, 1, 8, protocol);
+
+        return answer.data.content;
 
       } else {
-        this.dispatch(newRouterObjectArgumentAction(null, true, 1, 8 ));
+
+        await this.dispatch(newRouterObjectArgumentAction(null, true, sContentToSearchId, 1, 8, [] ));
       }
+
+      return null;
 
     }
 

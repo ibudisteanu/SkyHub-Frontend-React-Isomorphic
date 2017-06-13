@@ -107,7 +107,7 @@ class SocketWorkerClass {
 
     } else {
       return {
-        result: "false",
+        result: false,
         message: "cookie invalid",
       }
     }

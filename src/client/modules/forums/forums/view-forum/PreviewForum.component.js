@@ -58,7 +58,7 @@ import Forum from '../models/Forum.model';
     }
 
     setForumArgument(){
-        this.props.dispatch(newRouterObjectArgumentAction(this.state.forum));
+
     }
 
     render() {
