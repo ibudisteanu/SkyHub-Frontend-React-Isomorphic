@@ -15,8 +15,15 @@ class AuthenticationModal extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {  modalType : 'login', modalTitle : 'Login' };
+        this.state = {  modalType : 'login', modalTitle : 'Login', onSuccess: function(){} };
     }
+
+    setOnSuccessEvent(onSuccess){
+      this.setState({
+        onSuccess: onSuccess||function(){},
+      });
+    }
+
 
     close() {
       this.refModal.closeModal();
@@ -81,6 +88,8 @@ class AuthenticationModal extends React.Component {
         let onSuccess = this.props.onSuccess||function(){};
         onSuccess(resource);
 
+        onSuccess = this.state.onSuccess||function(){};
+        onSuccess(resource);
 
         this.close();
     }
@@ -88,6 +97,9 @@ class AuthenticationModal extends React.Component {
 
     registrationSuccess(resource){
         let onSuccess = this.props.onSuccess||function(){};
+        onSuccess(resource);
+
+        onSuccess = this.state.onSuccess||function(){};
         onSuccess(resource);
 
         this.close();

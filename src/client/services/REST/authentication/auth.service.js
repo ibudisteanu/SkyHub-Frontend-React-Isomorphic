@@ -4,6 +4,7 @@
  */
 
 import CookiesService from './../../Cookies/cookies.service';
+import SocketService from './../../Communication/socket/Socket.service';
 import User from './../../../modules/users/models/User.model';
 
 import * as UserAuthenticatedActions from '../../../../my-redux/actions/UserAuthenticated.actions';

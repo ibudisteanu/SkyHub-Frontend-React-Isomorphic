@@ -1,5 +1,12 @@
-/* SUB CATEGORIES
-===================================================================*/
+/* Small Devices, Tablets */
+@media (max-width: 991px) {
+  .container{
+    width: initial;
+  }
+}
+
+  /* SUB CATEGORIES
+  ===================================================================*/
 
 .sub-categories-row{
   padding: 0 15px 0 15px; margin-right: 0; margin-left: 0

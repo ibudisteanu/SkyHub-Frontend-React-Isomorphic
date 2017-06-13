@@ -37,29 +37,28 @@ class DisplayContent extends React.Component {
         return (
             <div style={{marginBottom:0}}>
 
-              <section className="gray-section team">
+
 
                 <ButtonsContent />
 
 
-                <div className="container">
-                  <div className="row m-b-lg">
-                    <div className="col-lg-12 text-center">
-                      <div className="navy-line"></div>
-                      <h4>What's hot on SkyHub</h4>
-                    </div>
+                <div className="row" style={{paddingBottom: 20}}>
+                  <div className="text-center">
+                    <div className="navy-line"></div>
+                    <h3 style={{fontSize:30}}>What's hot on SkyHub</h3>
                   </div>
+                </div>
 
-                  <div className="row">
-                    <div className="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
-                      {::this.renderContent()}
-                    </div>
-                  </div>
+                <div className="row">
 
+                    {::this.renderContent()}
 
                 </div>
 
-              </section>
+
+
+
+
 
             </div>
         );

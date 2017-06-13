@@ -76,19 +76,99 @@ import Forum from '../models/Forum.model';
 
         return (
 
-            <div className = "col-xs-3 sub-category-div">
+            <div >
 
                 {
                   ((this.state.forum !== null) && (this.state.forumNotFound === false))
 
                   ?
-                    <div className="sub-category-box">
+
+                    <div className="lightBoxGallery">
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/2.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/2s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/3.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/3s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/8.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/8s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/2.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/2s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/3.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/3s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/2.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/2s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/3.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/3s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/8.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/8s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/2.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/2s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/3.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/3s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/8.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/8s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/12s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10s.jpg"/></a>
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11.jpg" title="Image from Unsplash" data-gallery=""><img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11s.jpg"/></a>
+
+
+                      <div className="sub-category-box">
 
                         <div className="info-box-icon bg-white" style={{backgroundImage: 'url('+this.state.forum.coverPic+')', backgroundColor: this.state.forum.coverColor||"#79B0EC"}} >
                           <span className="sub-category-box-text">{this.state.forum.title}</span>
                         </div>
 
+                      </div>
+
                     </div>
+
+
 
                     :
 

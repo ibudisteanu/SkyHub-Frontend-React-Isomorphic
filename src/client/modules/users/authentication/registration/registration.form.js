@@ -246,7 +246,7 @@ export class RegistrationForm extends React.Component {
 
                                     <span className="input-group-addon"><i className="fa fa-envelope"></i></span>
 
-                                    <input autoFocus type='text' className='form-control input-lg' placeholder='E-mail'  name="email" value={this.state.emailAddress} onChange={::this.handleEmailAddressChange} />
+                                    <input type='text' className='form-control input-lg' placeholder='E-mail'  name="email" value={this.state.emailAddress} onChange={::this.handleEmailAddressChange} />
 
                                     <span className={::this.showInputFeedback(this.state.emailAddressValidationStatus)}></span>
                                   </div>
@@ -262,7 +262,7 @@ export class RegistrationForm extends React.Component {
 
                                     <span className="input-group-addon"><i className="fa fa-font"></i></span>
 
-                                    <input autoFocus type='text' className='form-control input-lg' placeholder='First Name' name="firstname" value={this.state.firstName} onChange={::this.handleFirstNameChange} />
+                                    <input type='text' className='form-control input-lg' placeholder='First Name' name="firstname" value={this.state.firstName} onChange={::this.handleFirstNameChange} />
 
                                     <span className={::this.showInputFeedback(this.state.firstNameValidationStatus)}></span>
                                   </div>
@@ -274,7 +274,7 @@ export class RegistrationForm extends React.Component {
 
                                     <span className="input-group-addon"><i className="fa fa-bold"></i></span>
 
-                                    <input autoFocus type='text' className='form-control input-lg' placeholder='Last Name' name="lastname" value={this.state.lastName} onChange={::this.handleLastNameChange} />
+                                    <input type='text' className='form-control input-lg' placeholder='Last Name' name="lastname" value={this.state.lastName} onChange={::this.handleLastNameChange} />
 
                                     <span className={::this.showInputFeedback(this.state.lastNameValidationStatus)}></span>
                                   </div>
@@ -290,7 +290,7 @@ export class RegistrationForm extends React.Component {
 
                                     <span className="input-group-addon"><i className="fa fa-key"></i></span>
 
-                                    <input autoFocus type='password' className='form-control input-lg' placeholder='password' name="password" value={this.state.password} onChange={::this.handlePasswordChange} />
+                                    <input type='password' className='form-control input-lg' placeholder='password' name="password" value={this.state.password} onChange={::this.handlePasswordChange} />
 
                                     <span className={::this.showInputFeedback(this.state.passwordValidationStatus)}></span>
                                   </div>
@@ -302,7 +302,7 @@ export class RegistrationForm extends React.Component {
 
                                     <span className="input-group-addon"><i className="fa fa-key"></i></span>
 
-                                    <input autoFocus type='password' className='form-control input-lg' placeholder='password'  value={this.state.retypePassword} onChange={::this.handleRetypePasswordChange} />
+                                    <input  type='password' className='form-control input-lg' placeholder='password'  value={this.state.retypePassword} onChange={::this.handleRetypePasswordChange} />
 
                                     <span className={::this.showInputFeedback(this.state.retypePasswordValidationStatus)}></span>
                                   </div>
@@ -330,7 +330,7 @@ export class RegistrationForm extends React.Component {
 
                                   <span className="input-group-addon"><i className="fa fa-institution"></i></span>
 
-                                  <input autoFocus type='text' className='form-control input-lg' placeholder='city'  value={this.props.localization.city||this.state.city} onChange={::this.handleCityChange} />
+                                  <input  type='text' className='form-control input-lg' placeholder='city'  value={this.props.localization.city||this.state.city} onChange={::this.handleCityChange} />
 
                                   <span className={::this.showInputFeedback(this.state.cityValidationStatus)}></span>
                                 </div>

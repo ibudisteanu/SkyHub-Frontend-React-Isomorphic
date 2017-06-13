@@ -61,7 +61,7 @@ export default class ButtonsContent extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className="row">
                 {console.log(this.state)}
                 <div style={{paddingTop:20}}>
 

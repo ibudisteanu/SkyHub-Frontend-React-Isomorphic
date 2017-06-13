@@ -74,7 +74,7 @@ class Html extends React.Component {
 
         </head>
 
-        <body style={{margin:0}} className="top-navigation">
+        <body style={{margin:0}} className=" mini-navbar pace-done">
           <div id="app" dangerouslySetInnerHTML={{ __html: children }} />
           <script dangerouslySetInnerHTML={{ __html: `window.App=${serialize(app)}` }} />
           {scripts.map(script => <script key={script} src={script} />)}

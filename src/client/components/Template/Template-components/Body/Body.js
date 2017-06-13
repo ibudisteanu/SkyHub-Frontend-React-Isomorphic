@@ -66,7 +66,7 @@ class Body extends React.Component {
 
           <Header />
 
-          <div className="container">
+          <div className="container" style={{padding:0}}>
             <Content>
               {this.props.children}
 

@@ -20,7 +20,7 @@ class LeftSidebar extends React.Component {
     return (
       <nav className="navbar-default navbar-static-side" role="navigation">
         <div className="sidebar-collapse">
-          <ul className="nav metismenu" id="side-menu">
+          <ul className="nav metismenu" id="side-menu" style={{backgroundColor: "#2f4050"}}>
             <li className="nav-header" style={{paddingTop: 15}}>
               <div className="dropdown profile-element">
 

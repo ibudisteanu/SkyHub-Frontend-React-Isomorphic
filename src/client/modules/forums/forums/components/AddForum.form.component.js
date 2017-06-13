@@ -171,8 +171,10 @@ class AddForumForm extends React.Component {
 
     openLogin(){
 
-        if (typeof this.props.routerState.refAuthenticationModal !== "undefined")
-            this.props.routerState.refAuthenticationModal.openLogin();
+        if (typeof this.props.routerState.refAuthenticationModal !== "undefined") {
+          this.props.routerState.refAuthenticationModal.setOnSuccessEvent(this.authenticationSuccessfully);
+          this.props.routerState.refAuthenticationModal.openLogin();
+        }
     }
 
     authenticationSuccessfully(resource){
@@ -182,7 +184,8 @@ class AddForumForm extends React.Component {
     convertValidationErrorToString(error) {
       if (error === "notUnique") return "Already exists in the Database"; else
       if (error === "notEmpty") return "It's empty"; else
-      if (error === "validateUsername") return " Invalid username";
+      if (error === "validateUsername") return " Invalid username"; else
+      if (error === "validateKeywords") return " To few keywords";
 
       return error;
     }
@@ -198,7 +201,7 @@ class AddForumForm extends React.Component {
 
         return (
 
-            <div className="col-sm-7 col-sm-offset-3 col-xs-10 col-xs-offset-1" >
+            <div className="col-sm-8 col-sm-offset-2" style={{padding:0}} >
 
               <div className="panel panel-warning">
 
@@ -230,7 +233,7 @@ class AddForumForm extends React.Component {
 
                       <span className="input-group-addon"><i className="fa fa-info"></i></span>
 
-                      <textarea autoFocus type='text' className='form-control input-lg' rows="5" placeholder='description'  name="description" value={this.state.description} onChange={::this.handleDescriptionChange} />
+                      <textarea type='text' className='form-control input-lg' rows="5" placeholder='description'  name="description" value={this.state.description} onChange={::this.handleDescriptionChange} />
 
                       <span className={::this.showInputFeedback(this.state.descriptionValidationStatus)}></span>
                     </div>
@@ -269,7 +272,7 @@ class AddForumForm extends React.Component {
 
                             <span className="input-group-addon"><i className="fa fa-institution"></i></span>
 
-                            <input autoFocus type='text' className='form-control input-lg' placeholder='city'  value={this.props.localization.city||this.state.city} onChange={::this.handleCityChange} />
+                            <input type='text' className='form-control input-lg' placeholder='city'  value={this.props.localization.city||this.state.city} onChange={::this.handleCityChange} />
 
                             <span className={::this.showInputFeedback(this.state.cityValidationStatus)}></span>
                           </div>
@@ -286,7 +289,7 @@ class AddForumForm extends React.Component {
 
                 <div className="panel-footer text-right" style={{paddingTop:20, paddingBottom:20, paddingRight:20}}>
 
-                    <button className="btn btn-primary" type='button' onClick={::this.handleAddForum}> <i className="fa fa-users" /> Create Forum</button>
+                    <button className="btn btn-primary" type='button' onClick={::this.handleAddForum}> <i className="fa fa-plus" /> Create Forum</button>
 
                 </div>
 
