@@ -61,6 +61,8 @@ class Html extends React.Component {
           <script src="https://code.jquery.com/jquery-3.2.1.min.js" />
           <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.25.1/js/blueimp-gallery.min.js"></script>
+
 
 
 
