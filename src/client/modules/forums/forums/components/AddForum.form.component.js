@@ -173,128 +173,122 @@ class AddForumForm extends React.Component {
         this.handleAddForum();
     }
 
+    convertValidationErrorToString(error) {
+      if (error === "notUnique") return "Already exists in the Database"; else
+      if (error === "notEmpty") return "It's empty"; else
+      if (error === "validateUsername") return " Invalid username";
+
+      return error;
+    }
+    //https://www.w3schools.com/bootstrap/bootstrap_forms_inputs2.asp DOC
+    showInputStatus(status){
+      return status[0] === 'error' ? "has-error has-feedback" : (status[0] === 'success' ? "has-success has-feedback" : '');
+    }
+    showInputFeedback(status){
+      return status[0] === 'error' ? "fa fa-remove form-control-feedback" : (status[0] === 'success' ?  "fa fa-check form-control-feedback" : '');
+    }
+
     render() {
 
         return (
-            <PanelContainer controls={false} style={{marginBottom:20, marginTop:20}}>
+
+            <div className="col-sm-7 col-sm-offset-3 col-xs-10 col-xs-offset-1" >
+
+              <div className="panel panel-warning">
+
+                <div className="panel-heading">
+                  <h2>Create a <strong>Forum</strong></h2>
+                </div>
+
+                <div className="panel-body">
+
+                  <form onSubmit={::this.handleAddForum} autoComplete="on">
 
 
-                <Panel style={{backgroundColor:"#f9f8f8"}}>
 
-                    <PanelHeader className='bg-green' style={{textAlign: "center"}}>
-                        <Grid>
-                            <Row>
-                                <Col xs={12} className='fg-white'>
-                                    <h3>Create a <strong>Forum</strong></h3>
-                                </Col>
-                            </Row>
-                        </Grid>
-                    </PanelHeader>
+                    <div className={"input-group " + this.showInputStatus(this.state.titleValidationStatus)}  >
 
-                    <PanelBody style={{padding: 10, paddingLeft:40, paddingRight:40}}>
+                      <span className="input-group-addon"><i className="fa fa-header"></i></span>
 
-                        <div>
+                      <input autoFocus type='text' className='form-control input-lg' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleTitleChange} />
+                      {/*<AutocompleteSelect multi={false} controlId="titeSelect" className='border-focus-blue'  placeholder='title'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  /> */}
+
+                      <span className={::this.showInputFeedback(this.state.titleValidationStatus)}></span>
+                    </div>
+                    <label className="error" >{this.state.titleValidationStatus[1]}</label> <br />
 
 
-                            <Form onSubmit={::this.handleAddForum}>
-
-                                <Row>
-                                    <FormGroup controlId='titleInput' validationState={this.state.titleValidationStatus[0]}>
-                                        <ControlLabel>Title</ControlLabel>
-                                        <InputGroup>
-                                            <InputGroup.Addon>
-                                                <Icon glyph='icon-fontello-pen' />
-                                            </InputGroup.Addon>
-
-                                            <FormControl type='text' className='border-focus-blue' placeholder='title' value={this.state.title} onChange={::this.handleTitleChange} style={{zIndex:0}} />
-                                            {/*<AutocompleteSelect multi={false} controlId="titeSelect" className='border-focus-blue'  placeholder='title'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  /> */}
-
-                                            <FormControl.Feedback />
-                                        </InputGroup>
-                                        <HelpBlock>{this.state.titleValidationStatus[1]}</HelpBlock>
-                                    </FormGroup>
-
-                                </Row>
-
-                                <Row>
-                                    <FormGroup controlId='descriptionInput' validationState={this.state.descriptionValidationStatus[0]}>
-                                        <ControlLabel>Description</ControlLabel>
-                                        <InputGroup >
-                                            <InputGroup.Addon>
-                                                <Icon glyph='icon-fontello-edit' />
-                                            </InputGroup.Addon>
-                                            <FormControl type='text'  componentClass='textarea' rows='3' className='border-focus-blue' placeholder='description' value={this.state.description} onChange={::this.handleDescriptionChange} style={{zIndex:0}} />
-                                            <FormControl.Feedback />
-                                        </InputGroup>
-                                        <HelpBlock>{this.state.descriptionValidationStatus[1]}</HelpBlock>
-                                    </FormGroup>
-
-                                </Row>
-
-                                <Row>
-                                    <FormGroup controlId='keywordsInput' validationState={this.state.keywordsValidationStatus[0]}>
-                                        <ControlLabel>Keywords</ControlLabel>
-                                        <InputGroup >
-                                            <InputGroup.Addon>
-                                                <Icon glyph='icon-fontello-tag-empty' />
-                                            </InputGroup.Addon>
-                                            <AutocompleteSelect controlId="keywordsSelect" value={this.state.keywords} multi={true}   onSelect={::this.handleKeywordsSelect} style={{zIndex:0}} />
-                                            <FormControl.Feedback />
-                                        </InputGroup>
-                                        <HelpBlock>{this.state.keywordsValidationStatus[1]}</HelpBlock>
-                                    </FormGroup>
-
-                                </Row>
-
-                                <Row>
-                                    <Col xs={6} collapseLeft collapseRight >
-                                        <FormGroup controlId='country' validationState={this.state.countryValidationStatus[0]}>
-                                            <ControlLabel>Country</ControlLabel>
-                                            <InputGroup style={{marginRight: 10}}>
-                                                <InputGroup.Addon>
-                                                    <Icon glyph='icon-fontello-flag-1' />
-                                                </InputGroup.Addon>
-
-                                                <CountrySelect controlId="countrySelect" multi={false} flagImagePath="/../../imgs/app/flags/flags/flat/flagicons/"  value={this.state.countryCode}  onSelect={this.handleCountrySelect} style={{zIndex:0}} />
-                                                <FormControl.Feedback />
-                                            </InputGroup>
-                                            <HelpBlock>{this.state.countryValidationStatus[1]}</HelpBlock>
-                                        </FormGroup>
-                                    </Col>
-                                    <Col xs={6} collapseLeft collapseRight >
-                                        <FormGroup controlId='city' validationState={this.state.cityValidationStatus[0]}>
-                                            <ControlLabel>City</ControlLabel>
-                                            <InputGroup >
-                                                <InputGroup.Addon>
-                                                    <Icon glyph='icon-fontello-home-1' />
-                                                </InputGroup.Addon>
-                                                <FormControl type='city' className='border-focus-blue' placeholder='city'  value={this.state.city} onChange={::this.handleCityChange} style={{zIndex:0}} />
-                                                <FormControl.Feedback />
-                                            </InputGroup>
-                                            <HelpBlock>{this.state.cityValidationStatus[1]}</HelpBlock>
-                                        </FormGroup>
-                                    </Col>
-                                </Row>
 
 
-                            </Form>
+                    <div className={"input-group " + this.showInputStatus(this.state.descriptionValidationStatus)}  >
+
+                      <span className="input-group-addon"><i className="fa fa-info"></i></span>
+
+                      <textarea autoFocus type='text' className='form-control input-lg' rows="5" placeholder='description'  name="description" value={this.state.description} onChange={::this.handleDescriptionChange} />
+
+                      <span className={::this.showInputFeedback(this.state.descriptionValidationStatus)}></span>
+                    </div>
+                    <label className="error" >{this.state.descriptionValidationStatus[1]}</label> <br />
+
+
+
+                    <div className={"input-group " + this.showInputStatus(this.state.keywordsValidationStatus)}  >
+
+                      <span className="input-group-addon"><i className="fa fa-tags"></i></span>
+
+                      <AutocompleteSelect controlId="keywordsSelect" value={this.state.keywords} multi={true}   onSelect={::this.handleKeywordsSelect} style={{zIndex:0}} />
+
+                      <span className={::this.showInputFeedback(this.state.keywordsValidationStatus)}></span>
+                    </div>
+                    <label className="error" >{this.state.keywordsValidationStatus[1]}</label> <br />
+
+
+
+                    <div className="row" >
+
+                        <div className="col-sm-6">
+                          <div className={"input-group " + this.showInputStatus(this.state.countryValidationStatus)}  >
+
+                            <span className="input-group-addon"><i className="fa fa-flag"></i></span>
+
+                            <MyCountrySelect initialCountry={this.props.localization.countryCode||''} onSelect={::this.handleCountrySelect}/>
+
+                            <span className={::this.showInputFeedback(this.state.countryValidationStatus)}></span>
+                          </div>
+                          <label className="error" >{this.state.countryValidationStatus[1]}</label> <br />
                         </div>
-                    </PanelBody>
 
-                    <PanelFooter className='bg-lightgreen'>
+                        <div className="col-sm-6" style={{paddingBottom: 5}}>
+                          <div className={"input-group " + this.showInputStatus(this.state.cityValidationStatus)}  >
 
-                        <Grid>
-                            <Row>
-                                <Col className='text-right' style={{paddingTop:20, paddingBottom:20, paddingRight:20}}>
-                                    <Button lg type='submit' bsStyle='primary' onClick={::this.handleAddForum}>Create Forum</Button>
-                                </Col>
-                            </Row>
-                        </Grid>
+                            <span className="input-group-addon"><i className="fa fa-institution"></i></span>
 
-                    </PanelFooter>
+                            <input autoFocus type='text' className='form-control input-lg' placeholder='city'  value={this.props.localization.city||this.state.city} onChange={::this.handleCityChange} />
 
-                </Panel>
-            </PanelContainer>
+                            <span className={::this.showInputFeedback(this.state.cityValidationStatus)}></span>
+                          </div>
+                          <label className="error" >{this.state.cityValidationStatus[1]}</label> <br />
+                        </div>
+
+                    </div>
+
+
+
+                  </form>
+
+                </div>
+
+                <div className="panel-footer text-right" style={{paddingTop:20, paddingBottom:20, paddingRight:20}}>
+
+                    <button className="btn btn-primary" type='button' onClick={::this.handleAddForum}> <i className="fa fa-users" /> Create Forum</button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
         );
     }
 }
@@ -304,6 +298,7 @@ function mapState (state){
   return {
     userAuthenticated: state.userAuthenticated,
     routerState: state.routerState,
+    localization: state.localization,
   }
 };
 

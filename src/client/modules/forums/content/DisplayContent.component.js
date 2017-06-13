@@ -9,7 +9,7 @@ import {connect} from "react-redux";
 import AuthService from './../../../services/REST/authentication/Auth.service';
 import ContentService from './../../../services/REST/forums/content/Content.service';
 
-import ForumsButtons from './../../forums/components/ForumsButtons.component';
+import ButtonsContent from '../components/ContentButtons.component';
 
 import PreviewContent from '../components/PreviewContent.component';
 
@@ -37,7 +37,10 @@ class DisplayContent extends React.Component {
         return (
             <div style={{marginBottom:0}}>
 
-              <section id="team" className="gray-section team">
+              <section className="gray-section team">
+
+                <ButtonsContent />
+
 
                 <div className="container">
                   <div className="row m-b-lg">

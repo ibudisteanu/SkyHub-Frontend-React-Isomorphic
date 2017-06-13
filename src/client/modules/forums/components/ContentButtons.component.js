@@ -10,7 +10,7 @@ import AuthService  from './../../../services/REST/authentication/Auth.service';
 
 import AddForumForm from './../forums/components/AddForum.form.component'
 
-export default class ForumsButtons extends React.Component {
+export default class ButtonsContent extends React.Component {
 
     constructor(props){
         super(props);
@@ -63,30 +63,30 @@ export default class ForumsButtons extends React.Component {
         return (
             <div>
                 {console.log(this.state)}
-                <ButtonToolbar style={{paddingTop:20}}>
+                <div style={{paddingTop:20}}>
 
                     {this.state.btnAddForum ? (
-                        <Button bsStyle='green' rounded onClick={::this.handleAddForum}>
-                            <Icon glyph='icon-fontello-users-1' style={{marginRight: 5}} />
+                        <button type="button" className="btn btn-warning dim btn-rounded" data-toggle="button" aria-pressed="true"  onClick={::this.handleAddForum} style={{marginRight: 5}} >
+                            <i className="fa fa-users" style={{marginRight: 5}}  />
                             Forum
-                        </Button>
+                        </button>
                     ) : '' }
 
                     {this.state.btnAddTopic ? (
-                        <Button bsStyle='red' rounded onClick={::this.handleAddTopic}>
-                            <Icon glyph='icon-fontello-pencil-1' style={{marginRight: 5}}/>
+                        <button type="button" className="btn btn-success dim btn-rounded" onClick={::this.handleAddTopic} style={{marginRight: 5}} >
+                            <i className="fa fa-pencil" style={{marginRight: 5}}  />
                             Topic
-                        </Button>
+                        </button>
                     ) : '' }
 
                     {this.state.btnAddReply ? (
-                        <Button bsStyle='blue' rounded onClick={::this.handleAddTopic}>
-                            <Icon glyph='icon-fontello-chat-1' style={{marginRight: 5}}/>
+                        <button type="button" className="btn btn-danger dim btn-rounded" onClick={::this.handleAddTopic} style={{marginRight: 5}} >
+                            <i className="fa fa-comment" style={{marginRight: 5}}  />
                             Reply
-                        </Button>
+                        </button>
                     ) : '' }
 
-                </ButtonToolbar>
+                </div>
 
                 {this.state.showAddForumForm ? this.showAddForum() : ''}
 

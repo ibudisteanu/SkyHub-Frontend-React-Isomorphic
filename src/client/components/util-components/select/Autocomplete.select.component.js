@@ -5,8 +5,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
-
-import HTTPService from './../../../services/Communication/http/Http.service';
+import jsonp  from 'jsonp';
 
 export default class AutocompleteSelect extends React.Component {
 
@@ -67,7 +66,7 @@ export default class AutocompleteSelect extends React.Component {
         if (!input)
             return { options: [] };
 
-        data = await HTTPService.getRequestURL(`http://google.com/complete/search?client=firefox&hl=ro&q=${input}`);
+        data = await jsonp(`http://google.com/complete/search?client=firefox&hl=ro&q=${input}`);
 
         let keywords = data[1];
         let optionsKeywords = [];
