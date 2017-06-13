@@ -71,9 +71,15 @@ class AddForumForm extends React.Component {
 
         console.log('ADDing forum... ');
 
+        let sCountryCode = this.state.countryCode;
+        if (sCountryCode === '') sCountryCode = this.props.localization.countryCode;
+
+        let sCity = this.state.city
+        if (sCity === '') sCity = this.props.localization.city;
+
 
         if (!bValidationError)
-            ForumsService.forumAddAsync(this.state.parentId, this.state.title, this.state.description, this.state.keywords, this.state.countryCode, '', this.state.city, this.state.latitude, this.state.longitude, this.state.timeZone)
+            ForumsService.forumAddAsync(this.state.parentId, this.state.title, this.state.description, this.state.keywords, sCountryCode, '', sCity, this.state.latitude, this.state.longitude, this.state.timeZone)
 
                 .then((res) => {
 

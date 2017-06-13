@@ -61,25 +61,36 @@ export default class AutocompleteSelect extends React.Component {
     }
 
     //using Google http://google.com/complete/search?client=firefox&hl=ro&q=theory
-    async getSuggestions( input){
+    getSuggestions( input){
 
-        if (!input)
-            return { options: [] };
+      if (!input)
+        return Promise.resolve({ options: [] });
 
-        data = await jsonp(`http://google.com/complete/search?client=firefox&hl=ro&q=${input}`);
+      return new Promise((resolve)=>{
 
-        let keywords = data[1];
-        let optionsKeywords = [];
-        keywords.forEach(function (entry){
-            optionsKeywords.push({
+
+        jsonp(`http://google.com/complete/search?client=firefox&hl=ro&q=${input}`, null, function (err, data) {
+          if (err) {
+            console.error('Error getting KEYWORDS '+err.message);
+          } else {
+            //console.log({options: data[1]});
+
+            var keywords = data[1];
+            var optionsKeywords = [];
+            keywords.forEach(function (entry){
+              optionsKeywords.push({
                 value: entry,
                 label: entry,
+              });
             });
+
+            //console.log({options: optionsKeywords});
+
+            resolve ({options: optionsKeywords});
+          }
         });
 
-        //console.log({options: optionsKeywords});
-
-        return {options: optionsKeywords};
+      });
     }
 
     render () {
