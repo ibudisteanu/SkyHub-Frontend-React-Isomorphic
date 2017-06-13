@@ -161,7 +161,7 @@ export default class LoginForm extends React.Component {
 
                               </div>
                               <div className="col-xs-6 text-right" >
-                                <button  type='button' className='btn btn-info' onClick={::this.handleCheckLogin}><i className="fa fa-sign-in"></i> Login</button>
+                                <button  type='button' className='btn btn-success ' onClick={::this.handleCheckLogin}><i className="fa fa-sign-in"></i> Login</button>
                               </div>
                             </div>
                         </div>

@@ -20,6 +20,7 @@ export default {
   path: '/:url*',
   //path: '/:filter(active|completed|)',
 
+
   async action({ params, fetch, store }) {
 
     await store.dispatch(startLocalizationFetchingAsync());

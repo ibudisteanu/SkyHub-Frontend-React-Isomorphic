@@ -22,7 +22,7 @@ class DisplayContent extends React.Component {
 
 
     renderContent() {
-        const objects = this.props.routerState.currentRouterObject.contentObjects;
+        const objects = this.props.contentState.contentObjects.objects;
         if ((objects === null)||(typeof objects === "undefined")) return '';
 
         return (
@@ -52,6 +52,8 @@ class DisplayContent extends React.Component {
                       {::this.renderContent()}
                     </div>
                   </div>
+
+
                 </div>
 
               </section>
@@ -64,7 +66,7 @@ class DisplayContent extends React.Component {
 function mapState (state){
   return {
     userAuthenticated: state.userAuthenticated,
-    routerState: state.routerState,
+    contentState: state.contentState,
   }
 };
 

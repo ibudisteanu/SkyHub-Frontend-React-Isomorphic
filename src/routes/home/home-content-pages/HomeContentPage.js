@@ -20,20 +20,6 @@ export class HomeContentPage extends React.Component {
 
   }
 
-  componentDidMount (){
-
-    //I have a forumURL to process
-
-    // let URL = this.props.params.forumURL || '';
-    //
-    // this.ForumsService.getForumAsync(forumURL).then ( (forumAnswer) => {
-    //
-    //     this.props.dispatch(newRouterForumArgumentAction(forumAnswer, (forumAnswer !== null) ));
-    //
-    // });
-
-  }
-
   renderForum(){
     //console.log("%%%%%%%%%%%RENDER FORUM ",this.props.object);
 
@@ -44,9 +30,9 @@ export class HomeContentPage extends React.Component {
 
   render() {
 
-    console.log('@@@@',this.props.routerState.currentRouterObject.type);
+    console.log('@@@@',this.props.contentState.routerObject.type);
 
-    switch (this.props.routerState.currentRouterObject.type){
+    switch (this.props.contentState.routerObject.type){
       case 'forum':
         return this.renderForum();
       case 'user':
@@ -59,10 +45,11 @@ export class HomeContentPage extends React.Component {
 
   }
 }
+
 function mapState (state){
   return {
     userAuthenticated: state.userAuthenticated,
-    routerState: state.routerState,
+    contentState: state.contentState,
   }
 };
 

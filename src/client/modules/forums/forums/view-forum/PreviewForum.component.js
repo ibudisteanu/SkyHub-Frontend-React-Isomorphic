@@ -12,14 +12,18 @@ import ForumsService from '../../../../services/REST/forums/forums/Forums.servic
 
 import Forum from '../models/Forum.model';
 
+/*
+    PreviewForum can also work with a prop id="1_frm_3333", and it fetch automatically the forum from you
+ */
+
  class PreviewForum extends React.Component {
 
     constructor(props){
         super(props);
 
         this.state = {
-            forum: new Forum({title:"TEST FORUM",description:"DESCRIPTION"}),
-            forumNotFound: false,
+            forum: props.forum || (new Forum({title:"TEST FORUM",description:"DESCRIPTION"})),
+            forumNotFound: props.forumNotFound||false,
         };
     }
 
@@ -50,10 +54,16 @@ import Forum from '../models/Forum.model';
 
     renderError(){
         return (
-            <Alert danger>
-                <h4>Forum NOT Found</h4>
-                <strong>{this.props.forumURL||""}</strong> was not found. Probably the forum you are looking for doesn't exists or has been deleted.
-            </Alert>
+          <div className="row">
+
+            <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+              <div className="alert alert-danger ">
+                <h4 style={{textAlign: "center"}}>NOT Found</h4>
+                <strong>{this.props.URL||"/"}</strong> was not found. Probably what you've been looking for doesn't exists or has been deleted in the mean while.
+              </div>
+            </div>
+
+          </div>
         )
     }
 
@@ -65,35 +75,20 @@ import Forum from '../models/Forum.model';
 
 
         return (
-            <PanelContainer key={this.state.forum.id||'forumId'} controls={false} style={{marginBottom:0}}>
 
-                <Link to={getPath( this, this.state.forum.URL )} onClick = {::this.setForumArgument}> >
+            <div className = "col-xs-3 sub-category-div">
 
-                { ((this.state.forum !== null) && (this.state.forumNotFound === false))
-                    ?
-                    <Panel >
-                        <PanelHeader className="forum-preview-cover" style={{backgroundImage: 'url('+this.state.forum.coverPic+')', backgroundColor: this.state.forum.coverColor||"#79B0EC"}}>
-                            <Grid>
-                                <Row>
-                                    <Col xs={12} className='fg-white'>
-                                        <h4>{this.state.forum.title}</h4>
-                                        <h6>{this.state.forum.description}</h6>
-                                    </Col>
-                                </Row>
-                            </Grid>
-                        </PanelHeader>
-                        <PanelBody>
-                            <Grid>
-                                <Row>
-                                    <Col xs={12}>
-                                        <p>
-                                            MISTO DE TOT
-                                        </p>
-                                    </Col>
-                                </Row>
-                            </Grid>
-                        </PanelBody>
-                    </Panel>
+                {
+                  ((this.state.forum !== null) && (this.state.forumNotFound === false))
+
+                  ?
+                    <div className="sub-category-box">
+
+                        <div className="info-box-icon bg-white" style={{backgroundImage: 'url('+this.state.forum.coverPic+')', backgroundColor: this.state.forum.coverColor||"#79B0EC"}} >
+                          <span className="sub-category-box-text">{this.state.forum.title}</span>
+                        </div>
+
+                    </div>
 
                     :
 
@@ -101,10 +96,8 @@ import Forum from '../models/Forum.model';
 
                 }
 
-                </Link>
 
-
-            </PanelContainer>
+            </div >
         );
     }
 }

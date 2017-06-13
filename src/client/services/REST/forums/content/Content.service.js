@@ -2,7 +2,7 @@
  * Created by ERAZER-ALEX on 6/4/2017.
  */
 
-import {newRouterObjectArgumentAction, newRouterObjectArgument_AddContentArrayAction} from '../../../../../my-redux/actions/RouterState.actions';
+import {setContentState_NewRouterObject_Action, setContentState_AddContentObjects_Action} from '../../../../../my-redux/actions/ContentState.actions';
 
 import Forum from './../../../../modules/forums/forums/models/Forum.model';
 
@@ -11,7 +11,7 @@ import HTTPService from './../../../Communication/http/Http.service';
 
 class ContentServiceClass {
 
-    routerState = null; //from redux store
+    contentState = null; //from redux store
     dispatch = null;
 
     constructor(props){
@@ -20,11 +20,11 @@ class ContentServiceClass {
 
     }
 
-    startService(dispatch, routerState ){
+    startService(dispatch, contentState ){
       this.dispatch = dispatch;
-      this.routerState = routerState;
+      this.contentState = contentState;
 
-      //console.log("@@@@ ContentService - STARTING Service", dispatch, routerState);
+      //console.log("@@@@ ContentService - STARTING Service", dispatch, contentState);
     }
 
     async getTopContent(parent, pageIndex, pageCount){
@@ -49,7 +49,7 @@ class ContentServiceClass {
         let toBeAdded = this.processNewContent(answer.content);
 
         if (toBeAdded !== [])
-          await this.dispatch(newRouterObjectArgument_AddContentArrayAction(toBeAdded ));
+          await this.dispatch(setContentState_AddContentObjects_Action(toBeAdded ));
 
         return toBeAdded;
       }
@@ -68,8 +68,8 @@ class ContentServiceClass {
 
         let bFound=false;
 
-        if ((this.routerState.currentRouterObject !== null) && (this.routerState.currentRouterObject.contentObjects !== null))
-        for (let obj in this.routerState.currentRouterObject.contentObjects)
+        if ((this.contentState.contentObjects !== null) )
+        for (let obj in this.contentState.contentObjects)
           if (newObject.id === obj.id){
             bFound=true;
             break;
@@ -123,7 +123,7 @@ class ContentServiceClass {
 
       if (answer.result === true){
 
-        await this.dispatch(newRouterObjectArgumentAction( answer.data.content, false, sContentToSearchId,  1, 8, true, [] ));
+        await this.dispatch(setContentState_NewRouterObject_Action( answer.data.content, false, sContentToSearchId, 1, 8, [] ));
 
         await this.fetchTopContent(sContentToSearchId, 1, 8, protocol);
 
@@ -131,7 +131,7 @@ class ContentServiceClass {
 
       } else {
 
-        await this.dispatch(newRouterObjectArgumentAction(null, true, sContentToSearchId, 1, 8, [] ));
+        await this.dispatch(setContentState_NewRouterObject_Action(null, true, sContentToSearchId, 1, 8, [] ));
       }
 
       return null;

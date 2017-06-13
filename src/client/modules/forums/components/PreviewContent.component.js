@@ -23,7 +23,7 @@ class PreviewContent extends React.Component {
         let forum = new Forum(this.props.object);
 
         return (
-            <PreviewForum key={forum.id} forum = {forum} />
+            <PreviewForum key={forum.id} forum={forum} />
         )
     }
 

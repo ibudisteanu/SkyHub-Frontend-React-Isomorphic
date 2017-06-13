@@ -65,6 +65,8 @@ class ContentObjectServiceClass {
             /*case 'topic':
              return New Fo*/
         }
+
+        return null;
     }
 }
 

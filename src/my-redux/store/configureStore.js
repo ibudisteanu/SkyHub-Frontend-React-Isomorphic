@@ -10,6 +10,7 @@ import {defaultUserState} from "../reducers/UserAuthenticated.reducer";
 import {defaultSocketStatus} from "../reducers/SocketStatus.reducer";
 import {defaultLocalization} from "../reducers/Localization.reducer";
 import {defaultRouterState} from "../reducers/RouterState.reducer";
+import {defaultContentState} from "../reducers/ContentState.reducer";
 import {defaultTestReduxState} from "../test-redux/reducers/TestRedux.reducer";
 
 export default function configureStore(initialState, helpersConfig) {
@@ -41,7 +42,9 @@ export default function configureStore(initialState, helpersConfig) {
   initialState.userAuthenticated = defaultUserState(initialState.userAuthenticated||{}); //Current User Authenticated
   initialState.socketStatus = defaultSocketStatus; //Socket Status
   initialState.localization = defaultLocalization(initialState.localization||{}); //Location
-  initialState.routerState = defaultRouterState(initialState.routerState||{}); //Router Arguments
+
+  initialState.routerState = defaultRouterState(initialState.routerState||{}); //Router
+  initialState.contentState = defaultContentState(initialState.contentState||{}); //Content Redux State
 
   initialState.testReduxState = defaultTestReduxState;
 

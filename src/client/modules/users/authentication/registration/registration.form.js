@@ -350,7 +350,7 @@ export class RegistrationForm extends React.Component {
 
                                   </div>
                                   <div className="col-xs-6 text-right" >
-                                    <button  type='button' className='btn btn-info' onClick={::this.handleCheckRegister}><i className="fa fa-sign-up"></i> Register</button>
+                                    <button  type='button' className='btn btn-success' onClick={::this.handleCheckRegister}><i className="fa fa-sign-up"></i> Register</button>
                                   </div>
                                 </div>
                               </div>

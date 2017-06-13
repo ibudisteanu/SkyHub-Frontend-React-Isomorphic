@@ -13,6 +13,9 @@ import PropTypes from 'prop-types';
 import DisplayContent from "../../client/modules/forums/content/DisplayContent.component";
 import HomeContentPage from "./home-content-pages/HomeContentPage";
 
+import AuthenticatedHome from './home/authenticated/Authenticated-home.component';
+import NotAuthenticatedHome from './home/NotAuthenticatedHome.component';
+
 import {connect} from 'react-redux';
 
 class Home extends React.Component {
@@ -44,14 +47,12 @@ class Home extends React.Component {
         {
           this.props.userAuthenticated.user.isLoggedIn()
             ?
-              <AuthenticatedHomeComponent/>
+              <AuthenticatedHome />
 
             :
 
-            <HomeComponent/>
+            <NotAuthenticatedHome />
         }
-
-        <DisplayContent/>
 
       </div>
 
@@ -70,9 +71,9 @@ class Home extends React.Component {
     return (
       <div>
 
-        {this.props.routerState.currentRouterObject === null ? ::this.renderSimpleWebsite() : ::this.renderHomepageComponent()}
+        {this.props.contentState.routerObject.object === null ? ::this.renderSimpleWebsite() : ::this.renderHomepageComponent()}
 
-        {this.props.routerState.currentRouterObject.notFound ? ::this.renderError() : ' A FOST GASIT'}
+        {this.props.contentState.routerObject.notFound ? ::this.renderError() : ' A FOST GASIT'}
 
 
         <DisplayContent />
@@ -86,7 +87,7 @@ class Home extends React.Component {
 function mapState (state){
   return {
     userAuthenticated: state.userAuthenticated,
-    routerState: state.routerState,
+    contentState: state.contentState,
   }
 };
 
