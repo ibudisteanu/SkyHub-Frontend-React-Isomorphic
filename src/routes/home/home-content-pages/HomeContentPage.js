@@ -21,8 +21,6 @@ export class HomeContentPage extends React.Component {
   }
 
   renderForum(){
-    //console.log("%%%%%%%%%%%RENDER FORUM ",this.props.object);
-
     return (
       <ViewForum />
     )

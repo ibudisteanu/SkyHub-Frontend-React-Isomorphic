@@ -20,17 +20,17 @@ export default {
   path: '/:url*',
   //path: '/:filter(active|completed|)',
 
-
   async action({ params, fetch, store }) {
 
     await store.dispatch(startLocalizationFetchingAsync());
 
-    ContentService.startService(store.dispatch, store.getState().contentState);
-    var contentData =  await ContentService.fetchRouterObjectAndContent(params.url||'','http');
+
+    if (typeof document === "undefined")
+      ContentService.startService(store.dispatch, store.getState().contentState);
+
+    var contentData = await ContentService.fetchRouterObjectAndContent(params.url || '', (typeof document === "undefined" ? 'http' : ''));
 
     //if (!data || !data.news) throw new Error('Failed to load the news feed.');
-    console.log("DATA " ,contentData);
-
 
     return {
       title: 'React Starter Kit',

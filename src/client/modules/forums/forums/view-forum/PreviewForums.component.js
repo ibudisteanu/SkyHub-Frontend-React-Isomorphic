@@ -11,6 +11,7 @@ import AuthService from '../../../../services/REST/authentication/Auth.service.j
 import ForumsService from '../../../../services/REST/forums/forums/Forums.service';
 
 import Forum from '../models/Forum.model';
+import Link from '../../../../components/Link/Link';
 
 /*
     PreviewForum can also work with a prop id="1_frm_3333", and it fetch automatically the forum from you
@@ -40,10 +41,10 @@ import Forum from '../models/Forum.model';
 
      return (
        objects.map((object) =>
-         <a href={object.URL} title={object.title} data-gallery="">
+          <Link key={"link"+object.id} style={{marginLeft: 10}} to={object.URL} title={object.title}>
            <img src={object.iconPic} style={{backgroundColor: object.coverColor||"#79B0EC"}} />
            <span>{object.title}</span>
-         </a>
+          </Link>
        )
      );
    }

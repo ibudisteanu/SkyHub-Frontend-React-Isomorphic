@@ -28,7 +28,7 @@ class HTTPServiceClass {
           requestData.sessionId = sessionId;
       }
 
-      //console.log(""); console.log(""); console.log(""); console.log(this.addTrailingSlash(this.serverHTTPApi)+sRequest);  console.log(requestData);
+      console.log(""); console.log(""); console.log(""); console.log(this.addTrailingSlash(this.serverHTTPApi)+sRequest);  console.log(requestData);
 
       requestData = {data: requestData};
 

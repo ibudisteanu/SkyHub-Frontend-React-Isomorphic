@@ -32,6 +32,10 @@ export default class HeaderCover extends React.Component {
     renderSocialMenu(){
         return (
             <div className="col-xs-12 col-sm-4">
+
+
+
+
                 <div className='header-cover-avatar'>
                     <image src='/imgs/app/avatars/avatar.jpg' height='100' width='100' style={{display: 'block', borderRadius: 100, border: '2px solid #fff', margin: 'auto', marginTop: 50}} />
                     <h4 className='fg-white text-center'>Anna Sanchez</h4>
@@ -50,6 +54,10 @@ export default class HeaderCover extends React.Component {
     renderDescriptionMenu(){
         return (
             <div>
+
+
+
+
                 <div className="col-xs-12 col-sm-8" >
                     <div className={'header-cover-description'} >
                         <div>
@@ -58,7 +66,7 @@ export default class HeaderCover extends React.Component {
                             <div className="row">
                                 <h1 className='fg-white'>{this.props.title}</h1>
                                 <br/>
-                                <h4 className='fg-white' style={{opacity: 0.8}}>{this.props.subTitle}</h4>
+                                <h2 className='fg-white' style={{opacity: 0.8}}>{this.props.subTitle}</h2>
                             </div>
 
                             <div className="header-cover-toolbar" >
@@ -90,7 +98,7 @@ export default class HeaderCover extends React.Component {
 
     render() {
         return (
-            <div className="header-cover" style={{backgroundImage: 'url('+this.props.coverPic+')', backgroundColor: this.props.coverColor||'darkblue'}}>
+            <div className="header-cover row  border-bottom white-bg dashboard-header " style={{backgroundImage: 'url('+this.props.coverPic+')', backgroundColor: this.props.coverColor||'darkblue', backgroundColor: "red", marginLeft: -25, marginRight: -25}}>
 
                 {(this.props.showLayOver||false) == true ? <div className='header-cover-layover'> </div> : '' }
 

@@ -98,7 +98,6 @@ class App extends React.PureComponent {
     //Async Localization in case I don't have anything there
     this.props.context.store.dispatch(startLocalizationFetchingAsync());
 
-
     //Creating the Socket Service
     SocketService .startService(this.props.context.store.dispatch);
 
@@ -106,7 +105,7 @@ class App extends React.PureComponent {
 
     ForumsService.startService(this.props.context.store.dispatch);
 
-    ContentService.startService(this.props.context.store.dispatch, this.props.context.store.getState().routerState);
+    ContentService.startService(this.props.context.store.dispatch, this.props.context.store.getState().contentState);
 
   }
 

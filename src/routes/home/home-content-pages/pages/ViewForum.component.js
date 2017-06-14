@@ -24,9 +24,9 @@ export class ViewForum extends React.Component {
     renderForum(){
         return (
             <div>
-                <HeroHeader>
-                    <span>{this.props.routerState.currentRouterObject.object.title}</span>
-                </HeroHeader>
+                <h1>
+                    <span>{this.props.contentState.routerObject.object.title}</span>
+                </h1>
 
             </div>
 
@@ -35,27 +35,33 @@ export class ViewForum extends React.Component {
 
     renderError(){
         return (
-            <Alert danger>
-                <h4>Forum NOT Found</h4>
-                <strong>{this.props.params.forumURL||""}</strong> was not found. Probably the forum you are looking for doesn't exists or has been deleted.
-            </Alert>
+          <div className="row">
+
+            <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+              <div className="alert alert-danger ">
+                <h4 style={{textAlign: "center"}}>Forum <strong>NOT Found</strong></h4>
+                <strong>{this.props.URL||"/"}</strong> was not found. Probably what you've been looking for doesn't exists or has been deleted in the mean while.
+              </div>
+            </div>
+
+          </div>
         )
     }
 
     render() {
 
-        console.log("%%%%%%%%%%% VIEW FORUM " , this.props.routerState.currentRouterObject.object);
+        console.log("%%%%%%%%%%% VIEW FORUM " , this.props.contentState.routerObject.object);
 
         return (
             <div>
 
-                { ((this.props.routerState.currentRouterObject.object !== null) && (this.props.routerState.currentRouterObject.objectNotFound === false))
+                { ((this.props.contentState.routerObject.object !== null) && (this.props.contentState.routerObject.objectNotFound === false))
                     ?
-                    <HeaderCover title={this.props.routerState.currentRouterObject.object.title||""}
-                                 subTitle={this.props.routerState.currentRouterObject.object.description||""}
-                                 icon={this.props.routerState.currentRouterObject.object.iconPic||""}
-                                 cover={this.props.routerState.currentRouterObject.object.coverPic||''}
-                                 backgroundColor={this.props.routerState.currentRouterObject.object.coverColor||''} />
+                    <HeaderCover title={this.props.contentState.routerObject.object.title||""}
+                                 subTitle={this.props.contentState.routerObject.object.description||""}
+                                 icon={this.props.contentState.routerObject.object.iconPic||""}
+                                 cover={this.props.contentState.routerObject.object.coverPic||''}
+                                 backgroundColor={this.props.contentState.routerObject.object.coverColor||''} />
 
                     :
 
@@ -63,13 +69,12 @@ export class ViewForum extends React.Component {
                 }
 
 
-                <Hero style={{position: 'relative', zIndex: 2}}>
+                <div style={{position: 'relative', zIndex: 2}}>
 
-                    {this.props.routerState.currentRouterObject.object !== null ? ::this.renderForum() : ::this.renderError}
+                    {this.props.contentState.routerObject.object !== null ? ::this.renderForum() : ::this.renderError}
 
-                </Hero>
+                </div>
 
-                <DisplayContent/>
 
 
             </div>
@@ -80,7 +85,7 @@ export class ViewForum extends React.Component {
 function mapState (state){
   return {
     userAuthenticated: state.userAuthenticated,
-    routerState: state.routerState,
+    contentState: state.contentState,
   }
 };
 

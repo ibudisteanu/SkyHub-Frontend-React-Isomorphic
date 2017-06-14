@@ -13,6 +13,7 @@ class ContentServiceClass {
 
     contentState = null; //from redux store
     dispatch = null;
+    bStarted = false;
 
     constructor(props){
 
@@ -23,6 +24,7 @@ class ContentServiceClass {
     startService(dispatch, contentState ){
       this.dispatch = dispatch;
       this.contentState = contentState;
+      this.bStarted=true;
 
       //console.log("@@@@ ContentService - STARTING Service", dispatch, contentState);
     }
@@ -128,7 +130,7 @@ class ContentServiceClass {
 
     async getRouterObjectContent(sContentToSearchId){
       if (sContentToSearchId !== '')
-        return SocketService.sendRequestGetDataPromise("content/get-content",{id: sContentToSearchId});
+        return await SocketService.sendRequestGetDataPromise("content/get-content",{id: sContentToSearchId});
       else
         return {result: true, data: {content: null}};
     }
@@ -136,7 +138,7 @@ class ContentServiceClass {
     async getRouterObjectContentHTTP(sContentToSearchId){
 
       if (sContentToSearchId !== '') {
-        return HTTPService.getRequest('content/get-content', {id: sContentToSearchId});
+        return await HTTPService.getRequest('content/get-content', {id: sContentToSearchId});
       }
       else
         return {result: true, data: {content: null}};
@@ -150,19 +152,21 @@ class ContentServiceClass {
 
       let answer = {result : false};
 
+      if (!this.bStarted) return null;
+
       if (protocol === "http") answer = await this.getRouterObjectContentHTTP(sContentToSearchId);
       else answer = await this.getRouterObjectContent(sContentToSearchId);
 
-      console.log("ANSWER FOR ", sContentToSearchId, answer);
+      console.log("ANSWER FOR "+protocol, sContentToSearchId, answer);
 
       if (answer.result === true){
 
-        await this.dispatch(setContentState_NewRouterObject_Action( answer.data.content, false, sContentToSearchId, 1, 8, [] ));
+        await this.dispatch(setContentState_NewRouterObject_Action( answer.content, false, sContentToSearchId, 1, 8, [] ));
 
         await this.fetchTopForums(sContentToSearchId, 1, 8, protocol);
         await this.fetchTopContent(sContentToSearchId, 1, 8, protocol);
 
-        return answer.data.content;
+        return answer.content;
 
       } else {
 
@@ -170,6 +174,7 @@ class ContentServiceClass {
       }
 
       return null;
+
 
     }
 

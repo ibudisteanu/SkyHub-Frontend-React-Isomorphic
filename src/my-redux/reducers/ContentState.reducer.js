@@ -11,7 +11,7 @@ export function defaultContentState (initial) {
     routerObject : initial.routerObject || {
       type: 'none',//'none','forum','topic','user',
       object: null,
-      notFound:false,
+      notFound: false,
       pageURL: '',
     },
 

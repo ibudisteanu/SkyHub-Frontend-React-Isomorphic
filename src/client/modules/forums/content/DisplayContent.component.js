@@ -44,21 +44,18 @@ class DisplayContent extends React.Component {
               </div>
 
 
-
-                <ButtonsContent />
-
+              <ButtonsContent />
 
 
-                <div className="row" style={{paddingBottom: 20}}>
-                  <div className="text-center">
-                    <h4 style={{fontSize:30}}>What's hot on SkyHub</h4>
-                  </div>
 
-                  {::this.renderContent()}
-
+              <div className="row" style={{paddingBottom: 20}}>
+                <div className="text-center">
+                  <h4 style={{fontSize:30}}>What's hot on SkyHub</h4>
                 </div>
 
+                {::this.renderContent()}
 
+              </div>
 
 
 

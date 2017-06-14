@@ -16,8 +16,12 @@ export default {
 
   path: '/about',
 
-  async action() {
+  async action( {params}) {
     const data = await require.ensure([], require => require('./about.md'), 'about');
+
+    if (typeof document !== "undefined") {
+      alert('about new');
+    }
 
     return {
       title: data.title,
@@ -25,6 +29,7 @@ export default {
       chunk: 'about',
       component:
         <Layout>
+
           <Page {...data} >
 
             <TestRedux />

@@ -69,6 +69,7 @@ class Layout extends React.Component {
 
 
         <Body>
+
           Country: {this.props.localization.country}
 
           {this.props.children}

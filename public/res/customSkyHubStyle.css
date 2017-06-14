@@ -5,6 +5,9 @@
   }
 }
 
+/*
+    Gallery used for Forums
+ */
 .lightBoxGallery{
 
 }
@@ -32,5 +35,89 @@
   margin:0;
   opacity: 0.7;
   text-align: center;
+}
+
+/*
+    PREVIEW PAGES
+ */
+
+.header-cover{
+  min-height: 350px;
+
+  background-position: center;
+  background-size: cover;
+}
+
+.header-cover-layover{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.header-cover-description {
+  margin-top: 80px;
+}
+
+.header-cover-description > div > img {
+  max-width: 128px;
+  max-height: 128px;
+
+  float: left;
+}
+
+.header-cover-description > div > .row {
+  display: inline;
+}
+
+.header-cover-description > div > .row > h1{
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+.header-cover-description > div > .row > h2{
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.6);
+  color:white;
+}
+
+@media (max-width: 768px) {
+  .header-cover-description {
+    margin-top: 80px;
+  }
+}
+
+.header-cover-toolbar{
 
 }
+
+.header-cover-toolbar-label {
+  cursor: pointer;
+  display: inline-block;
+}
+.header-cover-toolbar-label >span {
+  margin-left: $line-height-computed;
+}
+
+
+/*
+    BOOTSTRAP MODAL BUG FIX https://github.com/twbs/bootstrap/issues/14040
+ */
+
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+  padding-right: 17px;
+}
+
+/*
+  TO SUPPORT FULL WIDTH DIVS
+ */
+
+
+.top-navigation .wrapper.wrapper-content {
+  padding: 0;
+}
+

@@ -19,7 +19,7 @@ class SocketServiceClass {
 
     constructor() {
 
-        console.log('               @@@@@@ Socket Client constructor');
+        console.log('               @@@@@@ Socket Client constructor', this);
 
     }
 

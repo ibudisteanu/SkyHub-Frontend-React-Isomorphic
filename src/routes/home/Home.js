@@ -30,7 +30,7 @@ class Home extends React.Component {
 
         <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <div className="alert alert-danger ">
-            <h4 style={{textAlign: "center"}}>NOT Found</h4>
+            <h4 style={{textAlign: "center"}}>Content <strong>NOT Found</strong></h4>
             <strong>{this.props.URL||"/"}</strong> was not found. Probably what you've been looking for doesn't exists or has been deleted in the mean while.
           </div>
         </div>
@@ -68,6 +68,9 @@ class Home extends React.Component {
   }
 
   render() {
+
+    console.log("@@@@@@@@@@@@@ HOME", this.props.contentState.routerObject);
+
     return (
       <div>
 
@@ -76,7 +79,9 @@ class Home extends React.Component {
         {this.props.contentState.routerObject.notFound ? ::this.renderError() : ' A FOST GASIT'}
 
 
-        <DisplayContent />
+        <div className="col-xl-8 col-xl-offset-2 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style={{padding:0}}>
+          <DisplayContent />
+        </div>
 
       </div>
     );
