@@ -40,14 +40,6 @@ class AddForumForm extends React.Component {
 
     }
 
-    convertValidationErrorToString(error) {
-        if (error === "notUnique") return "Already exists in the Database"; else
-        if (error === "notEmpty") return "It's empty";  else
-        if (error === 'validateKeywords') return "Too few keywords. Minimum 3";
-
-        return error;
-    }
-
     handleAddForum(e){
 
         if (typeof e !== "undefined") {
@@ -116,14 +108,6 @@ class AddForumForm extends React.Component {
 
     }
 
-    componentDidMount() {
-
-    }
-
-    componentWillMount(){
-
-    }
-
     handleTitleChangeSelect(value){
         this.setState({
             title : value,
@@ -185,7 +169,7 @@ class AddForumForm extends React.Component {
       if (error === "notUnique") return "Already exists in the Database"; else
       if (error === "notEmpty") return "It's empty"; else
       if (error === "validateUsername") return " Invalid username"; else
-      if (error === "validateKeywords") return " To few keywords";
+      if (error === "validateKeywords") return " Too few keywords. Minimum 3";
 
       return error;
     }

@@ -30,13 +30,15 @@ export class RegistrationForm extends React.Component {
             emailAddress : '',
             password : '',
             retypePassword : '',
-            city : '',
-            country : '',
-            countryCode : '',
+
+            city : null,
+            country : null,
+            countryCode : null,
+
             timeZone : '',
             ip: '',
 
-            latitude : 0, longitude : 0,
+            latitude : null, longitude : null,
 
             userNameValidationStatus : [null, ''],
             emailAddressValidationStatus : [null, ''],
@@ -44,6 +46,7 @@ export class RegistrationForm extends React.Component {
             lastNameValidationStatus : [null, ''],
             passwordValidationStatus : [null,  ''],
             retypePasswordValidationStatus : [null,  ''],
+
             countryValidationStatus : [null,   ''],
             cityValidationStatus : [null,  ''],
         }
@@ -94,14 +97,9 @@ export class RegistrationForm extends React.Component {
 
         console.log(bValidationError);
 
-        let sCountryCode = this.state.countryCode;
-        if (sCountryCode === '') sCountryCode = this.props.localization.countryCode;
-
-        let sCity = this.state.city
-        if (sCity === '') sCity = this.props.localization.city;
-
         if (!bValidationError)
-        AuthService.registerAsync(this.state.userName, this.state.emailAddress, this.state.password, this.state.firstName, this.state.lastName, sCountryCode, '', sCity, this.state.latitude, this.state.longitude, this.state.timeZone)
+          AuthService.registerAsync(this.state.userName, this.state.emailAddress, this.state.password, this.state.firstName, this.state.lastName,
+                                    this.state.countryCode||this.props.localization.countryCode, '', this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.props.localization.longtitude, this.state.timeZone)
 
             .then( (res) =>{
 

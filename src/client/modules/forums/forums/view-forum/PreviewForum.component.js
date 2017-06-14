@@ -54,16 +54,10 @@ import Forum from '../models/Forum.model';
 
     renderError(){
         return (
-          <div className="row">
-
-            <div className="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-              <div className="alert alert-danger ">
-                <h4 style={{textAlign: "center"}}>NOT Found</h4>
-                <strong>{this.props.URL||"/"}</strong> was not found. Probably what you've been looking for doesn't exists or has been deleted in the mean while.
-              </div>
-            </div>
-
-          </div>
+          <a title="Forum not found" data-gallery="">
+            <img style={{backgroundColor: "red"}} />
+            <span>Forum not found!</span>
+          </a>
         )
     }
 
@@ -84,19 +78,10 @@ import Forum from '../models/Forum.model';
                   ?
 
 
-
-
-                      <div className="sub-category-box">
-
-                        <div className="info-box-icon bg-white" style={{backgroundImage: 'url('+this.state.forum.coverPic+')', backgroundColor: this.state.forum.coverColor||"#79B0EC"}} >
-                          <span className="sub-category-box-text">{this.state.forum.title}</span>
-                        </div>
-
-                      </div>
-
-
-
-
+                      <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title={this.state.forum.title} data-gallery="">
+                        <img src={this.state.forum.iconPic} style={{backgroundColor: this.state.forum.coverColor||"#79B0EC"}} />
+                        <span>{this.state.forum.title}</span>
+                      </a>
 
                     :
 

@@ -12,12 +12,24 @@ import ContentService from './../../../services/REST/forums/content/Content.serv
 import ButtonsContent from '../components/ContentButtons.component';
 
 import PreviewContent from '../components/PreviewContent.component';
+import PreviewForum from '../forums/view-forum/PreviewForum.component';
 
 class DisplayContent extends React.Component {
 
     constructor(props){
         super(props);
 
+    }
+
+    renderForums(){
+      const objects = this.props.contentState.contentForums.objects;
+      if ((objects === null)||(typeof objects === "undefined")) return '';
+
+      return (
+        objects.map((object) =>
+          <PreviewForum key={object.id} object={object}></PreviewForum>
+        )
+      );
     }
 
 
@@ -37,112 +49,23 @@ class DisplayContent extends React.Component {
         return (
             <div style={{marginBottom:0}}>
 
+                <div className="row">
 
-
-                <ButtonsContent />
-
-              <div className="row">
-
-                <div className="lightBoxGallery">
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                      <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1s.jpg" />
-                      <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                      <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/2s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                      <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/3s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                      <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                      <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                      <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/8s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/2s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/3s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/4s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/5s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/6s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/7.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/8s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/9s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/10s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-                  <a href="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/1.jpg" title="Image from Unsplash" data-gallery="">
-                    <img src="http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/11s.jpg" />
-                    <span>FOARTE MISTO <br /> COOL AWEESOME</span>
-                  </a>
-
+                  <div className="lightBoxGallery">
+                    {::this.renderForums()}
+                  </div>
 
                 </div>
 
 
-              </div>
+                <ButtonsContent />
 
-              <div className="row" style={{paddingBottom: 20}}>
+
+
+                <div className="row" style={{paddingBottom: 20}}>
                   <div className="text-center">
                     <div className="navy-line"></div>
-                    <h3 style={{fontSize:30}}>What's hot on SkyHub</h3>
+                    <h4 style={{fontSize:30}}>What's hot on SkyHub</h4>
                   </div>
                 </div>
 
