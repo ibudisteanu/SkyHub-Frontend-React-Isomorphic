@@ -6,12 +6,12 @@
 /* eslint-disable import/prefer-default-export */
 
 import axios from 'axios';
-const requestIp = require('request-ip');
 
 export function extractIP(req){
 
-  //var ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
-  const ip = requestIp.getClientIp(req);
+  var ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
+  //const requestIp = require('request-ip');
+  //const ip = requestIp.getClientIp(req);
 
   console.log('IP::'); console.log(ip);
 

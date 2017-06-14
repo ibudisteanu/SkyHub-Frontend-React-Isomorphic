@@ -24,7 +24,15 @@
 
 1. npm start
 
-It will start on port 8080, and you can access the frontend server by http://127.0.0.1:3000/ 
+It will start on port 8080, and you can access the frontend server by http://127.0.0.1:3000/
+
+## Production
+
+1. npm run build -- --release 
+
+### PRODUCTION Optimization 
+1. Code splitting:  https://github.com/kriasoft/react-starter-kit/pull/1295
+2. Optimize moment.js https://github.com/jmblog/how-to-optimize-momentjs-with-webpack 
 
 #### Online Versions:
 

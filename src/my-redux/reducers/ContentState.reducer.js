@@ -71,7 +71,7 @@ export default function ContentStateReducer  ( state = defaultContentState, acti
 
       };
 
-    case 'ADD_CONTENT_FORUMS':
+    case 'ADD_CONTENT_FORUMS_OBJECTS':
       return {
         ...state,
         contentForums: {
@@ -80,7 +80,7 @@ export default function ContentStateReducer  ( state = defaultContentState, acti
         },
       };
 
-    case 'ADD_CONTENT_REPLIES':
+    case 'ADD_CONTENT_REPLIES_OBJECTS':
       return {
         ...state,
         contentReplies: {

@@ -2,7 +2,7 @@
  * Created by ERAZER-ALEX on 6/4/2017.
  */
 
-import {setContentState_NewRouterObject_Action, setContentState_AddContentObjects_Action} from '../../../../../my-redux/actions/ContentState.actions';
+import {setContentState_NewRouterObject_Action, setContentState_AddContentObjects_Action, setContentState_AddForumsObjects_Action} from '../../../../../my-redux/actions/ContentState.actions';
 
 import Forum from './../../../../modules/forums/forums/models/Forum.model';
 
@@ -27,6 +27,11 @@ class ContentServiceClass {
       //console.log("@@@@ ContentService - STARTING Service", dispatch, contentState);
     }
 
+
+    /*
+        FETCHING TOP CONTENT (Topics)
+     */
+
     async getTopContent(parent, pageIndex, pageCount){
       return SocketService.sendRequestGetDataPromise("content/get-top-content",{parent: parent, pageIndex:pageIndex, pageCount: pageCount});
     }
@@ -44,19 +49,56 @@ class ContentServiceClass {
 
       console.log("ANSWER TOP CONTENT",answer);
 
+      let toBeAdded = [];
       if (answer.result === true){
 
-        let toBeAdded = this.processNewContent(answer.content);
+        toBeAdded = this.processNewContent(answer.content, this.contentState.contentObjects.objects );
 
         if (toBeAdded !== [])
           await this.dispatch(setContentState_AddContentObjects_Action(toBeAdded ));
 
-        return toBeAdded;
       }
+      return toBeAdded;
     }
 
 
-    processNewContent(newContentObjects){
+    /*
+     FETCHING TOP FORUMS (Topics)
+     */
+
+    async getTopForums(parent, pageIndex, pageCount){
+      return SocketService.sendRequestGetDataPromise("forums/get-top-forums",{parent: parent, pageIndex:pageIndex, pageCount: pageCount});
+    }
+
+    async getTopForumsHTTP(parent, pageIndex, pageCount){
+      return HTTPService.getRequest("forums/get-top-forums",{parent: parent, pageIndex:pageIndex, pageCount: pageCount});
+    }
+
+    async fetchTopForums(parent, pageIndex, pageCount, protocol){
+
+      let answer = {result : false};
+
+      if (protocol === 'http') answer = await this.getTopForumsHTTP(parent, pageIndex, pageCount);
+      else answer = await this.getTopForums(parent, pageIndex, pageCount);
+
+      console.log("ANSWER TOP FORUMS", answer);
+      console.log("redux state",this.contentState);
+
+      let toBeAdded = [];
+      if (answer.result === true){
+
+        toBeAdded = this.processNewContent(answer.content, this.contentState.contentForums.objects );
+
+        if (toBeAdded !== [])
+          await this.dispatch(setContentState_AddForumsObjects_Action(toBeAdded ));
+
+      }
+      return toBeAdded;
+    }
+
+
+
+    processNewContent(newContentObjects, previousContentObjects){
 
       if (newContentObjects.constructor !== Array) newContentObjects = [newContentObjects];
 
@@ -68,27 +110,19 @@ class ContentServiceClass {
 
         let bFound=false;
 
-        if ((this.contentState.contentObjects !== null) )
-        for (let obj in this.contentState.contentObjects)
-          if (newObject.id === obj.id){
-            bFound=true;
-            break;
-          }
+        if ((previousContentObjects !== null) )
+          for (let obj in previousContentObjects)
+            if (newObject.id === obj.id){
+              bFound=true;
+              break;
+            }
 
-        if ((!bFound)&&(newObject!==null)&&(newObject.id !== null)) {
+        if ((!bFound)&&(newObject!==null)&&(newObject.id !== null))
           toBeAdded.push(newObject);
-        }
       }
 
       return toBeAdded;
     }
-
-
-
-
-
-
-
 
 
 
@@ -125,6 +159,7 @@ class ContentServiceClass {
 
         await this.dispatch(setContentState_NewRouterObject_Action( answer.data.content, false, sContentToSearchId, 1, 8, [] ));
 
+        await this.fetchTopForums(sContentToSearchId, 1, 8, protocol);
         await this.fetchTopContent(sContentToSearchId, 1, 8, protocol);
 
         return answer.data.content;

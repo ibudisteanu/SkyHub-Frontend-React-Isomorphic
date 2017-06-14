@@ -51,16 +51,16 @@ export function setContentState_AddContentObjects_Action(toBeAdded){
   }
 }
 
-export function setContentState_AddForums_Action(toBeAdded){
+export function setContentState_AddForumsObjects_Action(toBeAdded){
   return {
-    type: "ADD_CONTENT_FORUMS",
+    type: "ADD_CONTENT_FORUMS_OBJECTS",
     payload: toBeAdded,
   }
 }
 
-export function newRouterObjectArgument_AddReplies_Action(toBeAdded){
+export function newRouterObjectArgument_AddRepliesObjects_Action(toBeAdded){
   return {
-    type: "ADD_CONTENT_REPLIES",
+    type: "ADD_CONTENT_REPLIES_OBJECTS",
     payload: toBeAdded,
   }
 }

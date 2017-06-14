@@ -3,7 +3,7 @@
  * (C) BIT TECHNOLOGIES
  */
 
-import CookiesService from './../../Cookies/cookies.service';
+import CookiesService from '../../Cookies/Cookies.service';
 import SocketService from './../../Communication/socket/Socket.service';
 import User from './../../../modules/users/models/User.model';
 

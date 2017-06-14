@@ -25,7 +25,7 @@ export default {
 
     await store.dispatch(startLocalizationFetchingAsync());
 
-    ContentService.startService(store.dispatch, store.getState().routerState);
+    ContentService.startService(store.dispatch, store.getState().contentState);
     var contentData =  await ContentService.fetchRouterObjectAndContent(params.url||'','http');
 
     //if (!data || !data.news) throw new Error('Failed to load the news feed.');

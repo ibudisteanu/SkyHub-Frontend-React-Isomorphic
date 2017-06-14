@@ -156,7 +156,7 @@ class AddForumForm extends React.Component {
     openLogin(){
 
         if (typeof this.props.routerState.refAuthenticationModal !== "undefined") {
-          this.props.routerState.refAuthenticationModal.setOnSuccessEvent(this.authenticationSuccessfully);
+          this.props.routerState.refAuthenticationModal.setOnSuccessEvent(::this.authenticationSuccessfully);
           this.props.routerState.refAuthenticationModal.openLogin();
         }
     }

@@ -77,7 +77,7 @@ class Layout extends React.Component {
 
 
 
-        <Feedback />
+
 
       </div>
     );

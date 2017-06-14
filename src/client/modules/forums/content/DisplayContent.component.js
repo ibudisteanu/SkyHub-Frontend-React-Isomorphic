@@ -12,24 +12,13 @@ import ContentService from './../../../services/REST/forums/content/Content.serv
 import ButtonsContent from '../components/ContentButtons.component';
 
 import PreviewContent from '../components/PreviewContent.component';
-import PreviewForum from '../forums/view-forum/PreviewForum.component';
+import PreviewForums from '../forums/view-forum/PreviewForums.component';
 
 class DisplayContent extends React.Component {
 
     constructor(props){
         super(props);
 
-    }
-
-    renderForums(){
-      const objects = this.props.contentState.contentForums.objects;
-      if ((objects === null)||(typeof objects === "undefined")) return '';
-
-      return (
-        objects.map((object) =>
-          <PreviewForum key={object.id} object={object}></PreviewForum>
-        )
-      );
     }
 
 
@@ -49,13 +38,11 @@ class DisplayContent extends React.Component {
         return (
             <div style={{marginBottom:0}}>
 
-                <div className="row">
 
-                  <div className="lightBoxGallery">
-                    {::this.renderForums()}
-                  </div>
+              <div className="row">
+                <PreviewForums />
+              </div>
 
-                </div>
 
 
                 <ButtonsContent />
@@ -64,14 +51,10 @@ class DisplayContent extends React.Component {
 
                 <div className="row" style={{paddingBottom: 20}}>
                   <div className="text-center">
-                    <div className="navy-line"></div>
                     <h4 style={{fontSize:30}}>What's hot on SkyHub</h4>
                   </div>
-                </div>
 
-                <div className="row">
-
-                    {::this.renderContent()}
+                  {::this.renderContent()}
 
                 </div>
 
