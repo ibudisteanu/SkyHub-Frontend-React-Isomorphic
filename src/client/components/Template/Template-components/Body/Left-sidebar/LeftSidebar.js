@@ -6,6 +6,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
+import Link from './../../../../Link/Link';
 import {connect} from 'react-redux';
 
 class LeftSidebar extends React.Component {
@@ -46,7 +47,9 @@ class LeftSidebar extends React.Component {
 
               </div>
               <div className="logo-element">
-                IN+
+                <Link to="/">
+                  <img src="/res/logo/SkyHub-logo.png" alt="SkyHub" width="45px"/>
+                </Link>
               </div>
             </li>
             <li className="active">

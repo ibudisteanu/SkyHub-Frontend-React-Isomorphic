@@ -222,7 +222,7 @@ class AddForumForm extends React.Component {
               <div className="panel panel-warning">
 
                 <div className="panel-heading">
-                  <h2>Create a <strong>Forum</strong> in {this.props.parentName||'Home'} </h2>
+                  <h2>Create a new <strong>Forum</strong> in {this.props.parentName||'Home'} </h2>
                 </div>
 
                 <div className="panel-body">
