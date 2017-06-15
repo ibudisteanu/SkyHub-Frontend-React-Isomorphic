@@ -30,6 +30,10 @@ class ContentServiceClass {
     }
 
 
+    async getURLSlug(name){
+      return SocketService.sendRequestGetDataPromise("content/get-URL-slug",{name: name});
+    }
+
     /*
         FETCHING TOP CONTENT (Topics)
      */

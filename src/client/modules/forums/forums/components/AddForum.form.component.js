@@ -8,6 +8,8 @@ import {connect} from "react-redux";
 
 
 import ForumsService from './../../../../services/REST/forums/forums/Forums.service';
+import ContentService from './../../../../services/REST/forums/content/Content.service';
+
 import AutocompleteSelect from './../../../../../client/components/util-components/select/Autocomplete.select.component';
 import MyCountrySelect from './../../../../../client/components/util-components/select/MyCountry.select.component';
 
@@ -53,10 +55,11 @@ class AddForumForm extends React.Component {
         var onSuccess = this.props.onSuccess || function (){};
         var onError = this.props.onError || function (){};
 
-        var titleValidationStatus = [null, ''], descriptionValidationStatus = [null, ''], keywordsValidationStatus = [null, ''], countryValidationStatus = [null, ''], cityValidationStatus = [null, ''];
+        var nameValidationStatus = [null,''], titleValidationStatus = [null, ''], descriptionValidationStatus = [null, ''], keywordsValidationStatus = [null, ''], countryValidationStatus = [null, ''], cityValidationStatus = [null, ''];
 
         var bValidationError=false;
         this.setState({
+            nameValidationStatus: nameValidationStatus,
             titleValidationStatus: titleValidationStatus,
             descriptionValidationStatus: descriptionValidationStatus,
             keywordsValidationStatus: keywordsValidationStatus,
@@ -66,15 +69,10 @@ class AddForumForm extends React.Component {
 
         console.log('ADDing forum... ');
 
-        let sCountryCode = this.state.countryCode;
-        if (sCountryCode === '') sCountryCode = this.props.localization.countryCode;
-
-        let sCity = this.state.city
-        if (sCity === '') sCity = this.props.localization.city;
-
-
         if (!bValidationError)
-            ForumsService.forumAddAsync(this.state.parentId, this.state.title, this.state.description, this.state.keywords, sCountryCode, '', sCity, this.state.latitude, this.state.longitude, this.state.timeZone)
+            ForumsService.forumAddAsync(this.state.parentId, this.state.name, this.state.title, this.state.description, this.state.keywords,
+                                        this.state.countryCode||this.props.localization.countryCode, '',
+                                        this.state.city||this.props.localization.city, this.state.latitude, this.state.longitude, this.state.timeZone)
 
                 .then((res) => {
 
@@ -85,6 +83,7 @@ class AddForumForm extends React.Component {
                     }
                     else if (res.result === false) {
 
+                        if ((typeof res.errors.name !== "undefined") && (Object.keys(res.errors.name).length !== 0 )) nameValidationStatus = ["error", this.convertValidationErrorToString(res.errors.name[0])];
                         if ((typeof res.errors.title !== "undefined") && (Object.keys(res.errors.title).length !== 0 )) titleValidationStatus = ["error", this.convertValidationErrorToString(res.errors.title[0])];
                         if ((typeof res.errors.description !== "undefined") && (Object.keys(res.errors.description).length !== 0)) descriptionValidationStatus = ["error", this.convertValidationErrorToString(res.errors.description[0])];
                         if ((typeof res.errors.keywords !== "undefined") && (Object.keys(res.errors.keywords).length !== 0)) keywordsValidationStatus = ["error", this.convertValidationErrorToString(res.errors.keywords[0])];
@@ -97,6 +96,7 @@ class AddForumForm extends React.Component {
                                 this.openLogin();
 
                         this.setState({
+                            nameValidationStatus: nameValidationStatus,
                             titleValidationStatus: titleValidationStatus,
                             descriptionValidationStatus: descriptionValidationStatus,
                             keywordsValidationStatus: keywordsValidationStatus,
@@ -112,10 +112,27 @@ class AddForumForm extends React.Component {
     }
 
     handleNameChangeSelect(value){
+
       this.setState({
         name : value,
         nameValidationStatus  : [null, '']
       });
+
+      value = (((value !== null)&&(value.hasOwnProperty("value"))) ? value.value : value);
+
+      console.log("name",value);
+      this.setState({ nameValidationStatus: [null, ''] });
+
+      ContentService.getURLSlug(value) .then( (answer)=>{
+
+          if (!answer.result)
+            this.setState({ nameValidationStatus: ["error", answer.message] });
+          else {
+            this.setState({urlSlug: answer.URLSlug})
+          }
+
+      });
+
     }
 
     handleNameChange(e){
@@ -212,16 +229,18 @@ class AddForumForm extends React.Component {
                   <form onSubmit={::this.handleAddForum} autoComplete="on">
 
 
-                    <div className={"input-group " + this.showInputStatus(this.state.nameValidationStatus)}  >
+                    <div style={{paddingBottom: 20}}>
+                      <div className={"input-group " + this.showInputStatus(this.state.nameValidationStatus)}  >
 
-                      <span className="input-group-addon"><i className="fa fa-header"></i></span>
+                        <span className="input-group-addon"><i className="fa fa-header"></i></span>
 
-                      <AutocompleteSelect multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='name'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  />
+                        <AutocompleteSelect multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='name'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  clearable={false}/>
 
-                      <span className={::this.showInputFeedback(this.state.nameValidationStatus)}></span>
+                        <span className={::this.showInputFeedback(this.state.nameValidationStatus)}></span>
+                      </div>
+                      <label className="error" >{this.state.nameValidationStatus[1]}</label> <br />
+                      Forum URL: skyhub.me/<label className="success" >{this.state.urlSlug}</label> <br />
                     </div>
-                    <label className="success" >{this.state.urlSlug}</label> <br />
-                    <label className="error" >{this.state.nameValidationStatus[1]}</label> <br />
 
 
                     <div className={"input-group " + this.showInputStatus(this.state.titleValidationStatus)}  >

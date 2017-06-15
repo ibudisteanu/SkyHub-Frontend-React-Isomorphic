@@ -79,6 +79,7 @@ class AutocompleteSelect extends React.Component {
             var keywords = data[1];
             var optionsKeywords = [];
             keywords.forEach(function (entry){
+              if (entry !== input)
               optionsKeywords.push({
                 value: entry,
                 label: entry,
@@ -105,7 +106,7 @@ class AutocompleteSelect extends React.Component {
 
                 {(this.props.label||'') !== '' ? (<h3 className="section-heading">{this.props.label}</h3>) : '' }
 
-                <AsyncSelectComponent multi={this.props.multi||false} value={this.state.value} onChange={::this.onChange} valueKey="value" labelKey="label" loadOptions={::this.getSuggestions} backspaceRemoves={this.state.backspaceRemoves} />
+                <AsyncSelectComponent  multi={this.props.multi||false}  value={this.state.value} onChange={::this.onChange} valueKey="value" labelKey="label" loadOptions={::this.getSuggestions} backspaceRemoves={this.state.backspaceRemoves} clearable={(typeof this.props.clearable !== "undefined" ? this.props.clearable : true)} />
 
             </div>
         );
