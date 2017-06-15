@@ -55,7 +55,7 @@ class Html extends React.Component {
           <link rel="stylesheet" type="text/css" href="/res/components/react-select.css" />
           <link rel="stylesheet" type="text/css" href="/res/customSkyHubStyle.css" />
 
-          <link rel="stylesheet" type="text/css" href="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/css/msdropdown/flags.css" />
+          <link rel="stylesheet" type="text/css" href="/res/components/flags.css" />
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" />
 
           <script src="https://code.jquery.com/jquery-3.2.1.min.js" />

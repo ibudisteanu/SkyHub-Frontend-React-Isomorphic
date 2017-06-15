@@ -46,13 +46,14 @@ const FlagOption = createClass({
       top: -2,
       verticalAlign: 'middle',
     };
+    //src={"https://raw.githubusercontent.com/marghoobsuleman/ms-Dropdown/master/images/msdropdown/icons/flagssprite_small.png"}
     return (
       <div className={this.props.className}
            onMouseDown={this.handleMouseDown}
            onMouseEnter={this.handleMouseEnter}
            onMouseMove={this.handleMouseMove}
            title={this.props.option.title}>
-        <img src={this.props.option.flag} size={FLAGS_SIZE} className={this.props.option.imageCSS}  style={flagStyle} />
+        <img size={FLAGS_SIZE} className={this.props.option.imageCSS}  style={flagStyle} />
         {this.props.children}
       </div>
     );
@@ -75,11 +76,11 @@ const FlagValue = createClass({
       top: 10,
       verticalAlign: 'middle',
     };
-
+//src={"https://raw.githubusercontent.com/marghoobsuleman/ms-Dropdown/master/images/msdropdown/icons/flagssprite_small.png"}
     return (
       <div className="Select-value" title={this.props.value.title}>
 				<span className="Select-value-label">
-					<img src={this.props.value.flag} size={FLAGS_SIZE} className={this.props.value.imageCSS} style={flagStyle} />
+					<img  size={FLAGS_SIZE} className={this.props.value.imageCSS} style={flagStyle} />
           {this.props.children}
 				</span>
       </div>

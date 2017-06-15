@@ -20,9 +20,11 @@ class AddForumForm extends React.Component {
 
         this.state = {
 
+            name:'', urlSlug:'',
             title : '',
             description : '',
             keywords : [],
+
             countryCode : '', country : '',
             city : '',
             language : '',
@@ -31,6 +33,7 @@ class AddForumForm extends React.Component {
             parentName : '',
             parentId : '',
 
+            nameValidationStatus: [null,''],
             titleValidationStatus : [null, ''],
             descriptionValidationStatus : [null, ''],
             keywordsValidationStatus : [null, ''],
@@ -106,6 +109,17 @@ class AddForumForm extends React.Component {
 
                 });
 
+    }
+
+    handleNameChangeSelect(value){
+      this.setState({
+        name : value,
+        nameValidationStatus  : [null, '']
+      });
+    }
+
+    handleNameChange(e){
+      this.handleNameChangeSelect(e.target.value);
     }
 
     handleTitleChangeSelect(value){
@@ -198,13 +212,24 @@ class AddForumForm extends React.Component {
                   <form onSubmit={::this.handleAddForum} autoComplete="on">
 
 
+                    <div className={"input-group " + this.showInputStatus(this.state.nameValidationStatus)}  >
+
+                      <span className="input-group-addon"><i className="fa fa-header"></i></span>
+
+                      <AutocompleteSelect multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='name'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  />
+
+                      <span className={::this.showInputFeedback(this.state.nameValidationStatus)}></span>
+                    </div>
+                    <label className="success" >{this.state.urlSlug}</label> <br />
+                    <label className="error" >{this.state.nameValidationStatus[1]}</label> <br />
+
 
                     <div className={"input-group " + this.showInputStatus(this.state.titleValidationStatus)}  >
 
                       <span className="input-group-addon"><i className="fa fa-header"></i></span>
 
                       <input autoFocus type='text' className='form-control input-lg' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleTitleChange} />
-                      {/*<AutocompleteSelect multi={false} controlId="titeSelect" className='border-focus-blue'  placeholder='title'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  /> */}
+                      {/*<AutocompleteSelect multi={false} controlId="titleSelect" className='border-focus-blue'  placeholder='title'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  /> */}
 
                       <span className={::this.showInputFeedback(this.state.titleValidationStatus)}></span>
                     </div>

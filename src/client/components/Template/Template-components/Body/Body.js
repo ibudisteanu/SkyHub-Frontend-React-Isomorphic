@@ -72,11 +72,13 @@ class Body extends React.Component {
 
             <AuthenticationModal ref={(c) => this.refAuthenticationModal = c}  />
 
+
           </Content>
 
 
 
         </div>
+
         <Footer />
 
         <Chat />

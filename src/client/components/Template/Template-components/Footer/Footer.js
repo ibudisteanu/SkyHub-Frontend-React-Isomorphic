@@ -17,7 +17,7 @@ class Footer extends React.Component {
   render() {
     return (
 
-      <div className="footer fixed" style={{zIndex:200, marginLeft:0}}>
+      <div className="footer" style={{zIndex:200, marginLeft:0, position: "inherit"}}>
 
         <div style={{textAlign:"right"}}>
 

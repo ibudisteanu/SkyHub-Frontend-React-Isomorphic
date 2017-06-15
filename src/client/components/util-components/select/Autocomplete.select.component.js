@@ -6,8 +6,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import jsonp  from 'jsonp';
+import {connect} from 'react-redux';
 
-export default class AutocompleteSelect extends React.Component {
+class AutocompleteSelect extends React.Component {
 
     displayName: 'GithubUsers';
 
@@ -69,7 +70,7 @@ export default class AutocompleteSelect extends React.Component {
       return new Promise((resolve)=>{
 
 
-        jsonp(`http://google.com/complete/search?client=firefox&hl=ro&q=${input}`, null, function (err, data) {
+        jsonp('http://google.com/complete/search?client=firefox&hl='+(this.props.localization.countryCode||'us')+'&q='+input, null, function (err, data) {
           if (err) {
             console.error('Error getting KEYWORDS '+err.message);
           } else {
@@ -110,3 +111,17 @@ export default class AutocompleteSelect extends React.Component {
         );
     }
 }
+
+function mapState (state){
+  return {
+    localization: state.localization,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+export default connect(mapState, mapDispatch)(AutocompleteSelect);

@@ -14,7 +14,7 @@ class Content extends React.Component {
 
   render() {
     return (
-      <div className="wrapper wrapper-content">
+      <div className="wrapper wrapper-content" style={{display: "inline-block"}}>
 
         {this.props.children}
 
