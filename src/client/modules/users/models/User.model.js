@@ -5,6 +5,8 @@ import * as UserProperties from './User.properties.js';
 
 export default class User {
 
+    id;
+
     loggedIn;
 
     firstName;
@@ -34,6 +36,8 @@ export default class User {
 
 
     constructor( data: Object = {}) {
+
+        this.id = data.id||'';
 
 
         this.firstName = data.firstName || '';

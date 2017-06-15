@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import history from '../../../src/history';
 
 import LoginForm from "../../client/modules/users/authentication/login/login.form";
 
@@ -8,7 +9,7 @@ export default class LoginPage extends React.Component {
 
     back(e) {
         e.preventDefault(); e.stopPropagation();
-        //this.props.router.goBack();
+        history.goBack();
     }
 
     componentDidMount() {

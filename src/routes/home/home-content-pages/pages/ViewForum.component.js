@@ -50,12 +50,12 @@ export class ViewForum extends React.Component {
 
     render() {
 
-        console.log("%%%%%%%%%%% VIEW FORUM " , this.props.contentState.routerObject.object);
+        console.log("%%%%%%%%%%% VIEW FORUM " , this.props.contentState.routerObject);
 
         return (
             <div>
 
-                { ((this.props.contentState.routerObject.object !== null) && (this.props.contentState.routerObject.objectNotFound === false))
+                { ((this.props.contentState.routerObject.object !== null) && (this.props.contentState.routerObject.notFound === false))
                     ?
                     <HeaderCover title={this.props.contentState.routerObject.object.title||""}
                                  subTitle={this.props.contentState.routerObject.object.description||""}
@@ -74,8 +74,6 @@ export class ViewForum extends React.Component {
                     {this.props.contentState.routerObject.object !== null ? ::this.renderForum() : ::this.renderError}
 
                 </div>
-
-
 
             </div>
         )

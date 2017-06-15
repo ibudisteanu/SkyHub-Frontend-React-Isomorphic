@@ -13,6 +13,8 @@ import ContentService from './../../../../services/REST/forums/content/Content.s
 import AutocompleteSelect from './../../../../../client/components/util-components/select/Autocomplete.select.component';
 import MyCountrySelect from './../../../../../client/components/util-components/select/MyCountry.select.component';
 
+import history from './../../../../../history.js';
+
 import Select from 'react-select';
 
 class AddForumForm extends React.Component {
@@ -32,9 +34,6 @@ class AddForumForm extends React.Component {
             language : '',
             latitude : 0, longitude : 0,
 
-            parentName : '',
-            parentId : '',
-
             nameValidationStatus: [null,''],
             titleValidationStatus : [null, ''],
             descriptionValidationStatus : [null, ''],
@@ -52,12 +51,12 @@ class AddForumForm extends React.Component {
             e.stopPropagation();
         }
 
-        var onSuccess = this.props.onSuccess || function (){};
-        var onError = this.props.onError || function (){};
+        let onSuccess = this.props.onSuccess || function (){};
+        let onError = this.props.onError || function (){};
 
-        var nameValidationStatus = [null,''], titleValidationStatus = [null, ''], descriptionValidationStatus = [null, ''], keywordsValidationStatus = [null, ''], countryValidationStatus = [null, ''], cityValidationStatus = [null, ''];
+        let nameValidationStatus = [null,''], titleValidationStatus = [null, ''], descriptionValidationStatus = [null, ''], keywordsValidationStatus = [null, ''], countryValidationStatus = [null, ''], cityValidationStatus = [null, ''];
 
-        var bValidationError=false;
+        let bValidationError=false;
         this.setState({
             nameValidationStatus: nameValidationStatus,
             titleValidationStatus: titleValidationStatus,
@@ -70,28 +69,30 @@ class AddForumForm extends React.Component {
         console.log('ADDing forum... ');
 
         if (!bValidationError)
-            ForumsService.forumAddAsync(this.state.parentId, this.state.name, this.state.title, this.state.description, this.state.keywords,
+            ForumsService.forumAddAsync(this.props.parentId||'', this.state.name, this.state.title, this.state.description, this.state.keywords,
                                         this.state.countryCode||this.props.localization.countryCode, '',
                                         this.state.city||this.props.localization.city, this.state.latitude, this.state.longitude, this.state.timeZone)
 
-                .then((res) => {
+                .then((answer) => {
 
-                    console.log("ANSWER FROM adding forum",res);
+                    console.log("ANSWER FROM adding forum",answer);
 
-                    if (res.result === true) {
-                        onSuccess(res);
+                    if (answer.result === true) {
+                        onSuccess(answer);
+
+                        history.push(answer.forum.URL);// redirecting to the forum URL ;)
                     }
-                    else if (res.result === false) {
+                    else if (answer.result === false) {
 
-                        if ((typeof res.errors.name !== "undefined") && (Object.keys(res.errors.name).length !== 0 )) nameValidationStatus = ["error", this.convertValidationErrorToString(res.errors.name[0])];
-                        if ((typeof res.errors.title !== "undefined") && (Object.keys(res.errors.title).length !== 0 )) titleValidationStatus = ["error", this.convertValidationErrorToString(res.errors.title[0])];
-                        if ((typeof res.errors.description !== "undefined") && (Object.keys(res.errors.description).length !== 0)) descriptionValidationStatus = ["error", this.convertValidationErrorToString(res.errors.description[0])];
-                        if ((typeof res.errors.keywords !== "undefined") && (Object.keys(res.errors.keywords).length !== 0)) keywordsValidationStatus = ["error", this.convertValidationErrorToString(res.errors.keywords[0])];
-                        if ((typeof res.errors.country !== "undefined") && (Object.keys(res.errors.country).length !== 0)) countryValidationStatus = ["error", this.convertValidationErrorToString(res.errors.country[0])];
-                        if ((typeof res.errors.city !== "undefined") && (Object.keys(res.errors.city).length !== 0)) cityValidationStatus = ["error", this.convertValidationErrorToString(res.errors.city[0])];
+                        if ((typeof answer.errors.name !== "undefined") && (Object.keys(answer.errors.name).length !== 0 )) nameValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.name[0])];
+                        if ((typeof answer.errors.title !== "undefined") && (Object.keys(answer.errors.title).length !== 0 )) titleValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.title[0])];
+                        if ((typeof answer.errors.description !== "undefined") && (Object.keys(answer.errors.description).length !== 0)) descriptionValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.description[0])];
+                        if ((typeof answer.errors.keywords !== "undefined") && (Object.keys(answer.errors.keywords).length !== 0)) keywordsValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.keywords[0])];
+                        if ((typeof answer.errors.country !== "undefined") && (Object.keys(answer.errors.country).length !== 0)) countryValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.country[0])];
+                        if ((typeof answer.errors.city !== "undefined") && (Object.keys(answer.errors.city).length !== 0)) cityValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.city[0])];
 
                         //in case there are no other errors, except the fact that I am not logged In
-                        if ((typeof res.errors.authorId !== "undefined") && (Object.keys(res.errors.authorId).length !== 0))
+                        if ((typeof answer.errors.authorId !== "undefined") && (Object.keys(answer.errors.authorId).length !== 0))
                             if ((titleValidationStatus[0] === null)&&(descriptionValidationStatus[0] === null)&&(keywordsValidationStatus[0] === null)&&(countryValidationStatus[0] === null)&&(cityValidationStatus[0] === null))
                                 this.openLogin();
 
@@ -104,7 +105,7 @@ class AddForumForm extends React.Component {
                             cityValidationStatus: cityValidationStatus,
                         });
 
-                        onError(res);
+                        onError(answer);
                     }
 
                 });
@@ -221,7 +222,7 @@ class AddForumForm extends React.Component {
               <div className="panel panel-warning">
 
                 <div className="panel-heading">
-                  <h2>Create a <strong>Forum</strong></h2>
+                  <h2>Create a <strong>Forum</strong> in {this.props.parentName||'Home'} </h2>
                 </div>
 
                 <div className="panel-body">
@@ -230,13 +231,14 @@ class AddForumForm extends React.Component {
 
 
                     <div style={{paddingBottom: 20}}>
+                      <p >Forum Name (one- two words):</p>
                       <div className={"input-group " + this.showInputStatus(this.state.nameValidationStatus)}  >
 
-                        <span className="input-group-addon"><i className="fa fa-header"></i></span>
+                        <span className="input-group-addon"><i className="fa fa-plus"></i></span>
 
-                        <AutocompleteSelect multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='name'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  clearable={false}/>
+                        <AutocompleteSelect multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='forum name (one or two words)'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  clearable={false} />
 
-                        <span className={::this.showInputFeedback(this.state.nameValidationStatus)}></span>
+                        <span className={::this.showInputFeedback(this.state.nameValidationStatus)} style={{width:60, top:10}}></span>
                       </div>
                       <label className="error" >{this.state.nameValidationStatus[1]}</label> <br />
                       Forum URL: skyhub.me/<label className="success" >{this.state.urlSlug}</label> <br />
@@ -245,7 +247,7 @@ class AddForumForm extends React.Component {
 
                     <div className={"input-group " + this.showInputStatus(this.state.titleValidationStatus)}  >
 
-                      <span className="input-group-addon"><i className="fa fa-header"></i></span>
+                      <span className="input-group-addon"><i className="fa fa-font"></i></span>
 
                       <input autoFocus type='text' className='form-control input-lg' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleTitleChange} />
                       {/*<AutocompleteSelect multi={false} controlId="titleSelect" className='border-focus-blue'  placeholder='title'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  /> */}
@@ -259,7 +261,7 @@ class AddForumForm extends React.Component {
 
                     <div className={"input-group " + this.showInputStatus(this.state.descriptionValidationStatus)}  >
 
-                      <span className="input-group-addon"><i className="fa fa-info"></i></span>
+                      <span className="input-group-addon"><i className="fa fa-edit"></i></span>
 
                       <textarea type='text' className='form-control input-lg' rows="5" placeholder='description'  name="description" value={this.state.description} onChange={::this.handleDescriptionChange} />
 
@@ -273,12 +275,10 @@ class AddForumForm extends React.Component {
 
                       <span className="input-group-addon"><i className="fa fa-tags"></i></span>
 
-                      <AutocompleteSelect controlId="keywordsSelect" value={this.state.keywords} multi={true}   onSelect={::this.handleKeywordsSelect} style={{zIndex:0}} />
+                      <AutocompleteSelect controlId="keywordsSelect" value={this.state.keywords} multi={true}   onSelect={::this.handleKeywordsSelect} style={{zIndex:0}} placeholder="three keywords"/>
 
-                      <span className={::this.showInputFeedback(this.state.keywordsValidationStatus)}></span>
                     </div>
                     <label className="error" >{this.state.keywordsValidationStatus[1]}</label> <br />
-
 
 
                     <div className="row" >

@@ -10,21 +10,14 @@ import AuthService  from './../../../services/REST/authentication/Auth.service';
 
 import AddForumForm from './../forums/components/AddForum.form.component'
 
-export default class ButtonsContent extends React.Component {
+export default class ContentButtons extends React.Component {
 
     constructor(props){
         super(props);
 
         console.log("FORUM BUTTONS CONSTRUCTOR");
-        this.state = {
-            showAddTopicForm : props.showAddTopicForm||false,
-            showAddForumForm : props.showAddForumForm||false,
-            showAddReplyForm : props.showAddReplyForm||false,
 
-            btnAddTopic : props.btnAddTopic||true,
-            btnAddForum : props.btnAddForum||true,
-            btnAddReply : props.btnAddReply||true,
-        };
+        this.componentDidUpdate();
 
     }
 
@@ -48,22 +41,44 @@ export default class ButtonsContent extends React.Component {
     showAddForum(){
         console.log('a mers222');
         return (
-            <AddForumForm/>
+            <AddForumForm parentId={this.props.parentId} parentName={this.props.parentName} />
         )
     }
 
     showAddTopic(){
         return (
-            <AddForumForm/>
+            <AddForumForm parentId={this.props.parentId} parentName={this.props.parentName}/>
         )
+    }
+
+    componentDidUpdate(){
+      this.state = {
+
+        parentId : this.props.parentId || '',
+        parentName : this.props.parentName||'',
+
+        showAddTopicForm : this.props.showAddTopicForm||false,
+        showAddForumForm : this.props.showAddForumForm||false,
+        showAddReplyForm : this.props.showAddReplyForm||false,
+
+        btnAddTopic : this.props.btnAddTopic||true,
+        btnAddForum : this.props.btnAddForum||true,
+        btnAddReply : this.props.btnAddReply||true,
+      };
+      console.log('componentDidUpdate');
+    }
+
+    componentDidMount(){
+      console.log('componentDidMount');
     }
 
     render() {
 
         return (
-            <div className="row">
-                {console.log(this.state)}
-                <div style={{paddingTop:20}}>
+
+            <div>
+
+                <div style={this.props.style}>
 
                     {this.state.btnAddForum ? (
                         <button type="button" className="btn btn-warning dim btn-rounded" data-toggle="button" aria-pressed="true"  onClick={::this.handleAddForum} style={{marginRight: 5}} >

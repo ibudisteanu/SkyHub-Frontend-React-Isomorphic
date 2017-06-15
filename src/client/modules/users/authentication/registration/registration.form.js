@@ -62,9 +62,8 @@ export class RegistrationForm extends React.Component {
   }
 
     back(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        //this.props.router.goBack();
+      e.preventDefault(); e.stopPropagation();
+      history.goBack();
     }
 
     handleCheckRegister(e){

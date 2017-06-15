@@ -28,7 +28,8 @@ export default {
     if (typeof document === "undefined")
       ContentService.startService(store.dispatch, store.getState().contentState);
 
-    var contentData = await ContentService.fetchRouterObjectAndContent(params.url || '', (typeof document === "undefined" ? 'http' : ''));
+
+      var contentData = await ContentService.fetchRouterObjectAndContent(params.url || '', (typeof document === "undefined" ? 'http' : ''));
 
     //if (!data || !data.news) throw new Error('Failed to load the news feed.');
 

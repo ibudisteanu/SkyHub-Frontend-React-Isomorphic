@@ -9,7 +9,7 @@ import {connect} from "react-redux";
 import AuthService from './../../../services/REST/authentication/Auth.service';
 import ContentService from './../../../services/REST/forums/content/Content.service';
 
-import ButtonsContent from '../components/ContentButtons.component';
+import ContentButtons from '../components/ContentButtons.component';
 
 import PreviewContent from '../components/PreviewContent.component';
 import PreviewForums from '../forums/view-forum/PreviewForums.component';
@@ -33,6 +33,24 @@ class DisplayContent extends React.Component {
         );
     }
 
+    getParentId(){
+      if (this.props.contentState.routerObject.object === null) return '';
+      else
+      return this.props.contentState.routerObject.object.id;
+    }
+
+    getParentName(){
+      if (this.props.contentState.routerObject.object === null) return '';
+      else
+      return this.props.contentState.routerObject.object.name||this.props.contentState.routerObject.object.title;
+    }
+
+    getObjectName(){
+      if (this.props.contentState.routerObject.object === null) return 'SkyHub';
+      else
+      return this.props.contentState.routerObject.object.name||this.props.contentState.routerObject.object.title;
+    }
+
     render() {
 
         return (
@@ -44,13 +62,15 @@ class DisplayContent extends React.Component {
               </div>
 
 
-              <ButtonsContent />
+              <div className="row" style={{paddingBottom: 20, paddingTop:20}}>
+                <ContentButtons parentId={::this.getParentId()} parentName={::this.getParentName()} style={{textAlign: "center", paddingBottom:20}}/>
+              </div>
 
 
 
               <div className="row" style={{paddingBottom: 20}}>
                 <div className="text-center">
-                  <h4 style={{fontSize:30}}>What's hot on SkyHub</h4>
+                  <h4 style={{fontSize:30}}>What's hot on {::this.getObjectName()}</h4>
                 </div>
 
                 {::this.renderContent()}

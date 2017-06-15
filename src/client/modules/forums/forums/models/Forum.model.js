@@ -6,6 +6,8 @@
 
 export default class Forum {
 
+    id;
+
     title;
     URL;
     description;
@@ -26,8 +28,11 @@ export default class Forum {
     dtCreation;
     dtLastActivity;
 
+    arrKeywords;
 
     constructor( data: Object = {}) {
+
+        this.id = data.id||'';
 
 
         this.title = data.title || '';
@@ -38,6 +43,8 @@ export default class Forum {
         this.iconPic = data.iconPic || '';
         this.coverPic  = data.coverPic || '';
         this.coverColor = data.coverColor || '';
+
+        this.arrKeywords = data.keywords||[];
 
         this.preferredLang = data.preferredLang || data.language || null;
 

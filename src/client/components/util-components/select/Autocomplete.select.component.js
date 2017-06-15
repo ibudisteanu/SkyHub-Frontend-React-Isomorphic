@@ -41,7 +41,7 @@ class AutocompleteSelect extends React.Component {
             });
 
         } else//just value
-            answer = value;
+            answer = value.value;
 
         console.log("AUTOCOMPLETE:: ",answer);
 
@@ -106,7 +106,7 @@ class AutocompleteSelect extends React.Component {
 
                 {(this.props.label||'') !== '' ? (<h3 className="section-heading">{this.props.label}</h3>) : '' }
 
-                <AsyncSelectComponent  multi={this.props.multi||false}  value={this.state.value} onChange={::this.onChange} valueKey="value" labelKey="label" loadOptions={::this.getSuggestions} backspaceRemoves={this.state.backspaceRemoves} clearable={(typeof this.props.clearable !== "undefined" ? this.props.clearable : true)} />
+                <AsyncSelectComponent  multi={this.props.multi||false}  value={this.state.value} onChange={::this.onChange} valueKey="value" labelKey="label" loadOptions={::this.getSuggestions} backspaceRemoves={this.state.backspaceRemoves} placeholder={this.props.placeholder||"select"} clearable={(typeof this.props.clearable !== "undefined" ? this.props.clearable : true)} />
 
             </div>
         );
