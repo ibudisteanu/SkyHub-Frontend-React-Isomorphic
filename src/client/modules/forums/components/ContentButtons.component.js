@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 
 import AuthService  from './../../../services/REST/authentication/Auth.service';
 
-import AddForumForm from './../forums/components/AddForum.form.component'
+import AddForumForm from '../forums/components/AddForum.form'
 
 export default class ContentButtons extends React.Component {
 

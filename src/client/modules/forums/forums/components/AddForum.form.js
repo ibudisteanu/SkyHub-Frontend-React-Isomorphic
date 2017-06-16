@@ -10,7 +10,8 @@ import {connect} from "react-redux";
 import ForumsService from './../../../../services/REST/forums/forums/Forums.service';
 import ContentService from './../../../../services/REST/forums/content/Content.service';
 
-import AutocompleteSelect from './../../../../../client/components/util-components/select/Autocomplete.select.component';
+import AutoCompleteSelect from '../../../../components/util-components/select/AutoComplete.select.component';
+import SearchAutoComplete from '../../../../components/util-components/select/SearchAutoComplete.select.component';
 import MyCountrySelect from './../../../../../client/components/util-components/select/MyCountry.select.component';
 
 import history from './../../../../../history.js';
@@ -40,6 +41,11 @@ class AddForumForm extends React.Component {
             keywordsValidationStatus : [null, ''],
             countryValidationStatus : [null, ''],
             cityValidationStatus : [null, ''],
+
+
+            parentId:'',
+            parentName:'',
+            parentValidationStatus: [null, ''],
         }
 
     }
@@ -158,6 +164,14 @@ class AddForumForm extends React.Component {
         });
     }
 
+    handleParentChangeSelect(e){
+      this.setState({
+          parentId : e.target.value,
+          parentName: e.target.name,
+          parentValidationStatus: [null, ''],
+      })
+    }
+
     handleKeywordsSelect(value){
         this.setState({
             keywords : value,
@@ -222,7 +236,7 @@ class AddForumForm extends React.Component {
               <div className="panel panel-warning">
 
                 <div className="panel-heading">
-                  <h2>Create a new <strong>Forum</strong> in {this.props.parentName||'Home'} </h2>
+                  <h2>Create a new <strong>Forum</strong> in {this.state.parentName||this.props.parentName||'Home'} </h2>
                 </div>
 
                 <div className="panel-body">
@@ -236,7 +250,7 @@ class AddForumForm extends React.Component {
 
                         <span className="input-group-addon"><i className="fa fa-plus"></i></span>
 
-                        <AutocompleteSelect multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='forum name (one or two words)'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  clearable={false} />
+                        <AutoCompleteSelect multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='forum name (one or two words)'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  clearable={false} />
 
                         <span className={::this.showInputFeedback(this.state.nameValidationStatus)} style={{width:60, top:10}}></span>
                       </div>
@@ -250,7 +264,7 @@ class AddForumForm extends React.Component {
                       <span className="input-group-addon"><i className="fa fa-font"></i></span>
 
                       <input autoFocus type='text' className='form-control input-lg' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleTitleChange} />
-                      {/*<AutocompleteSelect multi={false} controlId="titleSelect" className='border-focus-blue'  placeholder='title'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  /> */}
+                      {/*<AutoCompleteSelect multi={false} controlId="titleSelect" className='border-focus-blue'  placeholder='title'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  /> */}
 
                       <span className={::this.showInputFeedback(this.state.titleValidationStatus)}></span>
                     </div>
@@ -270,12 +284,22 @@ class AddForumForm extends React.Component {
                     <label className="error" >{this.state.descriptionValidationStatus[1]}</label> <br />
 
 
+                    <div className={"input-group " + this.showInputStatus(this.state.parentValidationStatus)}  >
+
+                      <span className="input-group-addon"><i className="fa fa-edit"></i></span>
+
+                      <SearchAutoComplete multi={false} controlId="parentSelect" className='border-focus-blue'  placeholder='select a parent-forum'  value={this.state.parentId||this.props.parentId}  onSelect={::this.handleParentChangeSelect} style={{zIndex:0}}  clearable={false} />
+
+                      <span className={::this.showInputFeedback(this.state.parentValidationStatus)}></span>
+                    </div>
+                    <label className="error" >{this.state.parentValidationStatus[1]}</label> <br />
+
 
                     <div className={"input-group " + this.showInputStatus(this.state.keywordsValidationStatus)}  >
 
                       <span className="input-group-addon"><i className="fa fa-tags"></i></span>
 
-                      <AutocompleteSelect controlId="keywordsSelect" value={this.state.keywords} multi={true}   onSelect={::this.handleKeywordsSelect} style={{zIndex:0}} placeholder="three keywords"/>
+                      <AutoCompleteSelect controlId="keywordsSelect" value={this.state.keywords} multi={true}   onSelect={::this.handleKeywordsSelect} style={{zIndex:0}} placeholder="three keywords"/>
 
                     </div>
                     <label className="error" >{this.state.keywordsValidationStatus[1]}</label> <br />
