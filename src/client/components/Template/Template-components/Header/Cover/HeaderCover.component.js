@@ -98,8 +98,9 @@ export default class HeaderCover extends React.Component {
     }
 
     render() {
+
         return (
-            <div className="header-cover row  border-bottom white-bg dashboard-header " style={{backgroundImage: 'url('+this.props.coverPic+')', backgroundColor: this.props.coverColor||'darkblue', marginLeft: -25, marginRight: -25}}>
+            <div className="header-cover row  border-bottom white-bg dashboard-header " style={{backgroundImage: 'url('+(this.props.coverPic||'')+')', backgroundColor: (this.props.coverColor!=='' ? '#'+this.props.coverColor : 'darkblue'), marginLeft: -25, marginRight: -25}}>
 
                 {(this.props.showLayOver||false) == true ? <div className='header-cover-layover'> </div> : '' }
 

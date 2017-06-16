@@ -8,7 +8,7 @@ import Select from 'react-select';
 import jsonp  from 'jsonp';
 import {connect} from 'react-redux';
 
-class AutocompleteSelect extends React.Component {
+class AutoCompleteSelect extends React.Component {
 
     displayName: 'GithubUsers';
 
@@ -106,7 +106,7 @@ class AutocompleteSelect extends React.Component {
 
                 {(this.props.label||'') !== '' ? (<h3 className="section-heading">{this.props.label}</h3>) : '' }
 
-                <AsyncSelectComponent  multi={this.props.multi||false}  value={this.state.value} onChange={::this.onChange} valueKey="value" labelKey="label" loadOptions={::this.getSuggestions} backspaceRemoves={this.state.backspaceRemoves} placeholder={this.props.placeholder||"select"} clearable={(typeof this.props.clearable !== "undefined" ? this.props.clearable : true)} />
+                <AsyncSelectComponent  multi={this.props.multi||false}  value={this.state.value||this.props.value} onChange={::this.onChange} valueKey="value" labelKey="label" loadOptions={::this.getSuggestions} backspaceRemoves={this.state.backspaceRemoves} placeholder={this.props.placeholder||"select"} clearable={(typeof this.props.clearable !== "undefined" ? this.props.clearable : true)} />
 
             </div>
         );
@@ -125,4 +125,4 @@ function mapDispatch (dispatch) {
   }
 };
 
-export default connect(mapState, mapDispatch)(AutocompleteSelect);
+export default connect(mapState, mapDispatch)(AutoCompleteSelect);

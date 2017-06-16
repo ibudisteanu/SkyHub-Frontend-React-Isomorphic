@@ -75,9 +75,9 @@ class AddForumForm extends React.Component {
         console.log('ADDing forum... ');
 
         if (!bValidationError)
-            ForumsService.forumAddAsync(this.props.parentId||'', this.state.name, this.state.title, this.state.description, this.state.keywords,
+            ForumsService.forumAddAsync(this.state.parentId||this.props.parentId, this.state.name, this.state.title, this.state.description, this.state.keywords,
                                         this.state.countryCode||this.props.localization.countryCode, '',
-                                        this.state.city||this.props.localization.city, this.state.latitude, this.state.longitude, this.state.timeZone)
+                                        this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.state.latitude, this.state.timeZone)
 
                 .then((answer) => {
 
@@ -164,10 +164,11 @@ class AddForumForm extends React.Component {
         });
     }
 
-    handleParentChangeSelect(e){
+    handleParentChangeSelect(dataSelected){
+      console.log('handleParentChangeSelect', );
       this.setState({
-          parentId : e.target.value,
-          parentName: e.target.name,
+          parentId : dataSelected.value,
+          parentName: dataSelected.label,
           parentValidationStatus: [null, ''],
       })
     }
@@ -284,11 +285,12 @@ class AddForumForm extends React.Component {
                     <label className="error" >{this.state.descriptionValidationStatus[1]}</label> <br />
 
 
+                    <p>Parent - Forum</p>
                     <div className={"input-group " + this.showInputStatus(this.state.parentValidationStatus)}  >
 
                       <span className="input-group-addon"><i className="fa fa-edit"></i></span>
 
-                      <SearchAutoComplete multi={false} controlId="parentSelect" className='border-focus-blue'  placeholder='select a parent-forum'  value={this.state.parentId||this.props.parentId}  onSelect={::this.handleParentChangeSelect} style={{zIndex:0}}  clearable={false} />
+                      <SearchAutoComplete multi={false} controlId="parentSelect" className='border-focus-blue'  placeholder='select a parent-forum'  value={ {label:this.state.parentName||this.props.parentName, value:this.state.parentId||this.props.parentId}}  onSelect={::this.handleParentChangeSelect} style={{zIndex:0}}  clearable={false} />
 
                       <span className={::this.showInputFeedback(this.state.parentValidationStatus)}></span>
                     </div>

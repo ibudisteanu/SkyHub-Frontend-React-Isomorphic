@@ -17,7 +17,7 @@ class SearchAutoComplete extends React.Component {
 
     this.state = {
       backspaceRemoves : false,
-      creatable : true,
+      creatable : true, //you need to select ... cuz it is a search
 
       value: props.value||'',
     };
@@ -36,17 +36,25 @@ class SearchAutoComplete extends React.Component {
 
       answer = [];
       value.forEach (function(element){
-        answer.push(element.value)
+        answer.push({
+          value: element.value,
+          lbabel: element.label,
+        })
       });
 
-    } else//just value
-      answer = value.value;
+    } else { //just value
+      answer = {
+        value: value.value,
+        label: value.label,
+      };
+    }
 
     console.log("AUTOCOMPLETE:: ",answer);
 
     let onSelect = this.props.onSelect||function(){};
     onSelect(answer);
   }
+
 
   getSuggestions( input){
 
@@ -62,16 +70,16 @@ class SearchAutoComplete extends React.Component {
 
           console.log("DATA",data);
 
-          var optionsKeywords = [];
+          var options = [];
           data.forEach(function (entry){
             if (entry !== input)
-              optionsKeywords.push({
+              options.push({
                 value: entry.id,
                 label: entry.text,
               });
           });
 
-          resolve ({options: optionsKeywords});
+          resolve ({options: options});
 
         }
 
@@ -82,6 +90,8 @@ class SearchAutoComplete extends React.Component {
 
   render () {
 
+    console.log("###################################SEARCH AUTO COMPLETE ",this);
+
     const AsyncSelectComponent = this.state.creatable
       ? Select.AsyncCreatable
       : Select.Async;
@@ -91,23 +101,11 @@ class SearchAutoComplete extends React.Component {
 
         {(this.props.label||'') !== '' ? (<h3 className="section-heading">{this.props.label}</h3>) : '' }
 
-        <AsyncSelectComponent  multi={this.props.multi||false}  value={this.state.value} onChange={::this.onChange} valueKey="value" labelKey="label" loadOptions={::this.getSuggestions} backspaceRemoves={this.state.backspaceRemoves} placeholder={this.props.placeholder||"select"} clearable={(typeof this.props.clearable !== "undefined" ? this.props.clearable : true)} />
+        <AsyncSelectComponent  multi={this.props.multi||false}  value={ (this.state.value === '' ? this.props.value : this.state.value) } onChange={::this.onChange} valueKey="value" labelKey="label" loadOptions={::this.getSuggestions} backspaceRemoves={this.state.backspaceRemoves} placeholder={this.props.placeholder||"select"} clearable={(typeof this.props.clearable !== "undefined" ? this.props.clearable : true)} />
 
       </div>
     );
   }
 }
 
-function mapState (state){
-  return {
-    localization: state.localization,
-  }
-};
-
-function mapDispatch (dispatch) {
-  return {
-    dispatch : dispatch,
-  }
-};
-
-export default connect(mapState, mapDispatch)(SearchAutoComplete);
+export default SearchAutoComplete;

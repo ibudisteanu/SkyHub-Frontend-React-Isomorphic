@@ -42,7 +42,7 @@ import Link from '../../../../components/Link/Link';
      return (
        objects.map((object) =>
           <Link key={"link"+object.id} style={{marginLeft: 10}} to={object.URL} title={object.title}>
-           <img src={object.iconPic} style={{backgroundColor: object.coverColor||"#79B0EC"}} />
+           <img src={object.iconPic} style={{backgroundColor: '#'+object.coverColor||"#79B0EC"}} />
            <span>{object.title}</span>
           </Link>
        )
