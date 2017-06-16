@@ -130,7 +130,7 @@ class AddForumForm extends React.Component {
       console.log("name",value);
       this.setState({ nameValidationStatus: [null, ''] });
 
-      ContentService.getURLSlug(value) .then( (answer)=>{
+      ContentService.getURLSlug('',value) .then( (answer)=>{
 
           if (!answer.result)
             this.setState({ nameValidationStatus: ["error", answer.message] });
@@ -237,26 +237,25 @@ class AddForumForm extends React.Component {
               <div className="panel panel-warning">
 
                 <div className="panel-heading">
-                  <h2>Create a new <strong>Forum</strong> in {this.state.parentName||this.props.parentName||'Home'} </h2>
+                  <h2 style={{marginTop: 0}}>New <strong>Forum</strong> in {this.state.parentName||this.props.parentName||'Home'} </h2>
                 </div>
 
                 <div className="panel-body">
 
                   <form onSubmit={::this.handleAddForum} autoComplete="on">
 
-
                     <div style={{paddingBottom: 20}}>
-                      <p >Forum Name (one- two words):</p>
+                      <div>Forum Name (one - two words):</div>
                       <div className={"input-group " + this.showInputStatus(this.state.nameValidationStatus)}  >
 
-                        <span className="input-group-addon"><i className="fa fa-plus"></i></span>
+                        <span className="input-group-addon"><i className="fa fa-pencil"></i></span>
 
                         <AutoCompleteSelect multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='forum name (one or two words)'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  clearable={false} />
 
                         <span className={::this.showInputFeedback(this.state.nameValidationStatus)} style={{width:60, top:10}}></span>
                       </div>
                       <label className="error" >{this.state.nameValidationStatus[1]}</label> <br />
-                      Forum URL: skyhub.me/<label className="success" >{this.state.urlSlug}</label> <br />
+                      Title URL: skyhub.me/<label className="success" >{this.state.urlSlug}</label> <br />
                     </div>
 
 
@@ -264,7 +263,7 @@ class AddForumForm extends React.Component {
 
                       <span className="input-group-addon"><i className="fa fa-font"></i></span>
 
-                      <input autoFocus type='text' className='form-control input-lg' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleTitleChange} />
+                      <input autoFocus type='text' className='form-control input' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleTitleChange} />
                       {/*<AutoCompleteSelect multi={false} controlId="titleSelect" className='border-focus-blue'  placeholder='title'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  /> */}
 
                       <span className={::this.showInputFeedback(this.state.titleValidationStatus)}></span>
@@ -278,14 +277,14 @@ class AddForumForm extends React.Component {
 
                       <span className="input-group-addon"><i className="fa fa-edit"></i></span>
 
-                      <textarea type='text' className='form-control input-lg' rows="5" placeholder='description'  name="description" value={this.state.description} onChange={::this.handleDescriptionChange} />
+                      <textarea type='text' className='form-control input' rows="5" placeholder='description'  name="description" value={this.state.description} onChange={::this.handleDescriptionChange} />
 
                       <span className={::this.showInputFeedback(this.state.descriptionValidationStatus)}></span>
                     </div>
                     <label className="error" >{this.state.descriptionValidationStatus[1]}</label> <br />
 
 
-                    <p>Parent - Forum</p>
+                    <div>Parent - Forum</div>
                     <div className={"input-group " + this.showInputStatus(this.state.parentValidationStatus)}  >
 
                       <span className="input-group-addon"><i className="fa fa-edit"></i></span>
@@ -326,7 +325,7 @@ class AddForumForm extends React.Component {
 
                             <span className="input-group-addon"><i className="fa fa-institution"></i></span>
 
-                            <input type='text' className='form-control input-lg' placeholder='city'  value={this.props.localization.city||this.state.city} onChange={::this.handleCityChange} />
+                            <input type='text' className='form-control input' placeholder='city'  value={this.props.localization.city||this.state.city} onChange={::this.handleCityChange} />
 
                             <span className={::this.showInputFeedback(this.state.cityValidationStatus)}></span>
                           </div>
@@ -343,7 +342,7 @@ class AddForumForm extends React.Component {
 
                 <div className="panel-footer text-right" style={{paddingTop:20, paddingBottom:20, paddingRight:20}}>
 
-                    <button className="btn btn-primary" type='button' onClick={::this.handleAddForum}> <i className="fa fa-plus" /> Create Forum</button>
+                    <button className="btn btn-success" type='button' onClick={::this.handleAddForum}> <i className="fa fa-plus" /> Create Forum</button>
 
                 </div>
 

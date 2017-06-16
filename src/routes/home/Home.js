@@ -79,7 +79,7 @@ class Home extends React.Component {
         {this.props.contentState.routerObject.notFound ? ::this.renderError() : ' A FOST GASIT'}
 
 
-        <div className="col-xl-8 col-xl-offset-2 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style={{padding:0}}>
+        <div className="col-xl-6 col-xl-offset-3 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style={{padding:0}}>
           <DisplayContent />
         </div>
 

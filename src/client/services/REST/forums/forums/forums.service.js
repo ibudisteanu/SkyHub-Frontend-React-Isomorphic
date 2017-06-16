@@ -4,7 +4,6 @@
  */
 
 import SocketService from '../../../../services/Communication/socket/Socket.service';
-import * as UserAuthenticatedActions from '../../../../../my-redux/actions/UserAuthenticated.actions';
 
 class ForumsServiceClass {
 
@@ -17,7 +16,7 @@ class ForumsServiceClass {
       this.dispatch = dispatch;
     }
 
-    forumAddAsync(sParentId, sName, sTitle, sDescription,  arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude, iTimeZone) {
+    async forumAddAsync(sParentId, sName, sTitle, sDescription,  arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude, iTimeZone) {
 
         return new Promise( (resolve)=> {
 

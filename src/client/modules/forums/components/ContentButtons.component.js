@@ -9,6 +9,7 @@ import {connect} from "react-redux";
 import AuthService  from './../../../services/REST/authentication/Auth.service';
 
 import AddForumForm from '../forums/components/AddForum.form'
+import AddTopicForm from '../topics/components/AddTopic.form'
 
 export default class ContentButtons extends React.Component {
 
@@ -26,11 +27,19 @@ export default class ContentButtons extends React.Component {
 
         this.setState({
             showAddForumForm : true,
+
+            showAddTopicForm : false,
         });
     }
 
     handleAddTopic(e){
         e.preventDefault(); e.stopPropagation();
+
+        this.setState({
+            showAddTopicForm: true,
+
+            showAddForumForm : false,
+        });
     }
 
     handleAddReply(e){
@@ -39,7 +48,6 @@ export default class ContentButtons extends React.Component {
 
 
     showAddForum(){
-        console.log('a mers222');
         return (
             <AddForumForm parentId={this.props.parentId} parentName={this.props.parentName} />
         )
@@ -47,7 +55,7 @@ export default class ContentButtons extends React.Component {
 
     showAddTopic(){
         return (
-            <AddForumForm parentId={this.props.parentId} parentName={this.props.parentName}/>
+            <AddTopicForm parentId={this.props.parentId} parentName={this.props.parentName}/>
         )
     }
 
@@ -104,6 +112,8 @@ export default class ContentButtons extends React.Component {
                 </div>
 
                 {this.state.showAddForumForm ? this.showAddForum() : ''}
+
+                {this.state.showAddTopicForm ? this.showAddTopic() : ''}
 
             </div>
         );

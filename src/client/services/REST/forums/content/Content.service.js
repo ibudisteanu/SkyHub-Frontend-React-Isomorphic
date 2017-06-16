@@ -30,8 +30,8 @@ class ContentServiceClass {
     }
 
 
-    async getURLSlug(name){
-      return SocketService.sendRequestGetDataPromise("content/get-URL-slug",{name: name});
+    async getURLSlug(parent, name){
+      return SocketService.sendRequestGetDataPromise("content/get-URL-slug",{parent:parent, name: name});
     }
 
     /*

@@ -65,7 +65,7 @@ class SearchAutoComplete extends React.Component {
 
       SocketService.sendRequestGetDataPromise("search/parents", {text: input}).then ((data)=>{
 
-        if (data === null) { resolve (null); console.log("ERROR getting keywords "); }
+        if (data === null) { resolve ({options: []}); console.log("ERROR getting keywords "); }
         else {
 
           console.log("DATA",data);

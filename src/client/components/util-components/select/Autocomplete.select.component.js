@@ -73,6 +73,7 @@ class AutoCompleteSelect extends React.Component {
         jsonp('http://google.com/complete/search?client=firefox&hl='+(this.props.localization.countryCode||'us')+'&q='+input, null, function (err, data) {
           if (err) {
             console.error('Error getting KEYWORDS '+err.message);
+            resolve ({options: []});
           } else {
             //console.log({options: data[1]});
 
