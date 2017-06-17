@@ -93,7 +93,7 @@ function getSuggestionComponent() {
     };
 
     state: Object = {
-      style: { left: 15 },
+      style: { left: 15, minWidth: 150},
       activeOption: -1,
       showSuggestions: true,
     };
@@ -114,7 +114,7 @@ function getSuggestionComponent() {
         bottom = 0;
       }
       this.setState({ // eslint-disable-line react/no-did-mount-set-state
-        style: { left, right, bottom },
+        style: { left, right, bottom, minWidth: 150},
       });
       KeyDownHandler.registerCallBack(this.onEditorKeyDown);
       SuggestionHandler.open();
@@ -234,8 +234,12 @@ function getSuggestionComponent() {
               style={this.state.style}
               ref={this.setDropdownReference}
             >
-              {this.filteredSuggestions.map((suggestion, index) =>
-                <span
+              {this.filteredSuggestions.map((suggestion, index) => {
+
+                if (index > 100) return <div key={"element"+index} />
+                else
+
+                return <span
                   key={index}
                   spellCheck={false}
                   onClick={this.addEmoji}
@@ -248,9 +252,9 @@ function getSuggestionComponent() {
                   )}
                 >
                     :{suggestion.text+'     '}
-                    <img src={suggestion.img} alt={suggestion.text} width="16px" height="16px" />
+                    <img src={suggestion.img} alt={suggestion.text} style={{maxWidth:16, maxHeight:16}} />
 
-                </span>)}
+                </span>})}
             </span>}
         </span>
       );

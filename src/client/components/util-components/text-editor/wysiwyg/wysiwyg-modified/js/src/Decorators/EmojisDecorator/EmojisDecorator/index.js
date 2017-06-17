@@ -20,7 +20,7 @@ class EmojiDecorator {
         const { entityKey, children, contentState } = this.props;
         const { text, img} = contentState.getEntity(entityKey).getData();
         return (
-          <img alt={text} src={img} width="16px" height="16px"/>
+          <img alt={text} src={img} style={{maxWidth:16, maxHeight:16}}/>
 
         );
       }
