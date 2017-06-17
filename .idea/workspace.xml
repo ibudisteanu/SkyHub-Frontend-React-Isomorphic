@@ -2,7 +2,141 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c373e22-18e0-49ba-b73a-778c2a006720" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/css/Draft.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/align-center.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/align-justify.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/align-left.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/align-right.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/bold.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/color.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/embedded.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/emoji.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/eraser.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/font-size.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/image.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/indent.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/italic.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/link.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/list-ordered.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/list-unordered.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/monospace.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/openlink.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/ordered.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/outdent.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/redo.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/strikethrough.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/subscript.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/superscript.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/underline.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/undo.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/unlink.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/unordered.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/playground/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/playground/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/playground/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/HashTag/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/HashTag/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Link/__test__/linkDecoratorTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Link/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Link/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/Mention/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/Mention/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/Suggestion/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/Suggestion/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/addMention.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/Embedded/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/Image/__test__/imageRendererTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/Image/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/Image/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Utils/BlockStyle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Utils/common.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Utils/toolbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/BlockType/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/BlockType/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/BlockType/__test__/blockControlTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/BlockType/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/ColorPicker/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/ColorPicker/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/ColorPicker/__test__/colorPickerTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/ColorPicker/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Embedded/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Embedded/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Embedded/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Emoji/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Emoji/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Emoji/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/FontFamily/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/FontFamily/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/FontFamily/__test__/fontFamilyControlTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/FontFamily/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/FontSize/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/FontSize/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/FontSize/__test__/fontSizeControlTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/FontSize/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/History/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/History/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/History/__test__/historyControlTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/History/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Image/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Image/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Image/__test__/imageControlTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Image/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Inline/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Inline/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Inline/__test__/inlineControlTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Inline/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Link/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Link/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Link/__test__/linkControlTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Link/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/List/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/List/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/List/__test__/listControlsTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/List/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Remove/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Remove/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Remove/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/TextAlign/Component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/TextAlign/Component/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/TextAlign/__test__/textAlignControlTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/TextAlign/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/Dropdown/__test__/dropdownTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/Dropdown/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/Dropdown/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/DropdownOption/__test__/dropdownOptionTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/DropdownOption/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/DropdownOption/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Editor/__test__/editorTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Editor/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Editor/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Option/__test__/optionTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Option/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Option/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Spinner/__test__/spinnerTest.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Spinner/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Spinner/styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/config/defaultToolbar.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/event-handler/focus.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/event-handler/keyDown.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/event-handler/modals.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/event-handler/suggestions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/i18n/en.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/i18n/fr.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/i18n/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/i18n/ru.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/i18n/zh.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/Html.js" afterPath="$PROJECT_DIR$/src/client/Html.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/client/modules/forums/topics/components/AddTopic.form.js" afterPath="$PROJECT_DIR$/src/client/modules/forums/topics/components/AddTopic.form.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/webpack.config.js" afterPath="$PROJECT_DIR$/tools/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,12 +151,84 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="DraftWYSIWYG.component.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/DraftWYSIWYG.component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#240#266#0" expanded="true" />
+                <element signature="e#497#557#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Emoji/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="71" column="26" lean-forward="false" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="26" />
+              <folding>
+                <element signature="e#13#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addMention.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/addMention.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="16" column="15" lean-forward="false" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Editor/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="397" column="0" lean-forward="true" selection-start-line="397" selection-start-column="0" selection-end-line="397" selection-end-column="0" />
+              <folding>
+                <element signature="e#13#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Emoji/Component/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Image/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="52" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -39,36 +245,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&lt;p</find>
-      <find>R</find>
-      <find>react-dom</find>
-      <find>m</find>
-      <find>mo</find>
-      <find>mom</find>
-      <find>mome</find>
-      <find>momen</find>
-      <find>moment</find>
-      <find>sequa</find>
-      <find>sequ</find>
-      <find>s</find>
-      <find>sqi</find>
-      <find>sequal</find>
-      <find>sequali</find>
-      <find>sequaliz</find>
-      <find>sequalize</find>
-      <find>seq</find>
-      <find>seque</find>
-      <find>sequelize,</find>
-      <find>sequelize</find>
-      <find>da</find>
-      <find>data</find>
-      <find>data/</find>
-      <find>data/m</find>
-      <find>data/mo</find>
-      <find>models</find>
-      <find>schema</find>
-      <find>dz-remove</find>
-      <find>Link</find>
+      <find>module.export</find>
+      <find>inline</find>
+      <find>importInline</find>
+      <find>Inline</find>
+      <find>iInline</find>
+      <find>imInline</find>
+      <find>impInline</find>
+      <find>imporInline</find>
+      <find>import Inline</find>
+      <find>C</find>
+      <find>Contro</find>
+      <find>Controls/</find>
+      <find>Controls/i</find>
+      <find>Controls/in</find>
+      <find>Controls/ind</find>
+      <find>Controls/inde</find>
+      <find>Controls/index</find>
+      <find>babe</find>
+      <find>AtomicBlockUtils</find>
+      <find>createEntity</find>
+      <find>&lt;&gt;Emoji</find>
+      <find>&lt;Emoji</find>
+      <find>Emoji</find>
+      <find>insert-characters</find>
+      <find>MENTION</find>
+      <find>'MENTION</find>
+      <find>'MENTION'</find>
+      <find>mention</find>
+      <find>image</find>
+      <find>IMAGE</find>
     </findStrings>
     <replaceStrings>
       <replace>className</replace>
@@ -90,24 +296,29 @@
       <replace>&quot;/&gt;&lt;/a</replace>
       <replace>&quot;http://webapplayers.com/inspinia_admin-v2.7.1/img/gallery/</replace>
       <replace>FOARTE MISTO &lt;br /&gt; COOL AWEESOME</replace>
-      <replace>let</replace>
       <replace>PreviewForums</replace>
       <replace>contentState</replace>
       <replace>routerObject</replace>
       <replace>className=</replace>
       <replace>https://raw.githubusercontent.com/marghoobsuleman/ms-Dropdown/master/images/msdropdown/icons/flagssprite_small.png</replace>
+      <replace>let</replace>
+      <replace>https://github.com/jpuri/react-draft-wysiwyg/tree/master/docs/</replace>
+      <replace>'https://github.com/jpuri/react-draft-wysiwyg/tree/master/docs/</replace>
     </replaceStrings>
     <dirStrings>
       <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\routes</dir>
       <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\my-redux</dir>
       <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components</dir>
       <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\modules</dir>
-      <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src</dir>
       <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client</dir>
       <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\build</dir>
       <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\node_modules</dir>
       <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\docs</dir>
       <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic</dir>
+      <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\node_modules\draft-js-emoji-plugin</dir>
+      <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\util-components\text-editor\wysiwyg\wysiwyg-modified\js</dir>
+      <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\util-components\text-editor\wysiwyg\wysiwyg-modified</dir>
+      <dir>E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -116,39 +327,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/my-redux/actions/Localization.actions.js" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/my-redux/actions/ContentState.actions.js" />
-        <option value="$PROJECT_DIR$/src/client/services/Cookies/Cookies.service.js" />
-        <option value="$PROJECT_DIR$/src/client/modules/forums/forums/view-forum/PreviewForum.component.js" />
-        <option value="$PROJECT_DIR$/src/client/modules/forums/components/PreviewContent.component.js" />
-        <option value="$PROJECT_DIR$/src/routes/home/home-content-pages/HomeContentPage.js" />
-        <option value="$PROJECT_DIR$/src/my-redux/reducers/ContentState.reducer.js" />
-        <option value="$PROJECT_DIR$/src/client/services/Communication/http/Http.service.js" />
-        <option value="$PROJECT_DIR$/src/client/services/Communication/socket/Socket.service.js" />
-        <option value="$PROJECT_DIR$/src/client/App.js" />
-        <option value="$PROJECT_DIR$/src/client/components/Template/Layout/Layout.js" />
-        <option value="$PROJECT_DIR$/src/routes/about/index.js" />
-        <option value="$PROJECT_DIR$/src/routes/home/Home.js" />
-        <option value="$PROJECT_DIR$/src/client/components/Template/Template-components/Body/Body.js" />
-        <option value="$PROJECT_DIR$/src/client/components/Template/Template-components/Footer/Footer.js" />
-        <option value="$PROJECT_DIR$/public/res/components/flags.css" />
-        <option value="$PROJECT_DIR$/src/client/components/util-components/select/flags/flags.js" />
-        <option value="$PROJECT_DIR$/src/client/components/util-components/select/MyCountry.select.component.js" />
-        <option value="$PROJECT_DIR$/src/client/services/REST/forums/content/Content.service.js" />
-        <option value="$PROJECT_DIR$/src/client/components/Template/Template-components/Body/Content/Content.js" />
-        <option value="$PROJECT_DIR$/src/routes/login/login.page.js" />
-        <option value="$PROJECT_DIR$/src/client/modules/users/authentication/registration/registration.form.js" />
-        <option value="$PROJECT_DIR$/src/client/modules/forums/content/DisplayContent.component.js" />
-        <option value="$PROJECT_DIR$/src/client/modules/users/models/User.model.js" />
-        <option value="$PROJECT_DIR$/src/client/modules/forums/forums/models/Forum.model.js" />
-        <option value="$PROJECT_DIR$/src/routes/home/index.js" />
-        <option value="$PROJECT_DIR$/src/client/components/Template/Template-components/Body/Left-sidebar/LeftSidebar.js" />
-        <option value="$PROJECT_DIR$/src/client/modules/forums/forums/components/AddForum.form.component.js" />
-        <option value="$PROJECT_DIR$/src/client/modules/forums/topics/components/AddTopic.form.component.js" />
-        <option value="$PROJECT_DIR$/src/client/components/util-components/select/SearchAutocomplete.select.component.js" />
-        <option value="$PROJECT_DIR$/src/client/components/util-components/select/Autocomplete.select.component.js" />
-        <option value="$PROJECT_DIR$/src/routes/home/home-content-pages/pages/ViewForum.component.js" />
         <option value="$PROJECT_DIR$/src/client/components/Template/Template-components/Header/Cover/HeaderCover.component.js" />
         <option value="$PROJECT_DIR$/src/client/modules/forums/forums/view-forum/PreviewForums.component.js" />
         <option value="$PROJECT_DIR$/src/client/modules/forums/components/ContentButtons.component.js" />
@@ -160,13 +338,46 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/package-lock.json" />
         <option value="$PROJECT_DIR$/src/server.js" />
-        <option value="$PROJECT_DIR$/src/client/Html.js" />
         <option value="$PROJECT_DIR$/public/res/customSkyHubStyle.css" />
         <option value="$PROJECT_DIR$/src/client/components/util-components/file-upload/dropzone/FileUploadDropzone.component.js" />
         <option value="$PROJECT_DIR$/src/client/modules/forums/forums/components/AddForum.form.js" />
-        <option value="$PROJECT_DIR$/src/client/modules/forums/topics/components/AddTopic.form.js" />
         <option value="$PROJECT_DIR$/src/client/services/Utils/LinkScraper.service.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/node_modules/draft-js-focus-plugin/lib/plugin.css" />
+        <option value="$PROJECT_DIR$/node_modules/draft-js-alignment-plugin/lib/plugin.css" />
+        <option value="$PROJECT_DIR$/node_modules/draft-js-hashtag-plugin/lib/plugin.css" />
+        <option value="$PROJECT_DIR$/node_modules/draft-js-linkify-plugin/lib/plugin.css" />
+        <option value="$PROJECT_DIR$/node_modules/draft-js-mention-plugin/lib/plugin.css" />
+        <option value="$PROJECT_DIR$/node_modules/last-draft-js-toolbar-plugin/lib/plugin.css" />
+        <option value="$PROJECT_DIR$/node_modules/last-draft-js-sidebar-plugin/lib/plugin.css" />
+        <option value="$PROJECT_DIR$/node_modules/draft-js-embed-plugin/lib/plugin.css" />
+        <option value="$PROJECT_DIR$/node_modules/draft-js-link-plugin/lib/plugin.css" />
+        <option value="$PROJECT_DIR$/node_modules/draft-js-emoji-plugin/lib/plugin.css" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/LastDraft.component.js" />
+        <option value="$PROJECT_DIR$/node_modules/last-draft/lib/components/Editor.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/DraftWYSIWYG.component.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/uploadImageCallback.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/sampleEditorContent.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/additionals/ColorPic/index.js" />
+        <option value="$PROJECT_DIR$/src/client/modules/forums/topics/components/AddTopic.form.js" />
+        <option value="$PROJECT_DIR$/src/client/Html.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/HashTag/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/Mention/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/Suggestion/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/i18n/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/Image/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Utils/toolbar.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/index.js" />
+        <option value="$PROJECT_DIR$/tools/webpack.config.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Emoji/Component/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/DraftWYSIWYG.component.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Emoji/index.js" />
+        <option value="$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/index.js" />
       </list>
     </option>
   </component>
@@ -232,7 +443,743 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg-modified" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg-modified" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg-modified" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg-modified" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Image" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg-modified" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Image" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg-modified" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emoji" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg-modified" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Emoji" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Component" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg-modified" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg-modified" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg-modified" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="additionals" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="text-editor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wysiwyg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="additionals" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ColorPic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util-components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SkyHub-Frontend-React-Isomorphic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -255,19 +1202,19 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\routes\home\home" />
-      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\routes\home\home-content-pages\pages" />
-      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\routes\home\pages" />
-      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\routes\register" />
-      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\routes\login" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\util-components\text-editor\wysiwyg\wysiwyg-modified" />
+      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\util-components\text-editor\wysiwyg\wysiwyg-modified\js\src" />
+      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\util-components\text-editor\wysiwyg\src" />
       <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\modules\forums\topics\models" />
       <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\Template\Template-components\Header" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\util-components\text-editor\wysiwyg\wysiwyg-modified" />
+      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\util-components\text-editor\wysiwyg\src" />
+      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\util-components\text-editor\wysiwyg\additionals" />
+      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\util-components\text-editor\wysiwyg" />
       <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\routes\home\home" />
-      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\routes\home\authenticated" />
-      <recent name="E:\SkyHub-node\SkyHub-Frontend-React-Isomorphic\src\client\components\util-components\select" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -381,7 +1328,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="339159000" />
+    <option name="totallyTimeSpent" value="362926000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="0" width="1936" height="1080" extended-state="0" />
@@ -391,6 +1338,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826748" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -412,7 +1360,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25729167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826748" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -431,381 +1378,435 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/client/components/Template/Template-components/Body/Body.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/last-draft/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="81" column="12" lean-forward="true" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
+        <state relative-caret-position="34">
+          <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Template/Template-components/Footer/Footer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="21" column="41" lean-forward="true" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/components/flags.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="132" lean-forward="false" selection-start-line="6" selection-start-column="132" selection-end-line="6" selection-end-column="132" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/select/flags/flags.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="45" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/my-redux/reducers/ContentState.reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Template/Template-components/Body/Content/Content.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="69" lean-forward="false" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/history.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/login/login.page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Link/Link.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="46" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/modules/users/authentication/registration/registration.form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="46" column="36" lean-forward="false" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/modules/forums/content/DisplayContent.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="65" column="27" lean-forward="false" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/services/REST/forums/content/Content.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="143" column="38" lean-forward="true" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/home/Home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="71" column="15" lean-forward="false" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/about/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/models/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/modules/users/models/User.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/modules/forums/forums/models/Forum.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/home/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Template/Template-components/Body/Left-sidebar/LeftSidebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="51" column="23" lean-forward="false" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/services/Communication/http/http.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/home/home-content-pages/pages/ViewForum.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="62" column="97" lean-forward="true" selection-start-line="62" selection-start-column="97" selection-end-line="62" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Template/Template-components/Header/Cover/WebsiteHeaderCover.component.js">
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/LastDraft.component.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <caret line="9" column="124" lean-forward="false" selection-start-line="9" selection-start-column="124" selection-end-line="9" selection-end-column="124" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/Template/Template-components/Header/Cover/HeaderCover.component.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/last-draft/lib/components/Editor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="102" column="125" lean-forward="false" selection-start-line="102" selection-start-column="125" selection-end-line="102" selection-end-column="125" />
+        <state relative-caret-position="527">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/modules/forums/forums/view-forum/PreviewForums.component.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/draft-js-emoji-plugin/lib/plugin.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        <state relative-caret-position="323">
+          <caret line="19" column="76" lean-forward="false" selection-start-line="19" selection-start-column="76" selection-end-line="19" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/modules/forums/components/ContentButtons.component.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/draft-js-alignment-plugin/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="98" column="72" lean-forward="false" selection-start-line="98" selection-start-column="65" selection-end-line="98" selection-end-column="72" />
+        <state relative-caret-position="422">
+          <caret line="29" column="18" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/select/MyCountry.select.component.js">
+    <entry file="file://$PROJECT_DIR$/src/client/components/Template/Layout/Layout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="120" column="99" lean-forward="false" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/select/Autocomplete.select.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="75" column="32" lean-forward="false" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/select/SearchAutoComplete.select.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/services/REST/forums/forums/forums.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/services/REST/forums/topics/Topics.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="86" lean-forward="false" selection-start-line="23" selection-start-column="86" selection-end-line="23" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/services/Utils/Keywords.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/sequelize.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/models/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/queries/me.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/queries/news.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/types/NewsItemType.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/types/UserType.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/schema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+        <state relative-caret-position="504">
+          <caret line="85" column="1" lean-forward="false" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
           <folding>
-            <marker date="1497682202676" expanded="true" signature="0:5638" ph="{&quot;name&quot;: &quot;web&quot;...}" />
-            <marker date="1497682202676" expanded="true" signature="234:1574" ph="{&quot;axios&quot;: &quot;^0.16.2&quot;...}" />
-            <marker date="1497682202676" expanded="true" signature="1597:4163" ph="{&quot;assets-webpack-plugin&quot;: &quot;^3.5.1&quot;...}" />
-            <marker date="1497682202676" expanded="true" signature="4176:4468" ph="{...}" />
-            <marker date="1497682202676" expanded="true" signature="4193:4348" ph="[...]" />
-            <marker date="1497682202676" expanded="true" signature="4201:4310" ph="[...]" />
-            <marker date="1497682202676" expanded="true" signature="4226:4302" ph="{...}" />
-            <marker date="1497682202676" expanded="true" signature="4249:4292" ph="{&quot;node&quot;: &quot;current&quot;...}" />
-            <marker date="1497682202676" expanded="true" signature="4361:4464" ph="{...}" />
-            <marker date="1497682202676" expanded="true" signature="4377:4458" ph="{...}" />
-            <marker date="1497682202676" expanded="true" signature="4398:4450" ph="[...]" />
-            <marker date="1497682202676" expanded="true" signature="4487:4747" ph="{...}" />
-            <marker date="1497682202676" expanded="true" signature="4532:4587" ph="[...]" />
-            <marker date="1497682202676" expanded="true" signature="4607:4652" ph="[...]" />
-            <marker date="1497682202676" expanded="true" signature="4683:4743" ph="[...]" />
-            <marker date="1497682202676" expanded="true" signature="4762:5602" ph="{&quot;lint:js&quot;: &quot;eslint src tools&quot;...}" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="9498" column="33" lean-forward="false" selection-start-line="9498" selection-start-column="33" selection-end-line="9498" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="102">
-            <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/sequelize/lib/data-types.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/Html.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="60" column="145" lean-forward="true" selection-start-line="60" selection-start-column="145" selection-end-line="60" selection-end-column="145" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/res/customSkyHubStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-610">
-          <caret line="138" column="22" lean-forward="false" selection-start-line="138" selection-start-column="22" selection-end-line="138" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/file-upload/dropzone/FileUploadDropzone.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="118" lean-forward="true" selection-start-line="16" selection-start-column="118" selection-end-line="16" selection-end-column="133" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/modules/forums/forums/components/AddForum.form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="252" column="54" lean-forward="false" selection-start-line="252" selection-start-column="54" selection-end-line="252" selection-end-column="54" />
+        <state relative-caret-position="34">
+          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding>
+            <element signature="e#97#123#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/additionals/uploadImageCallback.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="66" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/additionals/sampleEditorContent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="30" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/draft-js/lib/Draft.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="41" column="2" lean-forward="false" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/modules/forums/topics/components/AddTopic.form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1904">
-          <caret line="128" column="26" lean-forward="false" selection-start-line="128" selection-start-column="26" selection-end-line="128" selection-end-column="26" />
+        <state relative-caret-position="120">
+          <caret line="256" column="23" lean-forward="false" selection-start-line="256" selection-start-column="23" selection-end-line="256" selection-end-column="23" />
+          <folding>
+            <element signature="e#97#123#0" expanded="false" />
+            <element signature="e#914#1023#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/services/Communication/socket/socket.service.js">
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/additionals/ColorPic/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="128" column="4" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+        <state relative-caret-position="283">
+          <caret line="37" column="38" lean-forward="false" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding>
+            <element signature="e#109#150#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/services/Utils/LinkScraper.service.js">
+    <entry file="file://$PROJECT_DIR$/src/client/Html.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="441">
+          <caret line="63" column="107" lean-forward="false" selection-start-line="63" selection-start-column="107" selection-end-line="63" selection-end-column="107" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-draft-wysiwyg/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/src/components/Editor/__test__/editorTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/images/bold.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/css/Draft.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Utils/BlockStyle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/Dropdown/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/DropdownOption/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Dropdown/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/config/defaultToolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Link/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-482">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/HashTag/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="827">
+          <caret line="71" column="15" lean-forward="false" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/Mention/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="15" lean-forward="false" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/Suggestion/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="827">
+          <caret line="257" column="15" lean-forward="false" selection-start-line="257" selection-start-column="15" selection-end-line="257" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/i18n/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/Image/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="827">
+          <caret line="122" column="15" lean-forward="false" selection-start-line="122" selection-start-column="15" selection-end-line="122" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/Embedded/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Utils/toolbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/draftjs-utils/lib/draftjs-utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="15" lean-forward="false" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Utils/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Inline/__test__/inlineControlTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Inline/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/i18n/en.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="78" column="82" lean-forward="false" selection-start-line="78" selection-start-column="82" selection-end-line="78" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Image/Component/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3865">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Image/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="52" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/DraftWYSIWYG.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#240#266#0" expanded="true" />
+            <element signature="e#497#557#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Emoji/Component/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Editor/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="397" column="0" lean-forward="true" selection-start-line="397" selection-start-column="0" selection-end-line="397" selection-end-column="0" />
+          <folding>
+            <element signature="e#13#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/draft-js/lib/ContentState.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="128" column="2" lean-forward="false" selection-start-line="128" selection-start-column="2" selection-end-line="128" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Decorators/Mention/addMention.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="15" lean-forward="false" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/components/Controls/Emoji/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="71" column="26" lean-forward="false" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="26" />
+          <folding>
+            <element signature="e#13#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/util-components/text-editor/wysiwyg/wysiwyg-modified/js/src/Renderer/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
           <folding />
         </state>
       </provider>

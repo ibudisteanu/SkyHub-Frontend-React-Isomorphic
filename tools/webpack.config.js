@@ -76,7 +76,7 @@ const config = {
           plugins: [
             // Adds component stack to warning messages
             // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx-source
-            ['transform-decorators-legacy'],
+            ['transform-decorators-legacy'],["transform-es2015-modules-commonjs"],
             ...isDebug ? ['transform-react-jsx-source'] : [],
             // Adds __self attribute to JSX which React will use for some warnings
             // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx-self

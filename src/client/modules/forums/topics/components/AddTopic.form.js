@@ -16,6 +16,9 @@ import MyCountrySelect from './../../../../../client/components/util-components/
 
 import FileUploadDropzone from '../../../../../client/components/util-components/file-upload/dropzone/FileUploadDropzone.component';
 
+//import LastDraft from '../../../../components/util-components/text-editor/LastDraft.component';
+import DraftWYSIWYG from '../../../../components/util-components/text-editor/wysiwyg/DraftWYSIWYG.component';
+
 import history from './../../../../../history.js';
 
 class AddTopicForm extends React.Component {
@@ -273,6 +276,7 @@ class AddTopicForm extends React.Component {
               </div>
 
 
+
               <strong>Description</strong>
               <div className={"input-group " + this.showInputStatus(this.state.descriptionValidationStatus)}  >
                 <span className="input-group-addon"><i className="fa fa-edit"></i></span>
@@ -283,6 +287,7 @@ class AddTopicForm extends React.Component {
               </div>
               <label className="error" >{this.state.descriptionValidationStatus[1]}</label> <br />
 
+              <DraftWYSIWYG />
 
               <strong>Forum</strong>
               <div className={"input-group " + this.showInputStatus(this.state.parentValidationStatus)}  >
