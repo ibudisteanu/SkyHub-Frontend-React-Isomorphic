@@ -14,6 +14,8 @@ import AutoCompleteSelect from '../../../../components/util-components/select/Au
 import SearchAutoComplete from '../../../../components/util-components/select/SearchAutoComplete.select.component';
 import MyCountrySelect from './../../../../../client/components/util-components/select/MyCountry.select.component';
 
+import FileUploadDropzone from '../../../../../client/components/util-components/file-upload/dropzone/FileUploadDropzone.component';
+
 import history from './../../../../../history.js';
 
 class AddTopicForm extends React.Component {
@@ -25,6 +27,7 @@ class AddTopicForm extends React.Component {
 
       urlSlug:'',
       title : '',
+      link : '',
       description : '',
       keywords : [],
 
@@ -34,6 +37,7 @@ class AddTopicForm extends React.Component {
       latitude : 0, longitude : 0,
 
       titleValidationStatus : [null, ''],
+      linkValidationStatus : [null, ''],
       descriptionValidationStatus : [null, ''],
       keywordsValidationStatus : [null, ''],
       countryValidationStatus : [null, ''],
@@ -57,11 +61,12 @@ class AddTopicForm extends React.Component {
     let onSuccess = this.props.onSuccess || function (){};
     let onError = this.props.onError || function (){};
 
-    let titleValidationStatus = [null, ''], descriptionValidationStatus = [null, ''], keywordsValidationStatus = [null, ''], countryValidationStatus = [null, ''], cityValidationStatus = [null, ''];
+    let titleValidationStatus = [null, ''], linkValidationStatus =[null,''], descriptionValidationStatus = [null, ''], keywordsValidationStatus = [null, ''], countryValidationStatus = [null, ''], cityValidationStatus = [null, ''];
 
     let bValidationError=false;
     this.setState({
       titleValidationStatus: titleValidationStatus,
+      linkValidationStatus: linkValidationStatus,
       descriptionValidationStatus: descriptionValidationStatus,
       keywordsValidationStatus: keywordsValidationStatus,
       countryValidationStatus: countryValidationStatus,
@@ -71,7 +76,7 @@ class AddTopicForm extends React.Component {
     console.log('ADDing forum... ');
 
     if (!bValidationError)
-      ForumsService.forumAddAsync(this.state.parentId||this.props.parentId, this.state.title, this.state.description, this.state.keywords,
+      ForumsService.forumAddAsync(this.state.parentId||this.props.parentId, this.state.title, this.state.link, this.state.description, this.state.keywords,
                                   this.state.countryCode||this.props.localization.countryCode, '',
                                   this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.state.latitude, this.state.timeZone)
 
@@ -87,6 +92,7 @@ class AddTopicForm extends React.Component {
           else if (answer.result === false) {
 
             if ((typeof answer.errors.title !== "undefined") && (Object.keys(answer.errors.title).length !== 0 )) titleValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.title[0])];
+            if ((typeof answer.errors.link !== "undefined") && (Object.keys(answer.errors.link).length !== 0 )) linkValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.link[0])];
             if ((typeof answer.errors.description !== "undefined") && (Object.keys(answer.errors.description).length !== 0)) descriptionValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.description[0])];
             if ((typeof answer.errors.keywords !== "undefined") && (Object.keys(answer.errors.keywords).length !== 0)) keywordsValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.keywords[0])];
             if ((typeof answer.errors.country !== "undefined") && (Object.keys(answer.errors.country).length !== 0)) countryValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.country[0])];
@@ -99,6 +105,7 @@ class AddTopicForm extends React.Component {
 
             this.setState({
               titleValidationStatus: titleValidationStatus,
+              linkValidationStatus: linkValidationStatus,
               descriptionValidationStatus: descriptionValidationStatus,
               keywordsValidationStatus: keywordsValidationStatus,
               countryValidationStatus: countryValidationStatus,
@@ -119,6 +126,7 @@ class AddTopicForm extends React.Component {
       titleValidationStatus  : [null, '']
     });
 
+    /* // getting URL slug
     value = (((value !== null)&&(value.hasOwnProperty("value"))) ? value.value : value);
 
     console.log("title",value);
@@ -133,11 +141,18 @@ class AddTopicForm extends React.Component {
       }
 
     });
+    */
 
   }
 
   handleTitleChange(e){
     this.handleTitleChangeSelect(e.target.value);
+  }
+
+  handleLinkChange(e){
+    this.setState({
+      link : e.target.value,
+    });
   }
 
   handleDescriptionChange(e){
@@ -229,23 +244,37 @@ class AddTopicForm extends React.Component {
 
 
               <div style={{paddingBottom: 20}}>
-                <div>Title:</div>
+                <strong>Title:</strong>
                 <div className={"input-group " + this.showInputStatus(this.state.titleValidationStatus)}  >
 
                   <span className="input-group-addon"><i className="fa fa-pencil"></i></span>
 
-                  <AutoCompleteSelect multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='forum name (one or two words)'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  clearable={false} />
+                  <AutoCompleteSelect autoFocus multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='title / subject'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  clearable={false} />
 
                   <span className={::this.showInputFeedback(this.state.titleValidationStatus)} style={{width:60, top:10}}></span>
                 </div>
                 <label className="error" >{this.state.titleValidationStatus[1]}</label> <br />
-                URL: skyhub.me/<label className="success" >{this.state.urlSlug}</label> <br />
+              </div>
+
+              <div style={{paddingBottom: 20}}>
+                <strong>Link:</strong>
+                <div className={"input-group " + this.showInputStatus(this.state.titleValidationStatus)}  >
+
+                  <span className="input-group-addon"><i className="fa fa-pencil"></i></span>
+
+                  <input  type='text' className='form-control input' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleLinkChange} />
+
+                  <span className={::this.showInputFeedback(this.state.titleValidationStatus)} style={{width:60, top:10}}></span>
+                </div>
+                <label className="error" >{this.state.titleValidationStatus[1]}</label> <br />
+
+                <FileUploadDropzone />
+
               </div>
 
 
-
+              <strong>Description</strong>
               <div className={"input-group " + this.showInputStatus(this.state.descriptionValidationStatus)}  >
-
                 <span className="input-group-addon"><i className="fa fa-edit"></i></span>
 
                 <textarea type='text' className='form-control input' rows="5" placeholder='description'  name="description" value={this.state.description} onChange={::this.handleDescriptionChange} />
@@ -255,7 +284,7 @@ class AddTopicForm extends React.Component {
               <label className="error" >{this.state.descriptionValidationStatus[1]}</label> <br />
 
 
-              <div>Forum</div>
+              <strong>Forum</strong>
               <div className={"input-group " + this.showInputStatus(this.state.parentValidationStatus)}  >
 
                 <span className="input-group-addon"><i className="fa fa-edit"></i></span>
@@ -265,7 +294,6 @@ class AddTopicForm extends React.Component {
                 <span className={::this.showInputFeedback(this.state.parentValidationStatus)}></span>
               </div>
               <label className="error" >{this.state.parentValidationStatus[1]}</label> <br />
-
 
               {/*
               <div className={"input-group " + this.showInputStatus(this.state.keywordsValidationStatus)}  >

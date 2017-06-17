@@ -245,12 +245,12 @@ class AddForumForm extends React.Component {
                   <form onSubmit={::this.handleAddForum} autoComplete="on">
 
                     <div style={{paddingBottom: 20}}>
-                      <div>Forum Name (one - two words):</div>
+                      <strong>Forum Name (one - two words)</strong>
                       <div className={"input-group " + this.showInputStatus(this.state.nameValidationStatus)}  >
 
                         <span className="input-group-addon"><i className="fa fa-pencil"></i></span>
 
-                        <AutoCompleteSelect multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='forum name (one or two words)'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  clearable={false} />
+                        <AutoCompleteSelect autoFocus multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='forum name (one or two words)'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  clearable={false} />
 
                         <span className={::this.showInputFeedback(this.state.nameValidationStatus)} style={{width:60, top:10}}></span>
                       </div>
@@ -259,11 +259,12 @@ class AddForumForm extends React.Component {
                     </div>
 
 
+                    <strong>Title</strong>
                     <div className={"input-group " + this.showInputStatus(this.state.titleValidationStatus)}  >
 
                       <span className="input-group-addon"><i className="fa fa-font"></i></span>
 
-                      <input autoFocus type='text' className='form-control input' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleTitleChange} />
+                      <input type='text' className='form-control input' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleTitleChange} />
                       {/*<AutoCompleteSelect multi={false} controlId="titleSelect" className='border-focus-blue'  placeholder='title'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  /> */}
 
                       <span className={::this.showInputFeedback(this.state.titleValidationStatus)}></span>
@@ -272,7 +273,7 @@ class AddForumForm extends React.Component {
 
 
 
-
+                    <strong>Description</strong>
                     <div className={"input-group " + this.showInputStatus(this.state.descriptionValidationStatus)}  >
 
                       <span className="input-group-addon"><i className="fa fa-edit"></i></span>
@@ -284,7 +285,7 @@ class AddForumForm extends React.Component {
                     <label className="error" >{this.state.descriptionValidationStatus[1]}</label> <br />
 
 
-                    <div>Parent - Forum</div>
+                    <strong>Parent - Forum</strong>
                     <div className={"input-group " + this.showInputStatus(this.state.parentValidationStatus)}  >
 
                       <span className="input-group-addon"><i className="fa fa-edit"></i></span>
@@ -296,6 +297,7 @@ class AddForumForm extends React.Component {
                     <label className="error" >{this.state.parentValidationStatus[1]}</label> <br />
 
 
+                    <strong>Keywords</strong>
                     <div className={"input-group " + this.showInputStatus(this.state.keywordsValidationStatus)}  >
 
                       <span className="input-group-addon"><i className="fa fa-tags"></i></span>
