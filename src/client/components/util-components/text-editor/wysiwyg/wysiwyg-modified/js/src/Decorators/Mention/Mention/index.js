@@ -21,7 +21,6 @@ class Mention {
         const { url, value } = contentState.getEntity(entityKey).getData();
         return (
           <a href={url || value} className={classNames('rdw-mention-link', className)}>
-            <img src="https://cdn.jsdelivr.net/emojione/assets/png/1f62b.png?v=2.2.7" />
             {children}
           </a>
         );

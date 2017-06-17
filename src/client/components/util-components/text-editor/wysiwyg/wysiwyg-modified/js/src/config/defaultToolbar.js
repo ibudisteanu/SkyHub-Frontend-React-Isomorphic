@@ -16,9 +16,6 @@ import color from '../../../images/color.svg';
 import eraser from '../../../images/eraser.svg';
 import link from '../../../images/link.svg';
 import unlink from '../../../images/unlink.svg';
-import emoji from '../../../images/emoji.svg';
-import embedded from '../../../images/embedded.svg';
-import image from '../../../images/image.svg';
 import undo from '../../../images/undo.svg';
 import redo from '../../../images/redo.svg';
 import subscript from '../../../images/subscript.svg';
@@ -117,7 +114,7 @@ export default {
     unlink: { icon: unlink, className: undefined, title: 'Unlink' },
   },
   emoji: {
-    icon: emoji,
+    icon: "https://forums.manageengine.com/ze/images/cool.gif",
     className: undefined,
     component: undefined,
     popupClassName: undefined,
@@ -135,7 +132,7 @@ export default {
     title: 'Emoji',
   },
   embedded: {
-    icon: embedded,
+    icon: "https://www.strategasrp.com/Images/icon-ytube.png",
     className: undefined,
     component: undefined,
     popupClassName: undefined,
@@ -146,7 +143,7 @@ export default {
     title: 'Embedded',
   },
   image: {
-    icon: image,
+    icon: "http://download-support.webapps.microsoft.com/ncss/PUBLIC/en_PH/smartguidance/GUID-8D2842BA-8EA5-49A6-A66E-36C87437D092/camera-icon-take-photo-10_0.png",
     className: undefined,
     component: undefined,
     popupClassName: undefined,

@@ -234,7 +234,7 @@ function getSuggestionComponent() {
               ref={this.setDropdownReference}
             >
               {this.filteredSuggestions.map((suggestion, index) =>
-                <span
+                <div
                   key={index}
                   spellCheck={false}
                   onClick={this.addMention}
@@ -247,7 +247,7 @@ function getSuggestionComponent() {
                   )}
                 >
                   {suggestion.text}
-                </span>)}
+                </div>)}
             </span>}
         </span>
       );

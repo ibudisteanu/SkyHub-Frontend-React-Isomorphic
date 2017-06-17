@@ -897,6 +897,12 @@
 .rdw-suggestion-option {
   padding: 7px 5px;
   border-bottom: 1px solid #cac9ce;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently */
 }
 .rdw-suggestion-option-active {
   background-color: #cac9ce;

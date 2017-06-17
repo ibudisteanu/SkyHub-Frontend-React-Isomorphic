@@ -158,9 +158,9 @@ class AddTopicForm extends React.Component {
     });
   }
 
-  handleDescriptionChange(e){
+  handleDescriptionChange(value){
     this.setState({
-      description : e.target.value,
+      description : value,
       descriptionValidationStatus  : [null, '']
     });
   }
@@ -281,13 +281,11 @@ class AddTopicForm extends React.Component {
               <div className={"input-group " + this.showInputStatus(this.state.descriptionValidationStatus)}  >
                 <span className="input-group-addon"><i className="fa fa-edit"></i></span>
 
-                <textarea type='text' className='form-control input' rows="5" placeholder='description'  name="description" value={this.state.description} onChange={::this.handleDescriptionChange} />
+                <DraftWYSIWYG onChange={::this.handleDescriptionChange} />
 
                 <span className={::this.showInputFeedback(this.state.descriptionValidationStatus)}></span>
               </div>
               <label className="error" >{this.state.descriptionValidationStatus[1]}</label> <br />
-
-              <DraftWYSIWYG />
 
               <strong>Forum</strong>
               <div className={"input-group " + this.showInputStatus(this.state.parentValidationStatus)}  >
