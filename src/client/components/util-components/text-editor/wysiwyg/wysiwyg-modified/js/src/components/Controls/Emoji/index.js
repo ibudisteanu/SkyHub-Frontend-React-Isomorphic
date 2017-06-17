@@ -69,7 +69,7 @@ export default class Emoji extends Component {
 
     const entityKey = editorState
       .getCurrentContent()
-      .createEntity('IMAGE', 'MUTABLE', { src, height, width })
+      .createEntity('EMOJI', 'MUTABLE', { src, height, width })
       .getLastCreatedEntityKey();
     const newEditorState = AtomicBlockUtils.insertAtomicBlock(
       editorState,

@@ -1,5 +1,6 @@
 import Embedded from './Embedded';
 import getImageComponent from '../renderer/Image';
+import getEmojiComponent from '../renderer/Emoji';
 
 const getBlockRenderFunc = (config, customBlockRenderer) => (block) => {
   if (typeof customBlockRenderer === 'function') {
@@ -13,6 +14,11 @@ const getBlockRenderFunc = (config, customBlockRenderer) => (block) => {
     if (entity && entity.type === 'IMAGE') {
       return {
         component: getImageComponent(config),
+        editable: false,
+      };
+    } else if (entity && entity.type === 'EMOJI') {
+      return {
+        component: getEmojiComponent(config),
         editable: false,
       };
     } else if (entity && entity.type === 'EMBEDDED_LINK') {
