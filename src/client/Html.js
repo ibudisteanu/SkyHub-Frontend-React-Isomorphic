@@ -60,10 +60,8 @@ class Html extends React.Component {
 
           <link rel="stylesheet" type="text/css" href="http://reactdropzone.azurewebsites.net/node_modules/dropzone/dist/min/dropzone.min.css" />
 
-          <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/jpuri/react-draft-wysiwyg/master/css/Draft.css" />
+
           <link rel="stylesheet" type="text/css" href="/res/components/react-draft-wysiwyg.css" />
-          <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/jpuri/react-draft-wysiwyg/master/docs/src/components/Demo/styles.css" />
-          <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/jpuri/react-draft-wysiwyg/master/docs/src/components/Demo/ColorPic/styles.css" />
 
           <script src="https://code.jquery.com/jquery-3.2.1.min.js" />
           <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>

@@ -11,6 +11,8 @@ export default function addMention(
   trigger: string,
   suggestion: Object,
 ): void {
+  if (typeof suggestion === "undefined") return ;
+
   const { value, url } = suggestion;
   const entityKey = editorState
     .getCurrentContent()

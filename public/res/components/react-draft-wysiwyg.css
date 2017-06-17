@@ -35,7 +35,7 @@
   height: 30px;
   background: white;
   cursor: pointer;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   border-radius: 2px;
   margin: 0 3px;
   text-transform: capitalize;
@@ -85,7 +85,7 @@
 .rdw-dropdown-optionwrapper {
   z-index: 100;
   position: relative;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   width: 98%;
   background: white;
   border-radius: 2px;
@@ -109,7 +109,7 @@
   padding: 0 5px;
 }
 .rdw-dropdownoption-highlighted {
-  background: #F1F1F1;
+  background: #cac9ce;
 }
 .rdw-dropdownoption-active {
   background: #f5f5f5;
@@ -280,7 +280,7 @@
   flex-direction: column;
   width: 175px;
   height: 175px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   padding: 15px;
   border-radius: 2px;
   z-index: 100;
@@ -317,7 +317,7 @@
 .rdw-colorpicker-cube {
   width: 22px;
   height: 22px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
 }
 .rdw-colorpicker-option {
   margin: 3px;
@@ -376,7 +376,7 @@
   flex-direction: column;
   width: 235px;
   height: 205px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   padding: 15px;
   border-radius: 2px;
   z-index: 100;
@@ -389,7 +389,7 @@
 .rdw-link-modal-input {
   margin-top: 5px;
   border-radius: 2px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   height: 25px;
   margin-bottom: 15px;
   padding: 0 5px;
@@ -410,7 +410,7 @@
   margin-left: 10px;
   width: 75px;
   height: 30px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   border-radius: 2px;
   cursor: pointer;
   background: white;
@@ -463,7 +463,7 @@
   flex-direction: column;
   width: 235px;
   height: 180px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   padding: 15px;
   border-radius: 2px;
   z-index: 100;
@@ -498,7 +498,7 @@
 }
 .rdw-embedded-modal-header-label {
   width: 95px;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #cac9ce;
   margin-top: 5px;
   background: #6EB8D4;
   border-bottom: 2px solid #0a66b7;
@@ -516,7 +516,7 @@
   width: 95%;
   height: 35px;
   margin: 10px 0;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   border-radius: 2px;
   font-size: 15px;
   padding: 0 5px;
@@ -536,7 +536,7 @@
   margin: 0 3px;
   width: 75px;
   height: 30px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   border-radius: 2px;
   cursor: pointer;
   background: white;
@@ -569,7 +569,7 @@
 .rdw-embedded-modal-size-input {
   width: 45%;
   height: 20px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   border-radius: 2px;
   font-size: 12px;
 }
@@ -598,7 +598,7 @@
   flex-wrap: wrap;
   width: 235px;
   height: 180px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   padding: 15px;
   border-radius: 2px;
   z-index: 100;
@@ -688,7 +688,7 @@
   flex-direction: column;
   width: 235px;
   height: 200px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   padding: 15px;
   border-radius: 2px;
   z-index: 100;
@@ -721,8 +721,8 @@
 }
 .rdw-image-modal-header-label {
   width: 80px;
-  background: #f1f1f1;
-  border: 1px solid #f1f1f1;
+  background: #cac9ce;
+  border: 1px solid #cac9ce;
   margin-top: 5px;
 }
 .rdw-image-modal-header-label-highlighted {
@@ -745,7 +745,7 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-color: #f1f1f1;
+  background-color: #cac9ce;
   outline: 2px dashed gray;
   outline-offset: -10px;
   margin: 10px 0;
@@ -786,7 +786,7 @@
   width: 95%;
   height: 35px;
   margin: 30px 0 20px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   border-radius: 2px;
   font-size: 15px;
   padding: 0 5px;
@@ -801,7 +801,7 @@
   margin: 0 5px;
   width: 75px;
   height: 30px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   border-radius: 2px;
   cursor: pointer;
   background: white;
@@ -887,7 +887,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   min-width: 100px;
   max-height: 150px;
   overflow: auto;
@@ -896,10 +896,10 @@
 }
 .rdw-suggestion-option {
   padding: 7px 5px;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid #cac9ce;
 }
 .rdw-suggestion-option-active {
-  background-color: #F1F1F1;
+  background-color: #cac9ce;
 }
 .rdw-hashtag-link {
   text-decoration: none;
@@ -916,7 +916,7 @@
   display: flex;
   padding: 5px 2px;
   border-radius: 2px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   width: 105px;
   cursor: pointer;
   z-index: 100;
@@ -970,7 +970,7 @@
 .rdw-editor-toolbar {
   padding: 6px 5px 0;
   border-radius: 2px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #cac9ce;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -996,10 +996,191 @@
 }
 
 
+/*
+
+https://cdn.rawgit.com/jpuri/react-draft-wysiwyg/master/docs/src/components/Demo/styles.css
+
+ */
+
+.demo-root {
+  width: 100%;
+  display: flex;
+  font-family: Roboto;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.demo-label {
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 50px 0 25px;
+}
+.demo-label-high {
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 50px 0 90px;
+}
+.demo-subLabel {
+  margin-bottom: 20px;
+}
+.demo-editorSection {
+  display: flex;
+  justify-content: space-between;
+}
+.demo-wrapper {
+  display: block;
+  margin: 15px;
+  margin-bottom: 25px;
+}
+.demo-wrapper-wide {
+  width: 810px;
+  display: block;
+  margin-bottom: 50px;
+  height: 355px;
+}
+.demo-wrapper-medium {
+  width: 650px;
+  display: block;
+  margin-bottom: 50px;
+  height: 300px;
+}
+.demo-editor {
+  height: 200px;
+  border: 1px solid #cac9ce;
+  padding: 5px;
+  border-radius: 2px;
+  resize: vertical;
+  overflow:auto;
+}
+.demo-editorWrapper {
+}
+.demo-toolbar {
+  width: 100%;
+}
+.demo-content {
+  border: 1px solid #cac9ce;
+  padding: 5px;
+  border-radius: 5px;
+  width: 400px;
+  border-radius: 2px;
+  height: 425px;
+  margin-left: 30px;
+  resize: none;
+  margin-top: 127px;
+  height: 355px;
+}
+.demo-toolbar-absolute {
+  position: absolute;
+  top: -40px;
+  width: 550px;
+  border-radius: 3px;
+  background: #f3f3f3;
+  border: 1px solid #e3e3e3;
+}
+.demo-toolbar-absolute-high {
+  position: absolute;
+  top: -80px;
+  width: 550px;
+  border-radius: 3px;
+  background: #f3f3f3;
+  border: 1px solid #e3e3e3;
+}
+.demo-editor-plain {
+  height: 80%;
+  border-width: 0px;
+}
+.demo-editor-embedded {
+  height: 90%;
+  border-width: 0px;
+}
+.demo-wrapper-relative {
+  width: 715px;
+  display: block;
+  position: relative;
+  margin-bottom: 50px;
+  height: 200px;
+}
+.demo-wrapper-relative-long {
+  width: 715px;
+  display: block;
+  position: relative;
+  margin-bottom: 50px;
+  height: 450px;
+}
+.bordered-option-classname {
+  border: 1px solid #e3e3e3;
+}
+.demo-toolbar-absolute > div:not(:last-of-type) {
+  border-right: 2px solid #e3e3e3;
+  padding-right: 5px;
+}
+.demo-toolbar-absolute > div:not(:first-of-type) {
+  padding-left: 5px;
+}
+.demo-toolbar-custom {
+  width: 100%;
+  border-color: rgb(0,47,126);
+  background-color: #9EBEF5;
+}
+.demo-editor-custom {
+  height: 200px;
+  border: 1px solid #cac9ce;
+  padding: 5px;
+  height: 75%;
+  border-radius: 2px;
+  border-color: rgb(0,47,126);
+}
+.demo-option-custom {
+  width: 15px;
+  height: 15px;
+  border-color: rgb(0,47,126);
+  color: rgb(0,47,126);
+}
+.demo-option-custom-wide {
+  width: 125px;
+  height: 25px;
+  border-color: rgb(0,47,126);
+  color: rgb(0,47,126);
+}
+.demo-option-custom-medium {
+  height: 25px;
+  border-color: rgb(0,47,126);
+  color: rgb(0,47,126);
+}
+.demo-dropdown-custom {
+  border-color: rgb(0,47,126);
+}
+.demo-popup-custom {
+  border-color: rgb(0,47,126);
+  padding: 5px;
+}
+.demo-popup-custom input {
+  border-color: rgb(0,47,126);
+}
+.demo-popup-custom button {
+  border-color: rgb(0,47,126);
+}
 
 
-
-
-
-
+.demo-color-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  position: relative;
+}
+.demo-icon-wrapper {
+  border: 1px solid #cac9ce;
+  padding: 3px 5px;
+}
+.demo-icon {
+  width: 20px;
+}
+.demo-color-modal {
+  position: absolute;
+  right: -70px;
+  top: 135%;
+  z-index: 10;
+}
 

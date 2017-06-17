@@ -89,7 +89,7 @@ export default class DraftWYSIWYG extends React.Component {
         <div className="demo-label">
           Editor with output generated in Markdown.
         </div>
-        <div className="demo-editorSection">
+        <div className="demo-editorSection" >
           <div className="row">
             <Editor
               hashtag={{}}
@@ -104,15 +104,15 @@ export default class DraftWYSIWYG extends React.Component {
                 list: { inDropdown: true },
                 textAlign: { inDropdown: false },
                 link: { inDropdown: true },
-                emoji: {   //see documentation https://github.com/jpuri/react-draft-wysiwyg/blob/master/js/src/config/defaultToolbar.js
-                  icon: "http://www.matchdoctor.com/image/forums/emoticons/20.gif",
-                  className: "",
-                  emojis: [
-                    {code:":)", alt:"Smile", img:"https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png"},
-                    {code:":D", alt:"Smile", img:"https://assets-cdn.github.com/images/icons/emoji/unicode/1f603.png"},
-                  ],
-                  title: 'Emoji',
-                },
+                // emoji: {   //see documentation https://github.com/jpuri/react-draft-wysiwyg/blob/master/js/src/config/defaultToolbar.js
+                //   icon: "http://www.matchdoctor.com/image/forums/emoticons/20.gif",
+                //   className: "",
+                //   emojis: [
+                //     {code:":)", alt:"Smile", img:"https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png"},
+                //     {code:":D", alt:"Smile", img:"https://assets-cdn.github.com/images/icons/emoji/unicode/1f603.png"},
+                //   ],
+                //   title: 'Emoji',
+                // },
               }}
               mention={{
                 separator: ' ',
@@ -133,7 +133,6 @@ export default class DraftWYSIWYG extends React.Component {
                 separator: ' ',
                 trigger: ':',
                 suggestions: [
-
 
                   { text: ')', img:'http://4.bp.blogspot.com/-ZgtYQpXq0Yo/UZEDl_PJLhI/AAAAAAAADnk/2pgkDG-nlGs/s1600/facebook-smiley-face-for-comments.png', url:'xxx'},
                   { text: '-)', img:'http://4.bp.blogspot.com/-ZgtYQpXq0Yo/UZEDl_PJLhI/AAAAAAAADnk/2pgkDG-nlGs/s1600/facebook-smiley-face-for-comments.png'},

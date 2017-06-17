@@ -26,7 +26,7 @@ class LayoutComponent extends Component {
     const { onChange } = this.props;
 
     let object = event.target;
-    onChange(<img src="xxxxx" />,18,18);
+    onChange(object.getAttribute('alt')+' ',18,18); // sending the code there
   };
 
   renderEmojiModal(): Object {
@@ -41,7 +41,7 @@ class LayoutComponent extends Component {
           <img src={emoji.img}
             key={index}
             className="rdw-emoji-icon"
-            alt={emoji.alt}
+            alt={emoji.code}
             onClick={::this.onEmojiClick}
           />))
         }

@@ -57,7 +57,7 @@ export default class Emoji extends Component {
 
     console.log(src, height, width);
 
-     const { editorState, onChange } = this.props;
+    const { editorState, onChange } = this.props;
 
     const contentState = Modifier.replaceText(
       editorState.getCurrentContent(),
@@ -66,13 +66,11 @@ export default class Emoji extends Component {
       editorState.getCurrentInlineStyle(),
     );
 
-
-
     onChange(EditorState.push(editorState, contentState, 'insert-characters'));
 
     // const entityKey = editorState
     //   .getCurrentContent()
-    //   .createEntity('EMOJI', 'MUTABLE', { src, height, width })
+    //   .createEntity('EMOJI_DECORATOR', 'MUTABLE', { src, height, width })
     //   .getLastCreatedEntityKey();
     // const newEditorState = AtomicBlockUtils.insertAtomicBlock(
     //   editorState,

@@ -11,7 +11,10 @@ export default function addEmoji(
   trigger: string,
   suggestion: Object,
 ): void {
+  if (typeof suggestion === "undefined") return ;
+
   const { img, text } = suggestion;
+
   const entityKey = editorState
     .getCurrentContent()
     .createEntity('EMOJI_DECORATOR', 'IMMUTABLE', { text: `${trigger}${img}`, img})
