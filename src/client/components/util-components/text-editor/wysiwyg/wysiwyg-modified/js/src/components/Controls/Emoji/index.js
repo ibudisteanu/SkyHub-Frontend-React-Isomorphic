@@ -59,24 +59,27 @@ export default class Emoji extends Component {
 
      const { editorState, onChange } = this.props;
 
-    // const contentState = Modifier.replaceText(
-    //   editorState.getCurrentContent(),
-    //   editorState.getSelection(),
-    //   '<img src="https://www.logogarden.com/wp-content/uploads/lg-index/Example-Logo-6.jpg" > ',
-    //   editorState.getCurrentInlineStyle(),
-    // );
-    // onChange(EditorState.push(editorState, contentState, 'insert-characters'));
-
-    const entityKey = editorState
-      .getCurrentContent()
-      .createEntity('EMOJI', 'MUTABLE', { src, height, width })
-      .getLastCreatedEntityKey();
-    const newEditorState = AtomicBlockUtils.insertAtomicBlock(
-      editorState,
-      entityKey,
-      ' ',
+    const contentState = Modifier.replaceText(
+      editorState.getCurrentContent(),
+      editorState.getSelection(),
+      `${src}`,
+      editorState.getCurrentInlineStyle(),
     );
-    onChange(newEditorState);
+
+
+
+    onChange(EditorState.push(editorState, contentState, 'insert-characters'));
+
+    // const entityKey = editorState
+    //   .getCurrentContent()
+    //   .createEntity('EMOJI', 'MUTABLE', { src, height, width })
+    //   .getLastCreatedEntityKey();
+    // const newEditorState = AtomicBlockUtils.insertAtomicBlock(
+    //   editorState,
+    //   entityKey,
+    //   ' ',
+    // );
+    // onChange(newEditorState);
 
     this.doCollapse();
   };

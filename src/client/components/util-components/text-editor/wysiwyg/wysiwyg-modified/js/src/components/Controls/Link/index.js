@@ -124,6 +124,7 @@ class Link extends Component {
         focusOffset: entityRange.end,
       });
     }
+
     const entityKey = editorState
       .getCurrentContent()
       .createEntity('LINK', 'MUTABLE', { url: linkTarget, target: linkTargetOption })

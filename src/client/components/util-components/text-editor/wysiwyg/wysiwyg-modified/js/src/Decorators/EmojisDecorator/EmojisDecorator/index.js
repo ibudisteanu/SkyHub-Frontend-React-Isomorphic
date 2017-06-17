@@ -4,13 +4,13 @@ import { Entity } from 'draft-js';
 import classNames from 'classnames';
 import styles from './styles.css'; // eslint-disable-line no-unused-vars
 
-class Mention {
+class EmojiDecorator {
   constructor(className) {
     this.className = className;
   }
-  getMentionComponent = () => {
+  getEmojiDecoratorComponent = () => {
     const className = this.className;
-    return class MentionComponent extends Component {
+    return class EmojiComponent extends Component {
       static PropTypes = {
         entityKey: PropTypes.number,
         children: PropTypes.object,
@@ -18,35 +18,33 @@ class Mention {
       }
       render() {
         const { entityKey, children, contentState } = this.props;
-        const { url, value } = contentState.getEntity(entityKey).getData();
+        const { text, img} = contentState.getEntity(entityKey).getData();
         return (
-          <a href={url || value} className={classNames('rdw-mention-link', className)}>
-            <img src="https://cdn.jsdelivr.net/emojione/assets/png/1f62b.png?v=2.2.7" />
-            {children}
-          </a>
+          <img alt={text} src={img} width="16px" height="16px"/>
+
         );
       }
     };
   };
-  getMentionDecorator = () => {
+  getEmojiDecorator = () => {
     return {
-      strategy: this.findMentionEntities,
-      component: this.getMentionComponent(),
+      strategy: this.findEmojiesEntities,
+      component: this.getEmojiDecoratorComponent(),
     }
   };
 }
 
-Mention.prototype.findMentionEntities = (contentBlock, callback, contentState) => {
+EmojiDecorator.prototype.findEmojiesEntities = (contentBlock, callback, contentState) => {
   contentBlock.findEntityRanges(
     (character) => {
       const entityKey = character.getEntity();
       return (
         entityKey !== null &&
-        contentState.getEntity(entityKey).getType() === 'MENTION'
+        contentState.getEntity(entityKey).getType() === 'EMOJI_DECORATOR'
       );
     },
     callback,
   );
 };
 
-module.exports = Mention;
+module.exports = EmojiDecorator;

@@ -16,7 +16,7 @@ import MyCountrySelect from './../../../../../client/components/util-components/
 
 import FileUploadDropzone from '../../../../../client/components/util-components/file-upload/dropzone/FileUploadDropzone.component';
 
-//import LastDraft from '../../../../components/util-components/text-editor/LastDraft.component';
+//import LastDraft from '../../../../components/util-components/text-editor/last-draft/LastDraft.component';
 import DraftWYSIWYG from '../../../../components/util-components/text-editor/wysiwyg/DraftWYSIWYG.component';
 
 import history from './../../../../../history.js';

@@ -28,6 +28,7 @@ import { hasProperty, filter } from '../../utils/common';
 import Controls from '../Controls';
 import getLinkDecorator from '../../Decorators/Link';
 import getMentionDecorators from '../../decorators/Mention';
+import getEmojiDecorators from '../../decorators/EmojisDecorator';
 import getHashtagDecorator from '../../decorators/HashTag';
 import getBlockRenderFunc from '../../renderer';
 import defaultToolbar from '../../config/defaultToolbar';
@@ -65,7 +66,10 @@ export default class WysiwygEditor extends Component {
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
     onTab: PropTypes.func,
+
     mention: PropTypes.object,
+    emojiDecorator: PropTypes.object,
+
     hashtag: PropTypes.object,
     textAlignment: PropTypes.string,
     readOnly: PropTypes.bool,
@@ -261,6 +265,19 @@ export default class WysiwygEditor extends Component {
         modalHandler: this.modalHandler,
       }));
     }
+
+    if (this.props.emojies) {
+      decorators.push(...getEmojiDecorators({
+        ...this.props.emojies,
+        onChange: this.onChange,
+        getEditorState: this.getEditorState,
+        getSuggestions: this.getEmojisSuggestions,
+        getWrapperRef: this.getWrapperRef,
+        modalHandler: this.modalHandler,
+      }));
+    }
+
+
     if (this.props.hashtag) {
       decorators.push(getHashtagDecorator(this.props.hashtag));
     }
@@ -272,6 +289,8 @@ export default class WysiwygEditor extends Component {
   getEditorState = () => this.state.editorState;
 
   getSuggestions = () => this.props.mention && this.props.mention.suggestions;
+
+  getEmojisSuggestions = () => this.props.emojies && this.props.emojies.suggestions;
 
   isReadOnly = () => this.props.readOnly;
 
@@ -317,7 +336,7 @@ export default class WysiwygEditor extends Component {
       'defaultContentState', 'contentState', 'editorState', 'defaultEditorState', 'locale',
       'localization', 'toolbarOnFocus', 'toolbar', 'toolbarCustomButtons', 'toolbarClassName',
       'editorClassName', 'toolbarHidden', 'wrapperClassName', 'toolbarStyle', 'editorStyle',
-      'wrapperStyle', 'uploadCallback', 'onFocus', 'onBlur', 'onTab', 'mention', 'hashtag',
+      'wrapperStyle', 'uploadCallback', 'onFocus', 'onBlur', 'onTab', 'mention', 'emojies', 'hashtag',
       'ariaLabel', 'customBlockRenderFunc', 'customDecorators',
     ]);
   }

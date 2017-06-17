@@ -26,7 +26,7 @@ class LayoutComponent extends Component {
     const { onChange } = this.props;
 
     let object = event.target;
-    onChange(object.getAttribute('src'),18,18);
+    onChange(<img src="xxxxx" />,18,18);
   };
 
   renderEmojiModal(): Object {

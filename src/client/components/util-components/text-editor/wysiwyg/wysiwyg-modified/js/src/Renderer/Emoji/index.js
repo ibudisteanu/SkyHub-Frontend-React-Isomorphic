@@ -47,7 +47,7 @@ const getEmojiComponent = (config) => class EmojiImage extends Component {
       </div>
     );
   }
-las
+
   render(): Object {
     const { block, contentState } = this.props;
     const { hovered } = this.state;
