@@ -198,6 +198,9 @@ div.filepicker {
   border-style: solid;
   border-color: white transparent transparent #920035;
 }
+.dz-default.dz-message{
+  margin: 1em 0 !important;
+}
 
 .dz-success-mark{
   width: 44%;
@@ -219,6 +222,10 @@ div.filepicker {
 
 .dz-error-message{
   margin-top:20px;
+}
+
+.dz-remove{
+  background-color: beige;
 }
 
 /*

@@ -16,7 +16,7 @@ class ForumsServiceClass {
     this.dispatch = dispatch;
   }
 
-  topicAddAsync(sParentId, sName, sTitle, sDescription,  arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude, iTimeZone) {
+  async topicAdd(sParentId, sName, sTitle, sDescription,  arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude, iTimeZone) {
 
 
     try {
@@ -26,10 +26,6 @@ class ForumsServiceClass {
                                                         country: sCountryCode, language:sLanguage, city : sCity, latitude: latitude, longitude : longitude,  timeZone: iTimeZone});
 
       console.log('Answer from TOPIC ', resData);
-
-      // if(resData.result === true) {
-      //     this.loginProvidingUser(resData.user, resData.token);
-      // }
 
       return resData;
 
@@ -50,5 +46,5 @@ class ForumsServiceClass {
 
 }
 
-var ForumsService = new ForumsServiceClass();
-export default ForumsService;
+var TopicsService = new TopicsServiceClass();
+export default TopicsService;

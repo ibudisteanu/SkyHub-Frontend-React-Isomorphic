@@ -59,7 +59,7 @@ class AddTopicForm extends React.Component {
 
   }
 
-  async handleAddForum(e){
+  async handleAddTopic(e){
 
     if (typeof e !== "undefined") {
       e.preventDefault();
@@ -223,7 +223,7 @@ class AddTopicForm extends React.Component {
   }
 
   authenticationSuccessfully(resource){
-    this.handleAddForum();
+    this.handleAddTopic();
   }
 
   convertValidationErrorToString(error) {
@@ -256,7 +256,7 @@ class AddTopicForm extends React.Component {
 
           <div className="panel-body">
 
-            <form onSubmit={::this.handleAddForum} autoComplete="on">
+            <form onSubmit={::this.handleAddTopic} autoComplete="on">
 
 
               <div style={{paddingBottom: 20}}>
@@ -368,7 +368,7 @@ class AddTopicForm extends React.Component {
 
           <div className="panel-footer text-right" style={{paddingTop:20, paddingBottom:20, paddingRight:20}}>
 
-            <LoadingButton className="btn-success" onClick={::this.handleAddForum} text="Create Topic" icon="fa fa-plus"  ref={(c) => this.refSubmitButton = c}  />
+            <LoadingButton className="btn-success" onClick={::this.handleAddTopic} text="Create Topic" icon="fa fa-plus"  ref={(c) => this.refSubmitButton = c}  />
 
           </div>
 
