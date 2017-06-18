@@ -29,6 +29,8 @@ class PreviewNewTopic extends React.Component {
       attachments: this.props.attachments||[],
       keywords: this.props.keywords||[],
       authorId: this.props.authodId||'',
+
+      preview: true,
     });
 
     return (

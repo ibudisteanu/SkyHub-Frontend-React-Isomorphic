@@ -1,4 +1,17 @@
+.link-not-active {
+  pointer-events: none;
+  cursor: default;
+}
 
+.word-wrap{
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
 
 
 /* Small Devices, Tablets */
@@ -452,6 +465,7 @@ div.filepicker {
 .table-forums-topic-title{
   font-weight: 700;
   font-size: 18px;
+  word-wrap: break-word;
 }
 .table-forums-topic-body{
   white-space: pre-wrap;

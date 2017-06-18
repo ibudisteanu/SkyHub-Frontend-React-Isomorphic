@@ -14,7 +14,6 @@ export default class Topic {
     attachments: [];
     keywords;
 
-
     preferredLang;
 
     longitude;
@@ -26,6 +25,8 @@ export default class Topic {
     dtCreation;
     dtLastActivity;
 
+
+    preview:false;
 
     constructor( data: Object = {}) {
 
@@ -47,6 +48,8 @@ export default class Topic {
 
         this.longitude = data.longitude || -666;
         this.latitude = data.latitude || -666;
+
+        this.preview = data.preview||false;
 
         console.log('Forum Assigned');
     }
