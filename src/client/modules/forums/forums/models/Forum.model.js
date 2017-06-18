@@ -12,6 +12,7 @@ export default class Forum {
     URL;
     description;
     authorId;
+    keywords;
 
     iconPic;
     coverPic;
@@ -39,6 +40,8 @@ export default class Forum {
         this.description = data.description || '';
 
         this.URL = data.URL || '';
+
+        this.keywords = data.keywords || '';
 
         this.iconPic = data.iconPic || '';
         this.coverPic  = data.coverPic || '';

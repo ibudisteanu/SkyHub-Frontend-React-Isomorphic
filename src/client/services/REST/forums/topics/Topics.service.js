@@ -5,7 +5,7 @@
 
 import SocketService from '../../../../services/Communication/socket/Socket.service';
 
-class ForumsServiceClass {
+class TopicsServiceClass {
 
   dispatch = null;
 

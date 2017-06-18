@@ -11,9 +11,9 @@ export default class Topic {
     description;
     authorId;
 
-    iconPic;
-    coverPic;
-    coverColor;
+    attachments: [];
+    keywords;
+
 
     preferredLang;
 
@@ -35,9 +35,8 @@ export default class Topic {
 
         this.URL = data.URL || '';
 
-        this.iconPic = data.iconPic || '';
-        this.coverPic  = data.coverPic || '';
-        this.coverColor = data.coverColor || '';
+        this.keywords = data.keywords || '';
+        this.attachments = data.attachments || [];
 
         this.preferredLang = data.preferredLang || data.language || null;
 

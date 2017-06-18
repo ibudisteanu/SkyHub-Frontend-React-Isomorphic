@@ -1,3 +1,6 @@
+
+
+
 /* Small Devices, Tablets */
 @media (max-width: 991px) {
   .container{
@@ -231,3 +234,235 @@ div.filepicker {
 /*
 
  */
+
+
+
+/* TOPIC
+/*
+ * Component: Topic question
+ * -------------------
+ */
+
+.avatar-reply-image {
+  max-width: 45px;
+  max-height: 45px;
+  font-size: 25px;
+  border-radius: 50%;
+  /*position: absolute;
+  left: 0;
+  top: 0;*/
+}
+.avatar-reply-circle {
+  max-width: 14px;
+  max-height: 14px;
+  text-align: center;
+
+  position: absolute;
+  left: 5px;
+  top: 40px;
+}
+
+.topic-question {
+  /*-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  */
+  border-radius: 10px;
+  border: 1px solid #b7b5b5;
+  margin-top: 0;
+  background: #fff;
+  color: #444;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0;
+  position: relative;
+}
+.topic-question > h1{
+  font-size: 20px;
+  margin: 15px 15px 0;
+}
+.topic-question > .information {
+  color: #999;
+  float: right;
+  padding: 10px;
+  font-size: 12px;
+}
+.topic-question  > .topic-question-header {
+  margin: 10px 10px 0;
+  color: #444;
+  font-size: 16px;
+  padding: 10px 10px 0 0;
+  /*
+  border-bottom: 1px solid #f4f4f4;
+  line-height: 1.1;*/
+}
+.topic-question  > .topic-question-header > a {
+  color: #3e1d8c;
+  font-weight: 600;
+}
+.topic-question  > .topic-question-sub-header {
+  margin: 0;
+  color: #444;
+  padding: 5px 10px 0;
+  line-height: 1.1;
+  font-size: 12px;
+}
+.topic-question  > .topic-question-body{
+  padding: 10px 10px 0;
+  color: black;
+}
+.topic-question  > .topic-question-footer,
+.topic-question-footer{
+  overflow: hidden;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  margin-right:0;
+  color:black;
+}
+.topic-question  > .topic-question-footer > .topic-question-SubReplies{
+  padding-top: 10px;
+  padding-left: 0px;
+  overflow: hidden;
+  margin-left: -9px;
+}
+.topic-question > .fa,
+.topic-question > .glyphicon,
+.topic-question > .ion {
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+  position: absolute;
+  line-height: 38px;
+  position: absolute;
+  color: #666;
+  background: #d2d6de;
+  border-radius: 50%;
+  text-align: center;
+  left: 1px;
+  top: 0;
+}
+
+.avatar-topic-question-image {
+  max-width: 45px;
+  max-height: 45px;
+  position: absolute;
+  background: #d2d6de;
+  border-radius: 50%;
+  left: -6px;
+  top: -5px;
+}
+.avatar-topic-question-circle {
+  max-width: 14px;
+  max-height: 14px;
+  position: absolute;
+  text-align: center;
+  left: 27px;
+  top: 26px;
+}
+
+.topic-question > .topic-question-item {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.formHeadLine{
+  border-bottom: 1px solid #f4f4f4;
+  margin: 5px 0 5px 0;
+}
+
+
+/* FORUM TABLE
+============================================================*/
+
+.table > .table > .forum-posts-table > .table-hover tr:hover
+{
+  background-color: #ffff99;
+}
+
+.table-forums{
+  width:100%;
+  margin-bottom:15px;
+  background-color: white;
+}
+
+.table-forums > tbody > tr > th,
+.table-forums > tbody > tr > td{
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+
+.table-forums > tbody > tr > th:nth-child(1)
+{
+  text-align: left;
+  padding-left: 5px
+}
+
+.table-forums > tbody > tr > th:nth-child(2),
+.table-forums > tbody > tr > th:nth-child(3)
+{
+  width: 25px
+}
+
+.table-forums > tbody > tr > th > h3 > img{
+  max-height:80px;
+  padding-right:10px
+}
+
+.table-forums > tbody > tr > td{
+  text-align: left;
+  padding-left: 5px;
+  padding-bottom: 0;
+}
+
+.table-forums > tbody > tr > th > h3,
+.table-forums > tbody > tr > td > h3
+{
+  margin:0;
+  font-weight: bold;
+}
+
+@media (min-width: 1199px) {
+  .table-forums > tbody > tr > th > h3,
+  .table-forums > tbody > tr > td > h3{
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .table-forums >tbody > tr > th > h3,
+  .table-forums >tbody > tr > td > h3{
+    font-size: 21px;
+  }
+}
+@media (max-width: 991px) {
+  .table-forums >tbody > tr > th > h3,
+  .table-forums >tbody > tr > td > h3{
+    font-size: 17px;
+  }
+}
+
+.table-forums-topic-image{
+  float: left;
+  margin: 0 15px 15px 0;
+  width: 25%;
+}
+.table-forums-topic-title{
+  font-weight: 700;
+  font-size: 18px;
+}
+.table-forums-topic-body{
+  white-space: pre-wrap;
+}
+
+.table-forums-icon {
+  font-size:24px !important;
+}
+
+@media (max-width: 991px) {
+  .table-forums-icon {
+    font-size:18px !important;
+  }
+}

@@ -19,6 +19,10 @@ import FileUploadDropzone from '../../../../../client/components/util-components
 
 //import LastDraft from '../../../../components/util-components/text-editor/last-draft/LastDraft.component';
 import DraftWYSIWYG from '../../../../components/util-components/text-editor/wysiwyg/DraftWYSIWYG.component';
+import PreviewNewTopic from './PreviewNewTopic.component';
+import PreviewAllTopics from './../view-topic/PreviewAllTopics.component';
+
+
 
 import history from './../../../../../history.js';
 
@@ -38,6 +42,8 @@ class AddTopicForm extends React.Component {
       link : '',
       description : '',
       keywords : [],
+
+      attachments: [],
 
       countryCode : '', country : '',
       city : '',
@@ -291,14 +297,15 @@ class AddTopicForm extends React.Component {
 
 
               <strong>Description</strong>
-              <div className={"input-group " + this.showInputStatus(this.state.descriptionValidationStatus)}  >
-                <span className="input-group-addon"><i className="fa fa-edit"></i></span>
+
 
                 <DraftWYSIWYG onChange={::this.handleDescriptionChange} />
 
                 <span className={::this.showInputFeedback(this.state.descriptionValidationStatus)}></span>
-              </div>
+
               <label className="error" >{this.state.descriptionValidationStatus[1]}</label> <br />
+
+
 
               <strong>Forum</strong>
               <div className={"input-group " + this.showInputStatus(this.state.parentValidationStatus)}  >
@@ -310,6 +317,12 @@ class AddTopicForm extends React.Component {
                 <span className={::this.showInputFeedback(this.state.parentValidationStatus)}></span>
               </div>
               <label className="error" >{this.state.parentValidationStatus[1]}</label> <br />
+
+              <strong>Preview</strong>
+
+              <PreviewNewTopic title={this.state.title} description={this.state.description} attachments={[]} keywords={this.state.keywords} authorId={this.props.userAuthenticated.user.id||''} />
+
+              {/* <PreviewAllTopics hideHeader={true} topics={ [this.state.topic]} /> */}
 
               {/*
               <div className={"input-group " + this.showInputStatus(this.state.keywordsValidationStatus)}  >
