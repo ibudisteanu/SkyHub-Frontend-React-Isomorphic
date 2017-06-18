@@ -71,7 +71,6 @@ export default class DraftWYSIWYG extends React.Component {
     return (
 
         <div className="demo-editorSection" >
-          <div className="row">
             <Editor
               hashtag={{}}
               editorState={this.state.editorContents[2]}
@@ -1039,7 +1038,7 @@ export default class DraftWYSIWYG extends React.Component {
               value={editorContents[2] && draftToMarkdown(convertToRaw(editorContents[2].getCurrentContent()))}
             />
             */}
-          </div>
+
         </div>
 
 
