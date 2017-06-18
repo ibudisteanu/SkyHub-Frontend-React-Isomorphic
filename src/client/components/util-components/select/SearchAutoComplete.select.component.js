@@ -88,9 +88,7 @@ class SearchAutoComplete extends React.Component {
     });
   }
 
-  render () {
-
-    console.log("###################################SEARCH AUTO COMPLETE ",this);
+  render () {``
 
     const AsyncSelectComponent = this.state.creatable
       ? Select.AsyncCreatable

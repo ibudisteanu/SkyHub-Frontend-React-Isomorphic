@@ -16,26 +16,27 @@ class ForumsServiceClass {
       this.dispatch = dispatch;
     }
 
-    async forumAddAsync(sParentId, sName, sTitle, sDescription,  arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude, iTimeZone) {
+    async forumAdd(sParentId, sName, sTitle, sDescription,  arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude, iTimeZone) {
 
-        return new Promise( (resolve)=> {
+      try{
+         let resData = await SocketService.sendRequestGetDataPromise("forums/add-forum",{parent : sParentId, name:sName, title: sTitle, description: sDescription, keywords : arrKeywords,
+                                                                 country: sCountryCode, language:sLanguage, city : sCity, latitude: latitude, longitude : longitude,  timeZone: iTimeZone});
 
-            //Using Promise
-            SocketService.sendRequestGetDataPromise("forums/add-forum",{parent : sParentId, name:sName, title: sTitle, description: sDescription, keywords : arrKeywords,
-                country: sCountryCode, language:sLanguage, city : sCity, latitude: latitude, longitude : longitude,  timeZone: iTimeZone})
 
-                .then( (resData ) => {
+          console.log('Answer from FORUM ', resData);
 
-                    console.log('Answer from FORUM ', resData);
+          // if(resData.result === true) {
+          //     this.loginProvidingUser(resData.user, resData.token);
+          // }
 
-                    // if(resData.result === true) {
-                    //     this.loginProvidingUser(resData.user, resData.token);
-                    // }
+          return resData;
 
-                    resolve(resData);
-                });
-
-        });
+      }
+      catch(Exception)
+      {
+        console.log("Exception adding a new forum", Exception);
+        throw Exception;
+      }
 
     }
 

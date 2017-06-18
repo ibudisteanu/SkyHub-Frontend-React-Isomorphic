@@ -204,7 +204,6 @@ class OauthSocialNetworkComponent extends React.Component {
                         (
                           <div>
                             <div className="alert alert-danger alert-dismissable">
-                              <button aria-hidden="true" data-dismiss="alert" className="close" type="button">×</button>
                               {this.state.error}
                             </div>
                           </div>

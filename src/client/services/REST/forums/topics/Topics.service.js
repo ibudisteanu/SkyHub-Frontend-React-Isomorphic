@@ -18,24 +18,26 @@ class ForumsServiceClass {
 
   topicAddAsync(sParentId, sName, sTitle, sDescription,  arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude, iTimeZone) {
 
-    return new Promise( (resolve)=> {
+
+    try {
 
       //Using Promise
-      SocketService.sendRequestGetDataPromise("topics/add-topic",{parent : sParentId, name:sName, title: sTitle, description: sDescription, keywords : arrKeywords,
-        country: sCountryCode, language:sLanguage, city : sCity, latitude: latitude, longitude : longitude,  timeZone: iTimeZone})
+      let resData  = await SocketService.sendRequestGetDataPromise("topics/add-topic",{parent : sParentId, name:sName, title: sTitle, description: sDescription, keywords : arrKeywords,
+                                                        country: sCountryCode, language:sLanguage, city : sCity, latitude: latitude, longitude : longitude,  timeZone: iTimeZone});
 
-        .then( (resData ) => {
+      console.log('Answer from TOPIC ', resData);
 
-          console.log('Answer from FORUM ', resData);
+      // if(resData.result === true) {
+      //     this.loginProvidingUser(resData.user, resData.token);
+      // }
 
-          // if(resData.result === true) {
-          //     this.loginProvidingUser(resData.user, resData.token);
-          // }
+      return resData;
 
-          resolve(resData);
-        });
-
-    });
+    }
+    catch (Exception){
+      console.log("Exception adding a new topic",Exception);
+      throw Exception;
+    }
 
   }
 

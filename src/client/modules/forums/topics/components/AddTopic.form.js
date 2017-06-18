@@ -7,12 +7,13 @@ import React from 'react';
 import {connect} from "react-redux";
 
 
-import ForumsService from './../../../../services/REST/forums/forums/Forums.service';
+import TopicsService from './../../../../services/REST/forums/topics/Topics.service';
 import ContentService from './../../../../services/REST/forums/content/Content.service';
 
 import AutoCompleteSelect from '../../../../components/util-components/select/AutoComplete.select.component';
 import SearchAutoComplete from '../../../../components/util-components/select/SearchAutoComplete.select.component';
 import MyCountrySelect from './../../../../../client/components/util-components/select/MyCountry.select.component';
+import LoadingButton from '../../../../components/util-components/buttons/LoadingButton.component';
 
 import FileUploadDropzone from '../../../../../client/components/util-components/file-upload/dropzone/FileUploadDropzone.component';
 
@@ -23,10 +24,14 @@ import history from './../../../../../history.js';
 
 class AddTopicForm extends React.Component {
 
+  refSubmitButton = null;
+
   constructor(props){
     super(props);
 
     this.state = {
+
+      error: '',
 
       urlSlug:'',
       title : '',
@@ -54,7 +59,7 @@ class AddTopicForm extends React.Component {
 
   }
 
-  handleAddForum(e){
+  async handleAddForum(e){
 
     if (typeof e !== "undefined") {
       e.preventDefault();
@@ -68,6 +73,7 @@ class AddTopicForm extends React.Component {
 
     let bValidationError=false;
     this.setState({
+      error:'',
       titleValidationStatus: titleValidationStatus,
       linkValidationStatus: linkValidationStatus,
       descriptionValidationStatus: descriptionValidationStatus,
@@ -78,47 +84,54 @@ class AddTopicForm extends React.Component {
 
     console.log('ADDing forum... ');
 
-    if (!bValidationError)
-      ForumsService.forumAddAsync(this.state.parentId||this.props.parentId, this.state.title, this.state.link, this.state.description, this.state.keywords,
-                                  this.state.countryCode||this.props.localization.countryCode, '',
-                                  this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.state.latitude, this.state.timeZone)
+    if (!bValidationError) {
+      try{
+          let answer = await TopicsService.topicAdd(this.state.parentId||this.props.parentId, this.state.title, this.state.link, this.state.description, this.state.keywords,
+                                                    this.state.countryCode||this.props.localization.countryCode, '',
+                                                    this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.state.latitude, this.state.timeZone)
 
-        .then((answer) => {
+          this.refSubmitButton.enableButton();
 
           console.log("ANSWER FROM adding forum",answer);
 
           if (answer.result === true) {
             onSuccess(answer);
 
-            history.push(answer.forum.URL);// redirecting to the forum URL ;)
+              history.push(answer.forum.URL);// redirecting to the forum URL ;)
           }
-          else if (answer.result === false) {
+          else
+          if (answer.result === false) {
 
-            if ((typeof answer.errors.title !== "undefined") && (Object.keys(answer.errors.title).length !== 0 )) titleValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.title[0])];
-            if ((typeof answer.errors.link !== "undefined") && (Object.keys(answer.errors.link).length !== 0 )) linkValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.link[0])];
-            if ((typeof answer.errors.description !== "undefined") && (Object.keys(answer.errors.description).length !== 0)) descriptionValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.description[0])];
-            if ((typeof answer.errors.keywords !== "undefined") && (Object.keys(answer.errors.keywords).length !== 0)) keywordsValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.keywords[0])];
-            if ((typeof answer.errors.country !== "undefined") && (Object.keys(answer.errors.country).length !== 0)) countryValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.country[0])];
-            if ((typeof answer.errors.city !== "undefined") && (Object.keys(answer.errors.city).length !== 0)) cityValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.city[0])];
+              if ((typeof answer.errors.title !== "undefined") && (Object.keys(answer.errors.title).length !== 0 )) titleValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.title[0])];
+              if ((typeof answer.errors.link !== "undefined") && (Object.keys(answer.errors.link).length !== 0 )) linkValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.link[0])];
+              if ((typeof answer.errors.description !== "undefined") && (Object.keys(answer.errors.description).length !== 0)) descriptionValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.description[0])];
+              if ((typeof answer.errors.keywords !== "undefined") && (Object.keys(answer.errors.keywords).length !== 0)) keywordsValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.keywords[0])];
+              if ((typeof answer.errors.country !== "undefined") && (Object.keys(answer.errors.country).length !== 0)) countryValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.country[0])];
+              if ((typeof answer.errors.city !== "undefined") && (Object.keys(answer.errors.city).length !== 0)) cityValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.city[0])];
 
-            //in case there are no other errors, except the fact that I am not logged In
-            if ((typeof answer.errors.authorId !== "undefined") && (Object.keys(answer.errors.authorId).length !== 0))
+
+              //in case there are no other errors, except the fact that I am not logged In
+              if ((typeof answer.errors.authorId !== "undefined") && (Object.keys(answer.errors.authorId).length !== 0))
               if ((titleValidationStatus[0] === null)&&(descriptionValidationStatus[0] === null)&&(keywordsValidationStatus[0] === null)&&(countryValidationStatus[0] === null)&&(cityValidationStatus[0] === null))
                 this.openLogin();
 
-            this.setState({
-              titleValidationStatus: titleValidationStatus,
-              linkValidationStatus: linkValidationStatus,
-              descriptionValidationStatus: descriptionValidationStatus,
-              keywordsValidationStatus: keywordsValidationStatus,
-              countryValidationStatus: countryValidationStatus,
-              cityValidationStatus: cityValidationStatus,
-            });
+              this.setState({
+                titleValidationStatus: titleValidationStatus,
+                linkValidationStatus: linkValidationStatus,
+                descriptionValidationStatus: descriptionValidationStatus,
+                keywordsValidationStatus: keywordsValidationStatus,
+                countryValidationStatus: countryValidationStatus,
+                cityValidationStatus: cityValidationStatus,
+              });
 
-            onError(answer);
+              onError(answer);
           }
-
-        });
+      }
+      catch(Exception){
+        this.refSubmitButton.enableButton();
+        this.setState({error: "There was a internal problem publishing your Topic... Try again"});
+      }
+    }
 
   }
 
@@ -261,15 +274,15 @@ class AddTopicForm extends React.Component {
 
               <div style={{paddingBottom: 20}}>
                 <strong>Link:</strong>
-                <div className={"input-group " + this.showInputStatus(this.state.titleValidationStatus)}  >
+                <div className={"input-group " + this.showInputStatus(this.state.linkValidationStatus)}  >
 
                   <span className="input-group-addon"><i className="fa fa-pencil"></i></span>
 
-                  <input  type='text' className='form-control input' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleLinkChange} />
+                  <input  type='text' className='form-control input' placeholder='title'  name="title" value={this.state.link} onChange={::this.handleLinkChange} />
 
-                  <span className={::this.showInputFeedback(this.state.titleValidationStatus)} style={{width:60, top:10}}></span>
+                  <span className={::this.showInputFeedback(this.state.linkValidationStatus)} style={{width:60, top:10}}></span>
                 </div>
-                <label className="error" >{this.state.titleValidationStatus[1]}</label> <br />
+                <label className="error" >{this.state.linkValidationStatus[1]}</label> <br />
 
                 <FileUploadDropzone />
 
@@ -339,13 +352,23 @@ class AddTopicForm extends React.Component {
 
                */}
 
+              {this.state.error === '' ? '' :
+                (
+                  <div>
+                    <div className="alert alert-danger alert-dismissable">
+                      {this.state.error}
+                    </div>
+                  </div>
+                )
+              }
+
             </form>
 
           </div>
 
           <div className="panel-footer text-right" style={{paddingTop:20, paddingBottom:20, paddingRight:20}}>
 
-            <button className="btn btn-success" type='button' onClick={::this.handleAddForum}> <i className="fa fa-plus" /> Create Forum</button>
+            <LoadingButton className="btn-success" onClick={::this.handleAddForum} text="Create Topic" icon="fa fa-plus"  ref={(c) => this.refSubmitButton = c}  />
 
           </div>
 

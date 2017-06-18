@@ -14,11 +14,15 @@ import AutoCompleteSelect from '../../../../components/util-components/select/Au
 import SearchAutoComplete from '../../../../components/util-components/select/SearchAutoComplete.select.component';
 import MyCountrySelect from './../../../../../client/components/util-components/select/MyCountry.select.component';
 
+import LoadingButton from '../../../../components/util-components/buttons/LoadingButton.component';
+
 import history from './../../../../../history.js';
 
 import Select from 'react-select';
 
 class AddForumForm extends React.Component {
+
+    refSubmitButton = null;
 
     constructor(props){
         super(props);
@@ -29,6 +33,8 @@ class AddForumForm extends React.Component {
             title : '',
             description : '',
             keywords : [],
+
+            error: '',
 
             countryCode : '', country : '',
             city : '',
@@ -50,7 +56,7 @@ class AddForumForm extends React.Component {
 
     }
 
-    handleAddForum(e){
+    async handleAddForum(e){
 
         if (typeof e !== "undefined") {
             e.preventDefault();
@@ -64,6 +70,7 @@ class AddForumForm extends React.Component {
 
         let bValidationError=false;
         this.setState({
+            error: '',
             nameValidationStatus: nameValidationStatus,
             titleValidationStatus: titleValidationStatus,
             descriptionValidationStatus: descriptionValidationStatus,
@@ -75,46 +82,50 @@ class AddForumForm extends React.Component {
         console.log('ADDing forum... ');
 
         if (!bValidationError)
-            ForumsService.forumAddAsync(this.state.parentId||this.props.parentId, this.state.name, this.state.title, this.state.description, this.state.keywords,
-                                        this.state.countryCode||this.props.localization.countryCode, '',
-                                        this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.state.latitude, this.state.timeZone)
+          try{
+              let answer = await ForumsService.forumAdd(this.state.parentId || this.props.parentId, this.state.name, this.state.title, this.state.description, this.state.keywords,
+                                                             this.state.countryCode || this.props.localization.countryCode, '',
+                                                             this.state.city || this.props.localization.city, this.state.latitude || this.props.localization.latitude, this.state.longitude || this.state.latitude, this.state.timeZone)
 
-                .then((answer) => {
+                  this.refSubmitButton.enableButton();
 
-                    console.log("ANSWER FROM adding forum",answer);
+                  console.log("ANSWER FROM adding forum", answer);
 
-                    if (answer.result === true) {
-                        onSuccess(answer);
+                  if (answer.result === true) {
+                    onSuccess(answer);
 
-                        history.push(answer.forum.URL);// redirecting to the forum URL ;)
-                    }
-                    else if (answer.result === false) {
+                    history.push(answer.forum.URL);// redirecting to the forum URL ;)
+                  }
+                  else if (answer.result === false) {
 
-                        if ((typeof answer.errors.name !== "undefined") && (Object.keys(answer.errors.name).length !== 0 )) nameValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.name[0])];
-                        if ((typeof answer.errors.title !== "undefined") && (Object.keys(answer.errors.title).length !== 0 )) titleValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.title[0])];
-                        if ((typeof answer.errors.description !== "undefined") && (Object.keys(answer.errors.description).length !== 0)) descriptionValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.description[0])];
-                        if ((typeof answer.errors.keywords !== "undefined") && (Object.keys(answer.errors.keywords).length !== 0)) keywordsValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.keywords[0])];
-                        if ((typeof answer.errors.country !== "undefined") && (Object.keys(answer.errors.country).length !== 0)) countryValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.country[0])];
-                        if ((typeof answer.errors.city !== "undefined") && (Object.keys(answer.errors.city).length !== 0)) cityValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.city[0])];
+                    if ((typeof answer.errors.name !== "undefined") && (Object.keys(answer.errors.name).length !== 0 )) nameValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.name[0])];
+                    if ((typeof answer.errors.title !== "undefined") && (Object.keys(answer.errors.title).length !== 0 )) titleValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.title[0])];
+                    if ((typeof answer.errors.description !== "undefined") && (Object.keys(answer.errors.description).length !== 0)) descriptionValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.description[0])];
+                    if ((typeof answer.errors.keywords !== "undefined") && (Object.keys(answer.errors.keywords).length !== 0)) keywordsValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.keywords[0])];
+                    if ((typeof answer.errors.country !== "undefined") && (Object.keys(answer.errors.country).length !== 0)) countryValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.country[0])];
+                    if ((typeof answer.errors.city !== "undefined") && (Object.keys(answer.errors.city).length !== 0)) cityValidationStatus = ["error", this.convertValidationErrorToString(answer.errors.city[0])];
 
-                        //in case there are no other errors, except the fact that I am not logged In
-                        if ((typeof answer.errors.authorId !== "undefined") && (Object.keys(answer.errors.authorId).length !== 0))
-                            if ((titleValidationStatus[0] === null)&&(descriptionValidationStatus[0] === null)&&(keywordsValidationStatus[0] === null)&&(countryValidationStatus[0] === null)&&(cityValidationStatus[0] === null))
-                                this.openLogin();
+                    //in case there are no other errors, except the fact that I am not logged In
+                    if ((typeof answer.errors.authorId !== "undefined") && (Object.keys(answer.errors.authorId).length !== 0))
+                      if ((titleValidationStatus[0] === null) && (descriptionValidationStatus[0] === null) && (keywordsValidationStatus[0] === null) && (countryValidationStatus[0] === null) && (cityValidationStatus[0] === null))
+                        this.openLogin();
 
-                        this.setState({
-                            nameValidationStatus: nameValidationStatus,
-                            titleValidationStatus: titleValidationStatus,
-                            descriptionValidationStatus: descriptionValidationStatus,
-                            keywordsValidationStatus: keywordsValidationStatus,
-                            countryValidationStatus: countryValidationStatus,
-                            cityValidationStatus: cityValidationStatus,
-                        });
+                    this.setState({
+                      nameValidationStatus: nameValidationStatus,
+                      titleValidationStatus: titleValidationStatus,
+                      descriptionValidationStatus: descriptionValidationStatus,
+                      keywordsValidationStatus: keywordsValidationStatus,
+                      countryValidationStatus: countryValidationStatus,
+                      cityValidationStatus: cityValidationStatus,
+                    });
 
-                        onError(answer);
-                    }
-
-                });
+                    onError(answer);
+                  }
+          }
+          catch(Exception){
+            this.refSubmitButton.enableButton();
+            this.setState({error: "There was a internal problem publishing your forum... Try again"});
+          }
 
     }
 
@@ -337,6 +348,16 @@ class AddForumForm extends React.Component {
                     </div>
 
 
+                    {this.state.error === '' ? '' :
+                      (
+                        <div>
+                          <div className="alert alert-danger alert-dismissable">
+                            {this.state.error}
+                          </div>
+                        </div>
+                      )
+                    }
+
 
                   </form>
 
@@ -344,7 +365,7 @@ class AddForumForm extends React.Component {
 
                 <div className="panel-footer text-right" style={{paddingTop:20, paddingBottom:20, paddingRight:20}}>
 
-                    <button className="btn btn-success" type='button' onClick={::this.handleAddForum}> <i className="fa fa-plus" /> Create Forum</button>
+                  <LoadingButton className="btn-success" onClick={::this.handleAddForum} icon="fa fa-plus" text="Create Forum"  ref={(c) => this.refSubmitButton = c}  />
 
                 </div>
 
