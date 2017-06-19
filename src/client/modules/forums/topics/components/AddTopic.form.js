@@ -20,8 +20,6 @@ import FileUploadDropzone from '../../../../../client/components/util-components
 //import LastDraft from '../../../../components/util-components/text-editor/last-draft/LastDraft.component';
 import DraftWYSIWYG from '../../../../components/util-components/text-editor/wysiwyg/DraftWYSIWYG.component';
 import PreviewNewTopic from './PreviewNewTopic.component';
-import PreviewAllTopics from './../view-topic/PreviewAllTopics.component';
-
 
 
 import history from './../../../../../history.js';
@@ -92,7 +90,7 @@ class AddTopicForm extends React.Component {
 
     if (!bValidationError) {
       try{
-          let answer = await TopicsService.topicAdd(this.state.parentId||this.props.parentId, this.state.title, this.state.link, this.state.description, this.state.keywords,
+          let answer = await TopicsService.topicAdd(this.state.parentId||this.props.parentId, ::this.getTitle(), this.state.link, ::this.getDescription(), ::this.getKeywords(),
                                                     this.state.countryCode||this.props.localization.countryCode, '',
                                                     this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.state.latitude, this.state.timeZone)
 
@@ -148,23 +146,6 @@ class AddTopicForm extends React.Component {
       titleValidationStatus  : [null, '']
     });
 
-    /* // getting URL slug
-    value = (((value !== null)&&(value.hasOwnProperty("value"))) ? value.value : value);
-
-    console.log("title",value);
-    this.setState({ titleValidationStatus: [null, ''] });
-
-    ContentService.getURLSlug( this.state.parentName||this.props.parentName,  value) .then( (answer)=>{
-
-      if (!answer.result)
-        this.setState({ titleValidationStatus: ["error", answer.message] });
-      else {
-        this.setState({urlSlug: answer.URLSlug})
-      }
-
-    });
-    */
-
   }
 
   handleTitleChange(e){
@@ -176,9 +157,8 @@ class AddTopicForm extends React.Component {
     let sLink = e.target.value;
 
     this.setState({
-      link : sLink,
+      link: sLink,
     });
-
 
     try{
       let answer = await ContentService.getMetaUrl(sLink);
@@ -196,6 +176,7 @@ class AddTopicForm extends React.Component {
           newAttachments[i].img = (typeof answer.data !== "undefined" ? answer.data.image : '');
           newAttachments[i].title = (typeof answer.data !== "undefined" ? answer.data.title : '');
           newAttachments[i].description = (typeof answer.data !== "undefined" ? answer.data.description : '');
+          newAttachments[i].keywords = (typeof answer.data !== "undefined" ? answer.data.keywords : '');
           bFound=true;
           break;
         }
@@ -207,6 +188,7 @@ class AddTopicForm extends React.Component {
           img: (typeof answer.data !== "undefined"? answer.data.image : ''),
           title: (typeof answer.data !== "undefined"? answer.data.title : ''),
           description: (typeof answer.data !== "undefined" ? answer.data.description : ''),
+          keywords: (typeof answer.data !== "undefined" ? answer.data.keywords : ''),
         })
       }
 
@@ -217,6 +199,10 @@ class AddTopicForm extends React.Component {
       });
 
     }catch (Exception){
+      this.setState({
+        link: sLink,
+        sError: Exception.toString(),
+      });
       console.log("Error extracting Link Meta", Exception)
     }
 
@@ -264,6 +250,52 @@ class AddTopicForm extends React.Component {
       cityValidationStatus  : null, cityValidationStatusText : ''
     });
   }
+
+
+
+
+  getLinkAttachment(){
+    for (let i=0; i<this.state.attachments.length; i++)
+      if (this.state.attachments[i].type === "link"){
+        return this.state.attachments[i];
+      }
+
+    return null;
+  }
+
+  getTitle(){
+    console.log("getTitle", this.state.title, this.state.attachments, this.getLinkAttachment());
+    if (this.state.title !== '') return this.state.title;
+    if (this.getLinkAttachment() !== null) return this.getLinkAttachment().title;
+    if (this.state.attachments.length > 0 ) return this.state.attachments[0].title;
+
+    return '';
+  }
+
+  getDescription(){
+    if (this.state.description !== '') return this.state.description;
+    if (this.getLinkAttachment() !== null) return this.getLinkAttachment().description;
+    if (this.state.attachments.length > 0 ) return this.state.attachments[0].description;
+
+    return '';
+  }
+
+  getImage(){
+    if ((typeof this.state.image !== "undefined")&&(this.state.image !== '')) return this.state.image;
+    if (this.getLinkAttachment() !== null) return this.getLinkAttachment().img;
+    if (this.state.attachments.length > 0 ) return this.state.attachments[0].img;
+
+    return '';
+  }
+
+  getKeywords(){
+    if ((typeof this.state.keywords !== "undefined")&&(this.state.keywords !== '')) return this.state.keywords;
+    if (this.getLinkAttachment() !== null) return this.getLinkAttachment().keywords;
+    if (this.state.attachments.length > 0 ) return this.state.attachments[0].keywords;
+
+    return '';
+  }
+
 
   openLogin(){
 
@@ -365,7 +397,7 @@ class AddTopicForm extends React.Component {
 
               <strong>Preview</strong>
 
-              <PreviewNewTopic title={this.state.title} description={this.state.description} attachments={this.state.attachments} keywords={this.state.keywords} authorId={this.props.userAuthenticated.user.id||''} />
+              <PreviewNewTopic title={::this.getTitle()} image={::this.getImage()} description={::this.getDescription()} attachments={this.state.attachments} keywords={this.state.keywords} authorId={this.props.userAuthenticated.user.id||''} />
 
               {/*
               <div className={"input-group " + this.showInputStatus(this.state.keywordsValidationStatus)}  >

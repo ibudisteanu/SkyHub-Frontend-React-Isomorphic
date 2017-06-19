@@ -13,6 +13,7 @@ import Select from 'react-select';
 //import CountrySelect from "react-country-select";
 
 import MyCountrySelect from './../../../../components/util-components/select/MyCountry.select.component';
+import LoadingButton from '../../../../components/util-components/buttons/LoadingButton.component';
 
 import OauthSocialNetworkComponent from '../oauth-social-networks-form/oauth.social.networks.component';
 
@@ -21,10 +22,13 @@ import AuthService from './../../../../services/REST/authentication/Auth.service
 
 export class RegistrationForm extends React.Component {
 
+    refSubmitButton = null;
+
     constructor(props){
         super(props);
 
         this.state = {
+            error:'',
 
             userName : '',
             emailAddress : '',
@@ -66,7 +70,7 @@ export class RegistrationForm extends React.Component {
       history.goBack();
     }
 
-    handleCheckRegister(e){
+    async handleCheckRegister(e){
 
         e.preventDefault(); e.stopPropagation();
 
@@ -88,6 +92,7 @@ export class RegistrationForm extends React.Component {
         }
 
         this.setState({
+            error:'',
             userNameValidationStatus : userNameValidationStatus, emailAddressValidationStatus : emailAddressValidationStatus,
             firstNameValidationStatus : firstNameValidationStatus, lastNameValidationStatus : lastNameValidationStatus,
             passwordValidationStatus : passwordValidationStatus, retypePasswordValidationStatus : retypePasswordValidationStatus,
@@ -97,30 +102,35 @@ export class RegistrationForm extends React.Component {
         console.log(bValidationError);
 
         if (!bValidationError)
-          AuthService.registerAsync(this.state.userName, this.state.emailAddress, this.state.password, this.state.firstName, this.state.lastName,
-                                    this.state.countryCode||this.props.localization.countryCode, '', this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.props.localization.longtitude, this.state.timeZone)
+          try{
+                let res = await AuthService.registerAsync(this.state.userName, this.state.emailAddress, this.state.password, this.state.firstName, this.state.lastName,
+                                                          this.state.countryCode||this.props.localization.countryCode, '', this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.props.localization.longtitude, this.state.timeZone)
 
-            .then( (res) =>{
+                this.refSubmitButton.enableButton();
+                console.log(res);
 
-            console.log(res);
+                if (res.result === true) {
+                  this.registrationSuccessfully(res);
+                }
+                else
+                if (res.result === false){
 
-            if (res.result === true) {
-                this.registrationSuccessfully(res);
-            }
-            else
-            if (res.result === false){
+                  if ((typeof res.errors.username !=="undefined")&&(Object.keys(res.errors.username).length !== 0 )) this.setState({userNameValidationStatus : ["error", this.convertValidationErrorToString(res.errors.username[0])]});
+                  if ((typeof res.errors.email !=="undefined")&&(Object.keys(res.errors.email).length !== 0)) this.setState({emailAddressValidationStatus : ["error", this.convertValidationErrorToString(res.errors.email[0])]});
+                  if ((typeof res.errors.firstName !=="undefined")&&(Object.keys(res.errors.firstName).length !== 0)) this.setState({firstNameValidationStatus : ["error", this.convertValidationErrorToString(res.errors.firstName[0])]});
+                  if ((typeof res.errors.lastName !=="undefined")&&(Object.keys(res.errors.lastName).length  !== 0)) this.setState({lastNameValidationStatus : ["error", this.convertValidationErrorToString(res.errors.lastName[0])]});
+                  if ((typeof res.errors.country !=="undefined")&&(Object.keys(res.errors.country).length  !== 0)) this.setState({countryValidationStatus : ["error", this.convertValidationErrorToString(res.errors.country[0])]});
+                  if ((typeof res.errors.city !=="undefined")&&(Object.keys(res.errors.city).length  !== 0)) this.setState({cityValidationStatus : ["error", this.convertValidationErrorToString(res.errors.city[0])]});
 
-                if ((typeof res.errors.username !=="undefined")&&(Object.keys(res.errors.username).length !== 0 )) this.setState({userNameValidationStatus : ["error", this.convertValidationErrorToString(res.errors.username[0])]});
-                if ((typeof res.errors.email !=="undefined")&&(Object.keys(res.errors.email).length !== 0)) this.setState({emailAddressValidationStatus : ["error", this.convertValidationErrorToString(res.errors.email[0])]});
-                if ((typeof res.errors.firstName !=="undefined")&&(Object.keys(res.errors.firstName).length !== 0)) this.setState({firstNameValidationStatus : ["error", this.convertValidationErrorToString(res.errors.firstName[0])]});
-                if ((typeof res.errors.lastName !=="undefined")&&(Object.keys(res.errors.lastName).length  !== 0)) this.setState({lastNameValidationStatus : ["error", this.convertValidationErrorToString(res.errors.lastName[0])]});
-                if ((typeof res.errors.country !=="undefined")&&(Object.keys(res.errors.country).length  !== 0)) this.setState({countryValidationStatus : ["error", this.convertValidationErrorToString(res.errors.country[0])]});
-                if ((typeof res.errors.city !=="undefined")&&(Object.keys(res.errors.city).length  !== 0)) this.setState({cityValidationStatus : ["error", this.convertValidationErrorToString(res.errors.city[0])]});
+                  this.registrationFailure(res);
+                }
 
-                this.registrationFailure(res);
-            }
-
-        });
+          }
+          catch (Exception)
+          {
+            this.refSubmitButton.enableButton();
+            this.setState({error: "There was a internal problem REGISTERING... Try again"});
+          }
 
     }
 
@@ -347,11 +357,21 @@ export class RegistrationForm extends React.Component {
 
                                   </div>
                                   <div className="col-xs-6 text-right" >
-                                    <button  type='button' className='btn btn-success' onClick={::this.handleCheckRegister}><i className="fa fa-sign-up"></i> Register</button>
+                                    <LoadingButton className="btn-success" onClick={::this.handleCheckRegister} text="Register" icon="fa fa-sign-up"  ref={(c) => this.refSubmitButton = c}  />
                                   </div>
                                 </div>
                               </div>
 
+
+                            {this.state.error === '' ? '' :
+                              (
+                                <div>
+                                  <div className="alert alert-danger alert-dismissable">
+                                    {this.state.error}
+                                  </div>
+                                </div>
+                              )
+                            }
 
                           </form>
                       </div>

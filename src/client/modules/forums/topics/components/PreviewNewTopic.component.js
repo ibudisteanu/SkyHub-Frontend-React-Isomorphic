@@ -25,10 +25,13 @@ class PreviewNewTopic extends React.Component {
 
     this.state.topic = new Topic({
       title: this.props.title||'',
+      image: this.props.image||'',
       description: this.props.description||'',
       attachments: this.props.attachments||[],
       keywords: this.props.keywords||[],
       authorId: this.props.authodId||'',
+
+      dtCreation: Date.now(),
 
       preview: true,
     });

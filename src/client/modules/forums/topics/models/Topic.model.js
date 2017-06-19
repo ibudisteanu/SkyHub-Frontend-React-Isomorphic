@@ -62,37 +62,6 @@ export default class Topic {
         return null;
     }
 
-    getLinkAttachment(){
-      for (let i=0; i<this.arrAttachments; i++)
-        if (this.arrAttachments[i].type === "link"){
-          return this.arrAttachments[i];
-        }
 
-      return null;
-    }
-
-    getTitle(){
-      if (this.title !== '') return this.title;
-      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().title;
-      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].title;
-
-      return '';
-    }
-
-    getDescription(){
-      if (this.title !== '') return this.description;
-      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().description;
-      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].description;
-
-      return '';
-    }
-
-    getImage(){
-      if (this.image !== '') return this.image;
-      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().image;
-      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].image;
-
-      return '';
-    }
 
 }
