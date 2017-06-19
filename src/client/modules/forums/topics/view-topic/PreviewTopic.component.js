@@ -11,6 +11,8 @@ import {newRouterObjectArgumentAction} from '../../../../../my-redux/actions/Rou
 import AuthService from '../../../../services/REST/authentication/Auth.service.js';
 import ForumsService from '../../../../services/REST/forums/forums/Forums.service';
 
+import ShowDate from '../../../../components/util-components/show-date/ShowDate.component';
+
 import Topic from '../models/Topic.model';
 import Link from '../../../../components/Link/Link';
 
@@ -39,7 +41,7 @@ class PreviewTopic extends React.Component {
 
   render() {
 
-    console.log("preview topic",this.props.topic);
+    //console.log("preview topic",this.props.topic);
 
     return (
 
@@ -66,9 +68,10 @@ class PreviewTopic extends React.Component {
 
 
               <div style={{display: "inline"}}>
-                {/*
-                AUTHOR avatar
-                */}
+
+                {this.props.topic.authorId}
+
+                <ShowDate date={this.props.topic.dtCreation} />
               </div>
 
 

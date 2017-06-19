@@ -29,9 +29,9 @@ class PreviewNewTopic extends React.Component {
       description: this.props.description||'',
       attachments: this.props.attachments||[],
       keywords: this.props.keywords||[],
-      authorId: this.props.authodId||'',
+      authorId: this.props.authorId||'',
 
-      dtCreation: Date.now(),
+      dtCreation: '',
 
       preview: true,
     });

@@ -39,7 +39,6 @@ export default class User {
 
         this.id = data.id||'';
 
-
         this.firstName = data.firstName || '';
         this.lastName = data.lastName || '';
 

@@ -42,6 +42,7 @@ export default class Forum {
         this.URL = data.URL || '';
 
         this.keywords = data.keywords || '';
+        this.authorId = data.authorId || '';
 
         this.iconPic = data.iconPic || '';
         this.coverPic  = data.coverPic || '';
@@ -53,8 +54,8 @@ export default class Forum {
 
         this.country = data.country || '';
         this.city = data.city || '';
-        this.dtCreation = data.dtCreation || Date.now();
-        this.dtLastActivity = data.dtLastActivity || Date.now();
+        this.dtCreation = ((typeof data.dtCreation === "string")&&(data.dtCreation !== '')) ? Date.parse(data.dtCreation) : new Date(data.dtCreation||new Date());
+        this.dtLastActivity = ((typeof data.dtLastActivity === "string")&&(data.dtLastActivity !== '')) ? Date.parse(data.dtLastActivity) : new Date(data.dtLastActivity||new Date());
 
         this.longitude = data.longitude || -666;
         this.latitude = data.latitude || -666;

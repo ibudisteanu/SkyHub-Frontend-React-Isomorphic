@@ -6,8 +6,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DropzoneComponent from 'react-dropzone-component';
+import {connect} from 'react-redux';
 
-export default class FileUploadDropzone extends React.Component {
+class FileUploadDropzone extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,7 +19,7 @@ export default class FileUploadDropzone extends React.Component {
       addRemoveLinks: true,
       params: {
         myParam: 'Hello from a parameter!',
-        anotherParam: 43
+        authorId:  props.userAuthenticated.user.id||'',
       },
       maxFiles: props.maxFiles || 10,
     };
@@ -53,12 +54,22 @@ export default class FileUploadDropzone extends React.Component {
 
   }
 
-  success(file){
-    console.log("uploaded successfully ",file);
+  success(fileData){
+    console.log("uploaded successfully ",fileData);
+
+    if ((typeof fileData.xhr.responseText !== "undefined")&&(fileData.xhr.responseText !== '')){
+      let response = JSON.parse(fileData.xhr.responseText);
+
+      if (response.result === true){
+        console.log("FILE UPLOADED", response.url);
+      }
+
+    }
+
   }
 
-  removedfile(file){
-    console.log("removed successfully ",file);
+  removedfile(fileData){
+    console.log("removed successfully ",fileData);
   }
 
   render() {
@@ -82,3 +93,17 @@ export default class FileUploadDropzone extends React.Component {
     );
   }
 }
+
+function mapState (state){
+  return {
+    userAuthenticated: state.userAuthenticated,
+  }
+};
+
+function mapDispatch (dispatch) {
+  return {
+    dispatch : dispatch,
+  }
+};
+
+export default connect(mapState)(FileUploadDropzone);
