@@ -15,7 +15,7 @@ class FileUploadDropzone extends React.Component {
     // For a full list of possible configurations,
     // please consult http://www.dropzonejs.com/#configuration
     this.djsConfig = {
-      acceptedFiles: "image/jpeg,image/png,image/gif,application/pdf,application/doc,application/docx,application/zip,application/rar",
+      acceptedFiles: "image/jpeg,image/jpg,image/png,image/gif,application/pdf,application/doc,application/docx,application/zip,application/rar",
       addRemoveLinks: true,
       params: {
         myParam: 'Hello from a parameter!',
@@ -55,14 +55,16 @@ class FileUploadDropzone extends React.Component {
   }
 
   success(fileData){
-    console.log("uploaded successfully ",fileData);
+    //console.log("uploaded successfully ",fileData);
+
+    let onSuccessNewAttachment = this.props.onSuccessNewAttachment||function(){};
 
     if ((typeof fileData.xhr.responseText !== "undefined")&&(fileData.xhr.responseText !== '')){
       let response = JSON.parse(fileData.xhr.responseText);
+      //console.log("FILE UPLOADED", response.type, response.name,  response.url, response.thumbnail);
 
-      if (response.result === true){
-        console.log("FILE UPLOADED", response.url);
-      }
+      if (response.result === true)
+        onSuccessNewAttachment(response.type, response.name,  response.url, response.thumbnail);
 
     }
 
@@ -70,6 +72,17 @@ class FileUploadDropzone extends React.Component {
 
   removedfile(fileData){
     console.log("removed successfully ",fileData);
+
+    let onRemoveAttachment = this.props.onRemoveAttachment||function(){};
+
+    if ((typeof fileData.xhr.responseText !== "undefined")&&(fileData.xhr.responseText !== '')){
+      let response = JSON.parse(fileData.xhr.responseText);
+      console.log("file removed", response.type, response.name,  response.url, response.thumbnail);
+
+      if (response.result === true)
+        onRemoveAttachment(response.type, response.name,  response.url, response.thumbnail);
+
+    }
   }
 
   render() {
@@ -81,8 +94,8 @@ class FileUploadDropzone extends React.Component {
       drop: this.callbackArray,
       addedfile: this.callback,
 
-      success: this.success,
-      removedfile: this.removedfile,
+      success: ::this.success,
+      removedfile: ::this.removedfile,
     }
 
     return (

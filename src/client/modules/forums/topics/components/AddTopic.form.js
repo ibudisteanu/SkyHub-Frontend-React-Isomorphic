@@ -309,6 +309,36 @@ class AddTopicForm extends React.Component {
     this.handleAddTopic();
   }
 
+  fileUploadSuccess(type, name, url, thumbnail){
+
+
+
+    let newAttachments =  this.state.attachments||[];
+    newAttachments.push({
+      type: 'file',
+      typeFile: type,
+      url: url,
+      img: thumbnail,
+      title: name,
+    });
+
+    this.setState({ attachments: newAttachments });//storing thew new attachments
+
+  }
+
+  fileUploadRemoved(type, name, url, thumbnail){
+
+    let newAttachments =  this.state.attachments||[];
+    for (let i=0; i<newAttachments.length; i++)
+      if ((newAttachments[i].url === url)&&(newAttachments[i].typeFile===type)&&(newAttachments[i].title === name)&&(newAttachments[i]).img === thumbnail){
+        newAttachments.splice(i,1);
+        break;
+      }
+    //console.log("newAttachments",newAttachments);
+
+    this.setState({ attachments: newAttachments });//storing thew new attachments
+  }
+
   convertValidationErrorToString(error) {
     if (error === "notUnique") return "Already exists in the Database"; else
     if (error === "notEmpty") return "It's empty"; else
@@ -369,7 +399,7 @@ class AddTopicForm extends React.Component {
                 </div>
                 <label className="error" >{this.state.linkValidationStatus[1]}</label> <br />
 
-                <FileUploadDropzone />
+                <FileUploadDropzone onSuccessNewAttachment={::this.fileUploadSuccess} onRemoveAttachment={::this.fileUploadRemoved} />
 
               </div>
 
