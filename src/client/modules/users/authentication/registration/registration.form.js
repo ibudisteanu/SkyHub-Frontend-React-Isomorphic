@@ -129,7 +129,7 @@ export class RegistrationForm extends React.Component {
           catch (Exception)
           {
             this.refSubmitButton.enableButton();
-            this.setState({error: "There was a internal problem REGISTERING... Try again"});
+            this.setState({error: "There was a internal problem REGISTERING... Try again"+Exception.toString()});
           }
 
     }

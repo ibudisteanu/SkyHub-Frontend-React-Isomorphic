@@ -18,11 +18,10 @@ class PreviewNewTopic extends React.Component {
     this.state=({
       topic: new Topic({}),
     });
+
   }
 
-
-  render() {
-
+  componentWillUpdate(){
     this.state.topic = new Topic({
       title: this.props.title||'',
       image: this.props.image||'',
@@ -35,6 +34,9 @@ class PreviewNewTopic extends React.Component {
 
       preview: true,
     });
+  }
+
+  render() {
 
     return (
 

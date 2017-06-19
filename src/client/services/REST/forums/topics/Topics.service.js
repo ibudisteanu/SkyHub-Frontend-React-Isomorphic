@@ -16,14 +16,15 @@ class TopicsServiceClass {
     this.dispatch = dispatch;
   }
 
-  async topicAdd(sParentId, sName, sTitle, sDescription,  arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude, iTimeZone) {
+  async topicAdd(sParentId, sTitle,  sImage, sDescription, arrAttachments, arrKeywords, sCountryCode, sLanguage, sCity, latitude, longitude) {
 
 
     try {
 
       //Using Promise
-      let resData  = await SocketService.sendRequestGetDataPromise("topics/add-topic",{parent : sParentId, name:sName, title: sTitle, description: sDescription, keywords : arrKeywords,
-                                                        country: sCountryCode, language:sLanguage, city : sCity, latitude: latitude, longitude : longitude,  timeZone: iTimeZone});
+      let resData = await SocketService.sendRequestGetDataPromise("topics/add-topic",{parent : sParentId, title: sTitle, image:sImage, description: sDescription,
+                                                                                      atachments: arrAttachments, keywords : arrKeywords,
+                                                                                      country: sCountryCode, language:sLanguage, city : sCity, latitude: latitude, longitude : longitude});
 
       console.log('Answer from TOPIC ', resData);
 
@@ -37,10 +38,10 @@ class TopicsServiceClass {
 
   }
 
-  getForumAsync(sId){
+  async getTopic(sId){
 
     //Using Promise
-    return SocketService.sendRequestGetDataPromise("forums/get-forum",{id: sId});
+    return SocketService.sendRequestGetDataPromise("topics/get-topic",{id: sId});
 
   }
 

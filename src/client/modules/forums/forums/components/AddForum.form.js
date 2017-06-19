@@ -124,7 +124,7 @@ class AddForumForm extends React.Component {
           }
           catch(Exception){
             this.refSubmitButton.enableButton();
-            this.setState({error: "There was a internal problem publishing your forum... Try again"});
+            this.setState({error: "There was a internal problem publishing your forum... Try again"+Exception.toString()});
           }
 
     }

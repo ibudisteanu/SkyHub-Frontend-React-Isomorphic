@@ -27,6 +27,7 @@ import history from './../../../../../history.js';
 class AddTopicForm extends React.Component {
 
   refSubmitButton = null;
+  refPreviewNewTopic = null;
 
   constructor(props){
     super(props);
@@ -86,13 +87,13 @@ class AddTopicForm extends React.Component {
       cityValidationStatus: cityValidationStatus,
     });
 
-    console.log('ADDing forum... ');
+    console.log('ADDing topic... ',this.refPreviewNewTopic);
 
-    if (!bValidationError) {
+    if (!bValidationError)
       try{
-          let answer = await TopicsService.topicAdd(this.state.parentId||this.props.parentId, ::this.getTitle(), this.state.link, ::this.getDescription(), ::this.getKeywords(),
+          let answer = await TopicsService.topicAdd(this.state.parentId||this.props.parentId, this.refPreviewNewTopic.state.topic.getTitle(), this.refPreviewNewTopic.state.topic.getImage(),  this.refPreviewNewTopic.state.topic.getDescription(), this.state.attachments, this.refPreviewNewTopic.state.topic.getKeywords(),
                                                     this.state.countryCode||this.props.localization.countryCode, '',
-                                                    this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.state.latitude, this.state.timeZone)
+                                                    this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.state.latitude)
 
           this.refSubmitButton.enableButton();
 
@@ -133,9 +134,9 @@ class AddTopicForm extends React.Component {
       }
       catch(Exception){
         this.refSubmitButton.enableButton();
-        this.setState({error: "There was a internal problem publishing your Topic... Try again"});
+        this.setState({error: "There was a internal problem publishing your Topic... Try again"+Exception.toString()});
       }
-    }
+
 
   }
 
@@ -252,51 +253,6 @@ class AddTopicForm extends React.Component {
   }
 
 
-
-
-  getLinkAttachment(){
-    for (let i=0; i<this.state.attachments.length; i++)
-      if (this.state.attachments[i].type === "link"){
-        return this.state.attachments[i];
-      }
-
-    return null;
-  }
-
-  getTitle(){
-    console.log("getTitle", this.state.title, this.state.attachments, this.getLinkAttachment());
-    if (this.state.title !== '') return this.state.title;
-    if (this.getLinkAttachment() !== null) return this.getLinkAttachment().title;
-    if (this.state.attachments.length > 0 ) return this.state.attachments[0].title;
-
-    return '';
-  }
-
-  getDescription(){
-    if (this.state.description !== '') return this.state.description;
-    if (this.getLinkAttachment() !== null) return this.getLinkAttachment().description;
-    if (this.state.attachments.length > 0 ) return this.state.attachments[0].description;
-
-    return '';
-  }
-
-  getImage(){
-    if ((typeof this.state.image !== "undefined")&&(this.state.image !== '')) return this.state.image;
-    if (this.getLinkAttachment() !== null) return this.getLinkAttachment().img;
-    if (this.state.attachments.length > 0 ) return this.state.attachments[0].img;
-
-    return '';
-  }
-
-  getKeywords(){
-    if ((typeof this.state.keywords !== "undefined")&&(this.state.keywords !== '')) return this.state.keywords;
-    if (this.getLinkAttachment() !== null) return this.getLinkAttachment().keywords;
-    if (this.state.attachments.length > 0 ) return this.state.attachments[0].keywords;
-
-    return '';
-  }
-
-
   openLogin(){
 
     if (typeof this.props.routerState.refAuthenticationModal !== "undefined") {
@@ -310,8 +266,6 @@ class AddTopicForm extends React.Component {
   }
 
   fileUploadSuccess(type, name, url, thumbnail){
-
-
 
     let newAttachments =  this.state.attachments||[];
     newAttachments.push({
@@ -429,7 +383,7 @@ class AddTopicForm extends React.Component {
 
               <strong>Preview</strong>
 
-              <PreviewNewTopic title={::this.getTitle()} image={::this.getImage()} description={::this.getDescription()} attachments={this.state.attachments} keywords={this.state.keywords} authorId={this.props.userAuthenticated.user.id||''} />
+              <PreviewNewTopic title={this.state.title} image={this.state.image} description={this.state.description} attachments={this.state.attachments} keywords={this.state.keywords} authorId={this.props.userAuthenticated.user.id||''} ref={(c) => this.refPreviewNewTopic = c} />
 
               {/*
               <div className={"input-group " + this.showInputStatus(this.state.keywordsValidationStatus)}  >

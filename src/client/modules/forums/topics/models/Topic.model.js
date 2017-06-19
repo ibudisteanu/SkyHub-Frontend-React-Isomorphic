@@ -56,13 +56,60 @@ export default class Topic {
 
         this.preview = data.preview||false;
 
-        console.log('Forum Assigned');
+        console.log('Topic Assigned');
     }
 
     getAuthor(){
         return null;
     }
 
+
+    getLinkAttachment(){
+      for (let i=0; i<this.arrAttachments.length; i++)
+        if (this.arrAttachments[i].type === "link"){
+          return this.arrAttachments[i];
+        }
+
+      return null;
+    }
+
+    getTitle(){
+      console.log("getTitle", this.title, this.attachments, this.getLinkAttachment());
+      if (this.title !== '') return this.title;
+      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().title;
+      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].title;
+
+      return '';
+    }
+
+    getDescription(){
+      if (this.description !== '') return this.description;
+      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().description;
+      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].description;
+
+      return '';
+    }
+
+    getImage(){
+      if ((typeof this.image !== "undefined")&&(this.image !== '')) return this.image;
+
+      if (this.arrAttachments.length > 0 ) //I have an uploaded image
+        for (let i=0; i<this.arrAttachments.length; i++)
+          if ((this.arrAttachments[i].type === "file")&&(this.arrAttachments[i].typeFile.indexOf("image") >= 0 ))
+            return this.arrAttachments[0].img;
+
+      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().img;
+
+      return '';
+    }
+
+    getKeywords(){
+      if ((typeof this.arrKeywords !== "undefined")&&(this.arrKeywords !== '')) return this.arrKeywords;
+      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().keywords;
+      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].keywords;
+
+      return '';
+    }
 
 
 }
