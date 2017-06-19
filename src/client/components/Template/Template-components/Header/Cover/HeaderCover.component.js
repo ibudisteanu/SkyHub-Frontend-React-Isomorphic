@@ -4,6 +4,8 @@
 
 import React from 'react';
 
+import DisplayBreadcrumbs from './../../../../util-components/UI/breadcrumbs/DisplayBreadcrumbs.component';
+
 export default class HeaderCover extends React.Component {
 
     constructor(props) {
@@ -100,13 +102,26 @@ export default class HeaderCover extends React.Component {
     render() {
 
         return (
-            <div className="header-cover row  border-bottom white-bg dashboard-header " style={{backgroundImage: 'url('+(this.props.coverPic||'')+')', backgroundColor: (this.props.coverColor!=='' ? '#'+this.props.coverColor : 'darkblue'), marginLeft: -25, marginRight: -25}}>
+          <div>
 
-                {(this.props.showLayOver||false) == true ? <div className='header-cover-layover'> </div> : '' }
+              <div className="header-cover row  border-bottom white-bg dashboard-header " style={{backgroundImage: 'url('+(this.props.coverPic||'')+')', backgroundColor: (this.props.coverColor!=='' ? '#'+this.props.coverColor : 'darkblue'), marginLeft: -25, marginRight: -25}}>
 
-                {(this.props.showDescriptionMenu||true) == true ? this.renderDescriptionMenu() : 'NU AFISEZ NIMIC' }
+                  {(this.props.showLayOver||false) == true ? <div className='header-cover-layover'> </div> : '' }
 
-            </div>
+                  {(this.props.showDescriptionMenu||true) == true ? this.renderDescriptionMenu() : 'NU AFISEZ NIMIC' }
+
+              </div>
+
+              {this.props.breadcrumbs !== []
+              ?
+                <div class="row wrapper border-bottom white-bg page-heading">
+                  <DisplayBreadcrumbs />
+                </div>
+              :
+                ''
+              }
+
+          </div>
 
         )
     }

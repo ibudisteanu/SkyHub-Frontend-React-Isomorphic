@@ -13,7 +13,7 @@ import Select from 'react-select';
 //import CountrySelect from "react-country-select";
 
 import MyCountrySelect from './../../../../components/util-components/select/MyCountry.select.component';
-import LoadingButton from '../../../../components/util-components/buttons/LoadingButton.component';
+import LoadingButton from '../../../../components/util-components/UI/buttons/LoadingButton.component';
 
 import OauthSocialNetworkComponent from '../oauth-social-networks-form/oauth.social.networks.component';
 

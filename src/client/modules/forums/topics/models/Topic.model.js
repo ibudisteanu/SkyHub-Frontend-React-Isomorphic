@@ -6,6 +6,8 @@
 
 export default class Topic {
 
+    id;
+
     title;
     URL;
 
@@ -15,8 +17,10 @@ export default class Topic {
 
     arrAttachments: [];
     arrKeywords: [];
+    arrBreadcrumbs: [];
 
     preferredLang;
+
 
     longitude;
     latitude;
@@ -32,6 +36,7 @@ export default class Topic {
 
     constructor( data: Object = {}) {
 
+        this.id = data.id || '';
 
         this.title = data.title || '';
         this.description = data.description || '';
@@ -43,6 +48,8 @@ export default class Topic {
 
         this.arrKeywords = data.keywords || [];
         this.arrAttachments = data.attachments || [];
+
+        this.arrBreadcrumbs = data.breadcrumbs || [];
 
         this.preferredLang = data.preferredLang || data.language || null;
 

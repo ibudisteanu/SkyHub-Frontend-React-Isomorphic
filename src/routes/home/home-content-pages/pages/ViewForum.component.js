@@ -61,7 +61,9 @@ export class ViewForum extends React.Component {
                                  subTitle={this.props.contentState.routerObject.object.description||""}
                                  icon={this.props.contentState.routerObject.object.iconPic||""}
                                  cover={this.props.contentState.routerObject.object.coverPic||''}
-                                 coverColor={this.props.contentState.routerObject.object.coverColor||''} />
+                                 coverColor={this.props.contentState.routerObject.object.coverColor||''}
+                                 breadcrumbs={this.props.contentState.routerObject.object.breadcrumbs||[]}
+                    />
 
                     :
 

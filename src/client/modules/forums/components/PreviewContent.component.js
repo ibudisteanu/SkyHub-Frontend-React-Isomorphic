@@ -37,7 +37,7 @@ class PreviewContent extends React.Component {
                 return this.renderForum();
             case 'us':
                 return this.renderForum();
-            case 'top':
+            case 'tpc':
                 return this.renderForum();
         }
 

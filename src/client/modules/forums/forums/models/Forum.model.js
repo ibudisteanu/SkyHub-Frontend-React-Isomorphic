@@ -12,7 +12,9 @@ export default class Forum {
     URL;
     description;
     authorId;
-    keywords;
+
+    arrKeywords : [];
+    arrBreadcrumbs: [];
 
     iconPic;
     coverPic;
@@ -29,8 +31,6 @@ export default class Forum {
     dtCreation;
     dtLastActivity;
 
-    arrKeywords;
-
     constructor( data: Object = {}) {
 
         this.id = data.id||'';
@@ -41,7 +41,6 @@ export default class Forum {
 
         this.URL = data.URL || '';
 
-        this.keywords = data.keywords || '';
         this.authorId = data.authorId || '';
 
         this.iconPic = data.iconPic || '';
@@ -49,6 +48,7 @@ export default class Forum {
         this.coverColor = data.coverColor || '';
 
         this.arrKeywords = data.keywords||[];
+        this.arrBreadcrumbs = data.breadcrumbs || [];
 
         this.preferredLang = data.preferredLang || data.language || null;
 

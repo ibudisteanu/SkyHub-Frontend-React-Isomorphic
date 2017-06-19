@@ -13,7 +13,7 @@ import ContentService from './../../../../services/REST/forums/content/Content.s
 import AutoCompleteSelect from '../../../../components/util-components/select/AutoComplete.select.component';
 import SearchAutoComplete from '../../../../components/util-components/select/SearchAutoComplete.select.component';
 import MyCountrySelect from './../../../../../client/components/util-components/select/MyCountry.select.component';
-import LoadingButton from '../../../../components/util-components/buttons/LoadingButton.component';
+import LoadingButton from '../../../../components/util-components/UI/buttons/LoadingButton.component';
 
 import FileUploadDropzone from '../../../../../client/components/util-components/file-upload/dropzone/FileUploadDropzone.component';
 
@@ -102,7 +102,7 @@ class AddTopicForm extends React.Component {
           if (answer.result === true) {
             onSuccess(answer);
 
-              history.push(answer.forum.URL);// redirecting to the forum URL ;)
+              history.push(answer.topic.URL);// redirecting to the forum URL ;)
           }
           else
           if (answer.result === false) {
@@ -134,7 +134,7 @@ class AddTopicForm extends React.Component {
       }
       catch(Exception){
         this.refSubmitButton.enableButton();
-        this.setState({error: "There was a internal problem publishing your Topic... Try again"+Exception.toString()});
+        this.setState({error: "There was a internal problem publishing your Topic... Try again "+Exception.toString()});
       }
 
 
