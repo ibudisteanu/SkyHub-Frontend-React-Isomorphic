@@ -171,10 +171,55 @@ class AddTopicForm extends React.Component {
     this.handleTitleChangeSelect(e.target.value);
   }
 
-  handleLinkChange(e){
+  async handleLinkChange(e){
+
+    let sLink = e.target.value;
+
     this.setState({
-      link : e.target.value,
+      link : sLink,
     });
+
+
+    try{
+      let answer = await ContentService.getMetaUrl(sLink);
+      let newAttachments =  this.state.attachments||[];
+
+      console.log("handleLinkChange", answer);
+      if (answer.result){
+
+      }
+
+      let bFound=false;
+      for (let i=0; i<newAttachments.length; i++ )
+        if (newAttachments[i].type === 'link'){
+          newAttachments[i].url = sLink;
+          newAttachments[i].img = (typeof answer.data !== "undefined" ? answer.data.image : '');
+          newAttachments[i].title = (typeof answer.data !== "undefined" ? answer.data.title : '');
+          newAttachments[i].description = (typeof answer.data !== "undefined" ? answer.data.description : '');
+          bFound=true;
+          break;
+        }
+
+      if (!bFound){
+        newAttachments.push({
+          type:'link',
+          url: sLink,
+          img: (typeof answer.data !== "undefined"? answer.data.image : ''),
+          title: (typeof answer.data !== "undefined"? answer.data.title : ''),
+          description: (typeof answer.data !== "undefined" ? answer.data.description : ''),
+        })
+      }
+
+      console.log("newAttachments",newAttachments);
+
+      this.setState({
+        attachments:newAttachments
+      });
+
+    }catch (Exception){
+      console.log("Error extracting Link Meta", Exception)
+    }
+
   }
 
   handleDescriptionChange(value){
@@ -320,9 +365,7 @@ class AddTopicForm extends React.Component {
 
               <strong>Preview</strong>
 
-              <PreviewNewTopic title={this.state.title} description={this.state.description} attachments={[]} keywords={this.state.keywords} authorId={this.props.userAuthenticated.user.id||''} />
-
-              {/* <PreviewAllTopics hideHeader={true} topics={ [this.state.topic]} /> */}
+              <PreviewNewTopic title={this.state.title} description={this.state.description} attachments={this.state.attachments} keywords={this.state.keywords} authorId={this.props.userAuthenticated.user.id||''} />
 
               {/*
               <div className={"input-group " + this.showInputStatus(this.state.keywordsValidationStatus)}  >

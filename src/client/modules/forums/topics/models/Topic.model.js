@@ -8,11 +8,13 @@ export default class Topic {
 
     title;
     URL;
+
+    image: '';
     description;
     authorId;
 
-    attachments: [];
-    keywords;
+    arrAttachments: [];
+    arrKeywords: [];
 
     preferredLang;
 
@@ -36,8 +38,10 @@ export default class Topic {
 
         this.URL = data.URL || '';
 
-        this.keywords = data.keywords || '';
-        this.attachments = data.attachments || [];
+        this.image = data.image || '';
+
+        this.arrKeywords = data.keywords || [];
+        this.arrAttachments = data.attachments || [];
 
         this.preferredLang = data.preferredLang || data.language || null;
 
@@ -57,4 +61,38 @@ export default class Topic {
     getAuthor(){
         return null;
     }
+
+    getLinkAttachment(){
+      for (let i=0; i<this.arrAttachments; i++)
+        if (this.arrAttachments[i].type === "link"){
+          return this.arrAttachments[i];
+        }
+
+      return null;
+    }
+
+    getTitle(){
+      if (this.title !== '') return this.title;
+      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().title;
+      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].title;
+
+      return '';
+    }
+
+    getDescription(){
+      if (this.title !== '') return this.description;
+      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().description;
+      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].description;
+
+      return '';
+    }
+
+    getImage(){
+      if (this.image !== '') return this.image;
+      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().image;
+      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].image;
+
+      return '';
+    }
+
 }

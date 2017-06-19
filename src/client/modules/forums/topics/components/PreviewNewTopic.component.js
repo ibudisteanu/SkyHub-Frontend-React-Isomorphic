@@ -24,8 +24,8 @@ class PreviewNewTopic extends React.Component {
   render() {
 
     this.state.topic = new Topic({
-      title: this.props.title||'NO TITLE',
-      description: this.props.description||'no description',
+      title: this.props.title||'',
+      description: this.props.description||'',
       attachments: this.props.attachments||[],
       keywords: this.props.keywords||[],
       authorId: this.props.authodId||'',

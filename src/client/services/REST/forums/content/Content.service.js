@@ -34,6 +34,10 @@ class ContentServiceClass {
       return SocketService.sendRequestGetDataPromise("content/get-URL-slug",{parent:parent, name: name});
     }
 
+    async getMetaUrl(link){
+      return SocketService.sendRequestGetDataPromise("meta-extractor/extract-url",{link:link});
+    }
+
     /*
         FETCHING TOP CONTENT (Topics)
      */

@@ -65,4 +65,6 @@ export default class Forum {
     getAuthor(){
         return null;
     }
+
+
 }
