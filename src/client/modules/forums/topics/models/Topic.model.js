@@ -63,7 +63,7 @@ export default class Topic {
 
         this.preview = data.preview||false;
 
-        console.log('Topic Assigned');
+        console.log('Topic Assigned', data);
     }
 
     getAuthor(){
