@@ -30,6 +30,7 @@ class HeaderBarSocketStatus extends React.Component {
                 <div style={{textAlign: 'center', margiTop: 5, color: this.sTextColor}}>
                     <i className={this.props.socketStatus.icon} aria-hidden="true"></i>
                     <a href="#"><b style={{color: this.sTextColor}}>{ this.props.socketStatus.message }</b></a>
+
                 </div>
 
             </nav>

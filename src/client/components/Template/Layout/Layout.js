@@ -21,6 +21,7 @@ import {connect} from 'react-redux';
 
 import {startLocalizationFetchingAsync} from './../../../../my-redux/actions/Localization.actions';
 import User from "../../../modules/users/models/User.model";
+import Header from "../Template-components/Header/Header";
 
 class Layout extends React.Component {
 
@@ -67,6 +68,8 @@ class Layout extends React.Component {
 
 
     return (
+
+
       <div id="wrapper">
 
 
