@@ -12,6 +12,8 @@ import ForumsService from './../../../../client/services/REST/forums/forums/Foru
 import HeaderCover from './../../../../client/components/Template/Template-components/Header/Cover/HeaderCover.component';
 import WebsiteHeaderCover from './../../../../client/components/Template/Template-components/Header/Cover/WebsiteHeaderCover.component';
 
+import Topic from './../../../../client/modules/forums/topics/models/Topic.model';
+
 import DisplayContent from './../../../../client/modules/forums/content/DisplayContent.component';
 
 export class ViewTopic extends React.Component {
@@ -52,16 +54,18 @@ export class ViewTopic extends React.Component {
 
     console.log("%%%%%%%%%%% VIEW TOPIC " , this.props.contentState.routerObject);
 
+    let parent = this.props.contentState.routerParentObject.object;
+
     return (
       <div>
 
         { ((this.props.contentState.routerObject.object !== null) && (this.props.contentState.routerObject.notFound === false))
           ?
-          <HeaderCover title={this.props.contentState.routerObject.object.title||""}
-                       subTitle={this.props.contentState.routerObject.object.description||""}
-                       icon={this.props.contentState.routerObject.object.iconPic||""}
-                       cover={this.props.contentState.routerObject.object.coverPic||''}
-                       coverColor={this.props.contentState.routerObject.object.coverColor||''}
+          <HeaderCover title={Topic.getTitle(this.props.contentState.routerObject.object)||""}
+                       subTitle=""
+                       icon={ parent !== null ? parent.iconPic : ""}
+                       cover={parent !== null ? parent.coverPic : ''}
+                       coverColor={parent !== null ? parent.coverColor :''}
                        breadcrumbs={this.props.contentState.routerObject.object.arrBreadcrumbs||[]}
                        url={this.props.contentState.routerObject.object.URL}
           />

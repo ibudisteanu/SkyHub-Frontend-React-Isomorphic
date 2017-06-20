@@ -68,6 +68,17 @@ export default function ContentStateReducer  ( state = defaultContentState, acti
         ['contentReplies']: action.payload.contentReplies,
       };
 
+    case 'SET_NEW_CONTENT_STATE_ROUTER_PARENT_OBJECT':
+      return {
+        ...state,
+        routerParentObject:{
+          ...state.routerParentObject,
+          type: action.payload.routerParentObject.type,
+          object: action.payload.routerParentObject.object,
+          notFound: action.payload.routerParentObject.notFound,
+        },
+      };
+
     case 'ADD_CONTENT_OBJECTS':
       //console.log("NEW_ROUTER_OBJECT_ARGUMENT_ADD_TO_CONTENT_ARRAY",action);
       return {

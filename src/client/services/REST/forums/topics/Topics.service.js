@@ -23,7 +23,7 @@ class TopicsServiceClass {
 
       //Using Promise
       let resData = await SocketService.sendRequestGetDataPromise("topics/add-topic",{parent : sParentId, title: sTitle, image:sImage, description: sDescription,
-                                                                                      atachments: arrAttachments, keywords : arrKeywords,
+                                                                                      attachments: arrAttachments, keywords : arrKeywords,
                                                                                       country: sCountryCode, language:sLanguage, city : sCity, latitude: latitude, longitude : longitude});
 
       console.log('Answer from TOPIC ', resData);

@@ -20,6 +20,10 @@ export default class Forum {
     coverPic;
     coverColor;
 
+    authorId: '';
+    parentId: '';
+    parents: [];
+
     preferredLang;
 
     longitude;
@@ -41,14 +45,16 @@ export default class Forum {
 
         this.URL = data.URL || '';
 
-        this.authorId = data.authorId || '';
-
         this.iconPic = data.iconPic || '';
         this.coverPic  = data.coverPic || '';
         this.coverColor = data.coverColor || '';
 
         this.arrKeywords = data.keywords||[];
         this.arrBreadcrumbs = data.breadcrumbs || [];
+
+        this.authorId = data.authorId || '';
+        this.parentId = data.parentId || '';
+        this.parents = data.parents || [];
 
         this.preferredLang = data.preferredLang || data.language || null;
 

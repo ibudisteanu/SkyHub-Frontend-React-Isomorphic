@@ -7,8 +7,7 @@ import {setContentState_NewRouterObject_Action, setContentState_AddContentObject
 import Forum from './../../../../modules/forums/forums/models/Forum.model';
 import ContentObjectService from './ContentObject.service';
 
-import SocketService from './../../../../services/Communication/socket/Socket.service';
-import HTTPService from './../../../Communication/http/Http.service';
+import FetchDataService from './../../../Communication/FetchDataService';
 
 class ContentServiceClass {
 
@@ -31,83 +30,9 @@ class ContentServiceClass {
     }
 
 
-    async getURLSlug(parent, name){
-      return SocketService.sendRequestGetDataPromise("content/get-URL-slug",{parent:parent, name: name});
-    }
-
-    async getMetaUrl(link){
-      return SocketService.sendRequestGetDataPromise("meta-extractor/extract-url",{link:link});
-    }
-
     /*
-        FETCHING TOP CONTENT (Topics)
+
      */
-
-    async getTopContent(parent, pageIndex, pageCount){
-      return SocketService.sendRequestGetDataPromise("content/get-top-content",{parent: parent, pageIndex:pageIndex, pageCount: pageCount});
-    }
-
-    async getTopContentHTTP(parent, pageIndex, pageCount){
-      return HTTPService.getRequest("content/get-top-content",{parent: parent, pageIndex:pageIndex, pageCount: pageCount});
-    }
-
-    async fetchTopContent(parent, pageIndex, pageCount, protocol){
-
-      let answer = {result : false};
-
-      if (protocol === 'http') answer = await this.getTopContentHTTP(parent, pageIndex, pageCount);
-      else answer = await this.getTopContent(parent, pageIndex, pageCount);
-
-      console.log("ANSWER TOP CONTENT",answer);
-
-      let toBeAdded = [];
-      if (answer.result === true){
-
-        toBeAdded = this.processNewContent(answer.content, this.contentState.contentObjects.objects );
-
-        if (toBeAdded !== [])
-          await this.dispatch(setContentState_AddContentObjects_Action(toBeAdded ));
-
-      }
-      return toBeAdded;
-    }
-
-
-    /*
-     FETCHING TOP FORUMS (Topics)
-     */
-
-    async getTopForums(parent, pageIndex, pageCount){
-      return SocketService.sendRequestGetDataPromise("forums/get-top-forums",{parent: parent, pageIndex:pageIndex, pageCount: pageCount});
-    }
-
-    async getTopForumsHTTP(parent, pageIndex, pageCount){
-      return HTTPService.getRequest("forums/get-top-forums",{parent: parent, pageIndex:pageIndex, pageCount: pageCount});
-    }
-
-    async fetchTopForums(parent, pageIndex, pageCount, protocol){
-
-      let answer = {result : false};
-
-      if (protocol === 'http') answer = await this.getTopForumsHTTP(parent, pageIndex, pageCount);
-      else answer = await this.getTopForums(parent, pageIndex, pageCount);
-
-      console.log("ANSWER TOP FORUMS", answer);
-      console.log("redux state",this.contentState);
-
-      let toBeAdded = [];
-      if (answer.result === true){
-
-        toBeAdded = this.processNewContent(answer.content, this.contentState.contentForums.objects );
-
-        if (toBeAdded !== [])
-          await this.dispatch(setContentState_AddForumsObjects_Action(toBeAdded ));
-
-      }
-      return toBeAdded;
-    }
-
-
 
     processNewContent(newContentObjects, previousContentObjects){
 
@@ -140,55 +65,140 @@ class ContentServiceClass {
       return toBeAdded;
     }
 
+    async getObjectContent(sContentToSearchId){
 
-
-    async getRouterObjectContent(sContentToSearchId){
       if (sContentToSearchId !== '')
-        return await SocketService.sendRequestGetDataPromise("content/get-content",{id: sContentToSearchId});
+        return await FetchDataService.sendRequestWithProtocol('content/get-content', {id: sContentToSearchId});
       else
         return {result: true, data: {content: null}};
     }
 
-    async getRouterObjectContentHTTP(sContentToSearchId){
 
-      if (sContentToSearchId !== '') {
-        return await HTTPService.getRequest('content/get-content', {id: sContentToSearchId});
+    getURLSlug(parent, name){
+      return FetchDataService.sendRequestWithProtocol("content/get-URL-slug", {parent:parent, name: name} );
+    }
+
+    getMetaUrl(link){
+      return FetchDataService.sendRequestWithProtocol("meta-extractor/extract-url", {link:link} );
+    }
+
+    /*
+     FETCHING PARENT CONTENT (Topics)
+    */
+
+    async fetchTopContent(parent, pageIndex, pageCount){
+
+      let answer = {result : false};
+
+      answer = await FetchDataService.sendRequestWithProtocol( "content/get-top-content",{parent: parent, pageIndex:pageIndex, pageCount: pageCount} );
+
+      console.log("ANSWER TOP CONTENT",answer);
+
+      let toBeAdded = [];
+      if (answer.result === true){
+
+        toBeAdded = this.processNewContent(answer.content, this.contentState.contentObjects.objects );
+
+        if (toBeAdded !== [])
+          await this.dispatch(setContentState_AddContentObjects_Action(toBeAdded ));
+
       }
-      else
-        return {result: true, data: {content: null}};
+      return toBeAdded;
     }
+
+    /*
+        FETCHING TOP CONTENT (Topics)
+     */
+
+    async fetchTopContent(parent, pageIndex, pageCount){
+
+      let answer = {result : false};
+
+      answer = await FetchDataService.sendRequestWithProtocol( "content/get-top-content",{parent: parent, pageIndex:pageIndex, pageCount: pageCount} );
+
+      console.log("ANSWER TOP CONTENT",answer);
+
+      let toBeAdded = [];
+      if (answer.result === true){
+
+        toBeAdded = this.processNewContent(answer.content, this.contentState.contentObjects.objects );
+
+        if (toBeAdded !== [])
+          await this.dispatch(setContentState_AddContentObjects_Action(toBeAdded ));
+
+      }
+      return toBeAdded;
+    }
+
+
+    /*
+     FETCHING TOP FORUMS (Topics)
+     */
+
+    async fetchTopForums(parent, pageIndex, pageCount){
+
+      let answer = {result : false};
+
+      answer = await FetchDataService.sendRequestWithProtocol( "forums/get-top-forums",{parent: parent, pageIndex:pageIndex, pageCount: pageCount} );
+
+      console.log("ANSWER TOP FORUMS", answer);
+      console.log("redux state",this.contentState);
+
+      let toBeAdded = [];
+      if (answer.result === true){
+
+        toBeAdded = this.processNewContent(answer.content, this.contentState.contentForums.objects );
+
+        if (toBeAdded !== [])
+          await this.dispatch(setContentState_AddForumsObjects_Action(toBeAdded ));
+
+      }
+      return toBeAdded;
+    }
+
+
+
 
     /*
       IT WILL FETCH THE DATA from the BACKEND AND STORE THE ANSWER IN THE REDUX
      */
 
-    async fetchRouterObjectAndContent(sContentToSearchId, protocol){
-
-      let answer = {result : false};
+    async fetchRouterObjectAndContent(sContentToSearchId){
 
       if (!this.bStarted) return null;
 
-      if (protocol === "http") answer = await this.getRouterObjectContentHTTP(sContentToSearchId);
-      else answer = await this.getRouterObjectContent(sContentToSearchId);
+      let routerObjectAnswer = {result : false}; routerObjectAnswer = await this.getObjectContent(sContentToSearchId);
 
-      console.log("ANSWER FOR "+protocol, sContentToSearchId, answer);
+      console.log("ANSWER FOR ", sContentToSearchId, routerObjectAnswer);
 
-      if (answer.result === true){
+      if (routerObjectAnswer.result === true){
 
-        await this.dispatch(setContentState_NewRouterObject_Action( answer.content, false, sContentToSearchId, 1, 8, [] ));
+        let routerObject = routerObjectAnswer.content;
 
-        await this.fetchTopForums(sContentToSearchId, 1, 8, protocol);
-        await this.fetchTopContent(sContentToSearchId, 1, 8, protocol);
+        let routerParentObjectAnswer = {result : false}; routerParentObjectAnswer = await this.getObjectContent( (typeof routerObject !== "undefined" ? routerObject.parent : ''));
 
-        return answer.content;
+        //extracting the parent
+        let routerParentObject = null, routerParentObjectNotFound = true;
+        if (routerParentObjectAnswer.result === true) {
+          routerParentObject = routerParentObjectAnswer.content;
+          routerParentObjectNotFound = false;
+        }
+
+
+
+        await this.dispatch(setContentState_NewRouterObject_Action( routerObject, false, sContentToSearchId, routerParentObject, routerParentObjectNotFound, 1, 8, [] ));
+
+        await this.fetchTopForums(sContentToSearchId, 1, 8);
+        await this.fetchTopContent(sContentToSearchId, 1, 8);
+
+        return routerObjectAnswer.content;
 
       } else {
 
-        await this.dispatch(setContentState_NewRouterObject_Action(null, true, sContentToSearchId, 1, 8, [] ));
+        await this.dispatch(setContentState_NewRouterObject_Action(null, true, sContentToSearchId, null, true, 1, 8, [] ));
       }
 
       return null;
-
 
     }
 

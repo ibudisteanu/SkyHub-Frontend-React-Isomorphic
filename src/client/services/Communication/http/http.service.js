@@ -84,7 +84,6 @@ class HTTPServiceClass {
           }
         }
       }
-
     }
 
     addTrailingSlash(url){

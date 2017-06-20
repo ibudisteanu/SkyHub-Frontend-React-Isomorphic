@@ -13,11 +13,14 @@ export default class Topic {
 
     image: '';
     description;
-    authorId;
 
     arrAttachments: [];
     arrKeywords: [];
     arrBreadcrumbs: [];
+
+    authorId: '';
+    parentId: '';
+    parents: [];
 
     preferredLang;
 
@@ -44,12 +47,15 @@ export default class Topic {
         this.URL = data.URL || '';
 
         this.image = data.image || '';
-        this.authorId = data.authorId || '';
+
 
         this.arrKeywords = data.keywords || [];
         this.arrAttachments = data.attachments || [];
-
         this.arrBreadcrumbs = data.breadcrumbs || [];
+
+        this.authorId = data.authorId || '';
+        this.parentId = data.parentId || '';
+        this.parents = data.parents || [];
 
         this.preferredLang = data.preferredLang || data.language || null;
 

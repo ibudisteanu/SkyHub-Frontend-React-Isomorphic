@@ -6,7 +6,7 @@
 import ContentObjectService  from './../../client/services/REST/forums/content/ContentObject.service';
 
 
-export function setContentState_NewRouterObject_Action(newRouterObject, objectNotFound, pageURL, pageIndex, pageCount, initialContentObjects) {
+export function setContentState_NewRouterObject_Action(newRouterObject, objectNotFound, pageURL, newRouterParentObject, objectParentNotFound, pageIndex, pageCount, initialContentObjects) {
 
   return {
     type: "SET_NEW_CONTENT_STATE_ROUTER_OBJECT",
@@ -19,12 +19,11 @@ export function setContentState_NewRouterObject_Action(newRouterObject, objectNo
         pageURL: pageURL || '',
       },
 
-
-      // routerParentObject: {
-      //   type: ContentObjectService.extractObjectTypeFromId(newRouterParentObject),
-      //   object: ContentObjectService.createObject(newRouterParentObject),
-      //   notFound: (objectNotFound !== null ? objectNotFound : true),
-      // },
+      routerParentObject: {
+        type: ContentObjectService.extractObjectTypeFromId(newRouterParentObject),
+        object: ContentObjectService.createObject(newRouterParentObject),
+        notFound: (objectParentNotFound !== null ? objectParentNotFound : true),
+      },
 
       contentObjects:{
         pageIndex: pageIndex||1,
@@ -48,6 +47,19 @@ export function setContentState_NewRouterObject_Action(newRouterObject, objectNo
       },
 
     }
+  }
+}
+
+export function setContentState_NewRouterParentObject_Action(newRouterParentObject, objectParentNotFound,){
+  return {
+    type: "SET_NEW_CONTENT_STATE_ROUTER_PARENT_OBJECT",
+    payload: {
+      routerParentObject: {
+        type: ContentObjectService.extractObjectTypeFromId(newRouterParentObject),
+        object: ContentObjectService.createObject(newRouterParentObject),
+        notFound: (objectParentNotFound !== null ? objectParentNotFound : true),
+      },
+    },
   }
 }
 
