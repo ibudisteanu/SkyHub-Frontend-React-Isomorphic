@@ -11,6 +11,7 @@ import HTTPService from './../../../client/services/Communication/http/Http.serv
 
 import Forum from '../../../client/modules/forums/forums/models/Forum.model';
 import ViewForum from './pages/ViewForum.component';
+import ViewTopic from './pages/ViewTopic.component';
 
 export class HomeContentPage extends React.Component {
 
@@ -26,6 +27,12 @@ export class HomeContentPage extends React.Component {
     )
   }
 
+  renderTopic(){
+    return (
+      <ViewTopic />
+    )
+  }
+
   render() {
 
     console.log('@@@@',this.props.contentState.routerObject.type);
@@ -36,7 +43,7 @@ export class HomeContentPage extends React.Component {
       case 'user':
         return this.renderForum();
       case 'topic':
-        return this.renderForum();
+        return this.renderTopic();
     }
 
     return((<b>no valid content</b>));

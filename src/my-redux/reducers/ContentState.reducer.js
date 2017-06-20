@@ -15,6 +15,13 @@ export function defaultContentState (initial) {
       pageURL: '',
     },
 
+    routerParentObject : initial.routerParentObject || {
+      type: 'none',//'none','forum','topic','user',
+      object: null,
+      notFound: false,
+    },
+
+
     contentObjects: initial.contentObjects || {
       pageIndex: 1,
       pageCount: 8,
@@ -55,6 +62,7 @@ export default function ContentStateReducer  ( state = defaultContentState, acti
           notFound:  action.payload.routerObject.notFound,
           pageURL:  action.payload.routerObject.pageURL,
         },
+        ['routerParentObject']: action.payload.routerParentObject,
         ['contentObjects']: action.payload.contentObjects,
         ['contentForums']: action.payload.contentForums,
         ['contentReplies']: action.payload.contentReplies,

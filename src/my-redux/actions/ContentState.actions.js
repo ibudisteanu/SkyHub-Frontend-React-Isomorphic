@@ -19,6 +19,13 @@ export function setContentState_NewRouterObject_Action(newRouterObject, objectNo
         pageURL: pageURL || '',
       },
 
+
+      // routerParentObject: {
+      //   type: ContentObjectService.extractObjectTypeFromId(newRouterParentObject),
+      //   object: ContentObjectService.createObject(newRouterParentObject),
+      //   notFound: (objectNotFound !== null ? objectNotFound : true),
+      // },
+
       contentObjects:{
         pageIndex: pageIndex||1,
         pageCount: pageCount||8,

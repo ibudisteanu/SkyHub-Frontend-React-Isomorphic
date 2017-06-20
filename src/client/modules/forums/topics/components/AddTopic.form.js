@@ -21,7 +21,7 @@ import FileUploadDropzone from '../../../../../client/components/util-components
 import DraftWYSIWYG from '../../../../components/util-components/text-editor/wysiwyg/DraftWYSIWYG.component';
 import PreviewNewTopic from './PreviewNewTopic.component';
 
-
+import Topic from '../models/Topic.model';
 import history from './../../../../../history.js';
 
 class AddTopicForm extends React.Component {
@@ -91,7 +91,7 @@ class AddTopicForm extends React.Component {
 
     if (!bValidationError)
       try{
-          let answer = await TopicsService.topicAdd(this.state.parentId||this.props.parentId, this.refPreviewNewTopic.state.topic.getTitle(), this.refPreviewNewTopic.state.topic.getImage(),  this.refPreviewNewTopic.state.topic.getDescription(), this.state.attachments, this.refPreviewNewTopic.state.topic.getKeywords(),
+          let answer = await TopicsService.topicAdd(this.state.parentId||this.props.parentId, Topic.getTitle(this.refPreviewNewTopic.state.topic), Topic.getImage(this.refPreviewNewTopic.state.topic),  Topic.getDescription(this.refPreviewNewTopic.state.topic), this.state.attachments, Topic.getKeywords(this.refPreviewNewTopic.state.topic),
                                                     this.state.countryCode||this.props.localization.countryCode, '',
                                                     this.state.city||this.props.localization.city, this.state.latitude||this.props.localization.latitude, this.state.longitude||this.state.latitude)
 

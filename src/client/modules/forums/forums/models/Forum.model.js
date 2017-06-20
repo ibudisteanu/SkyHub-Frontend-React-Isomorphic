@@ -63,8 +63,12 @@ export default class Forum {
         console.log('Forum Assigned', data);
     }
 
-    getAuthor(){
+    static getAuthor(Topic){
         return null;
+    }
+
+    static isOwnerAuthor(Topic, UserAuthenticated){
+
     }
 
 
