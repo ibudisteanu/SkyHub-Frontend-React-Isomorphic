@@ -30,7 +30,7 @@ class PreviewTopic extends React.Component {
     return (
       <a title="Forums not found" data-gallery="">
         <img style={{backgroundColor: "red"}} />
-        <span>Forum not found!</span>
+        <span>Topic not found!</span>
       </a>
     )
   }
@@ -41,7 +41,13 @@ class PreviewTopic extends React.Component {
 
   render() {
 
-    //console.log("preview topic",this.props.topic);
+    //console.log("22222 preview topic",this.props.topic);
+
+    console.log(this.props.topic);
+    //console.log(this.props.topic.getImage(), this.props.topic.getTitle());
+    //console.log(Topic.getImage(this.props.topic));
+
+    if ((this.props.topic === null) ||(typeof this.props.topic === "undefined")) return this.renderError();
 
     return (
 
@@ -52,14 +58,14 @@ class PreviewTopic extends React.Component {
               <div className="anchor" style={{paddingLeft:42}}>
 
                   <a className={(this.props.topic.preview||false === true ? 'link-not-active' : '')} href={this.props.topic.URL||''}>
-                    <img className="table-forums-topic-image" src={this.props.topic.getImage()||"https://citation-beweb.netdna-ssl.com/img/compose.png"} alt={this.props.topic.getTitle()||'no title'} />
+                    <img className="table-forums-topic-image" src={  Topic.getImage(this.props.topic) || "https://citation-beweb.netdna-ssl.com/img/compose.png" } alt={Topic.getTitle(this.props.topic)||'no title'} />
 
-                    <h4 className="table-forums-topic-title">{this.props.topic.getTitle()||'no title'}</h4>
+                    <h4 className="table-forums-topic-title">{Topic.getTitle(this.props.topic)||'no title'}</h4>
 
                     <br />
 
                     <p className="table-forums-topic-body word-wrap">
-                      {this.props.topic.getDescription()||'no description'}
+                      {Topic.getDescription(this.props.topic)||'no description'}
                     </p>
 
                   </a>
@@ -72,6 +78,7 @@ class PreviewTopic extends React.Component {
                 {this.props.topic.authorId}
 
                 <ShowDate date={this.props.topic.dtCreation} />
+
               </div>
 
 

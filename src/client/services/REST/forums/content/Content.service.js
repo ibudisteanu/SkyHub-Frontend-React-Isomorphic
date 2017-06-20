@@ -5,6 +5,7 @@
 import {setContentState_NewRouterObject_Action, setContentState_AddContentObjects_Action, setContentState_AddForumsObjects_Action} from '../../../../../my-redux/actions/ContentState.actions';
 
 import Forum from './../../../../modules/forums/forums/models/Forum.model';
+import ContentObjectService from './ContentObject.service';
 
 import SocketService from './../../../../services/Communication/socket/Socket.service';
 import HTTPService from './../../../Communication/http/Http.service';
@@ -127,8 +128,13 @@ class ContentServiceClass {
               break;
             }
 
-        if ((!bFound)&&(newObject!==null)&&(newObject.id !== null))
-          toBeAdded.push(newObject);
+        if ((!bFound)&&(newObject!==null)&&(newObject.id !== null)) {
+          newObject = ContentObjectService.createObject(newObject);
+
+          if (newObject !== null)
+            toBeAdded.push(newObject);
+        }
+
       }
 
       return toBeAdded;

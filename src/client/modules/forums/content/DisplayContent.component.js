@@ -12,6 +12,7 @@ import ContentService from './../../../services/REST/forums/content/Content.serv
 import ContentButtons from '../components/ContentButtons.component';
 
 import PreviewContent from '../components/PreviewContent.component';
+import PreviewAllTopics from '../topics/view-topic/PreviewAllTopics.component';
 import PreviewForums from '../forums/view-forum/PreviewForums.component';
 
 class DisplayContent extends React.Component {
@@ -20,7 +21,6 @@ class DisplayContent extends React.Component {
         super(props);
 
     }
-
 
     renderContent() {
         const objects = this.props.contentState.contentObjects.objects;
@@ -67,13 +67,14 @@ class DisplayContent extends React.Component {
               </div>
 
 
-
               <div className="row" style={{paddingBottom: 20}}>
                 <div className="text-center">
                   <h4 style={{fontSize:30}}>What's hot on {::this.getObjectName()}</h4>
                 </div>
 
-                {::this.renderContent()}
+                {/*::this.renderContent() */}
+
+                <PreviewAllTopics topics={this.props.contentState.contentObjects.objects} />
 
               </div>
 

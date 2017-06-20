@@ -2,7 +2,7 @@
  * Created by Alexandru Ionut Budisteanu - SkyHub on 6/13/2017.
  * (C) BIT TECHNOLOGIES
  */
-import Forum from '../../client/modules/forums/forums/models/Forum.model';
+import ContentObjectService from './../../client/services/REST/forums/content/ContentObject.service';
 
 export function defaultContentState (initial) {
 

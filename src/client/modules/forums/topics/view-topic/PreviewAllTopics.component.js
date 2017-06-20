@@ -43,7 +43,7 @@ class PreviewAllTopics extends React.Component {
 
     if ((objects === null)||(typeof objects === "undefined")||(objects === [])) return '';
 
-    //console.log("render topics::::: ",objects);
+    console.log("render topics::::: ",objects);
 
     return (
       objects.map((object) =>

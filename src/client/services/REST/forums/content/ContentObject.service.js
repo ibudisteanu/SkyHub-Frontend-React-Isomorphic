@@ -4,6 +4,7 @@
  */
 
 import Forum from './../../../../modules/forums/forums/models/Forum.model';
+import Topic from './../../../../modules/forums/topics/models/Topic.model';
 
 class ContentObjectServiceClass {
 
@@ -54,16 +55,16 @@ class ContentObjectServiceClass {
         return 'none';
     }
 
-    createObject(object) {
+    createObject(objectJSON) {
 
         //console.log(this.extractObjectTypeFromId(object));
 
-        switch (this.extractObjectTypeFromId(object)) {
+        switch (this.extractObjectTypeFromId(objectJSON)) {
             case 'forum':
-                return new Forum(object);
-                break;
-            /*case 'topic':
-             return New Fo*/
+                return new Forum(objectJSON);
+            case 'topic':
+                let obj = new Topic(objectJSON);
+                return new Topic(objectJSON);
         }
 
         return null;

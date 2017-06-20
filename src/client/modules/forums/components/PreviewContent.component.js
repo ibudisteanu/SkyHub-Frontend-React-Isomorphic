@@ -10,7 +10,10 @@ import  AuthService  from './../../../services/REST/authentication/Auth.service'
 import  ContentObjectService  from '../../../services/REST/forums/content/ContentObject.service';
 
 import Forum from '../forums/models/Forum.model';
+import Topic from '../topics/models/Topic.model';
+
 import PreviewForums from '../forums/view-forum/PreviewForums.component';
+import PreviewTopic from '../topics/view-topic/PreviewTopic.component';
 
 class PreviewContent extends React.Component {
 
@@ -20,10 +23,18 @@ class PreviewContent extends React.Component {
     }
 
     renderForum(){
-        let forum = new Forum(this.props.object);
+      let forum = new Forum(this.props.object);
+
+      return (
+          <PreviewForums key={forum.id} forum={forum} />
+      )
+    }
+
+    renderTopic(){
+        let topic = new Topic(this.props.object);
 
         return (
-            <PreviewForums key={forum.id} forum={forum} />
+          <PreviewTopic key={topic.id} topic={topic} />
         )
     }
 
@@ -38,7 +49,7 @@ class PreviewContent extends React.Component {
             case 'user':
                 return this.renderForum();
             case 'topic':
-                return this.renderForum();
+                return this.renderTopic();
         }
 
     }

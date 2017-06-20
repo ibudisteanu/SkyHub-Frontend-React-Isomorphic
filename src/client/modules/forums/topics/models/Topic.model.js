@@ -71,49 +71,49 @@ export default class Topic {
     }
 
 
-    getLinkAttachment(){
-      for (let i=0; i<this.arrAttachments.length; i++)
-        if (this.arrAttachments[i].type === "link"){
-          return this.arrAttachments[i];
+    static getLinkAttachment(Topic){
+      for (let i=0; i<Topic.arrAttachments.length; i++)
+        if (Topic.arrAttachments[i].type === "link"){
+          return Topic.arrAttachments[i];
         }
 
       return null;
     }
 
-    getTitle(){
-      console.log("getTitle", this.title, this.attachments, this.getLinkAttachment());
-      if (this.title !== '') return this.title;
-      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().title;
-      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].title;
+    static getTitle(Topic){
+      console.log("getTitle", Topic.title, Topic.attachments, this.getLinkAttachment(Topic));
+      if (Topic.title !== '') return Topic.title;
+      if (this.getLinkAttachment(Topic) !== null) return this.getLinkAttachment(Topic).title;
+      if (Topic.arrAttachments.length > 0 ) return Topic.arrAttachments[0].title;
 
       return '';
     }
 
-    getDescription(){
-      if (this.description !== '') return this.description;
-      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().description;
-      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].description;
+    static getDescription(Topic){
+      if (Topic.description !== '') return Topic.description;
+      if (this.getLinkAttachment(Topic) !== null) return this.getLinkAttachment(Topic).description;
+      if (Topic.arrAttachments.length > 0 ) return Topic.arrAttachments[0].description;
 
       return '';
     }
 
-    getImage(){
-      if ((typeof this.image !== "undefined")&&(this.image !== '')) return this.image;
+    static getImage(Topic){
+      if ((typeof Topic.image !== "undefined")&&(Topic.image !== '')) return Topic.image;
 
-      if (this.arrAttachments.length > 0 ) //I have an uploaded image
-        for (let i=0; i<this.arrAttachments.length; i++)
-          if ((this.arrAttachments[i].type === "file")&&(this.arrAttachments[i].typeFile.indexOf("image") >= 0 ))
-            return this.arrAttachments[0].img;
+      if (Topic.arrAttachments.length > 0 ) //I have an uploaded image
+        for (let i=0; i<Topic.arrAttachments.length; i++)
+          if ((Topic.arrAttachments[i].type === "file")&&(Topic.arrAttachments[i].typeFile.indexOf("image") >= 0 ))
+            return Topic.arrAttachments[0].img;
 
-      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().img;
+      if (this.getLinkAttachment(Topic) !== null) return this.getLinkAttachment(Topic).img;
 
       return '';
     }
 
-    getKeywords(){
-      if ((typeof this.arrKeywords !== "undefined")&&(this.arrKeywords !== '')) return this.arrKeywords;
-      if (this.getLinkAttachment() !== null) return this.getLinkAttachment().keywords;
-      if (this.arrAttachments.length > 0 ) return this.arrAttachments[0].keywords;
+    static getKeywords(Topic){
+      if ((typeof Topic.arrKeywords !== "undefined")&&(Topic.arrKeywords !== '')) return Topic.arrKeywords;
+      if (this.getLinkAttachment(Topic) !== null) return this.getLinkAttachment(Topic).keywords;
+      if (Topic.arrAttachments.length > 0 ) return Topic.arrAttachments[0].keywords;
 
       return '';
     }
