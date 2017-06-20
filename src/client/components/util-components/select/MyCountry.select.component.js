@@ -101,23 +101,34 @@ const MyCountrySelect = createClass({
   getInitialState () {
     return {value: ""};
   },
-  setValue (value) {
+  handleChange (value) {
     this.setState({ value });
 
     if (this.props.onSelect !== null)
       this.props.onSelect(value);
   },
+
+  handleInputChange(inputValue){
+
+    if (this.props.multi === true) return;
+    if (this.props.selectOnClickOnly === true) return;
+
+    this.handleChange({value:inputValue, label: inputValue});
+    return inputValue;
+  },
+
   render () {
     var placeholder = <span>Select Country</span>;
 
     return (
       <Select
         arrowRenderer={arrowRenderer}
-        onChange={this.setValue}
+        onChange={this.handleChange}
         optionComponent={FlagOption}
         options={FLAGS}
         clearable ={false}
         placeholder={placeholder}
+        //onInputChange={this.handleInputChange}
         value={(this.state.value==='' ? this.props.initialCountry.toLowerCase() : this.state.value)}
         valueComponent={FlagValue}
       />

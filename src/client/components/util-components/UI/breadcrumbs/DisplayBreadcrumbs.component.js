@@ -12,13 +12,14 @@ export default class DisplayBreadcrumbs extends React.Component {
     let breadcrumbs = [];
     if (typeof this.props.breadcrumbs !== "undefined")  breadcrumbs = this.props.breadcrumbs;
 
+    console.log("LENGTH BREADCRUMBS %%%%%%%%%%% ",breadcrumbs);
+
     if ((breadcrumbs === null)||(typeof breadcrumbs === "undefined")||(breadcrumbs === [])) return '';
 
-    const breadcrumbsActiveIndex = breadcrumbs.length-1;
     return (
       breadcrumbs.map((object, index) =>
-        <li className={index === breadcrumbsActiveIndex ? "active" : ''}>
-          <a href={object.link}>{object.name}</a>
+        <li key={"breadcrumb"+index} >
+          <a href={object.url}>{object.name}</a>
         </li>
       )
     );
@@ -26,9 +27,18 @@ export default class DisplayBreadcrumbs extends React.Component {
 
   render(){
     return (
-      <ol className="breadcrumb">
+      <ol className="breadcrumb" >
 
-        {::this.renderBreadcrumbs}
+        <li key="breadcrumb_home">
+          <a href={"/"}>Home</a>
+        </li>
+
+        {::this.renderBreadcrumbs()}
+
+        <li className="active" key="breadcrumb_current_page">
+          <a href={this.props.currentPageUrl}>{this.props.currentPageTitle}</a>
+        </li>
+
 
       </ol>
     )

@@ -83,7 +83,7 @@ class AddForumForm extends React.Component {
 
         if (!bValidationError)
           try{
-              let answer = await ForumsService.forumAdd(this.state.parentId || this.props.parentId, this.state.name, this.state.title, this.state.description, this.state.keywords,
+              let answer = await ForumsService.forumAdd(this.state.parentId || this.props.parentId, this.state.name, this.state.title||this.state.name||'', this.state.description, this.state.keywords,
                                                              this.state.countryCode || this.props.localization.countryCode, '',
                                                              this.state.city || this.props.localization.city, this.state.latitude || this.props.localization.latitude, this.state.longitude || this.state.latitude, this.state.timeZone)
 
@@ -129,7 +129,7 @@ class AddForumForm extends React.Component {
 
     }
 
-    handleNameChangeSelect(value){
+    handleNameChangeSelect(value) {
 
       this.setState({
         name : value,
@@ -143,11 +143,12 @@ class AddForumForm extends React.Component {
 
       ContentService.getURLSlug('',value) .then( (answer)=>{
 
-          if (!answer.result)
-            this.setState({ nameValidationStatus: ["error", answer.message] });
-          else {
-            this.setState({urlSlug: answer.URLSlug})
-          }
+        let netStateChange = {titleGenerated: value};
+
+          if (!answer.result)  netStateChange.nameValidationStatus = ["error", answer.message] ;
+          else netStateChange.urlSlug = answer.URLSlug;
+
+          if (netStateChange !== {}) this.setState(netStateChange);
 
       });
 
@@ -261,7 +262,7 @@ class AddForumForm extends React.Component {
 
                         <span className="input-group-addon"><i className="fa fa-pencil"></i></span>
 
-                        <AutoCompleteSelect autoFocus multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='forum name (one or two words)'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  clearable={false} />
+                        <AutoCompleteSelect selectOnClickOnly={false} autoFocus multi={false} controlId="nameSelect" className='border-focus-blue'  placeholder='forum name (one or two words)'  value={this.state.name}  onSelect={::this.handleNameChangeSelect} style={{zIndex:0}}  clearable={false} />
 
                         <span className={::this.showInputFeedback(this.state.nameValidationStatus)} style={{width:60, top:10}}></span>
                       </div>
@@ -275,7 +276,7 @@ class AddForumForm extends React.Component {
 
                       <span className="input-group-addon"><i className="fa fa-font"></i></span>
 
-                      <input type='text' className='form-control input' placeholder='title'  name="title" value={this.state.title} onChange={::this.handleTitleChange} />
+                      <input type='text' className='form-control input' placeholder='title'  name="title" value={this.state.title||this.state.name} onChange={::this.handleTitleChange} />
                       {/*<AutoCompleteSelect multi={false} controlId="titleSelect" className='border-focus-blue'  placeholder='title'  value={this.state.title}  onSelect={::this.handleTitleChangeSelect} style={{zIndex:0}}  /> */}
 
                       <span className={::this.showInputFeedback(this.state.titleValidationStatus)}></span>
@@ -313,7 +314,7 @@ class AddForumForm extends React.Component {
 
                       <span className="input-group-addon"><i className="fa fa-tags"></i></span>
 
-                      <AutoCompleteSelect controlId="keywordsSelect" value={this.state.keywords} multi={true}   onSelect={::this.handleKeywordsSelect} style={{zIndex:0}} placeholder="three keywords"/>
+                      <AutoCompleteSelect selectOnClickOnly={false} controlId="keywordsSelect" value={this.state.keywords} multi={true}   onSelect={::this.handleKeywordsSelect} style={{zIndex:0}} placeholder="three keywords"/>
 
                     </div>
                     <label className="error" >{this.state.keywordsValidationStatus[1]}</label> <br />

@@ -25,7 +25,10 @@ class AutoCompleteSelect extends React.Component {
     }
 
 
-    onChange (value) {
+    handleChange (value) {
+
+        console.log("handleChange",value);
+
         this.setState({
             value: value,
         });
@@ -37,18 +40,28 @@ class AutoCompleteSelect extends React.Component {
 
             answer = [];
             value.forEach (function(element){
-                answer.push(element.value)
+                answer.push(element.hasOwnProperty('value') ? element.value : element);
             });
 
         } else//just value
-            answer = value.value;
+            answer = (value.hasOwnProperty('value') ? value.value : value);
 
         console.log("AUTOCOMPLETE:: ",answer);
 
         let onSelect = this.props.onSelect||function(){};
-        onSelect(answer);
+
+        if (typeof answer !== "undefined" )
+          onSelect(answer);
     }
 
+    handleInputChange(inputValue){
+
+      if (this.props.multi === true) return;
+      if (this.props.selectOnClickOnly === true) return;
+
+      this.handleChange({value:inputValue, label: inputValue});
+      return inputValue;
+    }
 
     getSuggestionsGitHub (input) {
         if (!input)
@@ -60,6 +73,8 @@ class AutoCompleteSelect extends React.Component {
                 return { options: json.items };
             });
     }
+
+
 
     //using Google http://google.com/complete/search?client=firefox&hl=ro&q=theory
     getSuggestions( input){
@@ -107,7 +122,7 @@ class AutoCompleteSelect extends React.Component {
 
                 {(this.props.label||'') !== '' ? (<h3 className="section-heading">{this.props.label}</h3>) : '' }
 
-                <AsyncSelectComponent  multi={this.props.multi||false}  value={this.state.value||this.props.value} onChange={::this.onChange} valueKey="value" labelKey="label" loadOptions={::this.getSuggestions} backspaceRemoves={this.state.backspaceRemoves} placeholder={this.props.placeholder||"select"} clearable={(typeof this.props.clearable !== "undefined" ? this.props.clearable : true)} />
+                <AsyncSelectComponent onInputChange={::this.handleInputChange}  multi={this.props.multi||false}  value={this.state.value||this.props.value} onChange={::this.handleChange} valueKey="value" labelKey="label" loadOptions={::this.getSuggestions} backspaceRemoves={this.state.backspaceRemoves} placeholder={this.props.placeholder||"select"} clearable={(typeof this.props.clearable !== "undefined" ? this.props.clearable : true)} />
 
             </div>
         );

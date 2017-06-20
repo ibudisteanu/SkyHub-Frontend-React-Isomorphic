@@ -59,8 +59,6 @@ export default class HeaderCover extends React.Component {
             <div>
 
 
-
-
                 <div className="col-xs-12 col-sm-8" >
                     <div className={'header-cover-description'} >
                         <div>
@@ -115,7 +113,7 @@ export default class HeaderCover extends React.Component {
               {(typeof this.props.breadcrumbs !== "undefined") && (this.props.breadcrumbs !== [])
               ?
                 <div className="row wrapper border-bottom white-bg page-heading">
-                  <DisplayBreadcrumbs />
+                  <DisplayBreadcrumbs breadcrumbs={this.props.breadcrumbs} currentPageTitle={this.props.title} currentPageUrl={this.props.url} />
                 </div>
               :
                 ''

@@ -13,6 +13,13 @@
   hyphens: auto;
 }
 
+.breadcrumb{
+  padding-top: 10px;
+}
+
+.breadcrumb > .active > a {
+  font-weight: 700;
+}
 
 /* Small Devices, Tablets */
 @media (max-width: 991px) {
