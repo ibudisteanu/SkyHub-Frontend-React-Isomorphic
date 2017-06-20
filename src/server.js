@@ -12,8 +12,6 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 
-import expressGraphQL from 'express-graphql';
-
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
@@ -21,11 +19,8 @@ import App from './client/App';
 import Html from './client/Html';
 import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
 import errorPageStyle from './routes/error/ErrorPage.css';
-import createFetch from './createFetch';
 
 import router from './router';
-import models from './data/models';
-import schema from './data/schema';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import configureStore from './my-redux/store/configureStore';
 import config from './config';
@@ -73,12 +68,7 @@ initializePassport(app);
 //
 // Register API middleware
 // -----------------------------------------------------------------------------
-app.use('/graphql', expressGraphQL(req => ({
-  schema,
-  graphiql: __DEV__,
-  rootValue: { request: req },
-  pretty: __DEV__,
-})));
+
 
 //
 // Register server-side rendering middleware
@@ -89,11 +79,6 @@ app.get('*', async (req, res, next) => {
     console.log("HELLO WORLD");
 
     const css = new Set();
-
-    const fetch = createFetch({
-      baseUrl: config.api.serverUrl,
-      cookie: req.headers.cookie,
-    });
 
     const initialState = {
       user: req.user || null,
@@ -106,7 +91,6 @@ app.get('*', async (req, res, next) => {
 
 
     const store = configureStore(initialState, {
-      fetch,
       // I should not use `history` on server.. but how I do redirection? follow universal-router
     });
 
@@ -124,7 +108,6 @@ app.get('*', async (req, res, next) => {
         // eslint-disable-next-line no-underscore-dangle
         styles.forEach(style => css.add(style._getCss()));
       },
-      fetch,
       // You can access redux through react-redux connect
       store,
       storeSubscription: null,
@@ -224,11 +207,10 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 //
 // Launch the server
 // -----------------------------------------------------------------------------
-models.sync().catch(err => console.error(err.stack)).then(() => {
-  app.listen(config.port, () => {
-    console.info(`The server is running at http://localhost:${config.port}/`);
-  });
+app.listen(config.port, () => {
+  console.info(`The server is running at http://localhost:${config.port}/`);
 });
+
 
 
 function show404(app, path, res){
