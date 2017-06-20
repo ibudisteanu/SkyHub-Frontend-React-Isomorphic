@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import Link from '../../../../components/Link/Link';
 
-import OauthSocialNetworkComponent from '../oauth-social-networks-form/oauth.social.networks.component';
+import OauthSocialNetworkComponent from '../oauth-social-networks-form/OAuth.social.networks.component';
 
 import AuthService from './../../../../services/REST/authentication/Auth.service';
 

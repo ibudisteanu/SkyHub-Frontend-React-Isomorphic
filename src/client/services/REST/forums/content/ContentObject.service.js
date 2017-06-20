@@ -41,17 +41,17 @@ class ContentObjectServiceClass {
         if (extractedIdData === null) return 'none';
 
         switch (extractedIdData.objectType || '') {
-            case 'frm':
+            case 'forum':
                 return 'forum';
 
-            case 'us':
+            case 'user':
                 return 'user';
 
-            case 'top':
+            case 'topic':
                 return 'topic';
         }
 
-        return 'none'
+        return 'none';
     }
 
     createObject(object) {

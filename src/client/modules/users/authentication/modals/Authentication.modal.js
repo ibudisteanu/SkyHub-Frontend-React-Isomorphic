@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LoginForm from './../login/login.form';
-import RegistrationForm from './../registration/registration.form';
+import LoginForm from '../login/Login.form';
+import RegistrationForm from '../registration/Registration.form';
 
 import ModalComponent from '../../../../../client/components/util-components/modals/Modal.component';
 

@@ -18,7 +18,7 @@ export default class LoadingButton extends React.Component {
 
   }
 
-  handleClick(){
+  handleClick(e){
     this.setState({
       loading: true,
     });
@@ -30,10 +30,10 @@ export default class LoadingButton extends React.Component {
 
 
     let onClick = this.props.onClick || function (){};
-    onClick();
+    onClick(e);
   }
 
-  enableButton(){
+  enableButton(e){
     this.setState({
       loading: false,
       disabled:false,

@@ -15,7 +15,7 @@ import Select from 'react-select';
 import MyCountrySelect from './../../../../components/util-components/select/MyCountry.select.component';
 import LoadingButton from '../../../../components/util-components/UI/buttons/LoadingButton.component';
 
-import OauthSocialNetworkComponent from '../oauth-social-networks-form/oauth.social.networks.component';
+import OauthSocialNetworkComponent from '../oauth-social-networks-form/OAuth.social.networks.component';
 
 import SocketService from '../../../../services/Communication/socket/Socket.service';
 import AuthService from './../../../../services/REST/authentication/Auth.service';

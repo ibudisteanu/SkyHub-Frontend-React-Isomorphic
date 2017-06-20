@@ -82,8 +82,8 @@ class PreviewTopic extends React.Component {
               </div>
 
             </td>
-            <td>1<br /> </td>
-            <td>5<br /> </td>
+            <td>0<br /> </td>
+            <td>0<br /> </td>
         </tr>
     );
   }
@@ -92,7 +92,6 @@ class PreviewTopic extends React.Component {
 function mapState (state){
   return {
     userAuthenticated: state.userAuthenticated,
-    contentState: state.contentState,
   }
 };
 

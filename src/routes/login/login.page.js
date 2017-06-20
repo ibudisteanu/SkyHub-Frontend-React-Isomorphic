@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import history from '../../../src/history';
 
-import LoginForm from "../../client/modules/users/authentication/login/login.form";
+import LoginForm from "../../client/modules/users/authentication/login/Login.form";
 
 
 export default class LoginPage extends React.Component {

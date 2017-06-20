@@ -33,11 +33,11 @@ class PreviewContent extends React.Component {
         let objectType = extractedIdData.objectType || '';
 
         switch (objectType){
-            case 'frm':
+            case 'forum':
                 return this.renderForum();
-            case 'us':
+            case 'user':
                 return this.renderForum();
-            case 'tpc':
+            case 'topic':
                 return this.renderForum();
         }
 
