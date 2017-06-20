@@ -32,6 +32,9 @@ import Link from '../../../components/Link/Link';
     setForumArgument(){
     }
 
+   sBackgroundColor = 'yellow';
+   sTextColor = 'black';
+
    renderForums(){
      const objects = this.props.contentState.contentForums.objects;
      if ((objects === null)||(typeof objects === "undefined")) return '';
@@ -45,11 +48,23 @@ import Link from '../../../components/Link/Link';
        )
      );
    }
-
-    render() {
+   //
+   // renderStatusBar () {
+   //   <nav className='navbar navbar-default' style={{display: 'inline-block', width: '100%', marginBottom: -5, minHeight: 16, background: this.sBackgroundColor }} >
+   //
+   //     <div style={{textAlign: 'center', margiTop: 5, color: this.sTextColor}}>
+   //       <p>  { ( this.props.author.getName() === '' ?  this.props.author.username :this.props.author.getName() ) } , {this.props.author.shortBio}</p>
+   //       <a href="#"><b style={{color: this.sTextColor}}>{ this.props.author.username }</b></a>
+   //     </div>
+   //
+   //   </nav>
+   //
+   // }
+     render() {
 
 
         console.log("5555555555555555555555555555555555555 ", this.props.author.getName());
+      // this.renderStatusBar();
 
         return (
 
@@ -70,6 +85,14 @@ import Link from '../../../components/Link/Link';
             </div>
 
           </div >
+
+
+
+
+
+          // add here topic yellow selector
+  //       <p> User +  ( this.props.author.getName() === '' ?  this.props.author.username :this.props.author.getName() ) added at this.props.dtLastActivity +
+    //  ' the title ' +  this.props.title() +<br> this.props.body) </br> </p>
         );
     }
 }

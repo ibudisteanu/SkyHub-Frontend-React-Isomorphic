@@ -4,15 +4,18 @@
  */
 
 
-
 import React from 'react';
 import Link from '../../../../../Link/Link';
 
 import AuthService from './../../../../../../services/REST/authentication/Auth.service';
+import Notification from "../../../../../../modules/notifications/Notification.model";
+import NotificationMenu from "../../../../../../modules/notifications/NotificationMenu.component";
 
 class AuthenticatedHeaderNavigationMenu extends React.Component {
 
   AuthService = null;
+
+
 
   componentDidMount() {
     requestAnimationFrame(() => { //Make sure it is on client only
@@ -24,13 +27,24 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
   handleLogout(e){
     e.preventDefault(); e.stopPropagation();
 
+
     AuthService.logout();
   }
 
   render() {
 
-    //console.log("######## AUTHENTICATED HEADER", this);
+    // let notification1 = new Notification({
+    //   body: '3323',
+    //   destinationId: '2145',
+    //   senderId: '4151251',
+    //   description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ',
+    //   id: '425151',
+    //   dtCreation: '23/jan/1987',
+    //   template: '',
+    //   title: 'so such a lovly twist'
+    // });
 
+    //console.log("######## AUTHENTICATED HEADER", this);
     return (
 
 
@@ -52,57 +66,13 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
         </li>
 
         <li className="dropdown">
-          <a className="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-            <i className="fa fa-envelope"></i>  <span className="label label-warning">16</span>
-          </a>
-          <ul className="dropdown-menu dropdown-messages">
-            <li>
-              <div className="dropdown-messages-box">
-                <a href="profile.html" className="pull-left">
-                  <img alt="image" className="img-circle" src="/res/logo/SkyHub-logo.png" />
-                </a>
-                <div>
-                  <small className="pull-right">46h ago</small>
-                  <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br/>
-                  <small className="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
-                </div>
-              </div>
-            </li>
-            <li className="divider"></li>
-            <li>
-              <div className="dropdown-messages-box">
-                <a href="profile.html" className="pull-left">
-                  <img alt="image" className="img-circle" src="/res/logo/SkyHub-logo.png" />
-                </a>
-                <div>
-                  <small className="pull-right text-navy">5h ago</small>
-                  <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br/>
-                  <small className="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
-                </div>
-              </div>
-            </li>
-            <li className="divider"></li>
-            <li>
-              <div className="dropdown-messages-box">
-                <a href="profile.html" className="pull-left">
-                  <img alt="image" className="img-circle" src="/res/logo/SkyHub-logo.png" />
-                </a>
-                <div>
-                  <small className="pull-right">23h ago</small>
-                  <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br/>
-                  <small className="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
-                </div>
-              </div>
-            </li>
-            <li className="divider"></li>
-            <li>
-              <div className="text-center link-block">
-                <a href="mailbox.html">
-                  <i className="fa fa-envelope"></i> <strong>Read All Messages</strong>
-                </a>
-              </div>
-            </li>
-          </ul>
+
+          <NotificationMenu>
+
+
+
+          </NotificationMenu>
+
         </li>
         <li className="dropdown">
           <a className="dropdown-toggle count-info" data-toggle="dropdown" href="#">
