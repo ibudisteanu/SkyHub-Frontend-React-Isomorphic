@@ -119,7 +119,7 @@ class ContentServiceClass {
       console.log("ANSWER TOP CONTENT",answer);
 
       let toBeAdded = [];
-      if (answer.result === true){
+      if ((typeof answer !== "undefined")&&(answer.result === true)){
 
         toBeAdded = this.processNewContent(answer.content, this.contentState.contentObjects.objects );
 
@@ -145,7 +145,7 @@ class ContentServiceClass {
       console.log("redux state",this.contentState);
 
       let toBeAdded = [];
-      if (answer.result === true){
+      if ((typeof answer !== "undefined")&&(answer.result === true)) {
 
         toBeAdded = this.processNewContent(answer.content, this.contentState.contentForums.objects );
 
@@ -171,7 +171,7 @@ class ContentServiceClass {
 
       console.log("ANSWER FOR ", sContentToSearchId, routerObjectAnswer);
 
-      if (routerObjectAnswer.result === true){
+      if ((typeof routerObjectAnswer !== "undefined")&&(routerObjectAnswer.result === true)){
 
         let routerObject = routerObjectAnswer.content;
 

@@ -17,7 +17,7 @@ class FetchDataServiceClass {
       if (typeof window === "undefined") protocol = "http";
 
     if ((typeof protocol !== "undefined")&&(protocol === 'http')) return HTTPService.getRequest(sRequestName, data);
-    else  SocketService.sendRequestGetDataPromise(sRequestName,data);
+    else  return SocketService.sendRequestGetDataPromise(sRequestName,data);
 
   }
 
