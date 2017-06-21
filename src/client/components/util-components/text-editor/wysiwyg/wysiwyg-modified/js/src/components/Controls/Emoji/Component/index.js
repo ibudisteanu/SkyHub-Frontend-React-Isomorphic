@@ -37,13 +37,18 @@ class LayoutComponent extends Component {
         onClick={stopPropagation}
       >
         {
-          emojis.map((emoji, index) => (
-          <img src={emoji.img}
-            key={index}
-            className="rdw-emoji-icon"
-            alt={emoji.code}
-            onClick={::this.onEmojiClick}
-          />))
+          emojis.map((emoji, index) => {
+
+            let img = emoji.img;
+            if (typeof img === "undefined") img = 'https://assets-cdn.github.com/images/icons/emoji/' + suggestion.text + ".png";
+
+            return <img src={emoji.img}
+                        key={index}
+                        className="rdw-emoji-icon"
+                        alt={emoji.code}
+                        onClick={::this.onEmojiClick}
+            />
+          })
         }
       </div>
     );

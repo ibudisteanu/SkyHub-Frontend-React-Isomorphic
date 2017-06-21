@@ -18,7 +18,8 @@ class EmojiDecorator {
       }
       render() {
         const { entityKey, children, contentState } = this.props;
-        const { text, img} = contentState.getEntity(entityKey).getData();
+        let { text, img} = contentState.getEntity(entityKey).getData();
+        if (typeof img === "undefined") img = 'https://assets-cdn.github.com/images/icons/emoji/'+text+".png";
         return (
           <img alt={text} src={img} style={{maxWidth:16, maxHeight:16}}/>
 

@@ -236,6 +236,9 @@ function getSuggestionComponent() {
             >
               {this.filteredSuggestions.map((suggestion, index) => {
 
+                let img = suggestion.img;
+                if (typeof img === "undefined") img = 'https://assets-cdn.github.com/images/icons/emoji/'+suggestion.text+".png";
+
                 if (index > 100) return <div key={"element"+index} />
                 else
 
@@ -252,7 +255,7 @@ function getSuggestionComponent() {
                   )}
                 >
                     :{suggestion.text+'     '}
-                    <img src={suggestion.img} alt={suggestion.text} style={{maxWidth:16, maxHeight:16}} />
+                    <img src={img} alt={suggestion.text} style={{maxWidth:16, maxHeight:16}} />
 
                 </span>})}
             </span>}
