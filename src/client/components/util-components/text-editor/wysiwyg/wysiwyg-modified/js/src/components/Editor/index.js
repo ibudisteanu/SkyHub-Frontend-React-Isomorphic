@@ -16,7 +16,7 @@ import {
   getCustomStyleMap,
   extractInlineStyle,
   getSelectedBlocksType,
-} from 'draftjs-utils';
+} from '../../../../../draftjs-utils-master/js';
 import classNames from 'classnames';
 import ModalHandler from '../../event-handler/modals';
 import FocusHandler from '../../event-handler/focus';

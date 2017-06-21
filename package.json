@@ -45,7 +45,6 @@
     "query-string": "^4.3.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-draft-wysiwyg": "^1.10.0",
     "react-dropzone-component": "^2.0.0",
     "react-facebook-login": "^3.6.1",
     "react-google-login": "^2.8.9",

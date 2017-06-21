@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getSelectionInlineStyle } from 'draftjs-utils';
+import { getSelectionInlineStyle } from '../../../../../../draftjs-utils-master/js';
 import { RichUtils, EditorState, Modifier } from 'draft-js';
 import { forEach } from '../../../utils/common';
 

@@ -7,7 +7,7 @@ import {
   getSelectionText,
   getEntityRange,
   getSelectionEntity,
-} from 'draftjs-utils';
+} from '../../../../../../draftjs-utils-master/js';
 
 import LayoutComponent from './Component';
 

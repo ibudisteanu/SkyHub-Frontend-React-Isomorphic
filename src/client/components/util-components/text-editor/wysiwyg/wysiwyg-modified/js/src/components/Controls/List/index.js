@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { RichUtils } from 'draft-js';
-import { changeDepth, getSelectedBlocksType } from 'draftjs-utils';
+import { changeDepth, getSelectedBlocksType } from '../../../../../../draftjs-utils-master/js';
 
 import LayoutComponent from './Component';
 

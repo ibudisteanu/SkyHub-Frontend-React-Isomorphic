@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { EditorState, Modifier } from 'draft-js';
-import { getSelectionCustomInlineStyle } from 'draftjs-utils';
+import { getSelectionCustomInlineStyle } from '../../../../../../draftjs-utils-master/js';
 
 import { forEach } from '../../../utils/common';
 import LayoutComponent from './Component';

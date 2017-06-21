@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { getSelectedBlocksMetadata, setBlockData } from 'draftjs-utils';
+import { getSelectedBlocksMetadata, setBlockData } from '../../../../../../draftjs-utils-master/js';
 
 import LayoutComponent from './Component';
 

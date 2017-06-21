@@ -6,7 +6,7 @@ import {
   fontSizes,
   toggleCustomInlineStyle,
   getSelectionCustomInlineStyle,
-} from 'draftjs-utils';
+} from '../../../../../../draftjs-utils-master/js';
 
 import LayoutComponent from './Component';
 

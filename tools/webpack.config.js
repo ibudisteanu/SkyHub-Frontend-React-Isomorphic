@@ -25,11 +25,12 @@ const isAnalyze = process.argv.includes('--analyze') || process.argv.includes('-
 const config = {
   context: path.resolve(__dirname, '..'),
 
-  // resolve:{
-  //   alias:{
-  //     skyhub: path.resolve( __dirname, 'path', 'to', 'src' )
-  //   },
-  // },
+  resolve:{
+    alias:{
+      //skyhub: path.resolve( __dirname, 'path', 'to', 'src' )
+      'immutable.js': path.resolve(path.join(__dirname, 'node_modules', 'immutable.js'))
+    },
+  },
 
   output: {
     path: path.resolve(__dirname, '../build/public/assets'),
