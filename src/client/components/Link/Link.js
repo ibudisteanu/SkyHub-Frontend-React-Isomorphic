@@ -22,6 +22,7 @@ function isModifiedEvent(event) {
 class Link extends React.Component {
   static propTypes = {
     to: PropTypes.string.isRequired,
+    disableLink : PropTypes.bool,
     children: PropTypes.node.isRequired,
     onClick: PropTypes.func,
   };
@@ -31,9 +32,12 @@ class Link extends React.Component {
   };
 
   handleClick = (event) => {
-    if (this.props.onClick) {
+
+    if (this.props.onClick)
       this.props.onClick(event);
-    }
+
+    if (this.props.disableLink === true)
+      return;
 
     if (isModifiedEvent(event) || !isLeftClickEvent(event)) {
       return;

@@ -12,7 +12,7 @@ import ForumsService from './../../../../client/services/REST/forums/forums/Foru
 import HeaderCover from './../../../../client/components/Template/Template-components/Header/Cover/HeaderCover.component';
 import WebsiteHeaderCover from './../../../../client/components/Template/Template-components/Header/Cover/WebsiteHeaderCover.component';
 
-import DisplayContent from './../../../../client/modules/forums/content/DisplayContent.component';
+import DisplayForumContent from '../../../../client/modules/forums/forums/view-forum/DisplayForumContent.component';
 
 export class ViewForum extends React.Component {
 
@@ -77,6 +77,8 @@ export class ViewForum extends React.Component {
                     {this.props.contentState.routerObject.object !== null ? ::this.renderForum() : ::this.renderError}
 
                 </div>
+
+                <DisplayForumContent/>
 
             </div>
         )

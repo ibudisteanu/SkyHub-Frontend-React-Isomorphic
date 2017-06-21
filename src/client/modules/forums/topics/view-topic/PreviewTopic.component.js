@@ -57,7 +57,8 @@ class PreviewTopic extends React.Component {
 
               <div className="anchor" style={{paddingLeft:42}}>
 
-                  <a className={(this.props.topic.preview||false === true ? 'link-not-active' : '')} href={this.props.topic.URL||''}>
+                  <Link key={"previewTopicLink"+this.props.topic.id} to={this.props.topic.URL} title={this.props.topic.title} disableLink={this.props.topic.preview}>
+
                     <img className="table-forums-topic-image" src={  Topic.getImage(this.props.topic) || "https://citation-beweb.netdna-ssl.com/img/compose.png" } alt={Topic.getTitle(this.props.topic)||'no title'} />
 
                     <h4 className="table-forums-topic-title">{Topic.getTitle(this.props.topic)||'no title'}</h4>
@@ -68,7 +69,7 @@ class PreviewTopic extends React.Component {
                       {Topic.getDescription(this.props.topic)||'no description'}
                     </p>
 
-                  </a>
+                  </Link>
 
               </div>
 

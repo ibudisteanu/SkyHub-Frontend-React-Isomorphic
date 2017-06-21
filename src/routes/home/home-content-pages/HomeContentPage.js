@@ -39,6 +39,7 @@ export class HomeContentPage extends React.Component {
 
     switch (this.props.contentState.routerObject.type){
       case 'forum':
+      case 'none':
         return this.renderForum();
       case 'user':
         return this.renderForum();

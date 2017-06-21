@@ -14,7 +14,7 @@ import WebsiteHeaderCover from './../../../../client/components/Template/Templat
 
 import Topic from './../../../../client/modules/forums/topics/models/Topic.model';
 
-import DisplayContent from './../../../../client/modules/forums/content/DisplayContent.component';
+import DisplayTopicContent from '../../../../client/modules/forums/topics/view-topic/DisplayTopicContent.component';
 
 export class ViewTopic extends React.Component {
 
@@ -23,12 +23,10 @@ export class ViewTopic extends React.Component {
   }
 
 
-  renderForum(){
+  renderTopic(){
     return (
       <div>
-        <h1>
-          <span>{this.props.contentState.routerObject.object.title}</span>
-        </h1>
+
 
       </div>
 
@@ -78,9 +76,11 @@ export class ViewTopic extends React.Component {
 
         <div style={{position: 'relative', zIndex: 2}}>
 
-          {this.props.contentState.routerObject.object !== null ? ::this.renderForum() : ::this.renderError}
+          {this.props.contentState.routerObject.object !== null ? ::this.renderTopic() : ::this.renderError}
 
         </div>
+
+        <DisplayTopicContent />
 
       </div>
     )

@@ -74,9 +74,7 @@ class PreviewAllTopics extends React.Component {
                 <th>
 
                   <h3>
-                    <a href="http://skyhub.me/forum/category/Life/Real-Life/City-Life/Viata-din-Romania/Discutii-generale-Romania">
-                      <i className="fa fa-comments table-forums-icon table-forums-icon" style={{paddingRight: 5}}></i>Discutii generale Romania
-                    </a>
+                      <i className="fa fa-comments table-forums-icon table-forums-icon" style={{paddingRight: 5}}></i> {this.props.title||''}
                   </h3>
 
                 </th>

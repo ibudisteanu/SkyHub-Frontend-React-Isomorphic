@@ -10,7 +10,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import DisplayContent from "../../client/modules/forums/content/DisplayContent.component";
+import DisplayContent from "../../client/modules/forums/forums/view-forum/DisplayForumContent.component";
 import HomeContentPage from "./home-content-pages/HomeContentPage";
 
 import AuthenticatedHome from './home/authenticated/Authenticated-home.component';
@@ -74,14 +74,11 @@ class Home extends React.Component {
     return (
       <div>
 
-        {this.props.contentState.routerObject.object === null ? ::this.renderSimpleWebsite() : ::this.renderHomepageComponent()}
+        {::this.renderHomepageComponent()}
 
         {this.props.contentState.routerObject.notFound ? ::this.renderError() : ' A FOST GASIT'}
 
 
-        <div className="col-xl-6 col-xl-offset-3 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12" style={{padding:0}}>
-          <DisplayContent />
-        </div>
 
       </div>
     );

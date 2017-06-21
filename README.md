@@ -30,6 +30,8 @@ It will start on port 8080, and you can access the frontend server by http://127
 
 1. npm run build -- --release 
 
+optional --analyse for 
+
 ### PRODUCTION Optimization 
 1. Code splitting:  https://github.com/kriasoft/react-starter-kit/pull/1295
 2. Optimize moment.js https://github.com/jmblog/how-to-optimize-momentjs-with-webpack 

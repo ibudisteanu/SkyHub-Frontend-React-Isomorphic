@@ -17,7 +17,7 @@ import draftToMarkdown from 'draftjs-to-markdown';
 import { Editor } from './wysiwyg-modified/js/src/index.js';
 import uploadImageCallBack from './additionals/uploadImageCallback';
 
-import ColorPic from './additionals/ColorPic';
+//import ColorPic from './additionals/ColorPic';
 
 
 export default class DraftWYSIWYG extends React.Component {

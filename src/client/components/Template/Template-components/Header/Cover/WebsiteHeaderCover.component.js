@@ -17,7 +17,10 @@ export default class WebsiteHeaderCover extends React.Component {
 
                 <HeaderCover title={this.props.title||"SkyHub - Forum 2.0"}
                              subTitle={this.props.subTitle||"Discover, Connect and Change the world together"}
-                             coverPic = {this.props.coverPic||"http://spitfiresocial.com/wp-content/uploads/2015/03/worldsocial.jpg"}>
+                             coverPic = {this.props.coverPic||"http://spitfiresocial.com/wp-content/uploads/2015/03/worldsocial.jpg"}
+                             breadcrumbs={[]}
+                             url="/"
+                >
 
                 </HeaderCover>
 

@@ -53,7 +53,7 @@ const FlagOption = createClass({
            onMouseEnter={this.handleMouseEnter}
            onMouseMove={this.handleMouseMove}
            title={this.props.option.title}>
-        <img size={FLAGS_SIZE} className={this.props.option.imageCSS}  style={flagStyle} />
+        <img size={FLAGS_SIZE} className={this.props.option.css}  style={flagStyle} />
         {this.props.children}
       </div>
     );
@@ -80,7 +80,7 @@ const FlagValue = createClass({
     return (
       <div className="Select-value" title={this.props.value.title}>
 				<span className="Select-value-label">
-					<img  size={FLAGS_SIZE} className={this.props.value.imageCSS} style={flagStyle} />
+					<img  size={FLAGS_SIZE} className={this.props.value.css} style={flagStyle} />
           {this.props.children}
 				</span>
       </div>

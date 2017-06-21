@@ -18,6 +18,10 @@ class NotificationStickyButton extends React.Component {
   }
 
   render() {
+
+    if (NotificationService.permissionAlreadyGranted())
+      return (<div />);
+
     return (
       <div className="sticky-button-position" style={this.props.style} onClick={::this.handleStickyButtonClick}>
 

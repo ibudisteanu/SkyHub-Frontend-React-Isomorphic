@@ -59,7 +59,7 @@ export default class HeaderCover extends React.Component {
             <div>
 
 
-                <div className="col-xs-12 col-sm-8" >
+                <div className="col-xs-12 " >
                     <div className={'header-cover-description'} >
                         <div>
                             <image src={this.props.icon||'/res/logo/SkyHub-logo.png'} />
@@ -100,7 +100,7 @@ export default class HeaderCover extends React.Component {
     render() {
 
         return (
-          <div>
+          <div style={{paddingBottom: 20}}>
 
               <div className="header-cover row  border-bottom white-bg dashboard-header " style={{backgroundImage: 'url('+(this.props.coverPic||'')+')', backgroundColor: (this.props.coverColor!=='' ? '#'+this.props.coverColor : 'darkblue'), marginLeft: -25, marginRight: -25}}>
 
@@ -112,7 +112,7 @@ export default class HeaderCover extends React.Component {
 
               {(typeof this.props.breadcrumbs !== "undefined") && (this.props.breadcrumbs !== [])
               ?
-                <div className="row wrapper border-bottom white-bg page-heading">
+                <div className="row wrapper border-bottom white-bg page-heading" style={{paddingBottom: 15}}>
                   <DisplayBreadcrumbs breadcrumbs={this.props.breadcrumbs} currentPageTitle={this.props.title} currentPageUrl={this.props.url} />
                 </div>
               :

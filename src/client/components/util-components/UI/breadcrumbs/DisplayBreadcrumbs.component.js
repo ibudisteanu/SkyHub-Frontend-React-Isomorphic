@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import Link from '../../../../components/Link/Link';
 
 export default class DisplayBreadcrumbs extends React.Component {
 
@@ -19,7 +20,7 @@ export default class DisplayBreadcrumbs extends React.Component {
     return (
       breadcrumbs.map((object, index) =>
         <li key={"breadcrumb"+index} >
-          <a href={object.url}>{object.name}</a>
+          <Link key={"breadcrumbLink"+index} to={object.url} > {object.name} </Link>
         </li>
       )
     );
@@ -29,14 +30,22 @@ export default class DisplayBreadcrumbs extends React.Component {
     return (
       <ol className="breadcrumb" >
 
-        <li key="breadcrumb_home">
-          <a href={"/"}>Home</a>
-        </li>
+        {
+          (this.props.currentPageUrl !== "/")
+          ?
+            <li key="breadcrumb_home">
+            <a href={"/"}>Home</a>
+            </li>
+          :
+          ''
+        }
+
 
         {::this.renderBreadcrumbs()}
 
-        <li className="active" key="breadcrumb_current_page">
-          <a href={this.props.currentPageUrl}>{this.props.currentPageTitle}</a>
+        <li className="active" key="breadcrumbCurrentPage">
+          <Link key="breadcrumbCurrentPageLink" to={this.props.currentPageUrl} > {this.props.currentPageTitle} </Link>
+
         </li>
 
 

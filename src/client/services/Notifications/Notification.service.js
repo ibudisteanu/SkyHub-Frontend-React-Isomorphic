@@ -5,6 +5,8 @@
 
 /*
     NOTIFICATION SERVICE is based on https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API
+
+    TO DO https://stackoverflow.com/questions/27221203/send-desktop-notifications-in-chrome-or-firefox-from-a-closed-web-app
  */
 
 class NotificationServiceClass {
@@ -19,8 +21,19 @@ class NotificationServiceClass {
 
   }
 
+  permissionAlreadyGranted(){
+    if (typeof window === "undefined") return ; //it must be in the browser
+
+    if (!("Notification" in window)) {
+      console.log("This browser does not support system notifications");
+      return false;
+    }
+
+    return Notification.permission === "granted";
+  }
+
   askForPermissions(){
-    if (typeof window === null) return ; //it must be in the browser
+    if (typeof window === "undefined") return ; //it must be in the browser
 
     if (!("Notification" in window)) {
       console.log("This browser does not support system notifications");
@@ -34,32 +47,37 @@ class NotificationServiceClass {
   }
 
 
-  spawnNotification(){
+  spawnNotification(title, body, icon){
 
-      // Let's check if the browser supports notifications
-      if (!("Notification" in window)) {
-        console.log("This browser does not support system notifications");
-        return;
-      }
+    if (typeof window === "undefined") return ; //it must be in the browser
 
-      // Let's check whether notification permissions have already been granted
-      else if (Notification.permission === "granted") {
-        // If it's okay let's create a notification
-        var notification = new Notification("Hi there!");
-      }
+    // Let's check if the browser supports notifications
+    if (!("Notification" in window)) {
+      console.log("This browser does not support system notifications");
+      return;
+    }
 
-      // Otherwise, we need to ask the user for permission
-      else if (Notification.permission !== 'denied') {
-        Notification.requestPermission(function (permission) {
-          // If the user accepts, let's create a notification
-          if (permission === "granted") {
-            var notification = new Notification("Hi there!");
-          }
-        });
-      }
+    var options = {
+      body: body,
+      icon: icon
+    }
 
-      // Finally, if the user has denied notifications and you
-      // want to be respectful there is no need to bother them any more.
+
+    if (Notification.permission === "granted") {                              // Let's check whether notification permissions have already been granted
+                                                                              // If it's okay let's create a notification
+      var notification = new Notification(title, options);
+    }
+    else if (Notification.permission !== 'denied') {                          // Otherwise, we need to ask the user for permission
+      Notification.requestPermission(function (permission) {
+                                                                              // If the user accepts, let's create a notification
+        if (permission === "granted") {
+          var notification = new Notification(title, options);
+        }
+      });
+    }
+
+    // Finally, if the user has denied notifications and you
+    // want to be respectful there is no need to bother them any more.
   }
 
 }
