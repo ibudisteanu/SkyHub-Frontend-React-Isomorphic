@@ -21,6 +21,41 @@
   font-weight: 700;
 }
 
+/*
+    STICKY BUTTONS
+ */
+
+.sticky-button-position{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.sticky-button {
+  width: 42px;
+  height: 42px;
+  display: block;
+  background: #1ab394;
+  padding: 9px 8px;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.sticky-button-notification{
+  background: #f8ac59;
+}
+
+.sticky-button-chat{
+  background: #1ab394;
+}
+
+.sticky-button-icon{
+  font-size: 22px !important;
+  margin-top: -20px;
+}
+
 /* Small Devices, Tablets */
 @media (max-width: 991px) {
   .container{

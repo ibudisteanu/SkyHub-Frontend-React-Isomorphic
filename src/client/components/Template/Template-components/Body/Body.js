@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Link from '../../../Link/Link';
 
@@ -18,14 +19,10 @@ import LeftSidebar from './Left-sidebar/LeftSidebar';
 import RightSidebar from './Right-sidebar/RightSidebar';
 import Content from './Content/Content';
 import Footer from '../Footer/Footer';
-
-import Chat from './Chat/Chat';
-import ChatButton from './Chat/ChatButton';
+import StickyButtons from './Sticky-buttons/StickyButtons.component';
 
 import AuthenticationModal from '../../../../modules/users/authentication/modals/Authentication.modal';
 import {setAuthenticationModalElement} from './../../../../../my-redux/actions/RouterState.actions.js';
-
-import {connect} from 'react-redux';
 
 class Body extends React.Component {
 
@@ -80,9 +77,8 @@ class Body extends React.Component {
         </div>
 
         <Footer />
+        <StickyButtons />
 
-        <Chat />
-        <ChatButton />
         <RightSidebar />
 
       </div>

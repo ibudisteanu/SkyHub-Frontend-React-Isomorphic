@@ -61,13 +61,13 @@ export class ViewTopic extends React.Component {
 
         { ((this.props.contentState.routerObject.object !== null) && (this.props.contentState.routerObject.notFound === false))
           ?
-          <HeaderCover title={Topic.getTitle(this.props.contentState.routerObject.object)||""}
-                       subTitle=""
-                       icon={ parent !== null ? parent.iconPic : ""}
-                       cover={parent !== null ? parent.coverPic : ''}
-                       coverColor={parent !== null ? parent.coverColor :''}
-                       breadcrumbs={this.props.contentState.routerObject.object.arrBreadcrumbs||[]}
-                       url={this.props.contentState.routerObject.object.URL}
+          <WebsiteHeaderCover title={Topic.getTitle(this.props.contentState.routerObject.object)||""}
+                              subTitle=" "
+                              icon={ parent !== null ? parent.iconPic : ""}
+                              cover={parent !== null ? parent.coverPic : ''}
+                              coverColor={parent !== null ? parent.coverColor :''}
+                              breadcrumbs={this.props.contentState.routerObject.object.arrBreadcrumbs||[]}
+                              url={this.props.contentState.routerObject.object.URL}
           />
 
           :

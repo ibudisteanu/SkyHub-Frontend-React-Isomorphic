@@ -67,7 +67,7 @@ export default class HeaderCover extends React.Component {
                             <div className="row">
                                 <h1 className='fg-white'>{this.props.title}</h1>
                                 <br/>
-                                <h2 className='fg-white' style={{opacity: 0.8}}>{this.props.subTitle}</h2>
+                                {this.props.subTitle !== '' ? <h2 className='fg-white' style={{opacity: 0.8}}>{this.props.subTitle}</h2> : ''}
                             </div>
 
                             <div className="header-cover-toolbar" >

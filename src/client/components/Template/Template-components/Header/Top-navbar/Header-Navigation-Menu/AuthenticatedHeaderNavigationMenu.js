@@ -8,8 +8,8 @@ import React from 'react';
 import Link from '../../../../../Link/Link';
 
 import AuthService from './../../../../../../services/REST/authentication/Auth.service';
-import Notification from "../../../../../../modules/notifications/Notification.model";
-import NotificationMenu from "../../../../../../modules/notifications/NotificationMenu.component";
+import Notification from "../../../../../../modules/notifications/models/Notification.model";
+import NotificationMenu from "../../../../../../modules/notifications/NotificationsMenu.component";
 
 class AuthenticatedHeaderNavigationMenu extends React.Component {
 
@@ -65,15 +65,10 @@ class AuthenticatedHeaderNavigationMenu extends React.Component {
           </Link>
         </li>
 
-        <li className="dropdown">
 
-          <NotificationMenu>
-
+        <NotificationMenu/>
 
 
-          </NotificationMenu>
-
-        </li>
         <li className="dropdown">
           <a className="dropdown-toggle count-info" data-toggle="dropdown" href="#">
             <i className="fa fa-bell"></i>  <span className="label label-primary">8</span>
