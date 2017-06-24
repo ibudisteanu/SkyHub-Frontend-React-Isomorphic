@@ -5,10 +5,10 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import AuthService from '../../../services/REST/authentication/Auth.service.js';
-import ForumsService from '../../../services/REST/forums/forums/Forums.service';
+import AuthService from '../../../../services/REST/authentication/auth.service.js';
+import ForumsService from '../../../../services/REST/forums/forums/forums.service';
 
-import Link from '../../../components/Link/Link';
+import Link from '../../../../components/Link/Link';
 
 /*
     PreviewForum can also work with a prop id="1_frm_3333", and it fetch automatically the forum from you

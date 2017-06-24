@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 import Body from '../Template-components/Body';
 import Feedback from '../../Feedback/Feedback';
 
-import ViewReply from './../../../modules/forums/replies/ViewReply.component';
+import ViewReply from '../../../modules/forums/replies/view-reply/ViewReply.component';
 
 import {connect} from 'react-redux';
 
