@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 
-import User from '../../client/modules/users/models/User.model';
+import User from '~models/User/User';
 
 export function defaultUserState(initial)  {
   return {

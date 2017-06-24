@@ -2,7 +2,7 @@
  * Created by Alexandru Ionut Budisteanu - SkyHub on 6/13/2017.
  * (C) BIT TECHNOLOGIES
  */
-import ContentObjectService from './../../client/services/REST/forums/content/ContentObject.service';
+import ContentObjectService from '~services/REST/forums/content/ContentObject.service';
 
 export function defaultContentState (initial) {
 

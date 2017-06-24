@@ -9,11 +9,11 @@
 
 import React from 'react';
 import Home from './Home';
-import Layout from '../../client/components/Template/Layout';
+import Layout from '~client/components/Template/Layout';
 
-import {startLocalizationFetchingAsync} from './../../my-redux/actions/Localization.actions';
+import {startLocalizationFetchingAsync} from '~store/actions/Localization.actions';
 
-import ContentService from './../../client/services/REST/forums/content/Content.service';
+import ContentService from '~services/REST/forums/content/Content.service';
 
 export default {
 

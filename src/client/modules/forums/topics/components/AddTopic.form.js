@@ -7,21 +7,21 @@ import React from 'react';
 import {connect} from "react-redux";
 
 
-import TopicsService from './../../../../services/REST/forums/topics/Topics.service';
-import ContentService from './../../../../services/REST/forums/content/Content.service';
+import TopicsService from '~services/REST/forums/topics/Topics.service';
+import ContentService from '~services/REST/forums/content/Content.service';
 
 import AutoCompleteSelect from '../../../../components/util-components/select/AutoComplete.select.component';
 import SearchAutoComplete from '../../../../components/util-components/select/SearchAutoComplete.select.component';
-import MyCountrySelect from './../../../../../client/components/util-components/select/MyCountry.select.component';
+import MyCountrySelect from '~client/components/util-components/select/MyCountry.select.component';
 import LoadingButton from '../../../../components/util-components/UI/buttons/LoadingButton.component';
 
-import FileUploadDropzone from '../../../../../client/components/util-components/file-upload/dropzone/FileUploadDropzone.component';
+import FileUploadDropzone from '~client/components/util-components/file-upload/dropzone/FileUploadDropzone.component';
 
 //import LastDraft from '../../../../components/util-components/text-editor/last-draft/LastDraft.component';
 import DraftWYSIWYG from '../../../../components/util-components/text-editor/wysiwyg/DraftWYSIWYG.component';
 import PreviewNewTopic from './PreviewNewTopic.component';
 
-import Topic from '../models/Topic.model';
+import Topic from '~models/Topic/Topic';
 import history from './../../../../../history.js';
 
 class AddTopicForm extends React.Component {

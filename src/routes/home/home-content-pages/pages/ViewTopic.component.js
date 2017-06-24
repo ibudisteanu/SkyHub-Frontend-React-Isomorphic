@@ -6,16 +6,17 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import AuthService from './../../../../client/services/REST/authentication/Auth.service';
-import ForumsService from './../../../../client/services/REST/forums/forums/Forums.service';
+import AuthService from '~services/REST/authentication/Auth.service';
+import ForumsService from '~services/REST/forums/forums/Forums.service';
 
-import HeaderCover from './../../../../client/components/Template/Template-components/Header/Cover/HeaderCover.component';
-import WebsiteHeaderCover from './../../../../client/components/Template/Template-components/Header/Cover/WebsiteHeaderCover.component';
+import HeaderCover from '~client/components/Template/Template-components/Header/Cover/HeaderCover.component';
+import WebsiteHeaderCover from '~client/components/Template/Template-components/Header/Cover/WebsiteHeaderCover.component';
 
-import Topic from './../../../../client/modules/forums/topics/models/Topic.model';
-import ShowDate from '../../../../client/components/util-components/UI/show-date/ShowDate.component';
+import Topic from '~models/Topic/Topic';
+import ShowDate from '~client/components/util-components/UI/show-date/ShowDate.component';
 
-import DisplayTopicContent from '../../../../client/modules/forums/topics/view-topic/DisplayTopicContent.component';
+import ContentButtons from '~modules/forums/components/ContentButtons.component';
+import DisplayTopicContent from '~modules/forums/topics/view-topic/DisplayTopicContent.component';
 
 export class ViewTopic extends React.Component {
 
@@ -26,7 +27,7 @@ export class ViewTopic extends React.Component {
 
   renderTopic(){
 
-    let sImage = Topic.getImage(this.props.topic);
+    let sImage = Topic.getImage(this.props.topic.object);
 
     return (
       <div  className="anchor col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 col-xxs-12 col-xxs-offset-0 col-tn-12 col-tn-offset-0" style={{paddingLeft: 40, paddingBottom: 20}}>
@@ -63,7 +64,7 @@ export class ViewTopic extends React.Component {
           <a className="topic-question-header author" href="http://skyhub.me/profile/muflonel2000"> George Muflonel</a>
 
           <h1>
-            {Topic.getTitle(this.props.topic)||""}
+            {Topic.getTitle(this.props.topic.object)||""}
           </h1>
 
           <div className="formHeadLine"> </div>
@@ -76,13 +77,13 @@ export class ViewTopic extends React.Component {
               { (sImage !== '')
                 ?
                 <a href="https://media.giphy.com/media/dzaUX7CAG0Ihi/giphy.gif">
-                  <img src={sImage} alt={Topic.getTitle(this.props.topic)||'no title'} className="topic-question-image" />
+                  <img src={sImage} alt={Topic.getTitle(this.props.topic.object)||'no title'} className="topic-question-image" />
                 </a>
                 :
                 ''
               }
 
-              <p>{this.props.topic.description} </p>
+              <p>{this.props.topic.object.description} </p>
 
             </div>
           </div>
@@ -92,11 +93,15 @@ export class ViewTopic extends React.Component {
             <div className="col-xs-12 col-sm-5 topic-question-footer-buttons" style={{overflow: "hidden"}}>
               <a id="addReplyButton_58435025f23ffe11318b4577" className="btn btn-primary btn-circle" style={{width: "initial"}}>
                 <i className="fa fa-comment btn-circle-icon" style={{margin: "0 8px 0 8px"}}> <div className="btn-circle-text">Reply</div> </i>
-              </a>            </div>
+              </a>
+            </div>
 
+            {/*
             <div className="col-xs-12 col-sm-7 topic-question-footer-later-edit" style={{textAlign: "right"}}>
-              <ShowDate date={this.props.topic.dtCreation} />
-              by <i className="glyphicon glyphicon-user"></i> <span> <a href="http://skyhub.me/profile\admin&quot;">Alexandru Ionut Budisteanu</a> </span>                </div>
+              <ShowDate date={this.props.topic.object.dtCreation} />
+              by <i className="glyphicon glyphicon-user"></i> <span> <a href="http://skyhub.me/profile\admin">Alexandru Ionut Budisteanu</a> </span>
+            </div>
+            */}
           </div>
 
         </div>
@@ -123,22 +128,20 @@ export class ViewTopic extends React.Component {
 
   render() {
 
-    console.log("%%%%%%%%%%% VIEW TOPIC " , this.props.contentState.routerObject);
-
-    let parent = this.props.contentState.routerParentObject.object;
+    console.log("%%%%%%%%%%% VIEW TOPIC " , this.props.topic.object);
 
     return (
       <div>
 
-        { ((this.props.topic !== null) && (this.props.contentState.routerObject.notFound === false))
+        { ((this.props.topic.object !== null) && (this.props.topic.notFound === false))
           ?
-          <WebsiteHeaderCover title={Topic.getTitle(this.props.topic)||""}
+          <WebsiteHeaderCover title={Topic.getTitle(this.props.topic.object)||""}
                               subTitle=" "
-                              icon={ parent !== null ? parent.iconPic : ""}
-                              cover={parent !== null ? parent.coverPic : ''}
-                              coverColor={parent !== null ? parent.coverColor :''}
-                              breadcrumbs={this.props.topic.arrBreadcrumbs||[]}
-                              url={this.props.topic.URL}
+                              icon={ this.props.parent !== null ? this.props.parent.iconPic : ""}
+                              cover={this.props.parent !== null ? this.props.parent.coverPic : ''}
+                              coverColor={this.props.parent !== null ? this.props.parent.coverColor :''}
+                              breadcrumbs={this.props.topic.object.arrBreadcrumbs||[]}
+                              url={this.props.topic.object.URL}
           />
 
           :
@@ -149,9 +152,10 @@ export class ViewTopic extends React.Component {
 
 
 
+
         <div style={{position: 'relative', zIndex: 2}}>
 
-          {this.props.topic !== null ? ::this.renderTopic() : ::this.renderError}
+          {this.props.topic.object !== null ? ::this.renderTopic() : ::this.renderError}
 
         </div>
 
@@ -166,7 +170,8 @@ function mapState (state){
   return {
     userAuthenticated: state.userAuthenticated,
     contentState: state.contentState,
-    topic: state.contentState.routerObject.object,
+    topic: state.contentState.routerObject,
+    parent: state.contentState.routerParentObject.object,
   }
 };
 

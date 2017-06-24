@@ -5,9 +5,9 @@
 
 import CookiesService from '../../Cookies/Cookies.service';
 import SocketService from './../../Communication/socket/Socket.service';
-import User from './../../../modules/users/models/User.model';
+import User from '~models/User/User';
 
-import * as UserAuthenticatedActions from '../../../../my-redux/actions/UserAuthenticated.actions';
+import * as UserAuthenticatedActions from '~store/actions/UserAuthenticated.actions';
 
 export class AuthServiceClass {
 

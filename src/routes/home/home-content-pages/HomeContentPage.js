@@ -6,10 +6,10 @@ import React from 'react';
 import {connect} from "react-redux";
 
 
-import AuthService from './../../../client/services/REST/authentication/Auth.service';
-import HTTPService from './../../../client/services/Communication/http/Http.service';
+import AuthService from '~services/REST/authentication/Auth.service';
+import HTTPService from '~services/Communication/http/Http.service';
 
-import Forum from '../../../client/modules/forums/forums/models/Forum.model';
+import Forum from '~models/Forum/Forum';
 import ViewForum from './pages/ViewForum.component';
 import ViewTopic from './pages/ViewTopic.component';
 

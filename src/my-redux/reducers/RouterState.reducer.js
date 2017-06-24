@@ -2,7 +2,7 @@
  * Created by Alexandru Ionut Budisteanu - SkyHub on 6/5/2017.
  * (C) BIT TECHNOLOGIES
  */
-import Forum from '../../client/modules/forums/forums/models/Forum.model';
+import Forum from '~models/Forum/Forum';
 
 export function defaultRouterState  (initial) {
 

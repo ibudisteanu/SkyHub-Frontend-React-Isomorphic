@@ -7,12 +7,12 @@ import React from 'react';
 import {connect} from "react-redux";
 
 
-import ForumsService from './../../../../services/REST/forums/forums/Forums.service';
-import ContentService from './../../../../services/REST/forums/content/Content.service';
+import ForumsService from '~services/REST/forums/forums/Forums.service';
+import ContentService from '~services/REST/forums/content/Content.service';
 
-import AutoCompleteSelect from '../../../../components/util-components/select/AutoComplete.select.component';
-import SearchAutoComplete from '../../../../components/util-components/select/SearchAutoComplete.select.component';
-import MyCountrySelect from './../../../../../client/components/util-components/select/MyCountry.select.component';
+import AutoCompleteSelect from '~client/components/util-components/select/AutoComplete.select.component';
+import SearchAutoComplete from '~client/components/util-components/select/SearchAutoComplete.select.component';
+import MyCountrySelect from '~client/components/util-components/select/MyCountry.select.component';
 
 import LoadingButton from '../../../../components/util-components/UI/buttons/LoadingButton.component';
 

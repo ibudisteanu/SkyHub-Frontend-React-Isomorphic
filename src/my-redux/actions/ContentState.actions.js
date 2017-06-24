@@ -3,7 +3,7 @@
  * (C) BIT TECHNOLOGIES
  */
 
-import ContentObjectService  from './../../client/services/REST/forums/content/ContentObject.service';
+import ContentObjectService  from '~services/REST/forums/content/ContentObject.service';
 
 
 export function setContentState_NewRouterObject_Action(newRouterObject, objectNotFound, pageURL, newRouterParentObject, objectParentNotFound, pageIndex, pageCount, initialContentObjects) {

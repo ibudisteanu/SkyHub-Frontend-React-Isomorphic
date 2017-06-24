@@ -15,12 +15,12 @@ import PropTypes from 'prop-types';
 import Body from '../Template-components/Body';
 import Feedback from '../../Feedback/Feedback';
 
-import ViewReply from '../../../modules/forums/replies/view-reply/ViewReply.component';
+import ViewReply from '~modules/forums/replies/view-reply/ViewReply.component';
 
 import {connect} from 'react-redux';
 
-import {startLocalizationFetchingAsync} from './../../../../my-redux/actions/Localization.actions';
-import User from "../../../modules/users/models/User.model";
+import {startLocalizationFetchingAsync} from '~store/actions/Localization.actions';
+import User from "~models/User/User";
 import Header from "../Template-components/Header/Header";
 
 class Layout extends React.Component {

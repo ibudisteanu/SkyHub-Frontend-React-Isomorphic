@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 import {connect} from 'react-redux';
 
-import SocketService from './../../../services/Communication/socket/Socket.service';
+import SocketService from '~services/Communication/socket/Socket.service';
 
 class SearchAutoComplete extends React.Component {
 

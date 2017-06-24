@@ -6,9 +6,9 @@
 
 import React from 'react';
 
-import Chat from '../../../../../modules/chat/Chat';
-import ChatStickyButton from '../../../../../modules/chat/ChatStickyButton.component';
-import NotificationStickyButton from '../../../../../modules/notifications/NotificationStickyButton.component';
+import Chat from '~modules/chat/Chat';
+import ChatStickyButton from '~modules/chat/ChatStickyButton.component';
+import NotificationStickyButton from '~modules/notifications/NotificationStickyButton.component';
 
 class StickyButtons extends React.Component {
   static propTypes = {

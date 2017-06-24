@@ -9,7 +9,7 @@
 
 /* eslint-disable global-require */
 
-import {startLocalizationFetchingAsync} from './../my-redux/actions/Localization.actions';
+import {startLocalizationFetchingAsync} from '~store/actions/Localization.actions';
 
 // The top-level (parent) route
 export default {

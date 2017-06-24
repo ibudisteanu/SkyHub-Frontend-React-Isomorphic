@@ -21,8 +21,8 @@ import Content from './Content/Content';
 import Footer from '../Footer/Footer';
 import StickyButtons from './Sticky-buttons/StickyButtons.component';
 
-import AuthenticationModal from '../../../../modules/users/authentication/modals/Authentication.modal';
-import {setAuthenticationModalElement} from './../../../../../my-redux/actions/RouterState.actions.js';
+import AuthenticationModal from '~modules/users/authentication/modals/Authentication.modal';
+import {setAuthenticationModalElement} from '~store/actions/RouterState.actions.js';
 
 class Body extends React.Component {
 

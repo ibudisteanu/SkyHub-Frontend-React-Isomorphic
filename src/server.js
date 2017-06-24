@@ -22,17 +22,17 @@ import errorPageStyle from './routes/error/ErrorPage.css';
 
 import router from './router';
 import assets from './assets.json'; // eslint-disable-line import/no-unresolved
-import configureStore from './my-redux/store/configureStore';
+import configureStore from '~store/store/configureStore';
 import config from './config';
 
-import { setRuntimeVariable } from './my-redux/actions/Runtime.actions';
-import { newUserAuthenticated } from './my-redux/actions/UserAuthenticated.actions';
+import { setRuntimeVariable } from '~store/actions/Runtime.actions';
+import { newUserAuthenticated } from '~store/actions/UserAuthenticated.actions';
 
-import {extractIP} from './my-redux/actions/Localization.actions';
+import {extractIP} from '~store/actions/Localization.actions';
 
 var app = express();
 
-import HTTPService from './client/services/Communication/http/Http.service';
+import HTTPService from './services/Communication/http/Http.service';
 import SocketWorker from './utils/socket-worker/SocketWorker';
 
 //SocketWorker.startService();

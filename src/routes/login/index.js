@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import Layout from '../../client/components/Template/Layout';
+import Layout from '~client/components/Template/Layout';
 
 //import Login from './Login';
 import LoginPage from './login.page';

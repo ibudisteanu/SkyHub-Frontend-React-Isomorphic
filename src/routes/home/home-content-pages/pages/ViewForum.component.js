@@ -6,13 +6,13 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import AuthService from './../../../../client/services/REST/authentication/Auth.service';
-import ForumsService from './../../../../client/services/REST/forums/forums/Forums.service';
+import AuthService from '~services/REST/authentication/Auth.service';
+import ForumsService from '~services/REST/forums/forums/Forums.service';
 
-import HeaderCover from './../../../../client/components/Template/Template-components/Header/Cover/HeaderCover.component';
-import WebsiteHeaderCover from './../../../../client/components/Template/Template-components/Header/Cover/WebsiteHeaderCover.component';
+import HeaderCover from '~client/components/Template/Template-components/Header/Cover/HeaderCover.component';
+import WebsiteHeaderCover from '~client/components/Template/Template-components/Header/Cover/WebsiteHeaderCover.component';
 
-import DisplayForumContent from '../../../../client/modules/forums/forums/view-forum/DisplayForumContent.component';
+import DisplayForumContent from '~modules/forums/forums/view-forum/DisplayForumContent.component';
 
 export class ViewForum extends React.Component {
 

@@ -3,7 +3,7 @@
  * (C) BIT TECHNOLOGIES
  */
 
-import SocketService from '../../../../services/Communication/socket/Socket.service';
+import SocketService from '~services/Communication/socket/Socket.service';
 
 class ForumsServiceClass {
 

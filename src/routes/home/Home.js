@@ -10,7 +10,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import DisplayContent from "../../client/modules/forums/forums/view-forum/DisplayForumContent.component";
+import DisplayContent from "~modules/forums/forums/view-forum/DisplayForumContent.component";
 import HomeContentPage from "./home-content-pages/HomeContentPage";
 
 import AuthenticatedHome from './home/authenticated/Authenticated-home.component';

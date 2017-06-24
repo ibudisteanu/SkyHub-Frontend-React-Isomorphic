@@ -6,7 +6,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import * as SocketStatusActions from './../../../../../../my-redux/actions/SocketStatus.actions.js';
+import * as SocketStatusActions from '~store/actions/SocketStatus.actions.js';
 
 class HeaderBarSocketStatus extends React.Component {
 

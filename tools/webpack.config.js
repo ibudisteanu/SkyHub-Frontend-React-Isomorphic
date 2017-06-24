@@ -25,17 +25,23 @@ const isAnalyze = process.argv.includes('--analyze') || process.argv.includes('-
 const config = {
   context: path.resolve(__dirname, '..'),
 
-  resolve:{
-    alias:{
-      //skyhub: path.resolve( __dirname, 'path', 'to', 'src' )
-      'immutable.js': path.resolve(path.join(__dirname, 'node_modules', 'immutable.js'))
-    },
-  },
-
   output: {
     path: path.resolve(__dirname, '../build/public/assets'),
     publicPath: '/assets/',
     pathinfo: isVerbose,
+  },
+  resolve:{
+    alias:{
+      '~src': path.resolve( __dirname + '/../src'),
+      '~client': path.resolve( __dirname + '/../src/client'),
+      '~modules': path.resolve( __dirname + '/../src/client/modules'),
+
+      '~services': path.resolve( __dirname + '/../src/services'),
+      '~routes': path.resolve( __dirname + '/../src/routes'),
+      '~models': path.resolve( __dirname + '/../src/data/models'),
+      '~store': path.resolve( __dirname + '/../src/my-redux'),
+      'immutable.js': path.resolve(path.join(__dirname, 'node_modules', 'immutable.js')),
+    },
   },
 
   module: {
